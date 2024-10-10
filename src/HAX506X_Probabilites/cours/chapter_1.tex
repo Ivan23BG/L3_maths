@@ -1,0 +1,105 @@
+\subsection{Espaces probabilisés}\label{subsec:1}
+%\addcontentsline{toc}{subsection}{\nameref{subsec:1}}
+
+
+\subsubsection{Probabilité}\label{subsubsec:1}
+\setcounter{subsection}{0}
+%\addcontentsline{toc}{subsubsection}{\nameref{subsubsec:1}}
+\begin{definition}
+    Soit \((\Omega, \scr F)\) un espace mesurable. Une
+    \defemph{mesure} sur \((\Omega, \scr F)\) est une application
+    \begin{equation*}
+        \begin{aligned}
+            \mu\colon \scr F &\to \ff{0,+\infty}\\
+            A &\mapsto \mu(A)
+        \end{aligned}
+    \end{equation*}
+    qui vérifie les propriétés suivantes:
+    \begin{enumerate}
+        \item \(\mu(\emptyset) = 0\)
+        \item \(\mu\) est \(\sigma\)-additive, c'est-à-dire que pour
+        toute suite \({(A_n)}_{n\in\N}\) d'éléments 2 à 2
+        disjoints de \(\scr F\), on a
+        \begin{equation*}
+            \mu\left(\bigcup_{n\in\N}A_n\right) = \sum_{n\in\N}\mu(A_n)
+        \end{equation*}
+    \end{enumerate}
+
+    On dit alors que \((\Omega, \scr F,\mu)\) est un \defemph{espace
+    mesuré}.
+
+    Si de plus \(\mu(\Omega) = 1\), on dit que \((\Omega, \scr F,\mu)\)
+    est un \defemph{espace probabilisé} et \(\mu\) est une \defemph{probabilité}.
+
+    On notera alors \(\mu = \bb P\).
+\end{definition}
+
+\begin{remark}
+    Comme \(\bb P(\Omega)=1\), une mesure de probabilité est une mesure
+    dans \(\ff{0,1}\). Un événement \(A\) est dit \defemph{presque sûr}
+    si \(\bb P(A) = 1\).
+\end{remark}
+
+\begin{exs}\,
+    \begin{enumerate}
+        \item Soit \((\Omega, \scr F)\) un espace mesurable et
+        \(\omega\) un élément fixé dans \(\Omega\). La mesure
+        (ou masse) de Dirac en \(\omega\) est la mesure définie
+        pour tout \(A\in\scr F\) par
+        \begin{equation*}
+            \delta_\omega(A) = \begin{cases}
+                1 & \text{si } \omega\in A\\
+                0 & \text{sinon}
+            \end{cases}= \one_{A}(\omega)
+        \end{equation*}
+        On vérifie facilement que c'est bien une probabilité.
+
+        \item Sur le segment \(\ff{0,1}\) muni de sa tribu 
+        borélienne, la mesure de Lebesgue est une probabilité.
+
+        \item Si \((\Omega,\scr F,\mu)\) est un espace mesuré avec
+        \(0<\mu(\Omega)<+\infty\), alors on obtient une probabilité
+        en considérant la mesure
+        \begin{equation*}
+            \bb P = \frac{\mu(\cdot)}{\mu(\Omega)}
+        \end{equation*}
+    \end{enumerate}
+\end{exs}
+
+\begin{interp}
+    Un espace probabilisé est donc un cas particulier d'espace mesuré
+    pour lequel la masse totale de la mesure est égale à 1. En fait,
+    le point de vue diffère de la théorie de l'intégration: dans
+    le cadre de la théorie des probabilités, on cherche à fournir
+    un modèle mathématique pour une ``expérience aléatoire''.
+
+    \begin{itemize}
+        \item L'ensemble \(\Omega\) est appelé \defemph{univers}:
+        il représente l'ensemble de toutes les éventualiés possibles,
+        toutes les déterminations du hasard dans l'expérience considérée.
+        Les éléments \(\omega\) de \(\Omega\), parfois appelés
+        \defemph{événements élémentaires}, correspondent donc aux issues
+        possibles de l'expérience aléatoire.
+
+        \item La tribu \(\scr F\) correspond à l'ensemble des
+        \defemph{événements}:  ce sont les parties de \(\Omega\) dont
+        on peut évaluer la probabilité. Il faut voir un événement
+        \(A\) de \(\scr F\) comme un sous-ensemble de \(\Omega\) 
+        contenant toutes les éventualités \(\omega\) pour
+        lesquelles une certaine propriété est vérifiée.
+
+        \item On associe à chaque événement \(A\in\scr F\) un réel
+        \(\bb P(A) \in \ff{0,1}\) qui donne la plausibilité que
+        le résultat de l'expérience soit dans \(A\).
+    \end{itemize}
+\end{interp}
+
+\subsubsection{Exemples d'espaces probabilisés}\label{subsubsec:2}
+\setcounter{subsection}{0}
+%\addcontentsline{toc}{subsubsection}{\nameref{subsubsec:2}}
+Suivent quelques exemples classiques d'espaces probabilisés.
+
+\begin{exs}
+    fin
+\end{exs}
+

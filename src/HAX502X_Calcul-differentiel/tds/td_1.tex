@@ -1,0 +1,489 @@
+\subsection*{Equations différentielles et Cauchy-Lipschitz}
+
+\begin{td-exo}[] % 1
+	La vitesse de déplacement des ions entre deux électrodes immergées dans un électrolyte
+	vérifie l'équation différentielle
+	\begin{equation*}
+		\frac{\der v}{\der t}+\frac Rmv=\frac Fm
+	\end{equation*}
+
+	où \(m,F,R\) sont des constantes. Calculer \(v\).
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+		\begin{nntd-sol}[] % 1
+			On reconnait une équation différentielle linéaire d'ordre 1 de la forme
+			\begin{equation*}
+				y'(x)+a(x)y(x)=b(x)
+			\end{equation*}
+			avec
+			\begin{equation*}
+				y(x)=v(t),\quad a(x)=\frac Rm,\quad b(x) = \frac Fm,\quad x=t
+			\end{equation*}
+			Pour résoudre une équation de cette forme, on résout l'équation homogène puis on
+			cherche une solution particulière.
+			
+			\(\triangleright\) Résolvons l'équation homogène
+			\begin{equation*}
+				\frac{\der v}{\der t}+\frac Rmv=0
+			\end{equation*}
+
+			\begin{itemize}
+				\item Une primitive de la fonction \(\frac Rm\) est
+				\begin{equation*}
+					\frac Rm t
+				\end{equation*}
+
+				\item Les solutions de l'équation homogène sont donc
+				\begin{equation*}
+					v_h = \lambda e^{-{\frac Rm t}}
+				\end{equation*}
+				avec \(\lambda\in\R\).
+			\end{itemize}
+
+			\(\triangleright\) Trouvons une solution particulière à l'équation
+			\begin{equation*}
+				\frac{\der v}{\der t}+\frac Rmv=\frac Fm
+			\end{equation*}
+			\begin{itemize}
+				\item Ici le second membre est une constante donc on cherche une solution
+				évidente sous forme de constante.
+
+				On voit que \(v_p=\frac FR\) convient:
+				\begin{equation*}
+					\begin{aligned}
+						\frac{\der v}{\der t}+\frac Rmv&=\frac Fm\\
+						0+\frac Rm\times \frac FR &= \frac Fm\\
+						\frac Fm &= \frac Fm
+					\end{aligned}
+				\end{equation*}
+			\end{itemize}
+
+			\(\triangleright\) Les solutions de l'équation s'écrivent comme somme de la 
+			solution particulière et des solutions de l'équation homogène, soit ici:
+			\begin{equation*}
+				v(t)= v_h(t) + v_p(t) = \lambda e^{-{\frac Rm t}} + \frac FR
+			\end{equation*}
+		\end{nntd-sol}
+}{}
+
+\begin{td-exo}[] % 2
+	Résoudre les problèmes de Cauchy suivants:
+	\begin{enumerate}
+		\item \(x'-2x=e^{2t}t^2\) avec \(x(0)=0\),
+		\item \(x' -\frac1{1+t}x=2t^2\) avec \(x(0)=-3\),
+		\item \(x'-(1+t)x=-2t-t^2\) avec \(x(0)=2\).
+	\end{enumerate}
+
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+	\begin{nntd-sol}[]\, % 1
+		\begin{enumerate}
+			\item \(\triangleright\) Résolvons l'équation homogène
+			\begin{equation*}
+				x'-2x=e^{2t}t^2
+			\end{equation*}
+
+			\begin{itemize}
+				\item Une primitive de la fonction \(-2\) est
+				\begin{equation*}
+					-2t
+				\end{equation*}
+
+				\item Les solutions de l'équation homogène sont donc
+				\begin{equation*}
+					x_h = \lambda e^{2t}
+				\end{equation*}
+				avec \(\lambda\in\R\).
+			\end{itemize}
+
+			\(\triangleright\) Trouvons une solution particulière à l'équation
+			\begin{equation*}
+				x'-2x=e^{2t}t^2
+			\end{equation*}
+			\begin{itemize}
+				\item Ici le second membre est de la forme polynome fois exponentielle
+				donc on cherche une solution sous la forme
+				\begin{equation*}
+					x_p = t\left(at^2+bt+c\right) e^{2t}
+				\end{equation*}
+				Ce facteur \(t\) est nécessaire car on a déjà une solution homogène de la
+				forme \(e^{2t}\) et on ne veut pas de redondance.
+				On intègre dans l'équation pour avoir
+				\begin{equation*}
+					\begin{aligned}
+						&x'-2x=e^{2t}t^2\\
+						\implies &\left(3at^2+2bt+c\right)e^{2t}+2\left(at^3+bt^2+ct\right)e^{2t} - 2\left(at^3+bt^2+ct\right)e^{2t}=e^{2t}t^2\\
+						\implies &\left(2at^3 + (3a+2b)t^2 + (2b+c)t + 2c\right)e^{2t}=e^{2t}t^2
+					\end{aligned}
+				\end{equation*}
+				On a donc
+				\begin{equation*}
+					\begin{aligned}
+						a&=0\\
+						b&=\frac12\\
+						c&=0
+					\end{aligned}
+				\end{equation*}
+				Donc la solution particulière est
+				\begin{equation*}
+					x_p = \frac12t^2e^{2t}
+				\end{equation*}
+			\end{itemize}
+
+			\(\triangleright\) Les solutions de l'équation s'écrivent comme somme de la
+			solution particulière et des solutions de l'équation homogène, soit ici:
+			\begin{equation*}
+				x(t)= x_h(t) + x_p(t) = \lambda e^{2t} + \frac12t^2e^{2t}
+			\end{equation*}
+
+			\item 2e partie
+		\end{enumerate}
+	\end{nntd-sol}
+}{}
+
+\begin{td-exo}[] % 3
+	Résoudre les équations différentielles suivantes en en donnant toutes les 
+	solutions maximales:
+	\begin{enumerate}
+		\item \(x'+x=\sin t\),
+		\item \(x'=3t^2-\frac xt\).
+	\end{enumerate}
+\end{td-exo}
+
+\begin{td-exo}[] % 4
+	On considère le système linéaire d'équations différentielles suivant:
+	\begin{equation}\label{eq:1}
+		\begin{cases}
+			x'&=-5x+8y-4\\
+			y'&=-4x+7y+3
+		\end{cases}
+		\quad\text{avec les conditions initiales}\quad
+		\begin{cases}
+			x(0)&=0\\
+			y(0)&=1
+		\end{cases}
+	\end{equation}
+
+	\begin{enumerate}
+		\item Trouver les vecteurs propres et valeurs propres de la matrice suivante:
+		\begin{equation*}
+			\cal A=
+			\begin{pmatrix}
+				-5&8\\
+				-4&7
+			\end{pmatrix}
+		\end{equation*}
+
+		\item Expliquer pourquoi résoudre \(\eqref{eq:1}\) revient à résoudre le système
+		suivant:
+		\begin{equation}\label{eq:2}
+			\begin{cases}
+				a'&=3a+10\\
+				b'&=-b-7
+			\end{cases}
+			\quad\text{avec les conditions initiales}\quad
+			\begin{cases}
+				a(0)&=2\\
+				b(0)&=-1
+			\end{cases}
+		\end{equation}
+
+		\begin{nnremark}[]
+			Il est possible d'arriver à un système différent, ce qui n'est pas grave du
+			moment que les calculs sont corrects et que le résultat est un système découplé.
+		\end{nnremark}
+
+		\item Trouver la solution du \(\eqref{eq:2}\) puis du \(\eqref{eq:1}\).
+	\end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 4
+\iftoggle{showsolutions}{
+	\begin{nntd-sol}[]\, % 4
+		\begin{enumerate}
+			\item \(\triangleright\) Les valeurs propres de la matrice \(\cal A\) sont les
+			solutions de l'équation caractéristique
+			\begin{equation*}
+				\begin{aligned}
+					\det(\cal A-\lambda I)&=0\\
+					\begin{vmatrix}
+						-5-\lambda&8\\
+						-4&7-\lambda
+					\end{vmatrix}&=0\\
+					\lambda^2-2\lambda-3&=0
+				\end{aligned}
+			\end{equation*}
+			Les solutions de cette équation sont \(\lambda_1=3\) et \(\lambda_2=-1\).
+
+			\(\triangleright\) Les vecteurs propres sont les solutions du système
+			\begin{equation*}
+				\begin{cases}
+					(-5-3)x+8y&=0\\
+					-4x+(7-3)y&=0
+				\end{cases}
+			\end{equation*}
+			On trouve alors les vecteurs propres
+			\begin{equation*}
+				\begin{aligned}
+					\begin{pmatrix}
+						1\\
+						1
+					\end{pmatrix}
+					\quad\text{et}\quad
+					\begin{pmatrix}
+						2\\
+						1
+					\end{pmatrix}
+				\end{aligned}
+			\end{equation*}
+			Enfin, on peut écrire la matrice \(\cal A\) sous forme diagonale
+			\begin{equation*}
+				\cal A = PDP^{-1}
+			\end{equation*}
+			avec
+			\begin{equation*}
+				\begin{aligned}
+					P&=
+					\begin{pmatrix}
+						1&2\\
+						1&1
+					\end{pmatrix}\\
+					D&=
+					\begin{pmatrix}
+						3&0\\
+						0&-1
+					\end{pmatrix}
+				\end{aligned}
+			\end{equation*}
+
+			\item \(\triangleright\) On peut réécrire le système \(\eqref{eq:1}\) sous la forme
+			\begin{equation*}
+				\begin{pmatrix}
+					x'\\
+					y'
+				\end{pmatrix}
+				=\cal A
+				\begin{pmatrix}
+					x\\
+					y
+				\end{pmatrix}
+				+\begin{pmatrix}
+					-4\\
+					3
+				\end{pmatrix}
+			\end{equation*}
+			On peut alors poser
+			\begin{equation*}
+				\begin{pmatrix}
+					a\\
+					b
+				\end{pmatrix}
+				=\begin{pmatrix}
+					x+2y\\
+					x+y
+				\end{pmatrix}
+			\end{equation*}
+			On a alors
+			\begin{equation*}
+				\begin{aligned}
+					a'&=x'+2y'\\
+					b'&=x'+y'
+				\end{aligned}
+			\end{equation*}
+			On a donc
+			\begin{equation*}
+				\begin{aligned}
+					a'&=-5a+8b-4\\
+					b'&=-4a+7b+3
+				\end{aligned}
+			\end{equation*}
+			qui est le système \(\eqref{eq:2}\).
+
+			Comme 
+			\begin{equation*}
+				\begin{pmatrix}
+					a\\
+					b
+				\end{pmatrix}
+				=P^{-1}X
+			\end{equation*}
+			on a
+			\begin{equation*}
+				\begin{pmatrix}
+					a(0)\\
+					b(0)
+				\end{pmatrix}
+				=P^{-1}
+				\begin{pmatrix}
+					x(0)\\
+					y(0)
+				\end{pmatrix}
+				=P^{-1}
+				\begin{pmatrix}
+					0\\
+					1
+				\end{pmatrix}
+				=
+				\begin{pmatrix}
+					2\\
+					-1
+				\end{pmatrix}
+			\end{equation*}
+			et donc on a bien \(a(0)=2\) et \(b(0)=-1\).
+
+			\item \(\triangleright\) Résolvons le système \(\eqref{eq:2}\)
+			\begin{itemize}
+				\item Pour \(a\), on a 
+				\begin{equation*}
+					a(t)=c e^{3t}-\frac{10}3
+				\end{equation*}
+				et avec la condition initiale \(a(0)=2\), on trouve \(c=\frac{16}3\).
+
+				\item Pour \(b\), on a
+				\begin{equation*}
+					b(t)=d e^{-t}+7
+				\end{equation*}
+				et avec la condition initiale \(b(0)=-1\), on trouve \(d=6\).
+
+				\item Les solutions du système \(\eqref{eq:2}\) sont donc
+				\begin{equation*}
+					\begin{aligned}
+						a(t)&=\frac{16}3 e^{3t}-\frac{10}3\\
+						b(t)&=6 e^{-t}+7
+					\end{aligned}
+				\end{equation*}
+				Ce qui, traduit pour \(x\) et \(y\) donne:
+				\begin{equation*}
+					\begin{aligned}
+						x(t)&=\frac{16}3 e^{3t}-\frac{10}3+ 12 e^{-t}-14=\frac{16}3 e^{3t}+12 e^{-t}-\frac{52}3\\
+						y(t)&=\frac{16}3 e^{3t}-\frac{10}3+ 6 e^{-t}-7=\frac{16}3 e^{3t}+6 e^{-t}-\frac{31}3
+					\end{aligned}
+				\end{equation*}
+			\end{itemize}
+		\end{enumerate}
+	\end{nntd-sol}
+}{}
+
+\begin{td-exo}[] % 5
+	Pour \(x\in\R\) on pose
+	\begin{equation*}
+		\varphi(x)=\int_{-\infty}^{+\infty}e^{tx-t^2}\der t
+	\end{equation*}
+
+	\begin{enumerate}
+		\item Montrer que \(\varphi\) est bien définie et continue sur \(\R\).
+		\item Montrer que \(\varphi\) est \(C^1\) sur \(\R\) et exprimer 
+		\(\varphi'(x)\) comme une intégrale à paramètre.
+		\item En intégrant par parties l'expression de \(\varphi'(x)\), trouver
+		un problème de Cauchy linéaire vérifié par \(\varphi\).
+		\item Calculer \(\varphi(x)\).
+	\end{enumerate}
+
+\end{td-exo}
+
+\begin{td-exo}[] % 6
+	Calculer la solution maximale du problème de Cauchy suivant:
+	\begin{equation*}
+		\begin{cases}
+			x'=1+x^2\\
+			x(0)=0
+		\end{cases}
+	\end{equation*}
+
+\end{td-exo}
+
+\begin{td-exo}[] % 7
+	Résoudre sur un intervalle à préciser le problème suivant:
+	\begin{equation*}
+		\begin{cases}
+			xx'=\frac12\\
+			x(0)=1
+		\end{cases}
+	\end{equation*}
+
+\end{td-exo}
+
+\begin{td-exo}[] % 8
+	On considère le \defemph{modèle de Gompertz}, utilisé en dynamique des
+	populations, dans lequel l'évolution de la population \(N(t)\) considérée
+	est décrite par l'équation suivante:
+	\begin{equation*}
+		N'(t)=rN(t)\ln\left(\frac K{N(t)}\right)
+	\end{equation*}
+
+	où \(r\) et \(K>0\) sont des constantes données. Donner une expression de la
+	population en fonction de la population initiale \(N(0)=N_0>0\). Que se 
+	passe-t-il quand \(t\to\infty\)?
+\end{td-exo}
+% ----- Solutions exo 8
+\iftoggle{showsolutions}{
+	\begin{nntd-sol}[]\, % 8
+		\begin{itemize}
+			\item Utilisons Cauchy-Lipschitz pour résoudre 
+			l'équation différentielle.
+
+			\(\triangleright\) On cherche \(\varepsilon>0\) et
+			\(\lambda\in\R\) tels que
+			\begin{equation*}
+				\begin{aligned}
+					\left\{
+						\begin{aligned}
+							N'(t)&=rN(t)\ln\left(\frac K{N(t)}\right)\\
+							N(0)&=N_0
+						\end{aligned}
+					\right .
+				\end{aligned}
+			\end{equation*}
+			Soit \(t\in\R\), on a
+			\begin{equation*}
+				u\colon x\mapsto f(t,x)=r x\ln\left(\frac Kx\right)
+			\end{equation*}
+			Pour \(x_1,x_2\in\R_+^*\), il existe \(x_3\) tel que
+			\begin{equation*}
+				u'(x_3)=\frac{u(x_2)-u(x_1)}{x_2-x_1}
+			\end{equation*}
+			par le théorème des accroissements finis.
+
+			Alors, 
+			\begin{equation*}
+				\n{u(x_2)-u(x_1)}=\n{u'(x_3)}\n{x_2-x_1}
+			\end{equation*}
+
+			On prend \(u'\) continue sur \(ff{x_0-\varepsilon,x_0+\varepsilon}\). Soit
+			\begin{equation*}
+				M=\sup_{x\in[x_0-\varepsilon,x_0+\varepsilon]}\n{u'(x)}
+			\end{equation*}
+			Si \(x_1,x_2\in[x_0-\varepsilon,x_0+\varepsilon]\), on a
+			\begin{equation*}
+				\begin{aligned}
+					\n{u(x_2)-u(x_1)}&=\n{u'(x_3)}\n{x_2-x_1}\\
+					&\leq M\n{x_2-x_1}
+				\end{aligned}
+			\end{equation*}
+
+			Soit \((t_0,x_0)\in\R\times\R_+^*\). Soit \(\varepsilon=\frac{x_0}{2}>0\)
+			et \(\lambda=\sup\limits_{\ff{x_0-\varepsilon,x_0+\varepsilon}}\n{u'}\).
+
+			Soient \(t,x_1,x_2\) tels que
+			\begin{equation*}
+				\sup{\{\n{t-t_0},\n{x_1-x_0},\n{x_2-x_0}\}}<\varepsilon
+			\end{equation*}
+			On a \(x_1,x_2\in\ff{x_0-\varepsilon,x_0+\varepsilon}\) donc, par le
+			T.A.F.
+
+			\begin{equation*}
+				\n{f(t,x_1)-f(t,x_2)}=\n{u(x_1)-u(x_2)}\le \lambda \n{x_1-x_2}
+			\end{equation*}
+
+			\(f\) est continue et localement Lipschitzienne en espace donc il existe
+			une unique solution maximale
+
+		\end{itemize}
+	\end{nntd-sol}
+}{}
+
+\begin{td-exo}[] % n
+\end{td-exo}
+
+

@@ -1,0 +1,593 @@
+Rc files read:
+  NONE
+Latexmk: This is Latexmk, John Collins, 7 Apr. 2024. Version 4.85.
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required:
+    Reason or flag: 'Initial setup'
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -shell-escape -recorder -output-directory="/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX502X_Calcul-differentiel/tds"  "td_main.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex.fmt)
+ \write18 enabled.
+entering extended mode
+(td_main.tex
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/base\size10.clo))
+(../../common/common_header.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/base\fontenc.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/babel\babel.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/babel\txtbabel.def)
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/arabi\bblopts.cfg)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/babel-french\french
+.ldf))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/babel/locale/fr\bab
+el-french.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/carlisle\scalefnt.sty
+) (C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/graphics\keyval.sty
+) (C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/lm\lmodern.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/enumitem\enumitem.sty
+)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/fancyhdr\fancyhdr.sty
+)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/oberdiek\centernot.st
+y)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/stmaryrd\stmaryrd.sty
+) (C:\Users\ileje\AppData\Local\Programs\MiKTeX\tex/latex/abraces\abraces.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/l3packages/xparse\xpa
+rse.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/l3kernel\expl3.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/l3backend\l3backend-p
+dftex.def)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/xcolor\xcolor.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/graphics-cfg\color.cf
+g)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/graphics-def\pdftex.d
+ef)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/graphics\mathcolor.lt
+x)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/base\latexsym.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsmath\amstext.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsmath\amsgen.sty))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsmath\amsbsy.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsmath\amsopn.sty))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsfonts\amsfonts.sty
+)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsfonts\amssymb.sty)
+ (C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amscls\amsthm.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/mathtools\mathtools.s
+ty (C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/tools\calc.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/mathtools\mhsetup.sty
+))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/jknappen\mathrsfs.sty
+) (C:\Users\ileje\AppData\Local\Programs\MiKTeX\tex/latex/mnsymbol\MnSymbol.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/base\textcomp.sty))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/etoolbox\etoolbox.sty
+)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/hyperref\hyperref.sty
+
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/ltxcmds\ltxcmds.sty
+) (C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/iftex\iftex.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pdftexcmds\pdftexcm
+ds.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/infwarerr\infwarerr
+.sty))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/kvsetkeys\kvsetkeys.s
+ty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/kvdefinekeys\kvdefi
+nekeys.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pdfescape\pdfescape
+.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/hycolor\hycolor.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/letltxmacro\letltxmac
+ro.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/auxhook\auxhook.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/hyperref\nameref.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/refcount\refcount.sty
+)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/gettitlestring\gett
+itlestring.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/kvoptions\kvoptions.s
+ty)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/hyperref\pd1enc.def)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/intcalc\intcalc.sty
+) (C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/hyperref\puenc.def)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/url\url.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/bitset\bitset.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/bigintcalc\bigintca
+lc.sty))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/base\atbegshi-ltx.sty
+))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/hyperref\hpdftex.def
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/base\atveryend-ltx.st
+y)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/rerunfilecheck\rerunf
+ilecheck.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/uniquecounter\uniqu
+ecounter.sty)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/frontendlayer\tik
+z.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/basiclayer\pgf.st
+y
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/utilities\pgfrcs.
+sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/utilities\pgfut
+il-common.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/utilities\pgfut
+il-latex.def)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/utilities\pgfrc
+s.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf\pgf.revision.te
+x)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/basiclayer\pgfcor
+e.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/graphics\graphicx.sty
+
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/graphics\graphics.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/graphics\trig.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/graphics-cfg\graphics
+.cfg)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/systemlayer\pgfsy
+s.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/systemlayer\pgf
+sys.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/utilities\pgfke
+ys.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/utilities\pgfke
+yslibraryfiltered.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/systemlayer\pgf
+.cfg)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/systemlayer\pgf
+sys-pdftex.def
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/systemlayer\pgf
+sys-common-pdf.def)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/systemlayer\pgf
+syssoftpath.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/systemlayer\pgf
+sysprotocol.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+ore.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmath.co
+de.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathuti
+l.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathpar
+ser.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.basic.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.trigonometric.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.random.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.comparison.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.base.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.round.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.misc.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathfun
+ctions.integerarithmetics.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathcal
+c.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmathflo
+at.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfint.cod
+e.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orepoints.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orepathconstruct.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orepathusage.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orescopes.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+oregraphicstate.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+oretransformations.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orequick.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+oreobjects.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orepathprocessing.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orearrows.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+oreshade.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+oreimage.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+oreexternal.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orelayers.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+oretransparency.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orepatterns.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/basiclayer\pgfc
+orerdf.code.tex)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/modules\pgfmodu
+leshapes.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/modules\pgfmodu
+leplot.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/compatibility\pgf
+comp-version-0-65.sty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/compatibility\pgf
+comp-version-1-18.sty))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/utilities\pgffor.
+sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/utilities\pgfkeys
+.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/utilities\pgfke
+ys.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgf/math\pgfmath.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/math\pgfmath.co
+de.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/utilities\pgffo
+r.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/frontendlayer/t
+ikz\tikz.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/libraries\pgfli
+braryplothandlers.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/modules\pgfmodu
+lematrix.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarytopaths.code.tex)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/pgfplots\pgfplots.sty
+
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplots.r
+evision.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplots.c
+ode.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplotsco
+re.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/sys\pgfplo
+tssysgeneric.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/libs\pgfpl
+otslibrary.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/oldpgfcomp
+atib\pgfplotsoldpgfsupp_loader.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/libraries\pgfli
+braryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/oldpgfcomp
+atib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/util\pgfpl
+otsutil.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/liststruct
+ure\pgfplotsliststructure.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/liststruct
+ure\pgfplotsliststructureext.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/liststruct
+ure\pgfplotsarray.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/liststruct
+ure\pgfplotsmatrix.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/numtable\p
+gfplotstableshared.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/liststruct
+ure\pgfplotsdeque.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/util\pgfpl
+otsbinary.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/util\pgfpl
+otsbinary.data.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/util\pgfpl
+otsutil.verb.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/libs\pgfli
+brarypgfplots.surfshading.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/sys\pgflib
+rarypgfplots.surfshading.pgfsys-pdftex.def)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/util\pgfpl
+otscolormap.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/util\pgfpl
+otscolor.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplotsst
+ackedplots.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplotspl
+othandlers.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplotsme
+shplothandler.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplotsme
+shplotimage.code.tex)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplots.s
+caling.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplotsco
+ordprocessing.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplots.e
+rrorbars.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplots.m
+arkers.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplotsti
+cks.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots\pgfplots.p
+aths.code.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarydecorations.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/modules\pgfmodu
+ledecorations.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/libraries/decor
+ations\pgflibrarydecorations.pathmorphing.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/libraries/decor
+ations\pgflibrarydecorations.pathreplacing.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgfplots/libs\tikzl
+ibrarypgfplots.contourlua.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryplotmarks.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/libraries\pgfli
+braryplotmarks.code.tex)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryarrows.code.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/pgf/libraries\pgfli
+braryarrows.code.tex))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/colortbl\colortbl.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/tools\array.sty))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/mdframed\mdframed.sty
+
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/zref\zref-abspage.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/zref\zref-base.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/generic/etexcmds\etexcmds.s
+ty)))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/needspace\needspace.s
+ty)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/mdframed\md-frame-0.m
+df))
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/sectsty\sectsty.sty
+
+LaTeX Warning: Command \underbar  has changed.
+               Check if current package is valid.
+
+
+LaTeX Warning: Command \underline  has changed.
+               Check if current package is valid.
+
+)) (../../common/macros/math.tex
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/doublestroke\dsfont.s
+ty)) (../../common/macros/theorems.tex) (../assets/module_header.tex)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/lm\t1lmr.fd)
+(C:/Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX502X_Calcul-differen
+tiel\tds\td_main.aux)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/context/base/mkii\supp-pdf.
+mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/epstopdf-pkg\epstopdf
+-base.sty
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/00miktex\epstopdf-sys
+.cfg))
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/lm\t1lmss.fd)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/lm\ot1lmr.fd)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/lm\omllmm.fd)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/stmaryrd\ustmry.fd)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/base\ulasy.fd)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsfonts\umsa.fd)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/amsfonts\umsb.fd)
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/jknappen\ursfs.fd)
+No file td_main.toc.
+(../tds/td_1.tex
+
+! LaTeX Error: Environment nntd-sol undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 }{}
+        
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/lm\ts1lmr.fd)
+[1{C:/Users/ileje/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/il
+eje/AppData/Local/Programs/my_latex/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/ilej
+e/AppData/Local/Programs/my_latex/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/il
+eje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{C:/Us
+ers/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}
+{C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbol
+E.enc}{C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/enc/dvips/lm/lm-rm.
+enc}{C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/enc/dvips/lm/lm-ts1.e
+nc}]
+
+! LaTeX Error: \begin{document} ended by \end{nntd-sol}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 }{}
+        
+
+! LaTeX Error: Environment nntd-sol undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 }{}
+         
+
+Overfull \hbox (21.2294pt too wide) detected at line 144
+[][]
+[2{C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymb
+olA.enc}]
+
+! LaTeX Error: \begin{document} ended by \end{nntd-sol}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 }{}
+         
+
+LaTeX Warning: Reference `eq:1' on page 3 undefined on input line 179.
+
+
+! LaTeX Error: Environment nnremark undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.193 		\begin{nnremark}
+                        []
+
+! LaTeX Error: \begin{enumerate} on input line 169 ended by \end{nnremark}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196 		\end{nnremark}
+                      
+
+LaTeX Warning: Reference `eq:2' on page 3 undefined on input line 198.
+
+
+LaTeX Warning: Reference `eq:1' on page 3 undefined on input line 198.
+
+
+! LaTeX Error: Environment nntd-sol undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.366 }{}
+         
+(C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/lm\ot1lmss.fd)
+[3{C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymb
+olS.enc}]
+Missing character: There is no 1 in font MnSymbolS7!
+
+LaTeX Warning: Reference `eq:1' on page 4 undefined on input line 366.
+
+
+LaTeX Warning: Reference `eq:2' on page 4 undefined on input line 366.
+
+
+LaTeX Warning: Reference `eq:2' on page 4 undefined on input line 366.
+
+[4]
+
+LaTeX Warning: Reference `eq:2' on page 5 undefined on input line 366.
+
+
+! LaTeX Error: \begin{document} ended by \end{nntd-sol}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.366 }{}
+         
+[5{C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymb
+olF.enc}]
+
+! LaTeX Error: Environment nntd-sol undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.484 }{}
+         
+
+! LaTeX Error: \begin{document} ended by \end{nntd-sol}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.484 }{}
+         
+) [6]
+(C:/Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX502X_Calcul-differen
+tiel\tds\td_main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `td_main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)<C:/Users/ileje/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol10.pfb><C:/Users/ileje/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol7.pfb><C:/User
+s/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmbx10.pfb><C:/Us
+ers/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmmi10.pfb><C:/
+Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmmi5.pfb><C:
+/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmmi7.pfb><C
+:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmr10.pfb><
+C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmr12.pfb>
+<C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmr5.pfb>
+<C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmr7.pfb>
+<C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmr9.pfb>
+<C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmss10.pf
+b><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmssbx1
+0.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb>
+Output written on C:/Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX502
+X_Calcul-differentiel\tds\td_main.pdf (6 pages, 311467 bytes).
+Transcript written on C:/Users\ileje\00_File_System\2024_2025\L3_Maths\build\HA
+X502X_Calcul-differentiel\tds\td_main.log.
+Latexmk: Missing input file 'td_main.toc' (or dependence on it) from following:
+  No file td_main.toc.
+Latexmk: ====Undefined refs and citations with line #s in .tex file:
+  Reference `eq:1' on page 3 undefined on input line 179
+  Reference `eq:2' on page 3 undefined on input line 198
+  Reference `eq:1' on page 3 undefined on input line 198
+  Missing character: There is no 1 in font MnSymbolS7!
+  Reference `eq:1' on page 4 undefined on input line 366
+  Reference `eq:2' on page 4 undefined on input line 366
+  Reference `eq:2' on page 4 undefined on input line 366
+ And 1 more --- see log file '/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX502X_Calcul-differentiel/tds/td_main.log'
+Latexmk: Sometimes, the -f option can be used to get latexmk
+  to try to force complete processing.
+  But normally, you will need to correct the file(s) that caused the
+  error, and then rerun latexmk.
+  In some cases, it is best to clean out generated files before rerunning
+  latexmk after you've corrected the files.
+Latexmk: Getting log file '/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX502X_Calcul-differentiel/tds/td_main.log'
+Latexmk: Examining '/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX502X_Calcul-differentiel/tds/td_main.fls'
+Latexmk: ============== Inequiv cwd_fls cwd 'C:/Users/ileje/00_File_System/2024_2025/L3_Maths/src/HAX502X_Calcul-differentiel/tds' '/c/Users/ileje/00_File_System/2024_2025/L3_Maths/src/HAX502X_Calcul-differentiel/tds'
+Latexmk: Examining '/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX502X_Calcul-differentiel/tds/td_main.log'
+Latexmk: References changed.
+Latexmk: References changed.
+Latexmk: Log file says output to 'C:/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX502X_Calcul-differentiel/tds/td_main.pdf'
+Latexmk: Summary of warnings from last run of *latex:
+  Latex failed to resolve 7 reference(s)
+  =====Latex reported missing or unavailable character(s).
+=====See log file for details.
+Latexmk: Errors, so I did not complete making targets
+Collected error summary (may duplicate other messages):
+  pdflatex: Command for 'pdflatex' gave return code 1
+      Refer to '/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX502X_Calcul-differentiel/tds/td_main.log' and/or above output for details
+

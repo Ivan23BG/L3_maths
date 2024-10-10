@@ -1,0 +1,81 @@
+# Main Makefile
+# ============
+
+# Root directory definitions
+SRC_DIR := src
+BUILD_DIR := build
+LOG_DIR := logs
+PDF_DIR := pdfs
+COMMON_DIR := $(SRC_DIR)/common
+
+# Compiler settings
+LATEXMK_FLAGS := -interaction=nonstopmode -shell-escape -pdf
+
+# List of modules (automatically detected)
+MODULES := $(notdir $(wildcard $(SRC_DIR)/HAX*))
+
+# Default target
+all: $(MODULES)
+
+# Module-specific rules
+define module_rules
+# Args: $(1) - module name
+
+# Standard main file names
+$(1)_COURS_MAIN := chapter_main.tex
+$(1)_TDS_MAIN := td_main.tex
+
+# Define source files
+$(1)_COURS_SRC := $$(wildcard $(SRC_DIR)/$(1)/cours/$$($(1)_COURS_MAIN))
+$(1)_TDS_SRC := $$(wildcard $(SRC_DIR)/$(1)/tds/$$($(1)_TDS_MAIN))
+
+# Define dependencies
+$(1)_DEPS := $$(wildcard $(SRC_DIR)/$(1)/assets/*.tex) \
+             $$(wildcard $(SRC_DIR)/$(1)/assets/*/*.tex) \
+             $(COMMON_DIR)/*.tex
+
+# Module target
+$(1): $$(if $$($(1)_COURS_SRC),$(PDF_DIR)/$(1)/cours/$$(basename $$(notdir $$($(1)_COURS_MAIN))).pdf) \
+      $$(if $$($(1)_TDS_SRC),$(PDF_DIR)/$(1)/tds/$$(basename $$(notdir $$($(1)_TDS_MAIN))).pdf)
+
+# PDF generation rules
+$(PDF_DIR)/$(1)/cours/%.pdf: $(BUILD_DIR)/$(1)/cours/%.pdf
+	@mkdir -p $$(dir $$@)
+	@cp $$< $$@
+
+$(PDF_DIR)/$(1)/tds/%.pdf: $(BUILD_DIR)/$(1)/tds/%.pdf
+	@mkdir -p $$(dir $$@)
+	@cp $$< $$@
+
+# Build rules
+$(BUILD_DIR)/$(1)/cours/%.pdf: $(SRC_DIR)/$(1)/cours/$$($(1)_COURS_MAIN) $$($(1)_DEPS)
+	@mkdir -p $$(dir $$@) $(LOG_DIR)/$(1)
+	@echo "Compiling $$<..."
+	@cd $$(dir $$<) && latexmk $(LATEXMK_FLAGS) --output-directory=$(CURDIR)/$$(dir $$@) $$(notdir $$<) \
+		2>&1 | tee $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log
+
+$(BUILD_DIR)/$(1)/tds/%.pdf: $(SRC_DIR)/$(1)/tds/$$($(1)_TDS_MAIN) $$($(1)_DEPS)
+	@mkdir -p $$(dir $$@) $(LOG_DIR)/$(1)
+	@echo "Compiling $$<..."
+	@cd $$(dir $$<) && latexmk $(LATEXMK_FLAGS) --output-directory=$(CURDIR)/$$(dir $$@) $$(notdir $$<) \
+		2>&1 | tee $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log
+
+# Clean rule
+clean-$(1):
+	rm -rf $(BUILD_DIR)/$(1)
+	rm -rf $(LOG_DIR)/$(1)
+	rm -rf $(PDF_DIR)/$(1)
+
+endef
+
+# Generate rules for each module
+$(foreach mod,$(MODULES),$(eval $(call module_rules,$(mod))))
+
+# Number-based targets (e.g., make 501)
+$(foreach mod,$(MODULES),$(eval $(shell echo $(mod) | grep -o '5[0-9][0-9]'): $(mod)))
+
+# Clean everything
+clean: $(foreach mod,$(MODULES),clean-$(mod))
+	@echo "All build files and logs have been cleaned."
+
+.PHONY: all clean $(MODULES) $(foreach mod,$(MODULES),clean-$(mod))

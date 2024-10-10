@@ -1,0 +1,426 @@
+\subsection*{Rappels d'arithmétique des entiers}\label{sec:tutorial_1}
+\addcontentsline{toc}{subsection}{\nameref{sec:tutorial_1}}
+
+
+\begin{td-exo}[] % 1
+	Résoudre les exercices du chapitre 1 du poly.
+	\begin{ga-pexo}[] % 1-1
+		Pour $n\in\bb Z$, quand a-t-on $1|n$? $n|1$? $0|n$? $n|0$?
+		
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] % 1-1
+			Pour prouver que $a|b$, on cherche $k\in\bb Z$ tel que $b=ak$.
+			
+			\begin{itemize}[]
+				\item Pour $k=n$, on a $1\times k=n$ pour tout $n\in\bb Z$. On a donc toujours $1|n$.
+				
+				\item Si $n\notin \{1, -1\}$ alors on n'a pas $n|1$. On a donc $n|1\iff n\in \{1, -1\}$.
+				
+				\item L'unique solution à $0|n$ est $n=0$. On a donc $0|n\iff n=0$.
+				
+				\item Pour $k=0$, on a $n\times k=0$ pour tout $n\in\bb Z$. On a donc toujours $n|0$.
+			\end{itemize}
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 1-2
+	Calculer la division euclidienne de 1767 par 18.
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] % 1-2
+			$1767=98\times 18 + 3$.
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 1-3
+	Pour quels entiers $k$ a-t-on $k^2\equiv 2\pmod{6}$?
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] % 1-3
+			Il suffit de traiter les cas pour $k\equiv i\pmod 6$ pour $i\in\llbracket0,5\rrbracket$.
+			
+			\begin{center}
+				\begin{tabular}{c|c}
+					\,&$k^2\equiv\dots\pmod6$
+					\\
+					\hline
+					$k\equiv0\pmod 6$&$0$\\
+					\hline
+					$k\equiv1\pmod 6$&$1$\\
+					\hline
+					$k\equiv2\pmod 6$&$4$\\
+					\hline
+					$k\equiv3\pmod 6$&$9\equiv3$\\
+					\hline
+					$k\equiv4\pmod 6$&$16\equiv4$\\
+					\hline
+					$k\equiv5\pmod 6$&$25\equiv1$\\
+				\end{tabular}
+			\end{center}
+			Il n'y a aucun entier $k\in\bb Z$ tel que $k^2\equiv 2\pmod 6$.
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 4
+	Soient deux entiers naturels $m, n$. Montrer qu'on a l'équivalence:
+	\[
+	m\bb Z\sub n\bb Z \iff n|m
+	\]
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] % 4
+			Commençons par réécrire les ensembles comme:
+			\[
+			m\bb Z=\{mk, k\in\bb Z\},\quad n\bb Z=\{nk, k\in\bb Z\}
+			\]
+			
+			Montrons le sens direct $m\bb Z\sub n\bb Z \Longrightarrow n|m$:
+			
+			Si on a $m\bb Z\sub n\bb Z$ alors tout $mk\in m\bb Z$ peut s'écrire comme élément de $n\bb Z$.
+			Cela revient à dire que pour tout $mk\in m\bb Z$, il existe $k'\in\bb Z$ tel que $mk=nk'$.
+			En particulier, pour $k=1$ on a un $k'\in\bb Z$ tel que $m=nk'$, soit que $n|m$.
+			
+			Montrons le sens indirect $n|m \Longrightarrow m\bb Z\sub n\bb Z$.
+			
+			Si $n|m$ alors il existe $k\in\Z$ tel que $nk=m$. Alors, pour tout $k'\in\bb Z$, on a
+			$mk'=nkk'\in n\Z$. Ainsi, on a $m\bb Z\sub n\bb Z$
+			
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 5
+	Pour $a\in\bb Z$, que vaut $a\wedge0$? $a\wedge1$?
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] %
+			Le plus grand diviseur à la fois de $a$ et 0 est $a$.
+			
+			Le plus grand diviseur à la fois de $a$ et 1 est 1.
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 6
+	Montrer que pour $a,b\in\bb Z$ on a:
+	\[
+	a\wedge b=1\iff \text{il n'existe aucun nombre premier }p\text{ qui divise à la fois }a\text{ et }b
+	\]
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] %
+			Commençons par montrer le sens indirect "il n'existe aucun nombre premier $p$ qui
+			divise à la fois $a$ et $b$" $\Longrightarrow a\wedge b=1$:
+			
+			Réécrivons $a$ et $b$ comme suit: 
+			\[
+			a = 1\times \prod_i p_i^{q_i},\quad b=1\times \prod_j p_j^{q_j}
+			\]
+			Comme tous les $p_i$ sont différents de tous les $p_j$ par hypothèse, on a forcément $a\wedge b=1$.
+			
+			Montrons maintenant le sens direct:
+			
+			Supposons qu'il existe $p$ premier qui divise à la fois $a$ et $b$. Alors, par propriété du PGCD, $p$ divise
+			aussi le PGCD de $a$ et $b$, soit 1. C'est impossible car $p> 1$. 
+			
+			Alors $a\wedge b=1\Longrightarrow$ il n'existe aucun nombre premier $p$ qui divise à la fois $a$ et $b$.
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 7
+	Utiliser l'algorithme d'Euclide pour calculer le PGCD de 1071 et 1029
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] %
+			\[\begin{aligned}
+				1071 &= 1&&\times 1029 &&+ 42\\
+				1029 &= 24&&\times 42 &&+ 21\\
+				42 &= 2&&\times 21 &&+ 0
+			\end{aligned}\]
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 8
+	Pour $a\in\bb Z$, que vaut $a\vee 0$? $a\vee1$?
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] %
+			Le PPCM de $a$ et 0 vaut 0 car 0 est l'unique multiple de 0.
+			
+			Le PPCM de $a$ et 1 vaut $a$ car pour tout $m\in\N$, si $a|m$ alors $1|m$.
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 9
+	Soient $u, a, b\in\bb Z$. Montrer qu'on a l'équivalence:
+	\[
+	u\wedge(ab)=1\iff\left(u\wedge a=1\text{ et }u\wedge b=1\right)
+	\]
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] %
+			Montrons le sens direct d'abord:
+			
+			Réécrivons $ab$ comme $\prod_i p_i^{q_i}$. Comme $u\wedge(ab)=1$, aucun des facteurs $p_i$ ne divise $u$.
+			Ainsi, comme $a$ et $b$ ne possèdent aucun facteur autre que les $p_i$, $u\wedge a = u\wedge b = 1$.
+			
+			De la même manière pour le sens indirect:
+			
+			Comme $u\wedge a = u\wedge b = 1$, $u$ ne possède aucun facteur premier en commun ni avec $a$ ni avec $b$.
+			Ainsi $ab$ qui ne possède que des facteurs de $a$ et $b$ ne possède aucun facteur premier en commun avec $u$. Donc $u\wedge(ab)=1$.
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 10
+	Calculer les décompositions en produit de nombres premiers de 504 et 1540 et 
+	en déduire $504\wedge1540$ et $504\vee1540$.
+	
+	\end{ga-pexo}
+	
+	\iftoggle{showsolutions}{
+		\begin{td-sol}[] %
+			On a
+			\[\begin{aligned}
+				504 &= 2 \times 252\\
+				&= 2 \times 2\times 126\\
+				&= 2^2\times 2\times 63\\
+				&=2^3\times 7\times 9\\
+				&= 2^3\times 3^2\times 7
+			\end{aligned} \qquad
+			\begin{aligned}
+				1540 &= 2\times 770\\
+				&= 2\times 2\times 385\\
+				&= 2^2\times 5\times 77\\
+				&=2^2\times 5\times 7\times 11
+			\end{aligned}
+			\]
+			
+			On a alors clairement $504\wedge 1540=2^2\times 7=28$ et 
+			$504\vee 1540=2^3\times3^2\times 5\times7\times 11=27720$.
+			
+			On peut vérifier qu'on a bien $28\times 27720 = 776160 = 504\times 1540$.
+			
+		\end{td-sol}
+	}{}
+	
+	
+	\begin{ga-pexo}[] % 11
+	Utiliser l'algorithme d'Euclide étendu pour calculer le PGCD de 186 et 309 et
+	trouver une relation de Bézout entre ces deux nombres.
+	
+	\end{ga-pexo}
+	
+	\begin{ga-pexo}[] % 12
+	Montrer que 14 est inversible modulo 31 et en calculer un inverse. Pour
+	quels entiers $x$ a-t-on $14x \equiv 2\pmod{31}$?
+	
+	\end{ga-pexo}
+	
+	
+\end{td-exo}
+
+\begin{td-exo}[] % 2
+Résoudre pour $x\in\bb Z$:
+\[\begin{cases}
+	x\equiv 3\pmod{5}\\
+	x\equiv 7\pmod{12}
+\end{cases}\]
+
+\end{td-exo}
+% ----- Solutions exo 2 ----- %
+\iftoggle{showsolutions}{
+	\begin{td-sol}[] %
+		On a \(x\equiv 3\pmod{5}\) qui nous donne ``\(x\) finit par 3 ou 8''.
+
+		On calcule alors les valeurs de \(x\) qui vérifient \(x\equiv 7\pmod{12}\).
+		\begin{equation*}
+			\begin{aligned}
+				x
+				&\equiv 7\pmod{12}\\
+				&\equiv 7+12=19\pmod{12}\\
+				&\equiv 7+24=31\pmod{12}\\
+				&\equiv 7+36=43\pmod{12}\\
+			\end{aligned}
+		\end{equation*}
+		Une solution particulière est donc \(x=43\).
+
+		Comme \(5\wedge 12=1\), d'après le théorème chinois, l'ensemble des solutions est:
+		\begin{equation*}
+			S=\{43+60k, k\in\bb Z\}
+		\end{equation*}
+	\end{td-sol}
+}{}
+
+\begin{td-exo}[Congruences] % 3
+Résoudre pour $x\in\bb Z$:
+\[
+	12x\equiv 9\pmod{21}\qquad\text{puis}\qquad 12x\equiv 11\pmod{21}
+\]
+
+\end{td-exo}
+
+\begin{td-exo}[Relations de Bézout] % 4
+	Soit $a,b\in\bb Z$ tels que $a\wedge b=1$ et soit $au+bv=1$ une relation de Bézout avec $u,v\in\bb Z$.
+	\begin{enumerate}[1)]
+		\item Soit $k\in\bb Z$ et posons $u'=u-kb$ et $v'=v+ka$. Montrer qu'on a la relation de Bézout : $au'+bv'=1$.
+		
+		\item Montrer que toutes les relations de Bézout pour $a,b$ sont de cette forme.
+	\end{enumerate}
+	
+\end{td-exo}
+
+\subsection*{Exercices supplémentaires et approfondissement}\label{sec:tutorial_1_exo_sup}
+\addcontentsline{toc}{subsection}{\nameref{sec:tutorial_1_exo_sup}}
+
+\begin{td-exo}[Inversibilité modulo un entier] % 5
+	Est-ce que 18 est inversible modulo 49? Si oui, en calculer un inverse. Mêmes questions avec 42 modulo 135.
+	
+\end{td-exo}
+
+\begin{td-exo}[Cubes] % 6
+	Soient $a,b\in\bb N^\ast$ premiers entre eux, tels que le produit $ab$ est un cube (c'est-à-dire s'écrit $n^3$ pour un $n\in\bb N$). Montrer que $a$ et $b$ sont tous les deux des cubes.
+	
+\end{td-exo}
+
+\begin{td-exo}[Racine] % 7
+	Soit $n\in\bb N$ qui n'est pas le carré d'un entier. Montrer que $\sqrt n$ est irrationnel.
+	
+\end{td-exo}
+
+\begin{td-exo}[De gros gros nombres]\, % 8
+	\begin{enumerate}[1)]
+		\item Quels sont les restes des divisions euclidiennes de $10^{100}$ par $13$ et $19$?
+		
+		\item Quel est le reste de la division euclidienne de $10^{100}$ par $247=13\times 19$? En déduire que 
+		$10^{99}+1$ est divisible par $247$.
+		
+	\end{enumerate}
+	
+\end{td-exo}
+
+\begin{td-exo}[Le petit théorème de Fermat pour les enfants] % 9
+	Soit un entier $n\in\bb N^\ast$. On considère $n$ petits disques répartis uniformément sur un cercle
+	comme sur la figure suivante (avec $n=9$). On considère un entier $a\in \bb N$ et on imagine qu'on 
+	dispose de $a$ couleurs différentes. Un \defemph{coloriage} est une façon d'assigner une des $a$ couleurs 
+	à chaque disque.\\
+	
+	\input{../assets/tikz/td1_exo9_cercle.tex}
+	
+	\begin{enumerate}[1)]
+		\item Combien y a-t-il de coloriages différents?
+		
+		\item Soit $C$ un coloriage. On obtient d'autres coloriages en faisant tourner $C$ d'un angle multiple de $2\pi/n$. Soit $k$ le nombres de coloriages \emph{différents} qu'on obtient ainsi. Montrer que $k$ est un diviseur de $n$. Combien y a-t-il de coloriages pour lesquels $k=1$?
+		
+		\item Supposons maintenant que $n=p$ est un nombre premier. Déduire des questions précédentes que $p$ divise $a^p-a$.
+		
+	\end{enumerate}
+	
+\end{td-exo}
+
+\begin{td-exo}[Coefficients binomiaux] % 10
+	Soit un entier $n\ge 2$. Montrer que si $n$ divise tous les coefficients binomiaux $\binom nk$ 
+	avec $0<k<n$ alors $n$ est premier.
+	
+\end{td-exo}
+
+\begin{td-exo}[] %
+	Un \defemph{triplet pythagoricien} est un triplet $(a,b,c)$ d'entiers naturels non nuls qui vérifient
+	l'équation :
+	\[
+	a^2+b^2=c^2
+	\]
+	Dit autrement, par le théorème de Pythagore, $a$, $b$, $c$ sont les longueurs des côtés d'un triangle rectangle.
+	Le triplet pythagoricien le plus connu est $(3, 4, 5)$.
+	
+	\begin{enumerate}[1)]
+		\item Soit $(a,b,c)$ un triplet pythagoricien et $k\in\bb N^\ast$. Montrer que $(ka, kb, kc)$ est aussi
+		un triplet pythagoricien.
+		
+		Dans tout l'exercice on dira qu'un triplet pythagoricien $(a,b,c)$ est \defemph{primitif} s'il n'existe
+		aucun entier $k\ge 2$ qui divise à la fois $a$, $b$ et $c$ (ou dit autrement, si $a\wedge b\wedge c=1)$.
+		
+		\begin{center}
+			\textbf{Les 3 parties de l'exercice sont indépendantes}
+		\end{center}
+		
+		\begin{ga-subpart}[La formule d'Euclide]
+			Soient deux entiers $m, n$ avec $m>n\ge 1$. On pose
+			\[
+			(\ast)\qquad a=m^2-n^2,\quad b=2mn,\quad c=m^2+n^2.
+			\]
+			\begin{enumerate}[]
+				\item[2)] Montrer que $(a, b, c)$ est un triplet pythagoricien.
+				\item[3)] On suppose que $m$ et $n$ sont de parités différentes (c'est-à-dire que l'un
+				est pair et l'autre impair) et premiers entre eux.
+				\begin{enumerate}[a)]
+					\item Déterminer la parité de $a$, de $b$, de $c$.
+					
+					\item Montrer qu'il n'existe aucun nombre premier $p$ qui divise à la fois $a$ et $c$.
+					
+					\item En déduire que $(a,b,c)$ est un triplet pythagoricien primitif.
+				\end{enumerate}
+			\end{enumerate}
+		\end{ga-subpart}
+		
+		\begin{ga-subpart}[Intermède]\,
+			\begin{enumerate}[]
+				\item[4)] Soient deux entiers $x, y\in\bb N^\ast$ tels que $x\wedge y=1$ et tels que le produit $xy$ est le carré d'un entier. Montrer que $x$ et $y$ sont des carrés d'entiers.
+			\end{enumerate}
+		\end{ga-subpart}
+		
+		\begin{ga-subpart}[Classification des triplets pythagoriciens]
+			Soit $(a, b, c)$ un triplet pythagoricien primitif.
+			\begin{enumerate}[]
+				\item[5)] Montrer que $a\wedge c=1$.
+				
+				\item[6)] Pour un entier $k$, quels sont les restes possibles pour $k^2$ dans la division euclidienne par
+				4? On justifiera.
+				
+				\item[7)] Déduire de la question précédente que $a$ et $b$ sont de parités différentes, puis que $c$ est
+				impair.
+				
+				\item[8)] Quitte à échanger les rôles joués par $a$ et $b$ on peut supposer que $a$ est impair et que $b$ est pair, ce qu'on fait maintenant. Montrer que $(c-a)\wedge(c+a)=2$.
+				
+				\item[9)] Montrer que le produit de $\frac{c+a}2$ et $\frac{c-a}2$ est un carré, et déduire de la question $4)$ qu'il existe des entiers $m, n$ avec $m>n\ge1$ tels que $(a,b,c)$ est de ma forme $(\ast)$.
+				
+				\item[10)] Parmi les triangles rectangles dont les 3 côtés sont de longueurs entières, déterminer tous ceux qui ont un côté de longueur 17.
+			\end{enumerate}
+		\end{ga-subpart}
+		
+	\end{enumerate}
+	
+\end{td-exo}

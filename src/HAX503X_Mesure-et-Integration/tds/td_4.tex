@@ -1,0 +1,72 @@
+\begin{td-exo}[]
+    exo 6.
+\end{td-exo}
+% ----- Solutions exo 6
+\iftoggle{showsolutions}{
+    \begin{nntd-sol}[]\,
+        \begin{enumerate}
+            \item Rapide à faire. On veut appliquer TCD donc on vérifie les hypothèses:
+            \begin{itemize}
+                \item On a une convergence simple de la fraaction vers \(\frac1{k^2}\)
+
+                \item On a domination de la valeur absolue par \(\frac{1}{k^2}\) qui est
+                sommable.
+            \end{itemize}
+            On applique alors le théorème de convergence dominée pour conclure.
+
+            \item On verifie encore les hypothèses:
+            \begin{itemize}
+                \item On a une convergence simple de la fraction vers 0.
+
+                \item On a domination de la valeur absolue par \(\frac{1}{k^2}\) qui est
+            \end{itemize}
+            On applique alors le théorème de convergence dominée pour conclure.
+        \end{enumerate}
+    \end{nntd-sol}
+}{}
+
+\begin{td-exo}[]
+    exo 9.
+\end{td-exo}
+% ----- Solutions exo 9
+\iftoggle{showsolutions}{
+    \begin{nntd-sol}[]\,
+        % partie 1:
+        % step 1: lister les outils utiles, ici croissances comparées pour
+        % convergences simples
+        % step 2: identifier les potentiels problèmes, ici 0 est exclu
+        % donc le problème est uniquement en y->infini qui est un O(1/y^2)
+        % qui est intégrable en y->infini
+        % step 3: on majore la |.| par une fonction de R+*
+        % qui est \one_{0,1}(y)+\one_{1,+\infty}(y)/y^2
+        % qui est L1
+        % step 4: on applique le théorème de convergence dominée
+        % step 5: on conclut
+
+        % partie 2:
+        % step 1: lister les outils utiles, ici decomposition en elements simples
+        % step 2: on multiplie et on identifie
+        % step 3: on prolonge par continuité en x=1
+        % step 4: on montre que ca vaut 2 f ( x )
+        % step 5: on utilise le dl de ln pour observer le comportement en -1 (qui est 1/2)
+        % step 6: etude aux bornes
+        % setp 7: -ln(x) en 0, integrable par le critère de Bertrand
+        % step 8: 1/(x^2 ln(x)) en +infini, integrable par le critère de Bertrand
+        % step 9: on pose I l'intégrale de F et J l'intégrale^2 de F
+        % step 10: on utilise Fubini-Tonelli pour intégrer comme on veut (car F est positive)
+        % step 11: on retrouve l'intégrale de F dans l'autre sens qui vaut pi/2 -> pi^2/2
+        % step 12: on conclut
+
+        % partie 3: I = int ln(x)/(x^2-1) = int_(0,1) ln(x)/(x^2-1) + int_(1,+\infty) ln(x)/(x^2-1)
+        % step 1: on a la première partie qui colle, on s'occupe de la seconde
+        % step 2: on pose u = 1/x -> dx = -du/u^2
+        % step 3: on a I = 2 int_(0,1) ln(x)/(x^2-1)
+        % step 4: developpement en serie entiere avec -1/(x^2-1) = 1 + x^2 + x^4 + ...
+        % step 5: on applique fubini tonelli a la mesure produit lebesgue et comptage
+        % pour inverser les integrales
+        % step 6: IPP pour montrer que l'intégrale est égale à pi^2/8
+        % step 7: on separe en somme de pairs et impairs
+        
+    \end{nntd-sol}
+}{}
+

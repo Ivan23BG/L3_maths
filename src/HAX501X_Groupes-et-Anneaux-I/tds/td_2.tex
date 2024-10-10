@@ -1,0 +1,354 @@
+\subsection*{Etude de \(\Z/n\Z\)}\label{sec:tutorial_2}
+\addcontentsline{toc}{subsection}{\nameref{sec:tutorial_2}}
+
+\begin{td-exo}[En cercle] % 1
+    Soit \(n\in\N^\ast\). On note
+    \begin{equation*}
+        \bb U_n=\left\{z\in\bb C\mid z^n=1\right\}
+    \end{equation*}
+    l'ensemble des racines \(n\)-ièmes de l'unité. Montrer que l'application
+    \begin{equation*}
+        \begin{aligned}
+            f\colon\bb Z&\to \bb U_n\\
+            k&\mapsto \exp\left(\frac{2ik\pi}{n}\right)
+        \end{aligned}
+    \end{equation*}
+    passe au quotient par la relation de congruence modulo \(n\) et
+    induit l'application
+    \begin{equation*}
+        \begin{aligned}
+            g\colon\Z/n\Z&\to \bb U_n\\
+            \ol k&\mapsto \exp\left(\frac{2ik\pi}{n}\right).
+        \end{aligned}
+    \end{equation*}
+    Montrer que \(g\) est bijective.
+\end{td-exo}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 1
+        On a \(g\) bijective par construction.
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Inversibles] % 2
+    Faire la liste des éléments inversibles de \(\Z/14\Z\) et
+    calculer leurs inverses. Même chose avec \(\Z/20\Z\).
+\end{td-exo}
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 2
+        Pour \(\Z/14\Z\), les inversibles sont les éléments qui ne divisent pas \(14\), soit:
+        \begin{equation*}
+            \left\{\ol 1,\ol 3,\ol 5,\ol 9,\ol 11,\ol 13\right\} \text{ ou } \left\{\ol 1,\ol 3,\ol 5,\ol{-5},\ol{-3},\ol{-1}\right\}
+        \end{equation*}
+        On a donc:
+        \begin{equation*}
+            \begin{aligned}
+                1^{-1}&\equiv 1\pmod{14}\\
+                3^{-1}&\equiv 5\pmod{14}\\
+                5^{-1}&\equiv 3\pmod{14}\\
+                -5^{-1}&\equiv -3\pmod{14}\\
+                -3^{-1}&\equiv -5\pmod{14}\\
+                -1^{-1}&\equiv -1\pmod{14}\\
+            \end{aligned}
+        \end{equation*}
+        Pour \(\Z/20\Z\), les inversibles sont les éléments qui ne divisent pas \(20\), soit:
+        \begin{equation*}
+            \left\{\ol 1,\ol 3,\ol 7,\ol 9,\ol 11,\ol 13,\ol 17,\ol 19\right\} \text{ ou } \left\{\ol 1,\ol 3,\ol 7,\ol{9},\ol{-9},\ol{-7},\ol{-3},\ol{-1}\right\}
+        \end{equation*}
+        On a donc:
+        \begin{equation*}
+            \begin{aligned}
+                1^{-1}&\equiv 1\pmod{20}\\
+                3^{-1}&\equiv 7\pmod{20}\\
+                7^{-1}&\equiv 3\pmod{20}\\
+                9^{-1}&\equiv 9\pmod{20}\\
+                -9^{-1}&\equiv 9\pmod{20}\\
+                -7^{-1}&\equiv -3\pmod{20}\\
+                -3^{-1}&\equiv -7\pmod{20}\\
+                -1^{-1}&\equiv -1\pmod{20}\\
+            \end{aligned}
+        \end{equation*}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Puissance] % 3
+    On se place dans \(\Z/41\Z\). Calculer
+    \(\ol 2^{2023}\)
+\end{td-exo}
+% ----- Solutions exo 3
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 3
+        Comme \(41\) est premier, \(2\) est inversible dans \(\Z/41\Z\).
+        Par le petit théorème de Fermat, on a
+        \begin{equation*}
+            2^{40}\equiv 1\pmod{41}
+        \end{equation*}
+        On a donc
+        \begin{equation*}
+            2^{2023} = 2^{50\times 40 + 23} = {(2^{40})}^{50} \times 2^{23} \equiv 2^{23} \pmod{41}
+        \end{equation*}
+        Pour calculer \(2^{23}\), on utilise la méthode piétonne:
+        \begin{equation*}
+            \begin{aligned}
+                \ol{2}^1&=\ol{2}\\
+                \ol{2}^2&=\ol{4}\\
+                \ol{2}^3&=\ol{8}\\
+                \ol{2}^4&=\ol{16}\\
+                \ol{2}^5&=\ol{32}\\
+                \ol{2}^6&=\ol{23}\\
+                \ol{2}^7&=\ol{5}\\
+                \ol{2}^8&=\ol{10}\\
+                \ol{2}^9&=\ol{20}\\
+                \ol{2}^{10}&=\ol{40}\\
+            \end{aligned}
+        \end{equation*}
+        On en conclut alors que \(\ol 2^{20}=\ol 1\) et alors
+        \begin{equation*}
+            \ol 2^{2023} = \ol 2^{23} = \ol 2^3 = \ol 8
+        \end{equation*}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Sous-groupes] % 4
+    Quels sous-groupes de \(\Z/1000\Z\) contiennent \(\ol{120}\)?
+\end{td-exo}
+% ----- Solutions exo 4
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 4
+        Les sous-groupes de \(\Z/1000\Z\) sont
+        les \(\langle \ol{d}\rangle\) avec \(d\in\N^\ast\)
+        un diviseur de \(1000\).
+
+        On sait que \(1000=2^3 5^3\). Alors,
+        les diviseurs positifs de \(1000\) sont les
+        \(2^a 5^b\) avec \(a,b\in\left\{0,1,2,3\right\}\).
+
+        Or 
+        \begin{equation*}
+            \langle \ol d\rangle = \left\{
+                \ol{0},\ol{d},\ol{2d},\dots,\ol{(e-1)d}
+                \right\}
+        \end{equation*}
+        avec \(e=\frac{1000}{d}\). Donc
+        \begin{equation*}
+            \begin{aligned}
+                \ol{120}\in\langle \ol d\rangle 
+                &\iff 120\in\left\{0,d,2d,\dots,(e-1)d\right\}\\
+                &\iff d \mid 120
+            \end{aligned}
+        \end{equation*}
+        On sait que \(d\) divise \(1000\) et \(120\) donc
+        il divise \(1000\wedge 120 = 40\).
+
+        On a donc les sous-groupes de \(\Z/1000\Z\) contenant \(\ol{120}\) sont
+        \begin{equation*}
+            \langle \ol{1}\rangle, \langle \ol{2}\rangle, \langle \ol{4}\rangle, \langle \ol{5}\rangle, \langle \ol{8}\rangle, \langle \ol{10}\rangle, \langle \ol{20}\rangle, \langle \ol{40}\rangle
+        \end{equation*}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Théorème de Wilson] % 5
+    Le but de cet exercice est de démontrer le théorème de Wilson:
+    pour un entier \(n\geq 2\), on a:
+    \begin{equation*}
+        n\text{ est premier} \iff (n-1)!\equiv -1 \pmod{n}
+    \end{equation*}
+    \begin{enumerate}
+        \item Soit \(p\) un nombre premier.
+        \begin{enumerate}
+            \item Quels éléments \(x\in(\Z/p\Z)\setminus\{\ol 0\}\) sont égaux à leur inverse?
+            \item En calculant le produit de tous les éléments de \((\Z/p\Z)\setminus\{\ol 0\}\), montrer qu'on a:
+            \begin{equation*}
+                (p-1)!\equiv -1 \pmod{p}
+            \end{equation*}
+        \end{enumerate}
+        \item Soit \(n\) un nombre composé. Montrer que:
+        \begin{equation*}
+            (n-1)!\not\equiv -1 \pmod{n}
+        \end{equation*}
+        En déduire le théorème de Wilson.
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 5
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 5
+        \begin{enumerate}
+            \item Soit \(p\) un nombre premier.
+            \begin{enumerate}
+                \item Soit \(x\in(\Z/p\Z)\setminus\{\ol 0\}\). On a:
+                \begin{equation*}
+                    \begin{aligned}
+                        x=x^{-1} &\iff x^2=\ol 1\\
+                        &\iff x^2-\ol 1=\ol 0\\
+                        &\iff \left(x-\ol 1\right)\left(x+\ol 1\right)=\ol 0\\
+                        &\iff x-\ol 1=\ol 0 \text{ ou } x+\ol 1=\ol 0 \text{ (car \(p\) est premier)}\\
+                        &\iff x=\ol 1 \text{ ou } x=\ol{-1}
+                    \end{aligned}
+                \end{equation*}
+                Conclusion: les \(x\in\Z/p\Z\) égaux à leur inverse sont \(\ol 1\) et \(\ol{-1}\).
+
+                \item Dans le produit:
+                \begin{equation*}
+                    \ol 1\times\ol 2\times\cdots\times\ol{p-1}
+                \end{equation*}
+                tous les éléments se simplifient avec leur inverse par paires
+                \emph{sauf} les éléments égaux à leur propre inverse.
+
+                Par la question précédente, on a donc:
+                \begin{equation*}
+                    \ol 1\times\ol 2\times\cdots\times\ol{p-1} 
+                    = \ol{1}\times\ol{-1} = \ol{-1}
+                \end{equation*}
+                On en déduit:
+                \begin{equation*}
+                    (p-1)!\equiv -1 \pmod{p}
+                \end{equation*}
+            \end{enumerate}
+
+            \item Soit \(n\) un nombre composé.
+            
+            On procède par l'absurde. Supposons que \((n-1)!\equiv -1 \pmod{n}\).
+
+            Il existe donc \(k\in\Z\) tel que:
+            \begin{equation*}
+                (n-1)! = kn - 1
+            \end{equation*}
+            On en déduit que:
+            \begin{equation}
+                kn - (n-1)! = 1 \label{eq:wilson_contradiction}
+            \end{equation}
+            Comme \(n\) est composé, on peut écrire \(n=ab\) avec
+            \(1<a,b<n\).
+
+            Comme \(a | (n-1)!\), pn peut voir~\eqref{eq:wilson_contradiction} comme
+            une relation de Bézout entre \(n\) et \(a\) qui montre que
+            \(n\wedge a = 1\), ce qui est absurde car \(n\wedge a=a\neq 1\).
+
+            Autre raisonnement:
+            
+            On écrit \(n=ab\) avec \(1<a,b<n\).
+
+            \(\triangleright\) Cas 1: \(a\neq b\)
+
+            Dans ce cas, on voit apparaître \(a\) et \(b\) à
+            des places différentes dans le produit \((n-1)!\) et donc
+            \(ab\) divise \((n-1)!\). Alors \((n-1)!\equiv 0\pmod{n}\).
+
+            \(\triangleright\) Cas 2: \(a=b\), soit \(n=a^2\).
+
+            Dans ce cas, on voit apparaître \(a\) et \(2a\) à
+            des places différentes dans le produit \((n-1)!\) (à
+            condition que \(a>2\)) et donc \(a^2\) divise \((n-1)!\).
+            Alors \((n-1)!\equiv 0\pmod{n}\).
+
+            Si \(a=2\), on a \(n=4\) et alors \((3!)=6\not\equiv -1\pmod{4}\).
+            
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Une formule de Gauss] % 6
+    Soit un entier \(n\in\N^\ast\). On veut montrer qu'on a:
+    \begin{equation*}
+        \sum_{d\mid n}\varphi(d) = n
+    \end{equation*}
+    \begin{enumerate}
+        \item Vérifier que la formule est vraie pour \(n=12\).
+        \item Soit \(d\) un diviseur de \(n\). On note \(e=\frac{n}{d}\).
+        Montrer qu'il y a \(\varphi(e)\) entiers \(a\in\left\{1,\dots,n\right\}\)
+        tels que \(a\wedge n=d\).
+        \item Conclure.
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 6
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 6
+        \begin{enumerate}
+            \item Pour \(n=12\), on a:
+            \begin{equation*}
+                \begin{aligned}
+                    \sum_{d\mid 12}\varphi(d) 
+                    &= \underset{1}{\varphi(1)} + \underset{1}{\varphi(2)} + \underset{2}{\varphi(3)} + \underset{2}{\varphi(4)} + \underset{2}{\varphi(6)} + \underset{4}{\varphi(12)} \\
+                    &= 12
+                \end{aligned}
+            \end{equation*}
+            Donc la formule est vraie pour \(n=12\).
+
+            \item Pour \(a\in\left\{1,\dots,n\right\}\) tel que
+            \(a\wedge n=d\), on a \(d\mid a\) et donc il
+            existe un entier \(k\) tel que \(a=kd\).
+
+            Alors, on a
+            \begin{equation*}
+                (kd)\wedge(ed)=d
+            \end{equation*}
+            d'où \(k\wedge e=1\).
+
+            De plus, comme \(a\in\left\{1,\dots,n\right\}\), on a
+            nécessairement \(k\in\left\{1,\dots,e\right\}\).
+
+            On a montré que:
+            \begin{equation*}
+                \left(a\in\left\{1,\dots,n\right\}\mid a\wedge n=d\right)
+                \implies \left(\exists k\in\left\{1,\dots,e\right\}\mid k\wedge=1,a=kd\right)
+            \end{equation*}
+
+            La réciproque \(\left(\impliedby\right)\) est aussi vraie,
+            il suffit de faire le même raisonnement.
+
+            Il y a donc autant d'entiers \(a\in\left\{1,\dots,n\right\}\)
+            tels que \(a\wedge n=d\) que d'entiers \(k\in\left\{1,\dots,e\right\}\).
+
+            Or, il y a \(\varphi(e)\) entiers \(k\in\left\{1,\dots,e\right\}\)
+            tels que \(k\wedge e=1\).
+
+            Alors, il y a \(\varphi(e)\) entiers \(a\in\left\{1,\dots,n\right\}\)
+            tels que \(a\wedge n=d\).
+
+            \item On partitionne l'ensemble \(\left\{1,\dots,n\right\}\)
+            suivant le pgcd avec \(n\), ce pgcd est alors un 
+            diviseur \(d\) de \(n\).
+
+            On a donc:
+            \begin{equation*}
+                \left\{1,\dots,n\right\} = \bigsqcup_{d\mid n}\left\{a\in\left\{1,\dots,n\right\}\mid a\wedge n=d\right\}
+            \end{equation*}
+
+            Par le point précédent, on sait que les ensembles
+            \(\left\{a\in\left\{1,\dots,n\right\}\mid a\wedge n=d\right\}\)
+            sont disjoints et leur réunion est \(\left\{1,\dots,n\right\}\).
+
+            On peut réécrire cette somme dans un autre ordre en 
+            utilisant l'involution \(d\mapsto \frac{n}{d}\) de 
+            l'ensemble des diviseurs de \(n\). On obtient:
+            \begin{equation*}
+                \sum_{d\mid n}\varphi(d) = n
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\subsection*{Exercices supplémentaires, et approfondissement}
+
+\begin{td-exo}[Equations]\, % 7
+    \begin{enumerate}
+        \item Résoudre dans \(\Z/37\Z\) l'équation \(\ol 7x+ \ol 5=\ol 1\).
+        \item Résoudre dans \(\Z/37\Z\) l'équation \(x^2- \ol 6x+ \ol{10}=\ol 0\).
+    \end{enumerate}
+\end{td-exo}
+
+\begin{td-exo}[Un exercice de baccalauréat (filière C, académie de Paris, juin 1978)] % 8
+    Dans l'anneau \(\Z/91\Z\) (dont les éléments sont notés \(\ol 0, \ol 1, \dots, \ol{90}\)), 
+    \begin{enumerate}
+        \item discuter, suivant la valeur du paramètre \(a\in\Z/91\Z\), l'équation
+        \begin{equation*}
+            ax=\ol 0
+        \end{equation*}
+        
+        \item résoudre l'équation
+        \begin{equation*}
+            x^2+\ol 2x-\ol 3=\ol 0
+        \end{equation*}
+    \end{enumerate}
+\end{td-exo}

@@ -1,0 +1,313 @@
+\subsection*{Introduction à la théorie des groupes}\label{sec:tutorial_3}
+\addcontentsline{toc}{subsection}{\nameref{sec:tutorial_3}}
+
+\begin{td-exo}[Groupes] % 1
+    Ces choses-ci sont-elles des groupes?
+    \begin{itemize}
+        \item \(\left(2\Z,+\right)\)
+        \item \(\left(2\Z,\times\right)\)
+        \item L'ensemble des fonctions de \(\ff{0,1}\) dans \(\R\),
+        muni de l'addition des fonctions.
+        \item L'ensemble des fonctions continuesde \(\ff{0,1}\) dans \(\R\),
+        muni de l'addition des fonctions.
+        \item L'ensemble des matrices \(n\times n\) inversibles et
+        à coefficients entiers, muni du produit matriciel.
+        \item L'ensemble des parties d'un ensemble \(E\), muni de
+        l'union.
+        \item L'ensemble des permutations \(\sigma\in\mathfrak{S}_6\)
+        telles que \(\sigma^2=\id\), muni de la composition.
+    \end{itemize}
+\end{td-exo}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 1
+        \begin{itemize}
+            \item \(\left(2\Z,+\right)\) est un groupe car:
+            \begin{itemize}
+                \item Il est non vide: \(0\in 2\Z\).
+                \item Il est stable par l'addition: si \(a,b\in 2\Z\), alors \(a+b\in 2\Z\).
+                \item Il est stable par l'opposé: si \(a\in 2\Z\), alors \(-a\in 2\Z\).
+            \end{itemize}
+            \item \(\left(2\Z,\times\right)\) n'est pas un groupe car \(0\notin 2\Z\).
+            \item L'ensemble des fonctions de \(\ff{0,1}\) dans \(\R\),
+            muni de l'addition des fonctions, est un groupe.
+            \item L'ensemble des fonctions continues de \(\ff{0,1}\) dans \(\R\),
+            muni de l'addition des fonctions, est un groupe.
+            \item L'ensemble des matrices \(n\times n\) inversibles et
+            à coefficients entiers, muni du produit matriciel, n'est pas un groupe
+            car l'inverse d'une matrice à coefficients entiers n'est pas forcément
+            à coefficients entiers.
+            \item L'ensemble des parties d'un ensemble \(E\), muni de
+            l'union, n'est pas un groupe car il n'est pas stable par l'opposé.
+            \item L'ensemble des permutations \(\sigma\in\mathfrak{S}_6\)
+            telles que \(\sigma^2=\id\), muni de la composition, n'est un groupe
+            car il n'est pas commutatif.
+        \end{itemize}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Tarte à la crème] % 2
+    Soit \(G\) un groupe tel que tout \(x\in G\) vérifie \(x^2=e\).
+    Démontrer que \(G\) est abélien.
+\end{td-exo}
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        On veut montrer que pour tout \(x,y\in G\), \(xy=yx\).
+        Soient \(x,y\in G\). Alors:
+        \begin{equation*}
+            \begin{aligned}
+                {(xy)}^2=e
+                &\implies xyxy=e\\
+                &\implies xyxyy = y\\
+                &\implies xyx = y\\
+                &\implies xyxx = yx\\
+                &\implies xy=yx
+            \end{aligned}
+        \end{equation*}
+        Comme \({(xy)}^2=e\), on a bien \(xy=yx\).
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Petits groupes] % 3
+    Déterminer toutes les tables de multiplication possibles pour des
+    groupes d'ordre \(\le 5\). (On se gardera d'utiliser le théorème de
+    Lagrange.)
+    \begin{itemize}
+        \item Vous devez trouver (au nom des éléments près) un seul groupe
+        d'ordre 1, un seul d'ordre 2, un seul d'ordre 3, deux de l'ordre 4 et
+        un seul d'ordre 5.
+        \item Remarquez que tous ces groupes sont abéliens.
+    \end{itemize}
+\end{td-exo}
+% ----- Solutions exo 3
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 3
+        On va dresser les tables de multiplication pour les groupes d'ordre 1, 2, 3, 4 et 5.
+        On peut retrouver ces tables à partir des ``règles de sudoku''.
+        \begin{itemize}
+            \item Pour l'ordre 1, il n'y a qu'un groupe: \(\{e\}\), de table:
+            \begin{equation*}
+                \begin{array}{c|c} % chktex 44
+                    \times & \cellcolor{blue!20}e \\
+                    \hline % chktex 44
+                    \cellcolor{blue!20}e & \cellcolor{blue!20}e \\
+                \end{array}
+            \end{equation*}
+            \item Pour l'ordre 2, il n'y a qu'un groupe: \(\{e,a\}\), de table:
+            \begin{equation*}
+                \begin{array}{c|cc} % chktex 44
+                    \times & \cellcolor{blue!20}e & \cellcolor{gray!20}a \\
+                    \hline % chktex 44
+                    \cellcolor{blue!20}e & \cellcolor{blue!20}e & \cellcolor{gray!20}a \\
+                    \cellcolor{gray!20}a & \cellcolor{gray!20}a & \cellcolor{blue!20}e \\
+                \end{array}
+            \end{equation*}
+            \item Pour l'ordre 3, il n'y a qu'un groupe: \(\{e,a,b\}\), de table:
+            \begin{equation*}
+                \begin{array}{c|ccc} % chktex 44
+                    \times & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b \\
+                    \hline % chktex 44
+                    \cellcolor{blue!20}e & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b \\
+                    \cellcolor{gray!20}a & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{blue!20}e \\
+                    \cellcolor{gray!30}b & \cellcolor{gray!30}b & \cellcolor{blue!20}e & \cellcolor{gray!20}a \\
+                \end{array}
+            \end{equation*}
+            \item Pour l'ordre 4, il y a deux groupes:
+            \begin{equation*}
+                \begin{array}{c|cccc} % chktex 44
+                    \times & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c \\
+                    \hline % chktex 44
+                    \cellcolor{blue!20}e & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c \\
+                    \cellcolor{gray!20}a & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c & \cellcolor{blue!20}e \\
+                    \cellcolor{gray!30}b & \cellcolor{gray!30}b & \cellcolor{gray!40}c & \cellcolor{blue!20}e & \cellcolor{gray!20}a \\
+                    \cellcolor{gray!40}c & \cellcolor{gray!40}c & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b \\
+                \end{array}
+                \quad \text{et} \quad
+                \begin{array}{c|cccc} % chktex 44
+                    \times & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c \\
+                    \hline % chktex 44
+                    \cellcolor{blue!20}e & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c \\
+                    \cellcolor{gray!20}a & \cellcolor{gray!20}a & \cellcolor{blue!20}e & \cellcolor{gray!40}c & \cellcolor{gray!30}b \\
+                    \cellcolor{gray!30}b & \cellcolor{gray!30}b & \cellcolor{gray!40}c & \cellcolor{blue!20}e & \cellcolor{gray!20}a \\
+                    \cellcolor{gray!40}c & \cellcolor{gray!40}c & \cellcolor{gray!30}b & \cellcolor{gray!20}a & \cellcolor{blue!20}e \\
+                \end{array}
+            \end{equation*}
+
+            \item Pour l'ordre 5, il y a un seul groupe:
+            \begin{equation*}
+                \begin{array}{c|ccccc} % chktex 44
+                    \times & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c & \cellcolor{gray!50}d \\
+                    \hline % chktex 44
+                    \cellcolor{blue!20}e & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c & \cellcolor{gray!50}d \\
+                    \cellcolor{gray!20}a & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c & \cellcolor{gray!50}d & \cellcolor{blue!20}e \\
+                    \cellcolor{gray!30}b & \cellcolor{gray!30}b & \cellcolor{gray!40}c & \cellcolor{gray!50}d & \cellcolor{blue!20}e & \cellcolor{gray!20}a \\
+                    \cellcolor{gray!40}c & \cellcolor{gray!40}c & \cellcolor{gray!50}d & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b \\
+                    \cellcolor{gray!50}d & \cellcolor{gray!50}d & \cellcolor{blue!20}e & \cellcolor{gray!20}a & \cellcolor{gray!30}b & \cellcolor{gray!40}c \\
+                \end{array}
+            \end{equation*}
+        \end{itemize}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Sous-groupes] % 4
+    Lister tous les sous-groupes du groupe symétrique \(\mathfrak{S}_3\).
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 4
+        Commençons par expliciter tous les éléments de \(\mathfrak{S}_3\):
+        \begin{equation*}
+            \mathfrak{S}_3 = \left\{e, (1~2), (1~3), (2~3), (1~2~3), (1~3~2)\right\}
+        \end{equation*}
+
+        Les sous-groupes de \(\mathfrak{S}_3\) sont:
+        \begin{itemize}
+            \item Les groupes triviaux:
+            \begin{itemize}
+                \item \(\{e\}\), le groupe trivial.
+                \item \(\mathfrak{S}_3\), le groupe symétrique.
+            \end{itemize}
+            \item Les sous-groupes engendrés par un élément:
+            \begin{itemize}
+                \item \(\langle (1~2) \rangle = \{e, (1~2)\}\),
+                \item \(\langle (1~3) \rangle = \{e, (1~3)\}\),
+                \item \(\langle (2~3) \rangle = \{e, (2~3)\}\),
+                \item \(\langle (1~2~3) \rangle = \{e, (1~2~3), (1~3~2)\}\),
+                \item \(\langle (1~3~2) \rangle = \langle (1~2~3) \rangle\).
+            \end{itemize}
+            \item Les sous-groupes engendrés par plus d'un élément
+            engendrent tout le groupe.
+        \end{itemize}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[24 heures chrono (contrôle continu 2023--2024)]\, % 5
+    \begin{enumerate}
+        \item Montrer que le groupe \(\Z/24\Z\) a autant de générateurs que de 
+        sous-groupes. Faire la liste des générateurs. Faire la liste des
+        sous-groupes, en décrivant chaque sous-groupe de la manière la plus
+        explicite possible.
+
+        \item Montrer que le groupe \({\left(\Z/24\Z\right)}^\times\) peut
+        être engendré par 3 de ses éléments.
+
+        \item Lister les sous-groupes d'ordre 2 du groupe \({\left(\Z/24\Z\right)}^\times\).
+
+        \item Donner un exemple de sous-groupe d'ordre 4 du groupe
+        \({\left(\Z/24\Z\right)}^\times\). (Bonus: lister tous les sous-groupes d'ordre 4 de \({\left(\Z/24\Z\right)}^\times\).)
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\,
+        \begin{enumerate}
+            \item Les générateurs de \(\Z/24\Z\) sont exactement:
+            \begin{equation*}
+                \ol 1, \ol 5, \ol 7, \ol{11}, \ol{-11}, \ol{-7}, \ol{-5}, \ol{-1}
+            \end{equation*}
+
+            Les sous-groupes de \(\Z/24\Z\) sont:
+            \begin{equation*}
+                \begin{aligned}
+                    \langle\ol{1}\rangle &= \Z/24\Z,\\
+                    \langle\ol{2}\rangle &= \{\ol{0},\ol{2},\ol{4},\ldots,\ol{22}\},\\
+                    \langle\ol{3}\rangle &= \{\ol{0},\ol{3},\ol{6},\ldots,\ol{21}\},\\
+                    \langle\ol{4}\rangle &= \{\ol{0},\ol{4},\ol{8},\ol{12},\ol{16},\ol{20}\},\\
+                    \langle\ol{6}\rangle &= \{\ol{0},\ol{6},\ol{12},\ol{18}\},\\
+                    \langle\ol{8}\rangle &= \{\ol{0}, \ol{8}, \ol{16}\}
+                    \langle\ol{12}\rangle &= \{\ol{0}, \ol{12}\},\\
+                    \langle\ol{24}\rangle &= \{\ol{0}\}.
+                \end{aligned}
+            \end{equation*}
+            Il y en a autant.
+
+            \item On a
+            \begin{equation*}
+                {(\Z/24\Z)}^\times=\langle\ol 5, \ol 7, \ol{-1}\rangle
+            \end{equation*}
+            car
+            \begin{equation*}
+                \begin{aligned}
+                    \ol 5\times \ol 7 = \ol{11}\\
+                    \ol 5\times \ol{-1} = \ol{-5}\\
+                    \ol 7\times \ol{-1} = \ol{-7}\\
+                    \ol 5\times \ol 7\times \ol{-1} = \ol{-11}
+                \end{aligned}
+            \end{equation*}
+
+            \item Un sous-groupe d'ordre 2 est de la forme
+            \begin{equation*}
+                \langle a\rangle = \{\ol 1, a\}
+            \end{equation*}
+            avec \(a\ne\ol 1, a^2 = \ol 1\). Or, \(\forall a\in(\Z/24\Z)^\times\),
+            on a \(a^2=1\). Alors, les sous-groupes d'ordre 2 de \((\Z/24\Z)^\times\)
+            sont:
+            \begin{equation*}
+                \begin{aligned}
+                    \langle\ol 5\rangle &= \{\ol 1, \ol 5\},\\
+                    \langle\ol 7\rangle &= \{\ol 1, \ol 7\},\\
+                    \langle\ol{11}\rangle &= \{\ol 1, \ol{11}\},\\
+                    \langle\ol{-11}\rangle &= \{\ol 1, \ol{-11}\},\\
+                    \langle\ol{-7}\rangle &= \{\ol 1, \ol{-7}\},\\
+                    \langle\ol{-5}\rangle &= \{\ol 1, \ol{-5}\},\\
+                    \langle\ol{-1}\rangle &= \{\ol 1, \ol{-1}\}.
+                \end{aligned}
+            \end{equation*}
+
+            \item Un exemple de sous-groupe d'ordre 4 est
+            \begin{equation*}
+                \langle\ol 5, \ol 7\rangle = \{\ol 1, \ol 5, \ol{7}, \ol{11}\}
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Union de sous-groupes (contrôle continu 2023--2024)]\, % 6
+    \begin{enumerate}
+        \item Soit \(G\) un groupe et \(H,K\)  deux sous-groupes de \(G\).
+        Montrer que \(H\cup K\) est un sous-groupe de \(G\) si et seulement
+        si \(H\subseteq K\) ou \(K\subseteq H\).
+
+        \item Donner un exemple de groupe \(G\) et de trois sous-groupes
+        \(H,K,L\) de \(G\) qui sont tous les trois différents de \(G\) et
+        tels que \(G=H\cup K\cup L\).
+    \end{enumerate}
+\end{td-exo}
+
+\begin{td-exo}[Morphismes de groupes?] % 7
+    Ces choses-là sont-elles des morphismes de groupes?
+    \begin{enumerate}
+        \item \(f\colon\Z\to\Z^\ast, n\mapsto 2^n\).
+        \item \(g\colon\C^\ast\to\C^\ast, z\mapsto z^3\).
+        \item \(h\colon\Z/10\Z\to\Z, \ol k\mapsto k\).
+        \item \(i\colon\glx2(\R)\to\R,A\mapsto\tr(A)\).
+        \item \(j\colon\Z/3\Z\to\Z/6\Z,\ol k\mapsto \tilde k\).
+        \item \(k\colon\mathfrak{S}_4\to\mathfrak{S}_4,\sigma\mapsto\sigma(1~2)\).
+        \item \(l\colon\mathfrak{S}_4\to\mathfrak{S}_4,\sigma\mapsto(1~2)\sigma(1~2)\).
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 7
+        \begin{enumerate}
+            \item \(f\) n'est pas définie.
+            \item \(g\) est un morphisme de groupes car
+            \begin{equation*}
+                g(z_1z_2) = {(z_1z_2)}^3 = z_1^3z_2^3 = g(z_1)g(z_2).
+            \end{equation*}
+            \item \(h\) n'est pas définie
+            \item \(i\) n'est pas un morphisme de groupes car \(\tr(I_2)=2\ne 0\).
+            \item \(j\) n'est pas un morphisme de groupes car \(j(\ol 1+\ol 2)=\tilde 0\ne\tilde 1+\tilde 2=j(\ol 1)+j(\ol 2)\).
+            \item \(k\) n'est pas un morphisme de groupes car \(k(\id)=(1~2)\ne\id\).
+            \item \(l\) est un morphisme de groupes car
+            \begin{equation*}
+                \begin{aligned}
+                    l(\sigma_1\sigma_2) &= (1~2)(\sigma_1\sigma_2)(1~2)\\
+                    &= (1~2)\sigma_1(1~2)(1~2)\sigma_2(1~2)\\
+                    &= l(\sigma_1)l(\sigma_2).
+                \end{aligned}
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
