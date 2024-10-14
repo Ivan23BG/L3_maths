@@ -64,7 +64,6 @@ $(BUILD_DIR)/$(1)/tds/%.pdf: $(SRC_DIR)/$(1)/tds/$$($(1)_TDS_MAIN) $$($(1)_DEPS)
 clean-$(1):
 	rm -rf $(BUILD_DIR)/$(1)
 	rm -rf $(LOG_DIR)/$(1)
-	rm -rf $(PDF_DIR)/$(1)
 
 endef
 
