@@ -1,6 +1,0 @@
-\babel@toc {french}{}\relax 
-\contentsline {section}{\nameref {sec:TD1}}{1}{section*.2}%
-\contentsline {section}{\nameref {sec:TD2}}{8}{section*.5}%
-\contentsline {subsection}{\numberline {2.1}Pour s'entrainer, pour aller plus loin}{15}{subsection.2.1}%
-\contentsline {section}{\nameref {sec:TD3}}{17}{section*.7}%
-\contentsline {section}{\nameref {sec:TD4}}{25}{section*.10}%

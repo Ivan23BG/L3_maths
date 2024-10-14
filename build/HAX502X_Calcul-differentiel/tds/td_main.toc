@@ -1,2 +1,0 @@
-\babel@toc {french}{}\relax 
-\contentsline {section}{\nameref {sec:TD1}}{1}{section*.2}%
