@@ -1,0 +1,104 @@
+\begin{td-exo}[]\, % 1
+    \begin{enumerate}
+        \item Soit \(\Omega\) un ensemble muni d'une tribu \(\scr F\) et 
+        \(x\in\Omega\). Montrer que
+        \begin{equation*}
+            \delta_x(A) = \one_A(x)
+        \end{equation*}
+        définit une probabilité sur \((\Omega,\scr F)\).
+
+        \item Soit \({(\bb P_n)}_{n\ge 1}\) une suite de mesures
+        de probabilité sur un espace mesurable \((\Omega,\scr F)\) et
+        \({(a_n)}_{n\ge 1}\) une suite de réels dans \(\ff{0,1}\). 
+        Montrer que
+        \begin{equation*}
+            \sum_{n=1}^{\infty} a_n \bb P_n
+        \end{equation*}
+        est une probabilité sur \((\Omega,\scr F)\).
+
+        \item Soit \(I\) un intervalle de \(\R\) de mesure de Lebesgue
+        \(\lambda(I)\) finie et strictement positive. Montrer que
+        \begin{equation*}
+            \bb P(A) = \frac{\lambda(A)}{\lambda(I)}
+        \end{equation*}
+        définit une probabilité sur \((I,\scr B(I))\).
+
+        \item Soit \((\Omega,\scr F,\mu)\) un espace mesuré (pas forcément
+        de probabilité) et \(f\colon \Omega\to\fo{0,\infty}\) une fonction
+        mesurable telle que
+        \begin{equation*}
+            \int_{\Omega} f(\omega) \der\mu(\omega) = 1.
+        \end{equation*}
+        Montrer que l'application
+        \begin{equation*}
+            \begin{aligned}
+                \bb P\colon \scr F &\to \bb R\\
+                A &\mapsto \int_{\Omega} f(\omega) \one_A(\omega) \der\mu(\omega)
+            \end{aligned}
+        \end{equation*}
+        est une probabilité sur \((\Omega,\scr F)\).
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 1
+        ~
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 2
+    On considère la mesure \(\bb P\) sur \((\R,\scr B(\R))\) définie par
+    \begin{equation*}
+        \bb P(A) = \frac 13 \delta_0 + \frac 13 \one_{oo{0,2}}(x)\lambda,
+    \end{equation*}
+    où \(\lambda\) est la mesure de Lebesgue sur \((\R,\scr B(\R))\).
+
+    On peut imaginer que cette mesure représente le temps d'attente à un
+    carrefour composé de trois feux piétons (rouge, vert), chaque feu
+    restant au vert pendant une minute.
+
+    \begin{enumerate}
+        \item Montrer que \(\bb P\) est une probabilité sur \((\R,\scr B(\R))\).
+
+        \item Calculer \(\bb P(\ff{a,b})\) pour tout intervalle \(0\le a<b\le 2\).
+
+        \item Déterminer
+        \begin{equation*}
+            \int_{\R} x \der\bb P(x),\qquad\text{puis}\qquad\int_{\R} x^2 \der\bb P(x).
+        \end{equation*}
+    \end{enumerate}
+\end{td-exo}
+
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 2
+        ~
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 3
+    Soit \((\Omega,\scr F,\bb P)\) un espace probabilisé.
+
+    \begin{enumerate}
+        \item Soient \(A\) et \(B\) deux événements.
+        \begin{enumerate}
+            \item Montrer que
+            \begin{equation*}
+                \bb P(A) + \bb P(B) - 1 \le \bb P(A\cap B) \le \min\{\bb P(A),\bb P(B)\}.
+            \end{equation*}
+
+            \item On considère le lancer d'un dé équilibré. Proposer
+            un exemple d'événements \(A\) et \(B\) (d'intersection non vide)
+            pour lequel l'inégalité de gauche est une égalité. Même question
+            pour l'inégalité de droite.
+        \end{enumerate}
+
+        \item Montrer que si \(A_1,\ldots,A_n\) sont des \(n\) événements,
+        alors
+        \begin{equation*}
+            \bb P(A_1) + \cdots + \bb P(A_n) - (n-1) \le \bb P(A_1\cap\cdots\cap A_n)
+            \le \min_{1\le i\le n} \bb P(A_i).
+        \end{equation*}
+    \end{enumerate}
+    
+\end{td-exo}
