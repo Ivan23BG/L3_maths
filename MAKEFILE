@@ -8,6 +8,9 @@ LOG_DIR := logs
 PDF_DIR := pdfs
 COMMON_DIR := $(SRC_DIR)/common
 
+# Parallel compilation
+MAKEFLAGS += --jobs=$(shell nproc)
+
 # Compiler settings
 LATEXMK_FLAGS := -interaction=nonstopmode -shell-escape -pdf
 
@@ -52,13 +55,15 @@ $(BUILD_DIR)/$(1)/cours/%.pdf: $(SRC_DIR)/$(1)/cours/$$($(1)_COURS_MAIN) $$($(1)
 	@mkdir -p $$(dir $$@) $(LOG_DIR)/$(1)
 	@echo "Compiling $$<..."
 	@cd $$(dir $$<) && latexmk $(LATEXMK_FLAGS) --output-directory=$(CURDIR)/$$(dir $$@) $$(notdir $$<) \
-		2>&1 | tee $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log
+		> $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log 2>&1
+	@if [ "$(MAKECMDGOALS)" != "log" ]; then rm -f $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log; fi
 
 $(BUILD_DIR)/$(1)/tds/%.pdf: $(SRC_DIR)/$(1)/tds/$$($(1)_TDS_MAIN) $$($(1)_DEPS)
 	@mkdir -p $$(dir $$@) $(LOG_DIR)/$(1)
 	@echo "Compiling $$<..."
 	@cd $$(dir $$<) && latexmk $(LATEXMK_FLAGS) --output-directory=$(CURDIR)/$$(dir $$@) $$(notdir $$<) \
-		2>&1 | tee $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log
+		> $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log 2>&1
+	@if [ "$(MAKECMDGOALS)" != "log" ]; then rm -f $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log; fi
 
 # Clean rule
 clean-$(1):
@@ -73,8 +78,30 @@ $(foreach mod,$(MODULES),$(eval $(call module_rules,$(mod))))
 # Number-based targets (e.g., make 501)
 $(foreach mod,$(MODULES),$(eval $(shell echo $(mod) | grep -o '5[0-9][0-9]'): $(mod)))
 
+# Number-based clean targets (e.g., make clean-501)
+$(foreach mod,$(MODULES),$(eval clean-$(shell echo $(mod) | grep -o '5[0-9][0-9]'): clean-$(mod)))
+
 # Clean everything
 clean: $(foreach mod,$(MODULES),clean-$(mod))
 	@echo "All build files and logs have been cleaned."
 
-.PHONY: all clean $(MODULES) $(foreach mod,$(MODULES),clean-$(mod))
+log: all
+	@echo "Logs have been generated."
+
+help:
+	@echo "Available targets:"
+	@echo "  all                 - Build all modules"
+	@echo "  <module_name>       - Build a specific module (e.g., HAX501)"
+	@echo "  <module_number>     - Build a specific module by number (e.g., 501)"
+	@echo "  clean               - Clean all build files and logs"
+	@echo "  clean-<module_name> - Clean a specific module (e.g., clean-HAX501)"
+	@echo "  clean-<number>      - Clean a specific module by number (e.g., clean-501)"
+	@echo "  log                 - Build all modules and keep log files"
+
+watch:
+	@while true; do \
+		make all; \
+		inotifywait -qre close_write $(SRC_DIR); \
+	done
+
+.PHONY: all clean log help watch $(MODULES) $(foreach mod,$(MODULES),clean-$(mod))
