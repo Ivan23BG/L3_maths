@@ -35,6 +35,8 @@ $(1)_TDS_SRC := $$(wildcard $(SRC_DIR)/$(1)/tds/$$($(1)_TDS_MAIN))
 # Define dependencies
 $(1)_DEPS := $$(wildcard $(SRC_DIR)/$(1)/assets/*.tex) \
              $$(wildcard $(SRC_DIR)/$(1)/assets/*/*.tex) \
+             $$(wildcard $(SRC_DIR)/$(1)/cours/*.tex) \
+             $$(wildcard $(SRC_DIR)/$(1)/tds/*.tex) \
              $(COMMON_DIR)/*.tex
 
 # Module target
@@ -69,6 +71,8 @@ $(BUILD_DIR)/$(1)/tds/%.pdf: $(SRC_DIR)/$(1)/tds/$$($(1)_TDS_MAIN) $$($(1)_DEPS)
 clean-$(1):
 	rm -rf $(BUILD_DIR)/$(1)
 	rm -rf $(LOG_DIR)/$(1)
+	rm -f $$(PDF_DIR)/$(1)/cours/cours_main.pdf
+	rm -f $(PDF_DIR)/$(1)/tds/td_main.pdf
 
 endef
 
