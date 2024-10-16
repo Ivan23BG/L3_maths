@@ -2,7 +2,7 @@
 %\addcontentsline{toc}{subsection}{\nameref{subsec:1}}
 
 
-\subsubsection{Probabilité}\label{subsubsec:1}
+\subsubsection{Probabilité}\label{subsubsec:1-1}
 \setcounter{subsection}{0}
 %\addcontentsline{toc}{subsubsection}{\nameref{subsubsec:1}}
 \begin{definition}
@@ -94,12 +94,12 @@
     \end{itemize}
 \end{interp}
 
-\subsubsection{Exemples d'espaces probabilisés}\label{subsubsec:2}
+\subsubsection{Exemples d'espaces probabilisés}\label{subsubsec:1-2}
 \setcounter{subsection}{0}
 %\addcontentsline{toc}{subsubsection}{\nameref{subsubsec:2}}
 Suivent quelques exemples classiques d'espaces probabilisés.
 
-\begin{exs}
+\begin{exs}[]
     cours a completer
 \end{exs}
 
@@ -133,8 +133,10 @@ Suivent quelques exemples classiques d'espaces probabilisés.
     \end{equation*}
     On s'intéresse à la somme des résultats obtenus et on définit
     \begin{equation*}
-        X\colon \Omega&\to \{2,\dots,12\}\\
-        (i,j) &\mapsto i+j
+        \begin{aligned}
+            X\colon \Omega&\to \{2,\dots,12\}\\
+            (i,j) &\mapsto i+j
+        \end{aligned}
     \end{equation*}
     On munit l'ensemble d'arrivée de la tribu pleine.
 
@@ -150,8 +152,10 @@ Suivent quelques exemples classiques d'espaces probabilisés.
     On considère la tribu \(\scr F\) la plus petite tribu contenant les \(A_{x_1,\dots,x_k}\). On s'intéresse
     au nombre de lancers jusqu'à l'apparition du premier 6. On définit
     \begin{equation*}
-        Y\colon \Omega&\to \N^\ast\cup\{+\infty\}\\
-        \omega ={{(\omega_n)}_{n\in\N^\ast}}&\mapsto \inf\{n\in\N^\ast\mid \omega_n = 6\}
+        \begin{aligned}
+            Y\colon \Omega&\to \N^\ast\cup\{+\infty\}\\
+            \omega ={{(\omega_n)}_{n\in\N^\ast}}&\mapsto \inf\{n\in\N^\ast\mid \omega_n = 6\}
+        \end{aligned}
     \end{equation*}
     avec la convention \(\inf\emptyset = +\infty\). On munit l'ensemble d'arrivée de la tribu pleine.
 
@@ -190,8 +194,10 @@ Suivent quelques exemples classiques d'espaces probabilisés.
     \end{equation*}
     On s'intéresse à la position de la bouteille au temps \(t=1\). On définit
     \begin{equation*}
-        Z\colon \Omega&\to \R^2\\
-        \omega&\mapsto \omega(1)
+        \begin{aligned}
+            Z\colon \Omega&\to \R^2\\
+            \omega&\mapsto \omega(1)
+        \end{aligned}
     \end{equation*}
 
     Alors, par construction de la tribu \(\scr F\), on a que \(Z\) est une variable aléatoire.
@@ -205,7 +211,7 @@ Suivent quelques exemples classiques d'espaces probabilisés.
     \end{equation*}
 \end{definition}
 
-\begin{exs}\,\\
+\begin{exs}[]\,\\
     \(\triangleright\) Infinité de lancers d'un dé.
 
     On considère

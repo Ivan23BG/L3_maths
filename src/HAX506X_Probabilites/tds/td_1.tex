@@ -9,7 +9,10 @@
 
         \item Soit \({(\bb P_n)}_{n\ge 1}\) une suite de mesures
         de probabilité sur un espace mesurable \((\Omega,\scr F)\) et
-        \({(a_n)}_{n\ge 1}\) une suite de réels dans \(\ff{0,1}\). 
+        \({(a_n)}_{n\ge 1}\) une suite de réels dans \(\ff{0,1}\) telle que
+        \begin{equation*}
+            \sum_{n=1}^{\infty} a_n = 1.
+        \end{equation*}
         Montrer que
         \begin{equation*}
             \sum_{n=1}^{\infty} a_n \bb P_n
@@ -41,8 +44,22 @@
 \end{td-exo}
 % ----- Solutions exo 1
 \iftoggle{showsolutions}{
-    \begin{td-sol}[] % 1
-        ~
+    \begin{td-sol}[]\, % 1
+        \begin{enumerate}
+            \item Commençons par montrer que
+            \begin{equation*}
+                \delta_x(A)
+            \end{equation*}
+            est une mesure, puis que c'est une probabilité.
+
+            \begin{itemize}[label=\(\triangleright\)]
+                \item On a \(\delta_x(A)\) une mesure par définition.
+                \item Comme \(x\in\Omega\), on a toujours \(\delta_x(\Omega)=1\).
+            \end{itemize}
+
+            Ainsi, comme \(\delta_x\) est une mesure et \(\delta_x(\Omega)=1\),
+            on a bien que \(\delta_x\) est une probabilité.
+        \end{enumerate}
     \end{td-sol}
 }{}
 
