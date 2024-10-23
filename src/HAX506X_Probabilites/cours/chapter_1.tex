@@ -404,3 +404,273 @@ remarque, la loi \(\cal N(0,1)\), c'est-à-dire avec la densité
     f_X(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
 \end{equation*}
 est appelée loi normale standard.
+
+
+\subsection{Moments d'une variable aléatoire} %2.3
+
+On considère dans la suite \(\left(\Omega, \scr F, \bb P\right)\) un
+espace probabilisé
+
+\subsubsection{Espérance} % 2.3.1
+
+\begin{definition}
+    Soit \(X\colon\Omega\to\bb R\) une variable aléatoire réelle.
+    On appelle \defemph{espérance} de \( X\) la quantité
+    \begin{equation*}
+        \bb E\ff X = \int_{\Omega} X(\omega) \der\bb P(\omega)
+    \end{equation*}
+    qui est bien définie si \(X\) est positive ou si 
+    \(X\in\scr L^1\left(\Omega, \scr F, \bb P\right)\).
+
+    On définit de même l'espérance d'une variable aléatoire
+    \(X\colon\Omega\to\bb C\). Sk \(X=\left(X_1,\ldots,X_d\right)\)
+    est un vecteur aléatoire, alors on pose
+    \begin{equation*}
+        \bb E\ff X = \left(\bb E\ff{X_1},\ldots,\bb E\ff{X_d}\right)
+    \end{equation*}
+    si \(\bb E\ff{X_i}\) existe pour tout \(i\in\{1,\ldots,d\}\).
+\end{definition}
+
+\begin{remark}\,
+    \begin{enumerate}
+        \item On interprète \(\bb E\ff X\) comme la valeur moyenne de \(X\).
+
+        \item Si \(\bb E\ff X = 0\), on dit que \(X\) est \defemph{centrée}.
+
+        \item Si \(X = \one_A\), alors \(\bb E\ff X = \bb P(A)\).
+
+        \item On omettra le cas où \(X\) est positive et \(\bb E\ff X = +\infty\).
+    \end{enumerate}
+\end{remark}
+
+\begin{proposition}
+    Soient \(X\) et \(Y\) deux variables aléatoires admettant une espérance
+    et \(a,b\in\bb R\). Alors
+    \begin{equation*}
+        \bb E\ff{aX + bY} = a\bb E\ff X + b\bb E\ff Y
+    \end{equation*}
+
+    De plus, si \(X>0\), alors \(\bb E\ff X\geq 0\) avec
+    \(\bb E\ff X = 0\) si et seulement si \(X=0\)-\(\bb P\)-p.p.
+\end{proposition}
+
+\begin{proposition}[Formule de transfert]
+    Soit \(X\colon \Omega\to E\) une variable aléatoire à valeurs
+    dans un espace mesurable\(\left(E, \scr E\right)\). Soit
+    \(h\colon E\to\bb R\) une fonction mesurable positive.
+
+    Alors, \(h\circ X\) est une variable aléatoire et
+    \begin{equation*}
+        \begin{aligned}
+            \bb E\ff{h(X)} 
+            &= \int_{\Omega} h(X(\omega))\der\bb P(\omega)\\
+            &=\int_{E} h(x)\der\bb P_X(x)
+        \end{aligned}
+    \end{equation*}
+
+    Si \(h\colon E\to\bb R\) et mesurable (pas forcément positive),
+    alors \(h\in\scr ^1\left(E, \scr E, \bb P_X\right)\) si et seulement
+    si \(h\circ X\in\scr L^1\left(\Omega, \scr F, \bb P\right)\)
+    et l'égalité précédente reste vraie.
+\end{proposition}
+
+\begin{proof}
+    Vue en théorie de la mesure.
+
+    On vérifie l'égalité:
+    \begin{itemize}
+        \item pour les fonctions indicatrices,
+        \item pour les fonctions étagées,
+        \item pour les fonctions positives,
+        \item pour les fonctions intégrables
+    \end{itemize}
+\end{proof}
+
+\begin{remark}
+    En particulier, si \(E = \bb R\) et \(h=\id_{\bb R}\), on 
+    obtient
+    \begin{equation*}
+        \bb E\ff X = \int_{\bb R} x\der\bb P_X(x)
+    \end{equation*}
+    à condition que cette quantité existe.
+\end{remark}
+
+\begin{exs}
+    Loi de Bernoulli
+    \begin{equation*}
+        \bb P_X = (1-p)\delta_0 + p\delta_1\\
+    \end{equation*}
+    \begin{equation*}
+        \begin{aligned}
+            \bb E\ff X 
+            &= \int_{\bb R} x\der\bb P_X(x) \\
+            &= \int_{\bb R} x \der\left((1-p)\delta_0 + p\delta_1\right)(x)\\
+            &=(1-p)\underbrace{\int_{\bb R} x \der\delta_0(x)}_{=0} + p \underbrace{\int_{\bb R} x\der\delta_1(x)}_{=1}\\
+            &= p
+        \end{aligned}
+    \end{equation*}
+
+    Si \(X\) suit une loi discrète
+    \begin{equation*}
+        \bb P_X = \sum_{k=1}^{\infty}p_k\delta_{i_k}
+    \end{equation*}
+    alors son espérance vaut
+    \begin{equation*}
+        \begin{aligned}
+            \bb E\ff X
+            &= \int_{\R} x\der\bb P_X\\
+            &=\sum_{k=1}^\infty p_k \underbrace{\int_{\R} x\der\delta_{x_k}}_{=x_k}\\
+            &=\sum_{k=1}^{\infty} p_k x_k
+        \end{aligned}
+    \end{equation*}
+\end{exs}
+
+\begin{proposition}
+    Soit \(X\colon \Omega\to E\) une variable aléatoire.
+    La loi de \(X\) est caractérisée par les quantités
+    \(\bb E\ff{h(X)}\) où \(h\colon E\to\bb R\) décrit l'ensemble
+    des fonctions mesurables bornées. 
+
+    C'est-à-dire, si \(X\) et \(X'\) sont deux variables aléatoires
+    vérifiant
+    \begin{equation*}
+        \bb E\ff{h(X)} = \bb E\ff{h(X')}
+    \end{equation*}
+    pour toute fonction \(h\) mesurable bornée, alors \(X\) et \(X'\)
+    ont la même loi.
+\end{proposition}
+
+\begin{proof}
+    Soient \(X\) et \(X'\) telles que \(\bb E\ff{h(X)} = \bb E\ff{h(X')}\)
+    pour toute fonction \(h\) mesurable bornée.
+
+    Soit \(A\in\scr E\). On pose \(h = \one_A\) et alors
+    \begin{equation*}
+        \bb P(X\in A) = \bb E\ff{\one_A(X)} = \bb E\ff{h(X)} = \bb E\ff{h(X')} = \bb E\ff{\one_A(X')} = \bb P(X'\in A)
+    \end{equation*}
+    Donc \(X\) et \(X'\) ont la même loi.
+\end{proof}
+
+\begin{exs}
+    On considère une variable aléatoire \(X\) de loi uniforme sur \(\oo{0,1}\)
+    et on pose \(Y = -\ln(X)\). Déterminons la loi de \(Y\).
+
+    Soit \(h\) une fonction mesurable bornée. Alors
+    \begin{equation*}
+        \begin{aligned}
+            \bb E\ff{h(Y)} 
+            &= \bb E\ff{h(-\ln(X))}\\
+            &= \int_{\R} h(-\ln(x))\der\bb P_X(x)\\
+            &= \int_{\R} h(-\ln(x)) \underbrace{\one_{\oo{0,1}}(x)\der\lambda_1(x)}_{=\bb P_X}\\
+            &= \int_{\R} h(y) \underbrace{\one_{\oo{0,\infty}}(y) e^{-y}\der\lambda_1(y)}_{=\bb P_X}\qquad\text{ avec }y=-\ln(x)
+        \end{aligned}
+    \end{equation*}
+    D'après la proposition précédente, la loi de \(Y\) est
+    \begin{equation*}
+        \one_{\oo{0,\infty}}(y)e^{-y}\lambda_1(y)
+    \end{equation*}
+    c'est-à-dire que \(Y\) suit une loi exponentielle de paramètre 1.
+\end{exs}
+
+\subsubsection{Moments d'ordre \(p\)} % 2.3.2
+
+Pour \(p\in\fo{1,\infty}\), on définit l'espace \(\scr L^p(\Omega, \scr F, \bb P)\)
+comment l'ensemble des variables aléatoires vérifiant
+\begin{equation*}
+    \nn{X}_p = {\left(\int_{\Omega}\n{X(\omega)}^p\der\bb P(\omega)\right)}^{\frac1p}<\infty
+\end{equation*}
+
+On a bien que \(\nn\cdot_p\) est une norme qui rend \(\scr L^p(\Omega, \scr F, \bb P)\) complet
+(toute suite de Cauchy converge).
+
+Dans le cas \(p=\infty\), on pose
+\begin{equation*}
+    \nn X_\infty = \sup_{\omega\in\Omega}\n{X(\omega)}=\lim_{p\to\infty}\nn X_p
+\end{equation*}
+Donc \(\scr L^\infty (\Omega,\scr F,\bb P)\) est l'ensemble des variables aléatoires bornées.
+
+\begin{definition}
+    Soit \(p\in\fo{1,\infty}\) et \(X\) une variable aléatoire dans
+    \(\scr L^p(\Omega, \scr F, \bb P)\). Le \defemph{moment d'ordre \(p\)} de
+    \(X\) est
+    \begin{equation*}
+        \bb E\ff{X^p} = \int_{\Omega} {X(\omega)}^p\der\bb P(\omega) = \int_{\bb R}x^p\der\bb P_X(x)
+    \end{equation*}
+\end{definition}
+
+\begin{remark}\,
+    \begin{enumerate}
+        \item Le moment d'ordre 1 correspond à l'espérance.
+
+        \item Si \(p\leq q\) alors \(\scr L^q(\Omega, \scr F, \bb P)\subset \scr L^p(\Omega, \scr F, \bb P)\)
+
+        En particulier, si \(X\) admet un moment d'ordre \(q\) alors \(X\) admet un moment
+        d'ordre \(p\) pour tout \(p\leq q\)
+    \end{enumerate}
+\end{remark}
+
+\begin{proposition}[Inégalité de Markov]
+    Soit \(X\) une variable aléatoire réelle positive et
+    \(p\in\fo{1,\infty}\). Alors, pour tout \(t> 0\), on a
+    \begin{equation*}
+        \bb P(X\geq t) \leq \frac{\bb E\ff{X^p}}{t^p}
+    \end{equation*}
+
+    Cette inégalité permet de contrôler le comportement à l'infini
+    de \(X\).
+\end{proposition}
+
+\begin{proof}
+    On part de l'inégalité
+    \begin{equation*}
+        t^p\one_{\{X\geq t\}}\leq X^p
+    \end{equation*}
+    On applique l'espérance
+    \begin{equation*}
+        \begin{aligned}
+            \t^p\bb E\ff{\one_{\{X\geq t\}}}&\leq \bb E\ff{X^p}\\
+            \bb P(X\geq t)&\leq \frac{\bb E\ff{X^p}}{t^p}
+        \end{aligned}
+    \end{equation*}
+\end{proof}
+
+% paragraphe non numéroté
+
+Le cas \(\scr L^2(\Omega, \scr F, \bb P)\):
+
+On rappelle que \(\scr L^2(\Omega, \scr F, \bb P)\) est muni d'un
+produit scalaire
+\begin{equation*}
+    \langle X,Y\rangle = \bb E\ff{XY} = \int_{\Omega} X(\omega)Y(\omega)\der\bb P(\omega)
+\end{equation*}
+La norme associée est
+\begin{equation*}
+    \nn X_2 = \sqrt{\langle X, X\rangle} = \sqrt{\int_{\Omega}{X(\omega)}^2\der\bb P(\omega)}
+\end{equation*}
+
+\begin{definition}
+    La \defemph{variance} d'une variable aléatoire réelle \(X\) est le 
+    moment d'ordre 2 de \(X-\bb E\ff X\), soit
+    \begin{equation*}
+        \text{VAR REPLACE \backslash VAR}(X) = \nn{X-\bb E\ff X}_2^2 = \int_{\Omega}{\left(X(\omega) -\bb E\ff X\right)}^2\der\bb P(\omega),
+    \end{equation*}
+    qui est bien définie si \(X\in\scr L^2(\Omega, \scr F, \bb P)\).
+
+    On définit \defemph{l'écart-type} par
+    \begin{equation*}
+        \sigma(X) = \sqrt[\text{VARRRR}(X)] = \nn{X-\bb E\ff X}_2
+    \end{equation*}
+\end{definition}
+
+\begin{remark}\,
+    \begin{enumerate}
+        \item En développant le carré dans la définition de la variance,
+        on obtient
+        \begin{equation*}
+            \text{VARRRRR}(X) = \bb E\ff{X^2} - {\bb E\ff X}^2
+        \end{equation*}
+
+        \item On a \(\text{VARRR}(X) = 0\) si et seulement si \(X\)
+        est constante.
+    \end{enumerate}
+\end{remark}

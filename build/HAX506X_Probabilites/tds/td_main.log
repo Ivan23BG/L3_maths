@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.10)  16 OCT 2024 08:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.10)  21 OCT 2024 09:15
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1355,7 +1355,7 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 64.
+(mdframed)              on input line 167.
  [1
 
 {C:/Users/ileje/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ilej
@@ -1368,52 +1368,121 @@ Users/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolC.en
 c}{C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymb
 olF.enc}{C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/
 MnSymbolA.enc}]
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 167.
+ [2]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 66.
+(mdframed)              on input line 169.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 250.
+ [3]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 252.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 352.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 352.
+ [4]) [5] (../tds/td_2.tex
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 47.
+
+! Extra alignment tab has been changed to \cr.
+<template> ...@ \unhbox \z@ $\relax $\endtemplate 
+                                                  
+l.47 }{}
+        
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 49.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 94.
+LaTeX Font Info:    Freeze math alphabet allocation in version normal.
+(Font)              Allocated math groups: 14 (local: 2) on input line 94.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
+ne 94.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 96.
-) [2]
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 98.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 98.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 99.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 101.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 103.
+[6{C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymb
+olS.enc}]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 111.
+) [7]
 (C:/Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX506X_Probabilites\td
 s\td_main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
-Package rerunfilecheck Info: File `td_main.out' has not changed.
-(rerunfilecheck)             Checksum: 78CC409E989EA04CDA4EC492002F47E6;189.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `td_main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `td_main.out':
+(rerunfilecheck)             Before: 78CC409E989EA04CDA4EC492002F47E6;189
+(rerunfilecheck)             After:  816A53267E346A77E0F7A7AB097E9618;243.
  ) 
 Here is how much of TeX's memory you used:
- 38495 strings out of 475248
- 860818 string characters out of 5756875
- 1934785 words of memory out of 5000000
- 59288 multiletter control sequences out of 15000+600000
- 635961 words of font info for 132 fonts, out of 8000000 for 9000
+ 38551 strings out of 475248
+ 861485 string characters out of 5756875
+ 1955785 words of memory out of 5000000
+ 59302 multiletter control sequences out of 15000+600000
+ 636486 words of font info for 135 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,8n,110p,808b,623s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,16n,110p,808b,785s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnS
 ymbol10.pfb><C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/type1/public/mn
-symbol/MnSymbol7.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type
-1/public/doublestroke/dsrom10.pfb><C:/Users/ileje/AppData/Local/Programs/my_lat
-ex/fonts/type1/public/lm/lmbx10.pfb><C:/Users/ileje/AppData/Local/Programs/my_l
-atex/fonts/type1/public/lm/lmmi10.pfb><C:/Users/ileje/AppData/Local/Programs/my
-_latex/fonts/type1/public/lm/lmmi7.pfb><C:/Users/ileje/AppData/Local/Programs/m
-y_latex/fonts/type1/public/lm/lmr10.pfb><C:/Users/ileje/AppData/Local/Programs/
-my_latex/fonts/type1/public/lm/lmr12.pfb><C:/Users/ileje/AppData/Local/Programs
-/my_latex/fonts/type1/public/lm/lmr7.pfb><C:/Users/ileje/AppData/Local/Programs
-/my_latex/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/ileje/AppData/Local/Prog
-rams/my_latex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/ileje/Ap
-pData/Local/Programs/my_latex/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:
-/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/rsfs/rsfs10.pfb
->
+symbol/MnSymbol5.pfb><C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/mnsymbol/MnSymbol7.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/f
+onts/type1/public/doublestroke/dsrom10.pfb><C:/Users/ileje/AppData/Local/Progra
+ms/my_latex/fonts/type1/public/lm/lmbx10.pfb><C:/Users/ileje/AppData/Local/Prog
+rams/my_latex/fonts/type1/public/lm/lmmi10.pfb><C:/Users/ileje/AppData/Local/Pr
+ograms/my_latex/fonts/type1/public/lm/lmmi5.pfb><C:/Users/ileje/AppData/Local/P
+rograms/my_latex/fonts/type1/public/lm/lmmi7.pfb><C:/Users/ileje/AppData/Local/
+Programs/my_latex/fonts/type1/public/lm/lmr10.pfb><C:/Users/ileje/AppData/Local
+/Programs/my_latex/fonts/type1/public/lm/lmr12.pfb><C:/Users/ileje/AppData/Loca
+l/Programs/my_latex/fonts/type1/public/lm/lmr5.pfb><C:/Users/ileje/AppData/Loca
+l/Programs/my_latex/fonts/type1/public/lm/lmr7.pfb><C:/Users/ileje/AppData/Loca
+l/Programs/my_latex/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/ileje/AppData/
+Local/Programs/my_latex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/User
+s/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/amsfonts/symbols/msb
+m7.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/rsfs/
+rsfs10.pfb>
 Output written on C:/Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX506
-X_Probabilites\tds\td_main.pdf (2 pages, 221494 bytes).
+X_Probabilites\tds\td_main.pdf (7 pages, 303846 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -53,12 +53,115 @@
             est une mesure, puis que c'est une probabilité.
 
             \begin{itemize}[label=\(\triangleright\)]
-                \item On a \(\delta_x(A)\) une mesure par définition.
+                \item Pour faire un rappel, vérifions les propriétés d'une mesure:
+                \begin{itemize}
+                    \item On a bien \(\delta_x(\varnothing) = 0\) pour tout \(x\in\Omega\)
+
+                    \item On considère \({(A_n)}_{n\in\N}\) une suite d'ensembles 2 à 2
+                    disjoints de \(\scr F\). Alors
+                    \begin{equation*}
+                        \begin{aligned}
+                            \delta_x\left(\bigcup_{n\in\N}A_n\right)
+                            &= \one_{\cup_{n=1}^\infty A_n}(x)\\
+                            &=\sum_{n=1}^\infty \one_{A_n}(x)\\
+                            &=\sum_{n=0}^\infty \delta_x A_n
+                        \end{aligned}
+                    \end{equation*}
+                \end{itemize}
+                Ainsi, \(\delta_x(A)\) est bien une mesure.
                 \item Comme \(x\in\Omega\), on a toujours \(\delta_x(\Omega)=1\).
             \end{itemize}
 
             Ainsi, comme \(\delta_x\) est une mesure et \(\delta_x(\Omega)=1\),
             on a bien que \(\delta_x\) est une probabilité.
+
+            \item On considère
+            \begin{equation*}
+                \bb P = \sum_{n=1}^\infty a_n\bb P_n
+            \end{equation*}
+            Vérifions les hypothèses d'une probabilité:
+            \begin{itemize}[label=\(\triangleright\)]
+                \item On a
+                \begin{equation*}
+                    \bb P(\varnothing) = \sum_{n=1}^\infty a_n\underbrace{\bb P_n(\varnothing)}_{=0}=0
+                \end{equation*}
+
+                \item On considère \({(A_k)}_{k\in\N}\) une suite d'ensembles 2 à 2
+                disjoints. Alors
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P\left(\bigcup_{k=0}^\infty A_k\right)
+                        &= \sum_{n=1}^\infty a_n\bb P_n\left(\bigcup_{k=0}^\infty A_k\right) \\
+                        &= \sum_{n=1}^\infty a_n \sum_{k=0}^\infty \bb P(A_k)\\
+                        &= \sum_{k=0}^\infty \underbrace{\sum_{n=1}^\infty a_n\bb P_n(A_k)}_{=\bb P(A_k)}\\
+                        &= \sum_{k=0}^\infty \bb P(A_k)
+                    \end{aligned}
+                \end{equation*}
+                On rappelle qu'on peut intervertir les deux sommes car tous les éléments sont positifs
+
+                \item Enfin, on a
+                \begin{equation*}
+                    \bb P(\Omega) = \sum_{n=1}^\infty a_n\underbrace{\bb P_n(\Omega)}_{=1} = \sum_{n=1}^\infty a_n = 1.
+                \end{equation*}
+            \end{itemize}
+
+            \item On considère
+            \begin{equation*}
+                \bb P(A) = \frac{\lambda(A)}{\lambda(I)}
+            \end{equation*}
+
+            Comme \(\lambda\) est une mesure et \(\frac{1}{\lambda(I)}\ge 0\),
+            on a bien que \(\bb P\) est une mesure. Montrons maintenant que c'est
+            une probabilité:
+
+            \(\triangleright\) Comme
+            \begin{equation*}
+                \bb P(I) = \frac{\lambda(I)}{\lambda(I)} = 1
+            \end{equation*}
+            on a bien que \(\bb P\) est une probabilité.
+
+            \item On considère
+            \begin{equation*}
+                \bb P(A) = \int_{\Omega}f(\omega)\one_A(\omega)\der\mu(\omega) = \int_A f(\omega)\der\mu(\omega)
+            \end{equation*}
+            On vérifie les hypothèses:
+            \begin{itemize}[label=\(\triangleright\)]
+                \item On a
+                \begin{equation*}
+                    \bb P(\varnothing) = \int_{\Omega} f(\omega)\one_{\varnothing}(\omega)\der\mu(\omega)=0
+                \end{equation*}
+
+                \item On considère \({(A_n)}_{n\in\N}\) une suite d'ensembles 2 à 2 disjoints de \(\scr F\). Alors
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P\left(\bigcup_{n=0}^\infty A_n\right)
+                        &= \int_{\Omega}f(\omega) \one_{\cup_{n=0}^\infty A_n}(\omega)\der\mu(\omega)\\
+                        &= \int_{\Omega}f(\omega)\sum_{n=0}^\infty \one_{A_n}(\omega)\der\mu(\omega)
+                    \end{aligned}
+                \end{equation*}
+                Comme on a la positivité et la somme est finie, on peut appliquer le théorème
+                de convergence monotone pour intervertir somme et integrale. Alors
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P\left(\bigcup_{n=0}^\infty A_n\right)
+                        &= \int_{\Omega}f(\omega)\sum_{n=0}^\infty \one_{A_n}(\omega)\der\mu(\omega)\\
+                        &= \sum_{n=0}^{\infty} \int_{\Omega} f(\omega)\one_{A_n}(\omega)\der\mu(\omega)\\
+                        &= \sum_{n=0}^{\infty} \bb P(A_n)
+                    \end{aligned}
+                \end{equation*}
+
+                \item On a
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(\Omega)
+                        &= \int_{\Omega} f(\omega)\underbrace{\one_{\Omega}(\omega)}_{=1}\der\mu(\omega)\\
+                        &= \int_{\Omega} f(\omega)\der\mu(\omega)\\
+                        &= 1
+                    \end{aligned}
+                \end{equation*}
+            \end{itemize}
+
+            On a donc montré que \(\bb P\) est une probabilité
         \end{enumerate}
     \end{td-sol}
 }{}
@@ -88,8 +191,61 @@
 
 % ----- Solutions exo 2
 \iftoggle{showsolutions}{
-    \begin{td-sol}[] % 2
-        ~
+    \begin{td-sol}[]\, % 2
+        On rappelle que
+        \begin{equation*}
+            \bb P = \frac 13 \delta_0 + \frac 13 \one_{\oo{0,2}}(x)\lambda
+        \end{equation*}
+        et
+        \begin{equation*}
+            \begin{aligned}
+                \bb P(A) 
+                &= \frac 13 \delta_0(A) + \frac 13 \int_A \one_{\oo{0,2}}(x) \der\lambda(x)\\
+                &= \frac 13 \delta_0(A) + \frac 13 \lambda\left(\oo{0,2}\cap A\right)
+            \end{aligned}
+        \end{equation*}
+
+        \begin{enumerate}
+            \item On vérifie que c'est une probabilité:
+            \begin{equation*}
+                \bb P = \frac 13 \bb P_1 + \frac 23 \bb P_2
+            \end{equation*}
+            avec \(\bb P_1=\delta_0\) et \(\bb P_2 = \frac 12\lambda\left(\oo{0,2}\cap\cdot\right)\).
+
+            L'exercice 1 assure que \(\bb P\) est une probabilité
+
+            \item On a
+            \begin{equation*}
+                \bb P_1\left(\ff{a,b}\right) = \delta_0\left(\ff{a,b}\right) = \one_{\{0\}}(a)
+            \end{equation*}
+            et
+            \begin{equation*}
+                \bb P_2\left(\ff{a,b}\right) = \frac 12 \lambda\left(\oo{0,2}\cap\ff{a,b}\right) = \frac{b-a}2
+            \end{equation*}
+            Alors
+            \begin{equation*}
+                \bb P\left(\ff{a,b}\right) = \frac 13 \one_{\{0\}}(a) = \frac 13(b-a)
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    \int_{\bb R} x\der \bb P(x)
+                    &= \frac 13 \int_{\bb R} x\der\delta_0(x) + \frac 13 \int_{\bb R} x\one_{\oo{0,2}}(x)\der\lambda(x)\\
+                    &=\frac 13\times 0 + \frac 13 {\left[\frac{x^2}2\right]}_0^2\\
+                    &= \frac 23
+                \end{aligned}
+            \end{equation*}
+            Il suit
+            \begin{equation*}
+                \begin{aligned}
+                    \int_{\bb R} x^2\der\bb P(x)
+                    &= \frac 13 \int_{\bb R} x^2\der\delta_0(x) + \frac 13 \int_{\bb R} x^2\one_{\oo{0,2}}(x)\der\lambda(x)\\
+                    &= \frac 13\times 0^2 + \frac 13{\left[\frac{x^3}3\right]}_0^2\\
+                    &=\frac 89
+                \end{aligned}
+            \end{equation*}
+        \end{enumerate}
     \end{td-sol}
 }{}
 
@@ -117,5 +273,80 @@
             \le \min_{1\le i\le n} \bb P(A_i).
         \end{equation*}
     \end{enumerate}
-    
 \end{td-exo}
+
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        \begin{enumerate}
+            \item On a
+            \begin{enumerate}
+                \item \(\bb P(A) + \bb P(B) - \bb P(A\cap B)\le 1\)
+                et \(A\cap B \subset A,\quad A\cap B\subset B\), on en déduit
+                facilement les inégalités.
+
+                \item On peut considérer
+                \begin{equation*}
+                    A = \{1, 2, 3\},\quad B = \{3, 4, 5, 6\}
+                \end{equation*}
+                Alors 
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(A) + \bb P(B) - 1
+                        &= \frac 36 + \frac 46 - \frac 66
+                        &= \frac {7-6}6
+                        &= \frac 16
+                        &= \bb P(\{3\})
+                        &= \bb P(A\cap B)
+                    \end{aligned}
+                \end{equation*}
+                
+                Pour la deuxième partie, on peut considérer
+                \begin{equation*}
+                    A= \{1\}, \quad B = \{1,2\}
+                \end{equation*}
+                Alors
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(A\cap B)
+                        &= \bb P(\{1\})
+                        &= \frac 16
+                        &\le \frac 16
+                        &= \min\left(\bb P(A), \bb P(B)\right)
+                    \end{aligned}
+                \end{equation*}
+            \end{enumerate}
+
+            \item On fait une preuve par récurrence:
+
+            \begin{itemize}[label=\(\triangleright\)]
+                \item Hypothèse: 
+                \begin{equation*}
+                    \bb P(n) = \sum_{i=1}^n\bb P(A_i)-(n-1)\le\bb P(\cap_{i=1}^n A_i)
+                \end{equation*}
+                l'initialisation est montrée à l'exercice 1.
+
+                \item Hérédité:
+
+                On suppose \(\bb P(n)\) vrai pour un \(n\in\bb N\) fixé, prouvons \(\bb P(n+1)\):
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(\cap_{i=1}^{n+1} A_i)
+                        &= \bb P(\cap_{i=1}^n A_i\cap A_{n+1})\\
+                        &\geq \bb P(\cap_{i=1}^n A_i) + \bb P(A_{n+1}) -1\\
+                        &\geq \sum_{i=1}^{n+1} \bb P(A_i) - n
+                    \end{aligned}
+                \end{equation*}
+                Pour la deuxième inégalité on a
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(A_1\cap\cdots\cap A_n)
+                        &\le \min\left(\bb P(A_1\cap\cdots\cap A_{n-1}), \bb P(A_n)\right)\\
+                        &\le \min\left(\min \bb P(A_1\cap\cdots\cap A_{n-1})\right)\cdots\\
+                        &\le \min_{i\in\{1,\dots,n\}} \bb P(A_i)
+                    \end{aligned}
+                \end{equation*}
+            \end{itemize}
+        \end{enumerate}
+    \end{td-sol}
+}{}

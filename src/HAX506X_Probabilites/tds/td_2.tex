@@ -1,0 +1,159 @@
+\begin{td-exo}[]\, % 1
+    On tire deux fois avec remise dans une urne contenant trois boules
+    numérotées \(1, 2, 3\). On désigne par \(X\) la somme des résultats
+    obtenus. Montrer que \(X\) est une variable aléatoire discrète entre
+    un espace probabilisé et un espace mesurable à déterminer. Donner la
+    loi de \(X\).
+\end{td-exo}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 1
+        On veut montrer que \(X\) est une application mesurable de
+        \(\Omega\) dans \(E\). Déterminons d'abord l'espace de départ
+        \(\left(\Omega, \scr F, \bb P\right)\).
+
+        \(\triangleright\) L'espace de départ correspond à l'ensemble
+        des résultats possibles pour chaque boule tirée, donc
+        \begin{equation*}
+            \Omega = {\left\{1,2,3\right\}}^2
+        \end{equation*}
+        qu'on munit de la tribu pleine.
+
+        \(\triangleright\) L'espace d'arrivée correspond aux résultats
+        étudiés, soit ici
+        \begin{equation*}
+            E = \left\{2,3,4,5,6\right\}
+        \end{equation*}
+        qu'on munit aussi de la tribu pleine.
+
+        \(\triangleright\) Alors, on a
+        \begin{equation*}
+            \begin{aligned}
+                X:\Omega &\to E\\
+                (a,b) &\mapsto a+b
+            \end{aligned}
+        \end{equation*}
+
+        \(\triangleright\) La loi de \(X\) est donc
+        \begin{equation*}
+            \bb P_X(\omega) =
+            \begin{cases}
+                \frac 19 &\text{ si } \omega\in\{2,6\}
+                \frac 29 &\text{ si } \omega\in\{3,5\}
+                \frac 13 &\text{ si } \omega\in\{4\}
+            \end{cases}
+        \end{equation*}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 2
+    On suppose que la basketteuse française Marine Johannés a une 
+    probabilité 0.8 de marquer un lancer franc.
+    \begin{enumerate}
+        \item Lors d'un entraînement, elle tente une série de 10 lancers
+        francs. On désigne par \(X\) la variable aléatoire donnant le
+        nombre de paniers marqués.
+        \begin{enumerate}
+            \item Donner la loi de \(X\).
+            
+            \item Déterminer la probabilité que Marine Johannés marque
+            huit paniers ou plus.
+
+            \item Donner l'espérance et la variance de \(X\).
+        \end{enumerate}
+
+        \item Lors d'un autre entraînement, Marine Johannés décide de
+        tirer jusqu'à ce qu'elle inscrive un panier. On désigne par \(Y\)
+        la variable aléatoire donnant le nombre d'essais nécessaires.
+        \begin{enumerate}
+            \item Donner la loi de \(Y\).
+
+            \item Déterminer la probabilité que Marine Johannés ait besoin
+            de strictement plus de 3 essais pour marquer son premier panier.
+
+            \item Donner l'espérance et la variance de \(Y\).
+        \end{enumerate}
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        \begin{enumerate}
+            \item Marine Johannés fait 10 lancers avec une probabilité
+            de réussite de 0.8.
+            \begin{enumerate}
+                \item La loi de \(X\) est donnée par \(\mathcal B(10, 0.8)\).
+
+                \item La probabilité de marquer 8 paniers ou plus vaut
+                \begin{equation*}
+                    ({0.8}^8 * {0.2}^2) + ({0.8}^9 * {0.2}) + ({0.8}^{10})
+                \end{equation*}
+
+                \item L'espérance et la variance de \(X\) sont respectivement
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb E(X) &= 10*0.8 = 8\\
+                        \bb V(X) &= 10*0.8*0.2 = 1.6
+                    \end{aligned}
+                \end{equation*}
+            \end{enumerate}
+
+            \item On considère la variable aléatoire \(Y\) donnant le
+            nombre d'essais nécessaires pour marquer un panier.
+            \begin{enumerate}
+                \item La loi de \(Y\) est donnée par
+                \begin{equation*}
+                    \bb P_Y(n) = 0.8 * {0.2}^{n - 1}
+                \end{equation*}
+
+                \item La probabilité que Marine Johannés ait besoin de
+                strictement plus de 3 essais pour marquer son premier
+                panier est équivalente à la probabilité qu'elle ne marque
+                pas son premier panier en 1, 2 ou 3 essais, soit
+                \begin{equation*}
+                    1 - \left(0.8 + 0.8*0.2 + 0.8*{0.2}^2\right)
+                \end{equation*}
+
+                \item L'espérance et la variance de \(Y\) sont respectivement
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb E(Y) &= \frac 1{0.8} = 1.25\\
+                        \bb V(Y) &= \frac {0.2}{0.8^2} = 0.3125
+                    \end{aligned}
+                \end{equation*}
+            \end{enumerate}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 3
+    On tire deux cartes dans un jeu de 52 cartes. On considère la
+    variable aléatoire \(X = \left(X_1, X_2\right)\) où \(X_1\) donne le
+    nombre de cartes rouges tirées et \(X_2\) le nombre de cartes noires.
+    \begin{enumerate}
+        \item Quelles valeurs peut prendre la variable aléatoire \(X\)?
+
+        \item Déterminer la loi de \(X\)
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 3
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 3
+        \begin{enumerate}
+            \item La variable aléatoire \(X\) prend les valeurs
+            \begin{equation*}
+                X \in \left\{(0,2), (1,1), (2,0)\right\}
+            \end{equation*}
+            car on tire deux cartes et qu'il n'y a que deux couleurs.
+
+            \item La loi de \(X\) est donnée par
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P_X(0,2) &= \frac {26}{52} * \frac {25}{51}\\
+                    \bb P_X(1,1) &= \frac {26}{52} * \frac {26}{51} + \frac {26}{52} * \frac {26}{51}\\
+                    \bb P_X(2,0) &= \frac {26}{52} * \frac {25}{51}
+                \end{aligned}
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
