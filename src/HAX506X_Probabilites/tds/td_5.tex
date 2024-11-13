@@ -1,0 +1,280 @@
+\begin{td-exo}[] % 1
+    Soit \(X\) une variable aléatoire de loi exponentielle
+    de paramètre \(\lambda\). On pose
+    \begin{equation*}
+        Y = \lfloor X\rfloor + 1
+    \end{equation*}
+    où \(\lfloor x\rfloor\) désigne la partie entière
+    d'un réel \(x\). Déterminer la loi de \(Y\).
+\end{td-exo}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 1
+        \(\triangleright\) On peut remarquer que \(Y\) est
+        une variable aléatoire discrète prenant à valeurs
+        dans \(\bb N^*\).
+
+        \(\triangleright\) Soit \(k \in \bb N^*\). On veut 
+        déterminer \(\bb P(Y = k)\):
+        \begin{equation*}
+            \begin{aligned}
+                \bb P(Y = k) 
+                &= \bb P(\lfloor X\rfloor + 1 = k)\\
+                &= \bb P(k - 1 \leq X < k)\\
+                &= \int_{k-1}^k \lambda e^{-\lambda x} \der x\\
+                &= \n{-e^{-\lambda x}}_{k-1}^k\\
+                &= e^{-\lambda(k-1)} - e^{-\lambda k}\\
+                &= e^{-\lambda (k-1)}(1 - e^{-\lambda})\\
+                &= \color{verdant}{(e^{-\lambda})}^{k-1}(1 - e^{-\lambda})
+            \end{aligned}
+        \end{equation*}
+
+        \(\triangleright\) On reconnait alors la loi géométrique de paramètre
+        \(p = 1 - e^{-\lambda}\). Ainsi, \(Y \sim \mathcal G(p)\).
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\, % 2
+    \begin{enumerate}
+        \item Déterminer la fonction caractéristique de la loi
+        de Bernoulli, de la loi binomiale et de la loi de
+        Poisson. Rappeler également (sans calcul) la
+        fonction caractéristique de la loi normale.
+
+        \item Soit \(X\) et \(Y\) deux variables aléatoires
+        indépendantes. Montrer que
+        \begin{equation*}
+            \varphi_{X+Y} = \varphi_X\varphi_Y
+        \end{equation*}
+
+        \item \,
+        \begin{enumerate}
+            \item On considère deux variables aléatoires 
+            \(X_1 \sim \mathcal N(\mu,1,\sigma_1^2)\) et
+            \(X_2 \sim \mathcal N(\mu,2,\sigma_2^2)\) indépendantes.
+            Déterminer la loi de \(X_1 + X_2\).
+
+            \item Montrer que la somme de \(n\) variables aléatoires
+            indépendantes de loi de Bernoulli de paramètre \(p\)
+            suit une loi binomiale de paramètres \(n\) et \(p\).
+
+            \item Montrer que la somme de deux variables aléatoires
+            indépendantes \(X\) et \(Y\) de loi de Poisson de paramètres
+            respectifs \(\lambda\) et \(\mu\) suit une loi de Poisson
+            de paramètre \(\lambda + \mu\).
+        \end{enumerate}
+
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        \begin{enumerate}
+            \item Les fonctions caractéristiques sont
+            \begin{itemize}
+                \item Pour \(X \sim \mathcal B(p)\),
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(X = 1) &= p\\
+                        \bb P(X = 0) &= 1 - p\\
+                        \varphi_X(t)
+                        &= \bb E\ff{e^{itX}}\\
+                        &= \int_{\Omega} e^{itX(\omega)} \bb P(\der \omega)\\
+                        &= \sum_{k=0}^1 e^{itk} \bb P(X = k)\\
+                        &= e^{it} \bb P(X = 1) + \bb P(X = 0)\\
+                        &= e^{it}p + 1 - p
+                    \end{aligned}
+                \end{equation*}
+
+                \item Pour \(X \sim \mathcal B(n,p)\),
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(X=k)
+                        &= \binom{n}{k} p^k{(1-p)}^{n-k}\\
+                        \varphi_X(t)
+                        &= \bb E\ff{e^{itX}}\\
+                        &= \int_{\Omega} e^{itX(\omega)} \bb P(\der \omega)\\
+                        &= \sum_{k=0}^n e^{itk} \bb P(X = k)\\
+                        &= \sum_{k=0}^n e^{itk} \binom{n}{k} p^k{(1-p)}^{n-k}\\
+                        &= \sum_{k=0}^n \binom{n}{k} {(pe^{it})}^k{(1-p)}^{n-k}\\
+                        &= {(pe^{it} + 1 - p)}^n
+                    \end{aligned}
+                \end{equation*}
+
+                \item Pour \(X \sim \mathcal P(\lambda)\),
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(X=k)
+                        &= \frac{e^{-\lambda}\lambda^k}{k!}\\
+                        \varphi_X(t)
+                        &= \bb E\ff{e^{itX}}\\
+                        &= \sum_{k=0}^{\infty} e^{itk} \frac{e^{-\lambda}\lambda^k}{k!}\\
+                        &= e^{-\lambda} \sum_{k=0}^{\infty} \frac{{(e^{it}\lambda)}^k}{k!}\\
+                        &= e^{-\lambda} e^{e^{it}\lambda}\\
+                        &= e^{\lambda(e^{it} - 1)}
+                    \end{aligned}
+                \end{equation*}
+
+                \item Pour \(X \sim \mathcal N(\mu,\sigma^2)\),
+                \begin{equation*}
+                    \begin{aligned}
+                        Y = \frac{X - \mu}{\sigma} \sim \mathcal N(0,1)\\
+                        \varphi_X(t)
+                        &= \bb E\ff{e^{itX}}\\
+                        &= \bb E\ff{e^{it(\mu + \sigma Y)}}\\
+                        &= e^{it\mu} \bb E\ff{e^{it\sigma Y}}\\
+                        &= e^{it\mu} \varphi_Y(\sigma t)\\
+                        &= e^{it\mu - \frac{1}{2}\sigma^2t^2}
+                    \end{aligned}
+                \end{equation*}
+            \end{itemize}
+
+            \item Soit \(t \in \bb R\),
+            \begin{equation*}
+                \begin{aligned}
+                    \varphi_{X+Y}(t)
+                    &= \bb E\ff{e^{it(X+Y)}}\\
+                    &= \bb E\ff{e^{itX}e^{itY}}\\
+                    {}_{\text{par indep de }X,Y}&= \bb E\ff{e^{itX}}\bb E\ff{e^{itY}}\\
+                    &= \varphi_X(t)\varphi_Y(t)
+                \end{aligned}
+            \end{equation*}
+
+            \item \,
+            \begin{enumerate}
+                \item Soit \(t \in \bb R\),
+                \begin{equation*}
+                    \begin{aligned}
+                        \varphi_{X_1+X_2}(t)
+                        &= \varphi_{X_1}(t)\varphi_{X_2}(t)\\
+                        &= e^{it\mu_1 - \frac{1}{2}\sigma_1^2t^2}e^{it\mu_2 - \frac{1}{2}\sigma_2^2t^2}\\
+                        &= e^{it(\mu_1 + \mu_2) - \frac{1}{2}(t^2(\sigma_1^2 + \sigma_2^2))}
+                    \end{aligned}
+                \end{equation*}
+                Donc, \(X_1 + X_2 \sim \mathcal N(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)\).
+
+                \item Soit \(X_1, \ldots, X_n\) des variables aléatoires
+                indépendantes de loi de Bernoulli de paramètre \(p\).
+                On a
+                \begin{equation*}
+                    \begin{aligned}
+                        \varphi_{X_1 + \cdots + X_n}(t)
+                        &= \varphi_{X_1}(t)\cdots\varphi_{X_n}(t)\\
+                        &= (pe^{it} + 1 - p) \times \cdots \times (pe^{it} + 1 - p)\\
+                        &= {(pe^{it} + 1 - p)}^n
+                    \end{aligned}
+                \end{equation*}
+                Donc, \(X_1 + \cdots + X_n \sim \mathcal B(n,p)\).
+
+                \item Soit \(X \sim \mathcal P(\lambda)\) et \(Y \sim \mathcal P(\mu)\).
+                On a
+                \begin{equation*}
+                    \begin{aligned}
+                        \varphi_{X+Y}(t)
+                        &= \varphi_X(t)\varphi_Y(t)\\
+                        &= e^{\lambda(e^{it} - 1)}e^{\mu(e^{it} - 1)}\\
+                        &= e^{(\lambda + \mu)(e^{it} - 1)}
+                    \end{aligned}
+                \end{equation*}
+                Donc, \(X + Y \sim \mathcal P(\lambda + \mu)\).
+            \end{enumerate}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 3
+    On considère deux variables aléatoires indépendantes
+    \(X \sim \mathcal N(0,1)\) et \(Y \sim \mathcal N(0,\sigma^2)\)
+    avec \(\sigma > 0\). 
+    \begin{enumerate}
+        \item On pose \(T = X^2\). Calculer \(\bb E\ff{h(t)}\) pour
+        toute fonction \(h: \bb R \to \bb R\) mesurable bornée.
+        En déduire la loi de \(T\).\\
+        On pourra varifier qu'on retrouve bien le résultat de
+        l'exercice 2 du TD 4.
+
+        \item On pose \(U = \one_{\{X \geq 0\}} - \one_{\{X < 0\}}\).
+        Déterminer la loi de \(U\).
+
+        \item Montrer que \(Z=UY\) suit une loi normale de paramètres
+        à déterminer.
+
+        \item Déterminer la loi de \(Y+Z\).
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 3
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 3
+        \begin{enumerate}
+            \item Soit \(h: \bb R \to \bb R\) une fonction mesurable
+            bornée. On a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff{h(t)}
+                    &= \bb E\ff{h(X^2)}\\
+                    {}_{g(t)=t^2}&= \bb E\ff{(h\circ g)(X)}\\
+                    % on applique la formule de transfert par rapport à la loi de X
+                    &= \int_{\bb R} (h\circ g)(x) \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
+                    &= \int_{\bb R} h(x^2) \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
+                    &= 2 \int_{0}^{+\infty} h(x^2) \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
+                    {}_{t=x^2}&= 2 \int_{0}^{+\infty} h(t) \frac{e^{-\frac{t}{2}}}{\sqrt{2\pi}} \der \frac{t}{2\sqrt t}\\
+                    &= \int_{\bb R} h(t) \frac{e^{-\frac{t}{2}}}{\sqrt{2\pi t}} \one_{\bb R_+}(t) \der t
+                \end{aligned}
+            \end{equation*}
+            Donc \(T\) est une variable aléatoire à densité donnée par
+            \begin{equation*}
+                f_T(t) = \frac{e^{-\frac{t}{2}}}{\sqrt{2\pi t}} \one_{\bb R_+}(t)
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                U =
+                \begin{cases}
+                    1 & \text{si } X \geq 0\\
+                    -1 & \text{si } X < 0
+                \end{cases}
+            \end{equation*}
+            Donc, \(U\) est une variable aléatoire discrète prenant
+            les valeurs \(-1\) et \(1\) avec
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(U = 1)
+                    &= \bb P(X \geq 0)\\
+                    &= \frac{1}{2}\\
+                    \bb P(U = -1)
+                    &= \bb P(X < 0)\\
+                    &= \frac{1}{2}
+                \end{aligned}
+            \end{equation*}
+            Donc, \(U \sim \mathcal B\ff{\frac{1}{2}}\). Une
+            variante de Bernoulli appelée \textit{Rademacher}.
+
+            \item Montrons que \(Z \sim \mathcal N(0,\sigma^2)\).
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(Z \leq x)
+                    &= \bb P(UY \leq x)\\
+                    &= \bb P(UY\leq x \mid U=1) \bb P(U=1) 
+                    + \bb P(UY\leq x \mid U=-1) \bb P(U=-1)\\
+                    {}_{\text{par indep de }U}&= \bb P(Y\leq x) \times \frac{1}{2} + \bb P(-Y\leq x) \times \frac{1}{2}\\
+                    &= \frac{1}{2} \left(\bb P(Y\leq x) + \bb P(Y\geq -x)\right)\\
+                    &= \frac{1}{2} \left(\bb P(Y\leq x) + \bb P(Y\leq x)\right)\\
+                    &= \bb P(Y\leq x)
+                \end{aligned}
+            \end{equation*}
+            Donc \(Z \sim \mathcal N(0,\sigma^2)\).
+
+            \item \(Y\) et \(Z\) étant indépendantes, on a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff{e^{it(Y+Z)}}
+                    &= \bb E\ff{e^{itY}e^{itZ}}\\
+                    &= \bb E\ff{e^{itY}}\bb E\ff{e^{itZ}}\\
+                    &= e^{-\frac{t^2}{2}}e^{-\frac{\sigma^2t^2}{2}}\\
+                    &= e^{-\frac{(1+\sigma^2)t^2}{2}}
+                \end{aligned}
+            \end{equation*}
+            Donc, \(Y + Z \sim \mathcal N(0,1+\sigma^2)\).
+        \end{enumerate}
+    \end{td-sol}
+}{}
