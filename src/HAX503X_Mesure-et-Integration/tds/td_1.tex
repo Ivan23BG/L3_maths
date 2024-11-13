@@ -36,7 +36,7 @@
 \end{td-exo}
 % ----- Solutions exo 1
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             % ----- Partie 1
             \item Sur les intersections, on remarque que l'enjeu se joue sur le fait
@@ -84,7 +84,7 @@
         Montrons que \(J_1=\varnothing\):
         % ----- Traitement de la limite
         On a \(\lim\limits_{n\to+\infty}\frac1n = 0\) donc \(J_1=\text{``}\of{0,0}\text{''}=\varnothing\).
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 % ----- Exo 2
 \begin{td-exo}
@@ -106,7 +106,7 @@
 \end{td-exo}
 % ----- Solutions exo 2
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item Commençons par montrer le sens direct. 
             
@@ -137,11 +137,11 @@
                     &\iff x\in \bigcup_{i\in I}\left(A_i\cap B\right)
                 \end{aligned}
             \end{equation*}
-            \begin{nnremark}
+            \begin{remark}
                 Utiliser les lois de De Morgan est fortement conseillé dans la manipulation
                 d'ensembles et d'opérations d'ensembles une fois qu'on a obtenu un résultat.
                 On utilisera la loi sur le complémentaire pour la deuxième partie qui suit.
-            \end{nnremark}
+            \end{remark}
 
             Montrons maintenant l'autre égalité:
             \begin{equation*}
@@ -155,7 +155,7 @@
 
         \end{enumerate}
         
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 % ----- Exo 3
 \begin{td-exo}[Images et images réciproques d'ensembles]
@@ -177,7 +177,7 @@
 \end{td-exo}
 % ----- Solutions exo 3
 \iftoggle{showsolutions}{
-        \begin{nntd-sol}[]\,
+        \begin{td-sol}[]\,
             \begin{enumerate}
                 \item Les images directes sont ce qui peut poser problème dans la conservation de propriétés.
                 \begin{enumerate}
@@ -253,13 +253,13 @@
                 \end{enumerate}
             \end{enumerate}
 
-        \end{nntd-sol}
+        \end{td-sol}
     }{}
 % --- Remarque
-\begin{nnremark}
+\begin{remark}
     Une suite réelle admet \textit{toujours} une limite supérieure et une limite inférieure dans \(\barR\). 
     Si ces deux quantités sont finies et égales alors elle est convergente.
-\end{nnremark}
+\end{remark}
 % ----- Exo 4
 \begin{td-exo}[Limites supérieures et inférieures de suites et fonctions]\, % 4
     \begin{enumerate}
@@ -278,7 +278,7 @@
 \end{td-exo}
 % ----- Solutions exo 4
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\, % 4
+    \begin{td-sol}[]\, % 4
         \begin{enumerate}
             \item Commençons par réécrire \(x_n\) en regardant ses premiers termes:
             \begin{equation*}
@@ -330,12 +330,12 @@
             \end{equation*}
 
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
-\begin{nnremark}
+\begin{remark}
     Il existe un moyen simple de relier ``ensembles'' et ``fonctions'': les fonctions indicatrices (ou fonction caractéristique). Ce sont des fonctions à valeurs réelles qui ne prennent que les valeurs \(0\) ou \(1\). On les retrouve aussi en théorie de probabilités avec les variables aléatoires de Bernoulli.
-\end{nnremark}
+\end{remark}
 % ----- Exo 5
 \begin{td-exo}[Fonctions indicatrices]
     Soit \(X\) un ensemble et \(A\in\scrP(X)\). La fonction indicatrice de \(A\) est l'application \(\one_A:X\to\bbR\) définie par
@@ -353,7 +353,7 @@
 \end{td-exo}
 % ----- Solutions exo 5
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\, % 5
+    \begin{td-sol}[]\, % 5
         \begin{enumerate}
             \item \,
             \begin{itemize}
@@ -462,16 +462,16 @@
 
             Comme on a \(f\) bijective, les ensembles \(\scrP(X)\) et \({0,1}^X\) sont équipotents.
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 % ----- Remarque
-\begin{nnremark}
+\begin{remark}
 Les notions de limites supérieures et limites inférieures peuvent être étendues aux ensembles via les indicatrices. 
 C'est en théorie des probabilités que ces définitions seront particulièrement utiles. 
 Attention aux notations ici, on utilise les mêmes notations pour les limites de suites d'objets différents 
 (réels, fonctions, ensembles\ldots).
-\end{nnremark}
+\end{remark}
 % ----- Exo 6
 \begin{td-exo}
     Soit \({(A_n)}_{n\in\bbN}\) une suite de parties de \(X\). Pour tout \(n\in\bbN\), on note \(f_n=\one_{A_n}\).
@@ -482,7 +482,7 @@ Attention aux notations ici, on utilise les mêmes notations pour les limites de
 \end{td-exo}
 % ----- Solution exo 6
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\, % 6
+    \begin{td-sol}[]\, % 6
         \begin{itemize}
             \item Pour montrer qu'il existe \(C\sub X\) tel que \(\lims f_n=\one_B\), il suffit de montrer que
             la fonction \(\lims f_n\) (définie sur \(X\)) prend ses valeurs dans \(\{0,1\}\). \(C\) sera
@@ -516,7 +516,7 @@ Attention aux notations ici, on utilise les mêmes notations pour les limites de
             \).
             \item De même, \(\limi f_n=\one_B\) avec \(B\sub X\).
         \end{itemize}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 
@@ -574,7 +574,7 @@ Attention aux notations ici, on utilise les mêmes notations pour les limites de
 \end{td-exo}
 
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}
+    \begin{td-sol}
         Dans ce qui suit, l'objectif est de comprendre l'impact qu'ont certaines
         propriétés sur les fonctions entre ensembles:
         \begin{enumerate}
@@ -594,7 +594,7 @@ Attention aux notations ici, on utilise les mêmes notations pour les limites de
                 A\sqcup B=E\quad\text{soit que } A\cup B=E,\text{ et } A\cap B=\varnothing
             \end{equation*}
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 % idees solutions:

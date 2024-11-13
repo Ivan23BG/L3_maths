@@ -1,0 +1,194 @@
+\documentclass[french,a4paper,10pt]{article}
+\input{src/common/common_header.tex}
+\input{src/common/macros/math.tex}
+\input{src/common/macros/theorems.tex}
+
+\mytheorem{lemma}{Lemme}{astral}{section}{o}
+\mytheorem{theorem}{Théorème}{astral}{section}{o}
+\usepackage[a4paper,hmargin=30mm,vmargin=30mm]{geometry}
+
+\title{\color{astral} \sffamily \bfseries Étude de \( \langle (i~j),(1~\ldots~n) \rangle \)}
+\author{Ivan Lejeune}
+\date{\today}
+
+
+\begin{document}
+    \maketitle
+
+    \section*{Introduction}
+
+    Dans ce document, nous allons étudier le sous-groupe de \( \mathfrak S_n \) engendré par
+    \begin{equation*}
+        \sigma = \langle (i~j),(1~\ldots~n) \rangle
+    \end{equation*}
+    pour \( 1 \leq i < j \leq n \). On travaillera aussi ``modulo \(n\)'' 
+    où les indices iront de \(1\) à \(n\) et où \(n+1 = 1\).
+
+    \subsection*{Quelques résultats préliminaires}
+
+    \begin{lemma}
+        Soit \( \sigma \in \mathfrak S_n \) et \( i_1~\ldots~i_k \) une permutation de \( 1, \ldots, k \). Alors
+        \begin{equation*}
+            \sigma (i_1~\ldots~i_k) \sigma^{-1} = (\sigma(i_1)~\ldots~\sigma(i_k)).
+        \end{equation*}
+    \end{lemma}
+
+    \begin{lemma}
+        Soit \( \sigma \in \mathfrak S_n \) et \( i~j \) une transposition. Alors
+        \begin{equation*}
+            \langle \sigma, (i~j) \rangle = \langle \sigma, (1~k) \rangle
+        \end{equation*}
+        où \( k = j - i + 1 \).
+    \end{lemma}
+
+    \begin{lemma}
+        Soit \( \sigma = (1~\ldots~n) \). Alors
+        \begin{equation*}
+            \sigma (1~k) \sigma^{-1} = (2~k+1)
+        \end{equation*}
+        pour \( k \in \bb N \).
+    \end{lemma}
+
+    \section*{Le choix de \(i\) et \(j\)}
+
+    \subsection*{Le cas \(j = i+1\)}
+
+    Comme on l'a déjà vu en TD, si \(i = 1, j = 2\), alors
+    \begin{equation*}
+        \langle (1~2), (1~\ldots~n) \rangle = \mathfrak S_n.
+    \end{equation*}
+
+    Si on ne fixe pas \(i\) et on prend \(j = i+1\), on peut alors se ramener à ce cas en utilisant le lemme 2.
+
+    Ainsi, un des premiers résultats que l'on peut obtenir est le suivant.
+
+    \begin{theorem}
+        Soit \( \sigma = \langle (i~i+1), (1~\ldots~n) \rangle \) pour \( 1 \leq i < n \). Alors
+        \begin{equation*}
+            \sigma = \mathfrak S_n.
+        \end{equation*}
+    \end{theorem}
+
+    \begin{proof}
+        On a
+        \begin{align*}
+            \sigma &= \langle (i~i+1), (1~\ldots~n) \rangle \\
+            &= \langle (1~2), (1~\ldots~n) \rangle \\
+            &= \mathfrak S_n.
+        \end{align*}
+    \end{proof}
+
+    \subsection*{Le cas \(j \neq i+1\)}
+
+    C'est ici que les choses se compliquent. On va essayer de trouver des conditions sur \(i\) et \(j\) pour que
+    \begin{equation*}
+        \langle (i~j), (1~\ldots~n) \rangle = \mathfrak S_n.
+    \end{equation*}
+
+    La première chose qu'on peut faire est de se ramener à un cas plus simple en utilisant le lemme 2.
+
+    On étudie alors
+    \begin{equation*}
+        \sigma = \langle (1~k), (1~\ldots~n) \rangle
+    \end{equation*}
+
+    \(\triangleright\) Le premier point important à aborder est que
+    pour engendrer l'ensemble des transpositions adjacentes (qui engendrent \(\mathfrak S_n\)), il suffit
+    d'en engendrer une seule. En effet, on a
+    \begin{equation*}
+        (i+1~i+2) = (1~\ldots~n) (i~i+1) {(1~\ldots~n)}^{-1},\quad 1 \leq i < n.
+    \end{equation*}
+    De plus, on a un ``décalage de l'écart entre les indices'' qu'on peut effectuer. En effet, 
+    à partir de \( (i~j) \) et \( (j~k) \), on peut obtenir \( (i~k) \) en utilisant
+    \begin{equation*}
+        (i~j) (j~k) (i~j) = (i~k).
+    \end{equation*}
+
+    Essayons maintenant de voir comment on peut obtenir une telle transposition à partir de \( (1~k) \).
+
+    \begin{lemma}
+        Soit \( \sigma = \langle (1~k+1), (1~\ldots~n) \rangle \). Alors
+        \begin{equation*}
+            k\wedge n = 1 \implies \sigma = \mathfrak S_n.
+        \end{equation*}
+    \end{lemma}
+
+    \begin{proof}
+        On peut énumérer certains éléments de \( \sigma \):
+        \begin{equation*}
+            \begin{aligned}
+                (1~k+1) &\to (2~k+2) \\
+                (2~k+2) &\to (3~k+3) \\
+                &\vdots \\
+                &\to (k+1~2k+1) \\
+                &\vdots \\
+                &\to (2k+1~3k+1) \\
+                &\vdots
+            \end{aligned}
+        \end{equation*}
+        On voit alors qu'à partir de \( (1~k+1) \), on peut obtenir
+        \begin{equation*}
+            \left\{ (1~\lambda k+1) \mid \lambda \in \bb N \right\}.
+        \end{equation*}
+
+        D'autre part, si \( k\wedge n = 1 \), alors il existe \( a, b \in \bb Z \) tels que
+        \begin{equation*}
+            ak + bn = 1.
+        \end{equation*}
+        En particulier, pour \( \lambda = a \), on a
+        \begin{equation*}
+            \begin{aligned}
+                (1~\lambda k+1) 
+                &= (1~ak+1) \\
+                &= (1~1-bn +1) \\
+                &= (1~2).
+            \end{aligned}
+        \end{equation*}
+        On a donc \( (1~2) \in \sigma \) et on peut obtenir toutes les transpositions adjacentes.
+    \end{proof}
+
+    On a donc une condition suffisante pour que \( \langle (i~j), (1~\ldots~n) \rangle = \mathfrak S_n \).
+    
+    On peut facilement vérifier que si \( k\wedge n \neq 1 \), alors on
+    ne peut pas obtenir de transposition adjacente à partir de seulement \( (1~k+1) \) et \( (1~\ldots~n) \).
+
+    Cependant, il est difficile de prouver que c'est une condition nécessaire.
+
+    \section*{Conclusion}
+
+    On a vu que si \( j = i+1 \), alors \( \langle (i~j), (1~\ldots~n) \rangle = \mathfrak S_n \).
+
+    Si \( j \neq i+1 \), on a vu qu'il est possible d'obtenir \( \mathfrak S_n \) si \( k\wedge n = 1 \).
+
+    Cependant, on n'a pas réussi à déterminer ce qu'il se passe si \( k\wedge n \neq 1 \).
+
+    Ainsi, on peut dire que
+
+    \begin{theorem}
+        Soit \( \sigma = \langle (i~j), (1~\ldots~n) \rangle \) pour \( 1 \leq i < j \leq n \). Alors
+        \begin{equation*}
+            \sigma = \mathfrak S_n
+        \end{equation*}
+        si \( j = i+1 \) ou \( (j-i+1)\wedge n = 1 \).
+    \end{theorem}
+
+    \section*{Remarque}
+
+    Dans certains cas, on peut vérifier ce qui se passe pour \( k\wedge n \neq 1 \) 
+    mais cela est difficile pour des valeurs de \( n \) élevées.
+
+    \subsection*{Exemple}
+
+    On peut vérifier que pour \( n = 4\) et \(k = 2\), on a
+    \begin{equation*}
+        \begin{aligned}
+            \langle (1~3), (1~\ldots~4) \rangle
+            = \{&(1~3), (2~4),\\
+            &(1~2)(3~4), (1~3)(2~4), (1~4)(2~3),\\
+            &(1~2~3~4), (1~4~3~2)
+            \}\neq \mathfrak S_4.
+        \end{aligned}
+    \end{equation*}
+    Cela ne prouve pas que si \( k\wedge n \neq 1 \), alors \( \langle (1~k+1), (1~\ldots~n) \rangle \neq \mathfrak S_n \)
+    mais le montre pour \( n = 4 \).
+\end{document}

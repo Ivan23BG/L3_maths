@@ -1,0 +1,344 @@
+On considère ici \((\Omega, \scr F, \bb P)\) un espace probabilisé.
+
+\section{Indépendances d'événements} % 2.1
+
+\subsection{Conditionnement} % 2.1.1
+
+Si \(A\in\scr F\) est un événement tel que \(\bb P(A)>0\), alors
+la \defemph{probabilité conditionnelle de \(B\in\scr F\) sachant \(A\)}
+est définie par
+\begin{equation*}
+    \bb P(B|A) = \frac{\bb P(A\cap B)}{\bb P(A)}.
+\end{equation*}
+alors, l'application
+\begin{equation*}
+    \begin{aligned}
+        \bb P_A:\scr F & \to \ff{0,1} \\
+        B & \mapsto \bb P_A(B) = \bb P(B|A)
+    \end{aligned}
+\end{equation*}
+est une probabilité sur \((\Omega, \scr F)\). Intuitivement, 
+l'espace probabilisé \((\Omega, \scr F, \bb P_A)\) correspond à
+une expérience aléatoire où l'on sait a priori que l'événement \(A\) est vérifié.
+
+Si \(A\) et \(B\) sont deux événements de probabilité strictement positive, alors
+\begin{equation*}
+    \bb P(B|A) = \frac{\bb P(A|B)\bb P(B)}{\bb P(A)} \qquad \text{formule de Bayes}.
+\end{equation*}
+
+\subsection{Quelques formules} % 2.1.2
+
+Une partition \({(A_i)}_{i\in I}\) avec \(I\subset\N\) formée d'événements
+\(A_i\) est une famille d'événements vérifiant
+\begin{itemize}
+    \item \(\forall i,j\in I, i\neq j \implies A_i\cap A_j = \emptyset\),
+    \item \(\bigcup_{i\in I} A_i = \Omega\).
+\end{itemize}
+Dans ce cas, on a la \defemph{formule des probabilités totales}:
+\begin{equation*}
+    \bb P(B) = \sum_{i\in I} \bb P(A_i)\bb P(B|A_i).
+\end{equation*}
+pour tout événement \(B\in\scr F\) et \(\bb P(A_i)>0\) pour tout \(i\in I\).
+
+\emph{Cas particulier:} avec la partition \((A,\ol A)\), on a
+\begin{equation*}
+    \bb P(B) = \bb P(A)\bb P(B|A) + \bb P(\comp A)\bb P(B|\comp A).
+\end{equation*}
+où \(\comp A = \left\{\omega\in\Omega\mid \omega\notin A\right\}\) est le complémentaire de \(A\).
+
+On peut alors étendre la formule de Bayes à une partition \((A_i)_{i\in I}\) de \(\Omega\):
+\begin{equation*}
+    \bb P(A_i|B) = \frac{\bb P(B|A_i)\bb P(A_i)}{\sum_{j\in I} \bb P(B|A_j)\bb P(A_j)}.
+\end{equation*}
+
+\emph{Cas particulier:} avec la partition \((A,\ol A)\), on a
+\begin{equation*}
+    \bb P(A|B) = \frac{\bb P(A)\bb P(B|A)}{\bb P(A)\bb P(B|A) + \bb P(\comp A)\bb P(B|\comp A)}.
+\end{equation*}
+
+\begin{example}
+    On se place dans la cas d'une maladie qui touche une personne sur 100.
+    Si une personne est malade (noté \(M\)), alors le test est positif dans 99\% des cas.
+    Si une personne n'est pas malade (noté \(\comp M\)), alors le test est positif dans 1\% des cas.
+
+    Notons \(P\) l'événement \og{} le test est positif \fg{}. Alors, si un test est positif,
+    la probabilité que la personne soit malade est donnée par
+    \begin{equation*}
+        \begin{aligned}
+            \bb P(M|P) 
+            &= \frac{\bb P(P|M)\bb P(M)}{\bb P(P|M)\bb P(M) + \bb P(P|\comp M)\bb P(\comp M)}\\
+            &= \frac{0.99\times 0.01}{0.99\times 0.01 + 0.01\times 0.99}\\
+            &= \frac{1}{2}.
+        \end{aligned}
+    \end{equation*}
+\end{example}
+
+\begin{definition}
+    Deux événements \(A\) et \(B\) sont \defemph{indépendants} si
+    \begin{equation*}
+        \bb P(A\cap B) = \bb P(A)\bb P(B).
+    \end{equation*}
+    En particulier,
+    \begin{equation*}
+        \bb P(B|A) = \bb P(B) \quad \text{et} \quad \bb P(A|B) = \bb P(A).
+    \end{equation*}
+\end{definition}
+
+\begin{example}
+    On lance 2 dés. On a alors
+    \begin{equation*}
+        \Omega = { \{ 1,2,\ldots,6\} }^2, \quad \scr F = \scr P(\Omega), \quad \bb P = \text{probabilité uniforme}.
+    \end{equation*}
+    On considère les événements
+    \begin{equation*}
+        A = \{6\}\times \{1,\ldots,6\}, \quad B = \{1,\ldots,6\}\times \{6\}.
+    \end{equation*}
+    Alors, 
+    \begin{equation*}
+        \bb P(A) = \bb P(B) = \frac{1}{6},
+    \end{equation*}
+    et
+    \begin{equation*}
+        \bb P(A\cap B) = \bb P(\{6\}\times\{6\}) = \frac{1}{36} = \bb P(A)\bb P(B).
+    \end{equation*}
+    Donc \(A\) et \(B\) sont indépendants
+\end{example}
+
+\begin{definition}
+    Des événements \(A_1,\ldots,A_n\in \scr F\) sont \defemph{indépendants}
+    si
+    \begin{equation*}
+        \forall I\subset \{1,\ldots,n\}, I\neq\emptyset, \quad \bb P\left(\bigcap_{i\in I} A_i\right) = \prod_{i\in I} \bb P(A_i).
+    \end{equation*}
+
+    Plus généralement, une famille d'événements \({(A_i)}_{i\in I}\) est indépendante
+    si toute sous-famille finie est constituée d'événements indépendants.
+\end{definition}
+
+\begin{example}
+    On lance 2 dés. On considère les événements
+    \begin{equation*}
+        \begin{aligned}
+            &A = \text{le premier dé est pair},\\
+            &B = \text{le deuxième dé est pair},\\
+            &C = \text{la somme des dés est paire}.
+        \end{aligned}
+    \end{equation*}
+    Alors, 
+    \begin{equation*}
+        \begin{aligned}
+            \bb P(A) &= \frac{1}{2},\\
+            \bb P(B) &= \frac{1}{2},\\
+            \bb P(A\cap B) &= \frac{1}{4},\\
+            \bb P(C) &= \frac{1}{2},\\
+            \bb P(A\cap C) &= \frac{1}{4},\\
+            \bb P(B\cap C) &= \frac{1}{4},\\
+        \end{aligned}
+    \end{equation*}
+    Donc les événements \(A\) et \(B\), \(A\) et \(C\), \(B\) et \(C\) sont indépendants respectivement.
+
+    Par ailleurs, on a
+    \begin{equation*}
+        \bb P(A\cap B\cap C) = \bb P(A\cap B) = \frac{1}{4} \neq \bb P(A)\bb P(B)\bb P(C) = \frac{1}{8}.
+    \end{equation*}
+
+    Donc les événements \(A\), \(B\) et \(C\) ne sont pas indépendants.
+\end{example}
+
+\begin{remark}
+    L'indépendance d'événements \(A_1,\ldots A_n\) implique l'indépendance
+    de \(A_1^c,A_2,\ldots,A_n\) (et de même en passant au complémentaire 
+    sur d'autres indices). En particulier, si \(A\) et \(B\) sont indépendants,
+    alors \(A\) et \(B^c\) sont indépendants.
+\end{remark}
+
+\section{Indépendance de variables aléatoires} % 2.2
+
+\begin{definition}
+    Soient \(X_1,\ldots,X_n\) des variables aléatoires à valeurs dans
+    \((E_1,\scr E_1),\ldots,(E_n,\scr E_n)\). On dit que ces variables
+    aléatoires sont \defemph{indépendantes} si pour tout \(B_1\in\scr E_1,\ldots,B_n\in\scr E_n\),
+    les événements \(\{X_1\in B_1\},\ldots,\{X_n\in B_n\}\) sont indépendants:
+    \begin{equation*}
+        \bb P(X_1\in B_1,\ldots,X_n\in B_n) = \prod_{i=1}^n \bb P(X_i\in B_i).
+    \end{equation*}
+    Cetté égalité se réécrit
+    \begin{equation*}
+        \begin{aligned}
+            \bb P((X_1,\ldots,X_n)\in B_1\times\cdots\times B_n) 
+            &= \prod_{i=1}^n \bb P(X_i\in B_i)\\
+            \bb P_{(X_1,\ldots,X_n)}(B_1\times\cdots\times B_n)
+            &= \prod_{i=1}^n \bb P_{X_i}(B_i).
+        \end{aligned}
+    \end{equation*}
+    Cela signifie que 
+    \begin{equation*}
+        \bb P_{(X_1,\ldots,X_n)} = \bb P_{X_1}\otimes\cdots\otimes\bb P_{X_n}.
+    \end{equation*}
+
+    Plus généralement, une famille de variables aléatoires \({(X_i)}_{i\in I}\) est indépendante
+    si toute sous-famille finie l'est.
+\end{definition}
+
+\begin{proposition}
+    Soit \(X_1,\ldots,X_n\) des variables aléatoires à valeurs dans
+    \((E_1,\scr E_1),\ldots,(E_n,\scr E_n)\). Les assertions
+    suivantes sont équivalentes:
+    \begin{enumerate}
+        \item Les variables aléatoires \(X_1,\ldots,X_n\) sont indépendantes.
+        \item Pour toutes fonctions \(h_1:E_1\to\R,\ldots,h_n:E_n\to\R\)
+        positives ou intégrables pour \((\scr L^1(E_k,\scr E_k, \bb P_{X_k}))\),
+        on a
+        \begin{equation*}
+            \bb E\left[ h_1(X_1)\cdots h_n(X_n) \right] = \bb E[h_1(X_1)]\cdots \bb E[h_n(X_n)].
+        \end{equation*}
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    \(\triangleright\) On montre que 1. implique 2. 
+
+    On considère le vecteur aléatoire 
+    \begin{equation*}
+        \begin{aligned}
+            X = (X_1,\ldots,X_n): \Omega &\to E_1\times\cdots\times E_n,\\
+            \omega &\mapsto (X_1(\omega),\ldots,X_n(\omega)).
+        \end{aligned}
+    \end{equation*}
+    Alors
+    \begin{equation*}
+        \begin{aligned}
+            \bb E\left[ h_1(X_1)\cdots h_n(X_n) \right]
+            &= \int_{\Omega} h_1(X_1(\omega))\cdots h_n(X_n(\omega))\,\der \bb P(\omega)\\
+            {}_{\substack{\text{formule de}\\\text{transfert}}}
+            &= \int_{E_1\times\cdots\times E_n} h_1(x_1)\cdots h_n(x_n)\,\der \bb P_{(X_1,\ldots,X_n)}(x_1,\ldots,x_n)\\
+            &= \int_{E_1\times\cdots\times E_n} h_1(x_1)\cdots h_n(x_n)\,\der \left( \bb P_{X_1}\otimes\cdots\otimes\bb P_{X_n} \right)(x_1,\ldots,x_n)\\
+            {}_{\substack{\text{Fubini}\\\text{Tonelli}}}
+            &= \int_{E_n} \int_{E_{n-1}}\cdots \int_{E_1} h_1(x_1)\cdots h_n(x_n)\,\der \bb P_{X_1}(x_1)\cdots \der \bb P_{X_n}(x_n)\\
+            &= \int_{E_1} h_1(x_1)\,\der \bb P_{X_1}(x_1)\cdots \int_{E_n} h_n(x_n)\,\der \bb P_{X_n}(x_n)\\
+            &= \bb E[h_1(X_1)]\cdots \bb E[h_n(X_n)].
+        \end{aligned}
+    \end{equation*}
+
+    \(\triangleright\) On montre que 2. implique 1.
+
+    Soit \(A_1\in\scr E_1,\ldots,A_n\in\scr E_n\). On pose \(h_i = \1_{A_i}(x_i)\).
+    Alors
+    \begin{equation*}
+        \bb E\left[ h_1(X_1)\cdots h_n(X_n) \right] = \bb E\left[ h_1(X_1)\right]\cdots \bb E\left[ h_n(X_n) \right]
+    \end{equation*}
+    se réécrit
+    \begin{equation*}
+        \bb E\left[ \one_{A_1}(X_1)\cdots \one_{A_n}(X_n) \right] = \bb E\left[ \one_{A_1}(X_1) \right]\cdots \bb E\left[ \one_{A_n}(X_n) \right]
+    \end{equation*}
+    et donc
+    \begin{equation*}
+        \bb P(X_1\in A_1,\ldots,X_n\in A_n) = \bb P(X_1\in A_1)\cdots \bb P(X_n\in A_n).
+    \end{equation*}
+\end{proof}
+
+\begin{example}
+    Si \(X_1\) et \(X_2\) sont  des variables aléatoires intégrables et indépendantes, alors
+    \begin{equation*}
+        \bb E[X_1X_2] = \bb E[X_1]\bb E[X_2].
+    \end{equation*}
+    En particulier,
+    \begin{equation*}
+        \cov(X_1,X_2) = \bb E[X_1X_2] - \bb E[X_1]\bb E[X_2] = 0.
+    \end{equation*}
+    et donc
+    \begin{equation*}
+        \var(X_1+X_2) = \var(X_1) + \var(X_2) + 2\cov(X_1,X_2) = \var(X_1) + \var(X_2).
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    Soit \(t\in\bb R\) fixé et \(X_1, X_2\) deux variables aléatoires réelles indépendantes.
+    Avec \(h_j(x_j) = e^{itx_j}, j=1,2\), on obtient
+    \begin{equation*}
+        \bb E\left[ e^{itX_1}e^{itX_2} \right] = \bb E\left[ e^{itX_1} \right]\bb E\left[ e^{itX_2} \right].
+    \end{equation*}
+    c'est-à-dire
+    \begin{equation*}
+        \varphi_{X_1+X_2}(t) = \varphi_{X_1}(t)\varphi_{X_2}(t).
+    \end{equation*}
+\end{example}
+
+\section{Critères d'indépendance} % 2.3
+
+\subsection*{Cas dscrèt}\label{subsection:discret}
+\addcontentsline{toc}{subsection}{\nameref{subsection:discret}}
+\setcounter{subsection}{1}
+
+Soit \(X\) et \(Y\) deux variables aléatoires à valeurs dans des espaces 
+discrets \(E\) et \(F\). Elles sont indépendantes si et seulement si
+\begin{equation*}
+    \bb P \left( X = x, Y = y \right) = \bb P(X = x)\bb P(Y = y)
+\end{equation*}
+pour tout \(x\in E\) et \(y\in F\).
+
+En effet, si \(A\subset E\) et \(B\subset F\), alors
+\begin{equation*}
+    \begin{aligned}
+        \bb P(X\in A, Y\in B) 
+        &= \bb P(X \in \cup_{x\in A} \{x\}, Y\in \cup_{y\in B} \{y\})\\
+        &= \sum_{\substack{x\in A\\y\in B}} \bb P(X = x, Y = y)\\
+    \end{aligned}
+\end{equation*}
+
+\subsection*{Avec les fonctions de répartition}\label{subsection:fonctions_de_repartition}
+\addcontentsline{toc}{subsection}{\nameref{subsection:fonctions_de_repartition}}
+\setcounter{subsection}{2}
+Soient \(X\) et \(Y\) deux variables aléatoires à valeurs réelles. Elles sont indépendantes
+si et seulement si pour tout \(x,y\in\bb R\),
+\begin{equation*}
+    \bb P(X\leq x, Y\leq y) = \bb P(X\leq x)\bb P(Y\leq y).
+\end{equation*}
+c'est-à-dire
+\begin{equation*}
+    F_{X,Y}(x,y) = F_X(x)F_Y(y).
+\end{equation*}
+
+\subsection*{Avec les fonctions caractéristiques}\label{subsection:fonctions_caracteristiques}
+\addcontentsline{toc}{subsection}{\nameref{subsection:fonctions_caracteristiques}}
+\setcounter{subsection}{3}
+Soient \(X_1, X_2\) deux variables aléatoires à valeurs réelles. Elles sont indépendantes
+si et seulement si
+\begin{equation*}
+    \begin{aligned}
+        \bb E\left[ e^{it_1X_1}e^{it_2X_2} \right] &= \bb E\left[ e^{it_1X_1} \right]\bb E\left[ e^{it_2X_2} \right]\\
+        \bb E\left[ e^{i(t_1X_1+t_2X_2)} \right] &= \bb E\left[ e^{it_1X_1} \right]\bb E\left[ e^{it_2X_2} \right].
+    \end{aligned}
+\end{equation*}
+c'est-à-dire
+\begin{equation*}
+    \varphi_{(X_1+X_2)}(t_1+t_2) = \varphi_{X_1}(t_1)\varphi_{X_2}(t_2).
+\end{equation*}
+
+\subsection*{Cas des variables aléatoires à densité}\label{subsection:densite}
+\addcontentsline{toc}{subsection}{\nameref{subsection:densite}}
+\setcounter{subsection}{4}
+Soit \((X_1,X_2)\) un vecteur aléatoire de densité \(f_{(X_1,X_2)}\)
+par rapport à \(\lambda_2\) (mesure de Lebesgue sur \(\bb R^2\)). On suppose que
+\begin{equation*}
+    f_{(X_1,X_2)}(x_1,x_2) = f_1(x_1)f_2(x_2)
+\end{equation*}
+avec \(f_j:\bb R\to\bb R_+\) positive et vérifiant
+\begin{equation*}
+    \int_{\bb R} f_j(x)\der\lambda_1(x) = 1.
+\end{equation*}
+Alors les variables aléatoires \(X_1\) et \(X_2\) sont indépendantes de densité
+respectives \(f_1\) et \(f_2\).
+
+\begin{example}
+    Soit \((X,Y)\) un vecteur aléatoire de densité
+    \begin{equation*}
+        f(x,y) = \frac{1}{2\pi}e^{-\frac{x^2+y^2}{2}}.
+    \end{equation*}
+    Alors,
+    \begin{equation*}
+        f(x,y) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}
+    \end{equation*}
+    donc les variables aléatoires \(X\) et \(Y\) sont indépendantes et
+    suivent toutes les deux une loi normale centrée réduite.
+\end{example}

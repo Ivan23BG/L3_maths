@@ -1,8 +1,8 @@
-\subsection{Espaces probabilisés}\label{subsec:1}
+\section{Espaces probabilisés}\label{subsec:1}
 %\addcontentsline{toc}{subsection}{\nameref{subsec:1}}
 
 
-\subsubsection{Probabilité}\label{subsubsec:1-1}
+\subsection{Probabilité}\label{subsubsec:1-1}
 \setcounter{subsection}{0}
 %\addcontentsline{toc}{subsubsection}{\nameref{subsubsec:1}}
 \begin{definition}
@@ -94,9 +94,7 @@
     \end{itemize}
 \end{interp}
 
-\subsubsection{Exemples d'espaces probabilisés}\label{subsubsec:1-2}
-\setcounter{subsection}{0}
-%\addcontentsline{toc}{subsubsection}{\nameref{subsubsec:2}}
+\subsection{Exemples d'espaces probabilisés}\label{subsubsec:1-2}
 Suivent quelques exemples classiques d'espaces probabilisés.
 
 \begin{exs}[]
@@ -105,9 +103,9 @@ Suivent quelques exemples classiques d'espaces probabilisés.
 
 
 % ------------------------------------------------------------------------------------------
-\subsection{Variables aléatoires}\label{subsec:2}
+\section{Variables aléatoires}\label{subsec:2}
 
-\subsubsection{Loi d'une variable aléatoire}\label{subsubsec:2-1}
+\subsection{Loi d'une variable aléatoire}\label{subsubsec:2-1}
 
 \begin{definition}
     Soit \((\Omega, \scr F, \bb P)\) un espace probabilisé et \((E, \scr E)\) un espace mesurable. 
@@ -282,11 +280,11 @@ Suivent quelques exemples classiques d'espaces probabilisés.
     On notera souvent \(f_X = f\) et on appelle cette fonction la \defemph{densité} de \(X\).
 \end{definition}
 
-\subsubsection{Lois usuelles}\label{subsubsec:2-2}
+\subsection{Lois usuelles}\label{subsubsec:2-2}
 
 % subsubsubsection ?
 
-Lois discrètes:
+\(\triangleright\) Lois discrètes:
 
 Loi uniforme sur un ensemble fini \(\{x_1,\dots,x_n\}\).
 
@@ -302,7 +300,7 @@ c'est-à-dire
 \end{equation*}
 
 
-Loi de Bernoulli.
+\(\triangleright\) Loi de Bernoulli.
 
 Une variable aléatoire \(X\) suit une loi de Bernoulli de paramètre \(p\in\ff{0,1}\), notée \(X\sim\mathcal B(p)\), si sa loi est
 \begin{equation*}
@@ -314,7 +312,7 @@ c'est-à-dire
 \end{equation*}
 
 
-Loi binomiale.
+\(\triangleright\) Loi binomiale.
 
 Une variable aléatoire \(X\) suit une loi binomiale de paramètres \(n\in\N^\ast\) et \(p\in\ff{0,1}\), notée \(X\sim\mathcal B(n,p)\), si sa loi est
 \begin{equation*}
@@ -323,7 +321,7 @@ Une variable aléatoire \(X\) suit une loi binomiale de paramètres \(n\in\N^\as
 cela correspond au nombre de succès dans \(n\) répétitions d'une expérience de Bernoulli de paramètre \(p\) (de manière indépendante).
 
 
-Loi géométrique.
+\(\triangleright\) Loi géométrique.
 
 Une variable aléatoire \(X\) suit une loi géométrique de paramètre \(p\in\of{0,1}\), notée \(X\sim\mathcal G(p)\), si sa loi est
 \begin{equation*}
@@ -336,7 +334,7 @@ c'est-à-dire
 cela correspond au nombre de répétitions d'une expérience de Bernoulli de paramètre \(p\) avant le premier succès.
 
 
-Loi de Poisson.
+\(\triangleright\) Loi de Poisson.
 
 Une variable aléatoire \(X\) suit une loi de Poisson de paramètre \(\theta>0\), notée \(X\sim\mathcal P(\theta)\), si sa loi est
 \begin{equation*}
@@ -350,7 +348,7 @@ cela correspond au nombre d'événements rares dans un intervalle de temps donn�
 
 % subsubsubsection 2? 
 
-Lois à densité sur \(\R^d\):
+\(\triangleright\) Lois à densité sur \(\R^d\):
 
 
 Loi uniforme sur un ensemble \(A\) de \(\R^d\).
@@ -368,7 +366,7 @@ si \(B\in\scr B(\R^d)\), on a
 dans le cas \(d=1\) et \(A = \ff{a,b}\), la densité est \(f(x) = \frac{\one_{\ff{a,b}}(x)}{b-a}\).
 
 
-Loi exponentielle.
+\(\triangleright\) Loi exponentielle.
 
 Une variable aléatoire \(X\) suit une loi exponentielle de paramètre \(\theta>0\), notée \(X\sim\mathcal E(\theta)\), si sa loi est
 \begin{equation*}
@@ -385,7 +383,7 @@ dans le cas \(d=1\). Cette loi vérifie la propriété de l'absence de mémoire,
 \end{equation*}
 
 
-Loi normale ou gaussienne.
+\(\triangleright\) Loi normale ou gaussienne.
 
 Une variable aléatoire \(X\) suit une loi normale de paramètres \(\mu\in\R\) et \(\sigma>0\), notée \(X\sim\mathcal N(\mu,\sigma^2)\), si sa loi est
 \begin{equation*}
@@ -406,12 +404,12 @@ remarque, la loi \(\cal N(0,1)\), c'est-à-dire avec la densité
 est appelée loi normale standard.
 
 
-\subsection{Moments d'une variable aléatoire} %2.3
+\section{Moments d'une variable aléatoire} %2.3
 
 On considère dans la suite \(\left(\Omega, \scr F, \bb P\right)\) un
 espace probabilisé
 
-\subsubsection{Espérance} % 2.3.1
+\subsection{Espérance} % 2.3.1
 
 \begin{definition}
     Soit \(X\colon\Omega\to\bb R\) une variable aléatoire réelle.
@@ -469,7 +467,7 @@ espace probabilisé
     \end{equation*}
 
     Si \(h\colon E\to\bb R\) et mesurable (pas forcément positive),
-    alors \(h\in\scr ^1\left(E, \scr E, \bb P_X\right)\) si et seulement
+    alors \(h\in\scr L^1\left(E, \scr E, \bb P_X\right)\) si et seulement
     si \(h\circ X\in\scr L^1\left(\Omega, \scr F, \bb P\right)\)
     et l'égalité précédente reste vraie.
 \end{proposition}
@@ -572,7 +570,7 @@ espace probabilisé
     c'est-à-dire que \(Y\) suit une loi exponentielle de paramètre 1.
 \end{exs}
 
-\subsubsection{Moments d'ordre \(p\)} % 2.3.2
+\subsection{Moments d'ordre \(p\)} % 2.3.2
 
 Pour \(p\in\fo{1,\infty}\), on définit l'espace \(\scr L^p(\Omega, \scr F, \bb P)\)
 comment l'ensemble des variables aléatoires vérifiant
@@ -628,7 +626,7 @@ Donc \(\scr L^\infty (\Omega,\scr F,\bb P)\) est l'ensemble des variables aléat
     On applique l'espérance
     \begin{equation*}
         \begin{aligned}
-            \t^p\bb E\ff{\one_{\{X\geq t\}}}&\leq \bb E\ff{X^p}\\
+            t^p\bb E\ff{\one_{\{X\geq t\}}} &\leq \bb E\ff{X^p}\\
             \bb P(X\geq t)&\leq \frac{\bb E\ff{X^p}}{t^p}
         \end{aligned}
     \end{equation*}
@@ -652,13 +650,13 @@ La norme associée est
     La \defemph{variance} d'une variable aléatoire réelle \(X\) est le 
     moment d'ordre 2 de \(X-\bb E\ff X\), soit
     \begin{equation*}
-        \text{VAR REPLACE \backslash VAR}(X) = \nn{X-\bb E\ff X}_2^2 = \int_{\Omega}{\left(X(\omega) -\bb E\ff X\right)}^2\der\bb P(\omega),
+        \var(X) = \nn{X-\bb E\ff X}_2^2 = \int_{\Omega}{\left(X(\omega) -\bb E\ff X\right)}^2\der\bb P(\omega),
     \end{equation*}
     qui est bien définie si \(X\in\scr L^2(\Omega, \scr F, \bb P)\).
 
     On définit \defemph{l'écart-type} par
     \begin{equation*}
-        \sigma(X) = \sqrt[\text{VARRRR}(X)] = \nn{X-\bb E\ff X}_2
+        \sigma(X) = \sqrt[\var(X)] = \nn{X-\bb E\ff X}_2
     \end{equation*}
 \end{definition}
 
@@ -667,10 +665,379 @@ La norme associée est
         \item En développant le carré dans la définition de la variance,
         on obtient
         \begin{equation*}
-            \text{VARRRRR}(X) = \bb E\ff{X^2} - {\bb E\ff X}^2
+            \var(X) = \bb E\ff{X^2} - {\bb E\ff X}^2
         \end{equation*}
 
-        \item On a \(\text{VARRR}(X) = 0\) si et seulement si \(X\)
+        \item On a \(\var(X) = 0\) si et seulement si \(X\)
         est constante.
     \end{enumerate}
 \end{remark}
+
+\begin{proposition}[Inégalité de Bienaymé-Tchebychev]
+    Soit \(X\) une variable aléatoire dans \(\scr L^2(\Omega, \scr F, \bb P)\).
+    Alors, pour tout \(t>0\), on a
+    \begin{equation*}
+        \bb P\left(\n{X-\bb E\ff X}_2\geq t\right)\leq \frac{\var(X)}{t^2}
+    \end{equation*}
+\end{proposition}
+
+\begin{definition}
+    Soient \(X\) et \(Y\) deux variables aléatoires dans \(\scr L^2(\Omega, \scr F, \bb P)\).
+    On définit la \defemph{covariance} de \(X\) et \(Y\) par
+    \begin{equation*}
+        \text{COV}(X,Y) = \bb E\ff{(X-\bb E\ff X)(Y-\bb E\ff Y)} = \langle X-\bb E\ff X, Y-\bb E\ff Y\rangle
+    \end{equation*}
+    où on rappelle que
+    \begin{equation*}
+        \langle U, V\rangle = \bb E\ff{UV} = \int_{\Omega} U(\omega)V(\omega)\der\bb P(\omega)
+    \end{equation*}
+
+    Par les propriétés du produit scalaire dans \(\scr L^2(\Omega, \scr F, \bb P)\), on en
+    déduit que la covariance est symétrique, bilinéaire et positive:
+    \begin{equation*}
+        \text{COV}(X,X) = \var(X) \geq 0
+    \end{equation*}
+
+    Par ailleurs, on a aussi la relation de Pythagore:
+    \begin{equation*}
+        \var(X+Y) = \var(X) + \var(Y) + 2\text{COV}(X,Y)
+    \end{equation*}
+\end{definition}
+
+\subsection{Moments de lois usuelles}
+
+Sous forme de tableau:
+
+\begin{equation*}
+    \begin{array}{|c|c|c|}
+        \hline
+        \text{Loi} & \text{Espérance} & \text{Variance}\\
+        \hline
+        \mathcal U(\{1,\ldots,n\}) & \frac{n+1}2 & \frac{n^2-1}{12}\\
+        \hline
+        \mathcal B(p) & p & p(1-p)\\
+        \hline
+        \mathcal B(n,p) & np & np(1-p)\\
+        \hline
+        \mathcal G(p) & \frac{1}{p} & \frac{1-p}{p^2}\\
+        \hline
+        \mathcal P(\theta) & \theta & \theta\\
+        \hline
+        \mathcal U(\ff{a,b}) & \frac{a+b}{2} & \frac{{(b-a)}^2}{12}\\
+        \hline
+        \mathcal E(\theta) & \frac{1}{\theta} & \frac{1}{\theta^2}\\
+        \hline
+        \mathcal N(\mu,\sigma^2) & \mu & \sigma^2\\
+        \hline
+    \end{array}
+\end{equation*}
+
+\section{Fonctions associées à une variable aléatoire}
+
+\subsection{Fonction de répartition}
+
+\begin{definition}
+    Soit \(X\) une variable aléatoire réelle. La \defemph{fonction de répartition} de \(X\)
+    est la fonction
+    \begin{equation*}
+        F_X\colon \bb R\to\ff{0,1},\quad t\mapsto \bb P(X\leq t)
+    \end{equation*}
+\end{definition}
+
+\begin{example}
+    Si \(X\) est une variable réelle de densité \(f_X\) par rapport à la mesure de Lebesgue
+    \(\left(\bb P_X = f_X\lambda_1\right)\), alors
+    \begin{equation*}
+        \bb P_X(A) = \int_A f_X(t)\der\lambda_1(t)
+    \end{equation*}
+    Donc, la fonction de répartition de \(X\) est donnée par
+    \begin{equation*}
+        F_X(t) = \bb P_X\left(\ff{-\infty,t}\right) = \int_{-\infty}^t f_X(u)\der\lambda_1(u)
+    \end{equation*}
+    Par exemple, si \(X\sim\mathcal E(\theta)\), c'est-à-dire
+    \begin{equation*}
+        f_X(t) = \theta e^{-\theta t}\one_{\R_+}(t)
+    \end{equation*}
+    alors
+    \begin{equation*}
+        \begin{aligned}
+            F_X(t)
+            &= \int_{-\infty}^t \theta e^{-\theta u}\one_{\R_+}(u)\der\lambda_1(u)\\
+            &= \begin{cases}
+                0 & \text{si } t<0\\
+                \ff{-e^{-\theta u}}_0^t & \text{si } t\geq 0
+            \end{cases}\\
+            &= \left(1-e^{-\theta t}\right)\one_{\R_+}(t)
+        \end{aligned}
+    \end{equation*}
+    De manière générale, l'égalité \(F_X(t) = \int_{-\infty}^t f_X(u)\der\lambda_1(u)\) assure que
+    \(F_X\) est dérivable \(\lambda_1\)-p.p, avec \(F_X'(t) = f_X(t)\) pour \(\lambda_1\)-presque tout \(t\in\bb R\).
+\end{example}
+
+\begin{example}
+    On considère \(X\sim\mathcal B(p)\) et \(\bb P_X = (1-p)\delta_0 + p\delta_1\).
+    Alors, la fonction de répartition de \(X\) est donnée par
+    \begin{equation*}
+        \begin{aligned}
+            F_X(t) 
+            &= \bb P_X\left(\ff{-\infty,t}\right)\\
+            &= (1-p)\delta_0\left(\ff{-\infty,t}\right) + p\delta_1\left(\ff{-\infty,t}\right)\\
+            &= \begin{cases}
+                0 & \text{si } t<0\\
+                1-p & \text{si } 0\leq t<1\\
+                1 & \text{si } t\geq 1
+            \end{cases}
+        \end{aligned}
+    \end{equation*}
+    Plus généralement, si \(X\) est une variable aléatoire discrète de loi \(\bb P_X = \sum_{k\in E}p_k\delta_{x_k}\), avec
+    les \(x_k\) ordonnés, alors
+    \begin{equation*}
+        F_X(t) = \sum_{k=0}^{\infty} p_k\delta_{x_k}\left(\ff{-\infty,t}\right) = \sum_{k=0}^{\infty} p_k\one_{\fo{x_k,+\infty}}(t)
+    \end{equation*}
+\end{example}
+
+\begin{proposition}
+    Soit \(X\) une variable aléatoire réelle de fonction de répartition \(F_X\). Alors
+    \begin{enumerate}
+        \item \(F_X\) est croissante, continue à droite et admet des limites à gauche (càdlàg)
+        \item Les limites de \(F_X\) en \(-\infty\) et \(+\infty\) sont
+        \begin{equation*}
+            \lim_{t\to\infty} F_X(t) = 1,\quad \lim_{t\to-\infty} F_X(t) = 0
+        \end{equation*}
+        \item En posant
+        \begin{equation*}
+            F_X(t-) = \lim_{\substack{\varepsilon\to 0\\ \varepsilon>0} } F_X(t-\varepsilon)
+        \end{equation*}
+        On a
+        \begin{equation*}
+            F_X(t-) = \bb P(X<t) = \bb P(X\leq t)
+        \end{equation*}
+        et donc
+        \begin{equation*}
+            \bb P(X=t) = F_X(t) - F_X(t-)
+        \end{equation*}
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Admise (ou a faire en exercice)
+\end{proof}
+
+\begin{proposition}
+    La fonction de répartition d'une variable aléatoire \(X\) caractérise sa loi. C'est à dire que deux variables
+    aléatoires ayant la même fonction de répartition ont la même loi.
+\end{proposition}
+
+\begin{proof}
+    Si \(F_X = F_Y\) alors
+    les mesures de probabilités \(\bb P_X\) et \(\bb P_Y\) associées à \(X\) et \(Y\) coïncident sur les
+    ensembles de la forme \(\ff{-\infty,t}\). Ces ensembles engendrent la tribu borélienne de \(\bb R\) et
+    sont stables par intersection finie, donc le lemme de classes monotones assure que \(\bb P_X = \bb P_Y\).
+\end{proof}
+
+\subsection{Fonction caractéristique}
+
+\begin{definition}
+    Soit \(X\) une variable aléatoire réelle. La \defemph{fonction caractéristique} de \(X\) est la fonction
+    \begin{equation*}
+        \begin{aligned}
+            \varphi_X\colon \bb R &\to\bb C\\
+            t &\mapsto \bb E\ff{e^{itX}} = \int_{\Omega} e^{itX(\omega)}\der\bb P(\omega)
+        \end{aligned}
+    \end{equation*}
+\end{definition}
+
+\begin{remark}\,
+    \begin{enumerate}
+        \item La fonction caractéristique est bien définie car
+        \begin{equation*}
+            \int_{\Omega}\n{e^{itX(\omega)}}\der\bb P(\omega) = \int_{\Omega} \der\bb P(\omega) = 1
+        \end{equation*}
+
+        \item La fonction caractéristique correspond à un signe près à la transformée de Fourier de la
+        variable aléatoire \(X\).
+    \end{enumerate}
+\end{remark}
+
+\begin{example}\,
+    \begin{itemize}
+        \item Soit \(X\sim\mathcal B(p)\). Alors
+        \begin{equation*}
+            \varphi_X(t) = \bb E\ff{e^{itX}} = (1-p)e^{it0} + pe^{it1} = 1-p+pe^{it}
+        \end{equation*}
+
+        \item Soit \(X\) une variable aléatoire discrète de loi \(\bb P_X = \sum_{k\in E}p_k\delta_{x_k}\).
+        Alors
+        \begin{equation*}
+            \varphi_X(t) = \bb E\ff{e^{itX}} = \sum_{k\in E}p_k e^{itx_k}
+        \end{equation*}
+
+        \item Soit \(X\sim\mathcal U(\ff{a,b})\). Alors
+        \begin{equation*}
+            \begin{aligned}
+                \varphi_X(t) 
+                &= \bb E\ff{e^{itX}}\\
+                &= \int_{\bb R} e^{itx}\frac{1}{b-a}\one_{\ff{a,b}}(x)\der\lambda_1(x)\\
+                &= \ff{\frac{e^{itx}}{it}}_a^b\\
+                &= \frac{e^{itb}-e^{ita}}{it(b-a)}\quad \text{si } t\neq 0
+            \end{aligned}
+        \end{equation*}
+        et pour \(t=0\), on a 
+        \begin{equation*}
+            \varphi_X(0) = \bb E\ff{e^{i0X}} = \bb E\ff{1} = 1
+        \end{equation*}
+
+        \item Soit \(X\sim\mathcal N(0,1)\). Alors
+        \begin{equation*}
+            \varphi_X(t) = \bb E\ff{e^{itX}} = \int_{\bb R} e^{itx}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\der\lambda_1(x) = e^{-\frac{t^2}{2}}
+        \end{equation*}
+        cf. TD4 pour le calcul de l'intégrale.
+    \end{itemize}
+\end{example}
+
+\begin{proposition}
+    Soit \(X\) une variable aléatoire réelle. Si \(X\) admet un moment d'ordre \(p\in\bb N\),
+    alors la fonction caractéristique \(\varphi_X\) est de classe \(\scr C^p\) et
+    \begin{equation*}
+        \bb E\ff{X^p} = {\left(-i\right)}^p \varphi_X^{(p)}(0)
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    La fonction \(g:(t,\omega)\mapsto e^{itX(\omega)}\) est intégrable par rapport à \(\omega\),
+    dérivable par rapport à \(t\) et vérifie
+    \begin{equation*}
+        \n{\frac{\partial g}{\partial t}(t,\omega)} = \n{iX(\omega)e^{itX(\omega)}}=\n{X(\omega)}
+    \end{equation*}
+    Donc si \(X\) admet un moment d'ordre 1, alors
+    \begin{equation*}
+        \n{\frac{\partial g}{\partial t}(t,\omega)} = \n{X(\omega)}
+    \end{equation*}
+    qji est intégrable, donc le théorème de dérivation sous le signe intégral assure que
+    \begin{equation*}
+        \varphi_X'(t) = \int_{\Omega} iX(\omega)e^{itX(\omega)}\der\bb P(\omega)
+    \end{equation*}
+    en particulier, en \(t=0\), on a
+    \begin{equation*}
+        \varphi_X'(0) = i\bb E\ff{X}
+    \end{equation*}
+    On raisonne ensuite par récurrence sur \(p\) pour les autres moments.
+\end{proof}
+
+\begin{theorem}
+    La fonction caractéristique \(\varphi_X\) caractérise la loi de \(X\). C'est-à-dire que si
+    \(\varphi_X = \varphi_Y\) alors \(X\) et \(Y\) ont la même loi.
+\end{theorem}
+
+\begin{proof}
+    Admise, elle est basée sur l'injectivié de la transformée de Fourier de mesures.
+\end{proof}
+
+\subsection{Fonction génératrice}
+
+On considère ici des variables aléatoires à valeurs dans \(\bb N\).
+
+\begin{definition}
+    Soit \(X\) une variable aléatoire à valeurs dans \(\bb N\). La \defemph{fonction génératrice} de \(X\)
+    est la série entière
+    \begin{equation*}
+        G_X(z) = \bb E\ff{z^X} = \sum_{n=0}^{\infty} \bb P(X=n)z^n
+    \end{equation*}
+    Comme \(\sum_{n=0}^{\infty} \bb P(X=n) = 1\), on en déduit que le rayon de convergence de cette série
+    entière est au moins 1, donc \(G_X\) est définie sur \(\ff{-1,1}\) et continue sur \(\ff{-1,1}\).
+    Par ailleurs, \(G_X\) est de classe \(\scr C^\infty\) sur \(\oo{-1,1}\) avec
+    \begin{equation*}
+        \bb P(X=n) = \frac{G_X^{(n)}(0)}{n!}
+    \end{equation*}
+
+    Donc \(G_X\) caractérise la loi de \(X\).
+
+    En dérivant \(G_X\) terme à terme, on obtient
+    \begin{equation*}
+        G_X'(z) = \sum_{n=1}^{\infty} n\bb P(X=n)z^{n-1} = \bb E\ff{Xz^{X-1}}
+    \end{equation*}
+    On prend une suite \({(z_k)}_{k\in\bb N}\) qui croit vers 1. Alors, la suite
+    des fonctions \({\left(X {z_k}^{X-1}\right)}_k\) est croissante, positive et
+    donc par le théorème de convergence monotone, on a
+    \begin{equation*}
+        \bb E\ff{\lim_{k\to\infty} X{z_k}^{X-1}} = \lim_{k\to\infty} \underbrace{\bb E\ff{X{z_k}^{X-1}}}_{G_X'(z_k)}
+    \end{equation*}
+    d'où
+    \begin{equation*}
+        \bb E\ff{X} = \lim_{\substack{z\to 1\\ z<1}} G_X'(z)
+    \end{equation*}
+    On peut noter \(G_X'(1-) = \lim_{\substack{z\to 1\\ z<1}} G_X'(z)\).
+
+    Bref, si \(X\) admet un moment d'ordre 1, alors \(G_X'(1-) = \bb E\ff X\).
+
+    Plus généralement, on peut montrer que 
+    \begin{equation*}
+        G_X^{(k)}(1-) = \bb E\ff{X(X-1)\ldots(X-k+1)}
+    \end{equation*}
+    pour tout \(k\in\bb N\). Cela permet de déterminer les moments de \(X\).
+\end{definition}
+
+\begin{example}
+    \(\triangleright\) Soit \(X\sim\mathcal B(p)\). Alors
+    \begin{equation*}
+        G_X(z) = \bb E\ff{z^X} = (1-p)z^0 + pz^1 = 1-p+pz
+    \end{equation*}
+    et donc
+    \begin{equation*}
+        G_X'(z) = p
+    \end{equation*}
+    donc
+    \begin{equation*}
+        \bb E\ff X = G_X'(1) = p
+    \end{equation*}
+
+    \(\triangleright\) Soit \(X\sim\mathcal B(n,p)\). Alors
+    \begin{equation*}
+        \begin{aligned}
+            G_X(z) = \bb E\ff{z^X}
+            &= \sum_{k=0}^n \binom{n}{k}p^k{(1-p)}^{n-k}z^k\\
+            &= {(pz + 1-p)}^n
+        \end{aligned}
+    \end{equation*}
+    donc
+    \begin{equation*}
+        G_X'(z) = np{(pz + 1-p)}^{n-1}
+    \end{equation*}
+    et donc
+    \begin{equation*}
+        \bb E\ff X = G_X'(1) = np
+    \end{equation*}
+
+    \(\triangleright\) Soit \(X\sim\mathcal G(p)\). Alors
+    \begin{equation*}
+        \begin{aligned}
+            G_X(z) = \bb E\ff{z^X}
+            &= \sum_{k=1}^{\infty} p{(1-p)}^{k-1}z^k\\
+            &= zp\sum_{k=1}^{\infty} {(1-p)z}^{k-1}\\
+            &= \frac{zp}{1-(1-p)z}
+        \end{aligned}
+    \end{equation*}
+    et
+    \begin{equation*}
+        \bb E\ff X = G_X'(1) \to \text{exercice}
+    \end{equation*}
+
+    \(\triangleright\) Soit \(X\sim\mathcal P(\theta)\). Alors
+    \begin{equation*}
+        \begin{aligned}
+            G_X(z) = \bb E\ff{z^X}
+            &= \sum_{k=0}^{\infty} e^{-\theta}\frac{\theta^k}{k!}z^k\\
+            &= e^{-\theta}\sum_{k=0}^{\infty} \frac{{(\theta z)}^k}{k!}\\
+            &= e^{-\theta}e^{\theta z}\\
+            &= e^{\theta(z-1)}
+        \end{aligned}
+    \end{equation*}
+    donc
+    \begin{equation*}
+        G_X'(z) = \theta e^{\theta(z-1)}
+    \end{equation*}
+    et donc
+    \begin{equation*}
+        \bb E\ff X = G_X'(1) = \theta
+    \end{equation*}
+\end{example}

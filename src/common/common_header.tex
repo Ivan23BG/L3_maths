@@ -9,8 +9,10 @@
 \usepackage[shortlabels]{enumitem} % Enhanced control over lists
 \setlist[itemize,1]{label={\color{gray}\small \textbullet}} % Customize the bullet style for itemize
 
-% Header and Footer Customization -----------------------------------------------
+% Page subpart Customization -----------------------------------------------
 \usepackage{fancyhdr} % Create custom headers and footers
+\usepackage{titlesec} % Customize section titles
+\usepackage{titletoc} % For better TOC control
 
 % Mathematical Symbols and Enhancements -----------------------------------------
 \usepackage{centernot} % Provides the \centernot command for centered negation
@@ -47,6 +49,35 @@
 
 % Custom Theorem Styles ---------------------------------------------------------
 \usepackage[]{mdframed} % Framing for environments
+
+% Custom sectioning environments ------------------------------------------------
+
+% Set up counters
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+% Define suprasection
+\titleclass{\suprasection}{straight}[\part]
+\newcounter{suprasection}
+\renewcommand\thesuprasection{\arabic{suprasection}}
+
+% Format the suprasection (in document)
+\titleformat{\suprasection}
+  {\normalfont\Large\bfseries}{\thesuprasection}{1em}{}
+\titlespacing*{\suprasection}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+% Adjust TOC formatting - shift everything down one level
+\dottedcontents{suprasection}[1.5em]{}{2.3em}{1pc}  % Like a normal section
+\dottedcontents{section}[3.8em]{}{2.8em}{1pc}       % Like a normal subsection
+\dottedcontents{subsection}[7.0em]{}{3.2em}{1pc}    % Like a normal subsubsection
+\dottedcontents{subsubsection}[10.0em]{}{3.8em}{1pc}
+% Add to TOC
+\titlecontents{suprasection}
+  [0em]  % Less indentation than regular sections
+  {\addvspace{1pc}\bfseries}  % Above code (bold, extra space)
+  {\contentslabel{2em}}
+  {\hspace*{-2em}}
+  {\titlerule*[0.5pc]{.}\contentspage}
 
 
 % Redeclare math operators for customization ------------------------------------

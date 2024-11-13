@@ -240,8 +240,8 @@
             \begin{equation*}
                 \langle a\rangle = \{\ol 1, a\}
             \end{equation*}
-            avec \(a\ne\ol 1, a^2 = \ol 1\). Or, \(\forall a\in(\Z/24\Z)^\times\),
-            on a \(a^2=1\). Alors, les sous-groupes d'ordre 2 de \((\Z/24\Z)^\times\)
+            avec \(a\ne\ol 1, a^2 = \ol 1\). Or, \(\forall a\in{(\Z/24\Z)}^\times\),
+            on a \(a^2=1\). Alors, les sous-groupes d'ordre 2 de \({(\Z/24\Z)}^\times\)
             sont:
             \begin{equation*}
                 \begin{aligned}
@@ -311,3 +311,352 @@
         \end{enumerate}
     \end{td-sol}
 }{}
+
+\begin{td-exo}[Exo 15] % 8
+
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 8
+        \begin{enumerate}
+            \item Le sous groupe engendré par \(\ol 3\) est
+            \begin{equation*}
+                H = \{\ol 3, \ol 9, \ol 5, \ol 4, \ol 1\}
+            \end{equation*}
+            et le sous-groupe engendré par \(\ol 10\) est
+            \begin{equation*}
+                K = \{\ol{10}, \ol{1}\}
+            \end{equation*}
+            On vérifie alors les trois propriétés:
+            \begin{itemize}[label=\((i)\)]
+                \item Si \(x\in H\), alors le couple \((x,\ol 1)\) convient. Sinon,
+                \(x\in\{\ol 2, \ol 6, \ol 7, \ol 8, \ol 10\}\). On a alors
+                \begin{equation*}
+                    \begin{aligned}
+                        x = \ol 2 \equiv x = \ol 90 \implies (\ol 9, \ol 10)\\
+                        x = \ol 6 \equiv x = \ol 50 \implies (\ol 5, \ol 10)\\
+                        x = \ol 7 \equiv x = \ol 40 \implies (\ol 4, \ol 10)\\
+                        x = \ol 8 \equiv x = \ol 30 \implies (\ol 3, \ol 10)\\
+                        x = \ol{10} \implies (\ol{1}, \ol{10})
+                    \end{aligned}
+                \end{equation*}
+                La première propriété est donc vérifiée pour tout \(x\in G\).
+
+                \item On a bien \(H\cap K = \{1\}\).
+
+                \item Le groupe \(\bb Z/p\bb Z\) est toujours abélien donc
+                on a bien que tous les éléments de \(H\) et \(K\) commutent entre eux.
+            \end{itemize}
+
+            \item Commençons par montrer que les ensembles 
+            \begin{equation*}
+                H = G_1\times\{e_2\},\quad  K = \{e_1\}\times G_2
+            \end{equation*}
+            sont bien des sous-groupes de \(G\), soit qu'ils vérifient
+            les trois propriétés:
+            \begin{itemize}
+                \item \(e_G\in H\),
+                \item Si \(x,y\in H\), alors \(xy\in H\),
+                \item Si \(x\in H\), alors \(x^{-1}\in H\).
+            \end{itemize}
+            Montrons-les:
+            \begin{itemize}
+                \item \(e_G = (e_{G_1}, e_{G_2})\in H\) car \(e_{G_1}\in G_1\).
+
+                \item Soient \(x=(x_1, e_{G_2})\) et \(y=(y_1, e_{G_2})\) alors
+                \begin{equation*}
+                    xy = (x_1y_1, e_{G_2})\in H
+                \end{equation*}
+                car \(x_1y_1\in G_1\).
+
+                \item Soit \(x=(x_1, e_{G_2})\), alors
+                \begin{equation*}
+                    x^{-1} = (x_1^{-1}, e_{G_2})\in H
+                \end{equation*}
+                car \(x_1^{-1}\in G_1\).
+            \end{itemize}
+            De même pour \(K\).
+
+            On a montré que ces deux ensembles sont bien des sous-groupes
+            de \(G\), montrons maintenant qu'ils vérifient les trois propriétés
+            demandées:
+            \begin{itemize}[label=\((i)\)]
+                \item Soit \(x=(x_1, x_2)\in G\), alors 
+                le couple \((x_1, e_{G_2}), (e_{G_1}, x_2)\) convient.
+
+                \item Il est clair que \(H\cap K = \{(e_{G_1}, e_{G_2})\} = e_G\).
+
+                \item Comme le produit se fait terme à terme et que tout 
+                élément de \(G_i\) commute avec \(\{e_i\}\), on a bien que
+                tous les éléments de \(H\) et \(K\) commutent entre eux.
+            \end{itemize}
+
+            \item On note \(H\) et \(K\) les sous-groupes de \(G\).
+            \begin{enumerate}
+                \item On procède par l'absurde. Supposons qu'il existe deux
+                écritures de \(x=yz=y'z'\). Alors on a
+                \begin{equation*}
+                    \begin{aligned}
+                        &yz = y'z'\\
+                        \equiv &y^{-1}yz = y^{-1}y'z'\\
+                        \equiv &z = y^{-1}y'z'\\
+                    \end{aligned}
+                \end{equation*}
+                Or \(z\in K\) donc \(y^{-1}y'z'\in K\). Comme \(z'\in K\),
+                on a \(y^{-1}y'\in K\). Or \(y,y'\in H\) donc \(y^{-1}y'\in H\).
+                On a donc \(y^{-1}y'\in H\cap K = \{e\}\) donc \(y=y'\).
+                Il en est de même pour \(z\).
+
+                L'écriture est donc unique.
+
+                \item On a déjà montré au point précédent que l'écriture
+                est unique et donc tout élément de \(G\) peut s'écrire
+                de manière unique comme \(yz\) avec \(y\in H\) et \(z\in K\)
+                donc on peut considérer l'application
+                \begin{equation*}
+                    \begin{aligned}
+                        f\colon H\times K &\to G\\
+                        (x,y) &\mapsto xy
+                    \end{aligned}
+                \end{equation*}
+                qui est bijective d'après \((i)\) et le point précédent.
+
+                Montrons maintenant que c'est un morphisme de groupes:
+                Soient \((x,y), (x',y')\in H\times K\), on a:
+                \begin{equation*}
+                    \begin{aligned}
+                        f((x,y)(x',y')) &= f((xx',yy'))\\
+                        &= xx'yy'\\
+                        &= xyx'y'\\
+                        &= f(x,y)f(x',y')
+                    \end{aligned}
+                \end{equation*}
+                donc \(f\) est un morphisme de groupes.
+
+                En conclusion, \(G\) est isomorphe à \(H\times K\).
+
+                \begin{remark}
+                    Via l'isomorphisme \(G = H\times K\), on a correspondance
+                    entre les sous-groupes
+                    \begin{equation*}
+                        H \leftrightarrow H\times\{e\},\quad K\leftrightarrow\{e\}\times K
+                    \end{equation*}
+                    On retrouve donc le cas de la question 2.
+                \end{remark}
+
+                \begin{remark}
+                    En appliquant à la question 1, on obtient un isomorphisme
+                    de groupes:
+                    \begin{equation*}
+                        \begin{aligned}
+                            {\left(\bb Z/11\bb Z\right)}^\times 
+                            &\simeq \langle \ol 3\rangle\times\langle\ol{10}\rangle\\
+                            &\simeq \left(\bb Z/5\bb Z\right)\times\left(\bb Z/2\bb Z\right)\\
+                        \end{aligned}
+                    \end{equation*}
+                    On verra plus tard que pour \(p\) premier, le
+                    groupe \({\left(\bb Z/p\bb Z\right)}^\times\) est cyclique (d'ordre \(p-1\)),
+                    donc \({\left(\bb Z/p\bb Z\right)}^\times\simeq\bb Z/(p-1)\bb Z\). Notamment,
+                    \begin{equation*}
+                        \begin{aligned}
+                            {\left(\bb Z/11\bb Z\right)}^\times
+                            &\simeq\bb Z/10\bb Z\\
+                            &\simeq\bb Z/5\bb Z\times\bb Z/2\bb Z
+                        \end{aligned}
+                    \end{equation*}
+                    d'après le théorème des restes chinois (car \(5\) et \(2\) sont premiers entre eux).
+                \end{remark}
+                \begin{remark}
+                    Il existe des groupes finis qui ne sont pas isomorphes à un produit direct 
+                    de groupes cycliques, par exemple \(\mathfrak{S}_3\), car un produit
+                    de groupes cycliques est abélien.
+
+                    En revance, c'est un fait (pas trivial) que tout groupe fini abélien
+                    est isomorphe à un produit de groupes cycliques.
+                \end{remark}
+            \end{enumerate}
+
+            \item On se place dans le groupe \(\mathfrak{S}_3\). On considère alors
+            \begin{equation*}
+                \begin{aligned}
+                    H = \langle (1~2)\rangle = \{(1~2), \id\},\\
+                    K = \langle (1~2~3)\rangle = \{(1~2~3), (1~3~2), \id\}
+                \end{aligned}
+            \end{equation*}
+            On a tout de suite \((ii)\) qui est vérifié.
+
+            Il manque \((1~3), (2~3)\) à ``former''. Or
+            \begin{equation*}
+                \begin{aligned}
+                    (1~3) &= (1~2)(1~2~3),\\
+                    (2~3) &= (1~2)(1~3~2)
+                \end{aligned}
+            \end{equation*}
+            Donc \((i)\) est vérifié.
+
+            En revanche, on a \((1~2)(1~2~3) \neq (1~2~3)(1~2)\) donc 
+            \((iii)\) n'est pas vérifié.
+        \end{enumerate}
+    \end{td-sol} % 12 13 18 20
+}{}
+
+\begin{td-exo}[Exo 12] % 12
+    Enoncé à remplir.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 12
+        \begin{enumerate}
+            \item On veut montrer l'égalité
+            \begin{equation*}
+                \color{orange}\overbrace{\color{black}\sigma (i_1~i_2~\cdots~i_k)\sigma^{-1}}^{\alpha}\color{black}
+                = \color{orange}\overbrace{\color{black}(\sigma(i_1)~\sigma(i_2)~\ldots~\sigma(i_k))}^{\beta}\color{black}
+            \end{equation*}
+            Soit \(j\in\{1,\ldots,n\}\). Procédons par cas:
+
+            \(\triangleright\) Cas 1: \(j\notin\{\sigma(i_1),\ldots,\sigma(i_k)\}\).
+
+            Alors \(\beta(j) = j\). On calcule
+            \begin{equation*}
+                \begin{aligned}
+                    \alpha(j)
+                    &= \sigma(i_1~i_2~\cdots~i_k)\sigma^{-1}(j)\\
+                    &= \sigma\left(\sigma^{-1}(j)\right)\\
+                \end{aligned}
+            \end{equation*}
+            Donc \(\alpha(j) = \beta(j)\).
+
+            \(\triangleright\) Cas 2: \(j = \sigma(i_r)\) pour un \(r\in\{1,\ldots,k\}\).
+
+            Alors
+            \begin{equation*}
+                \begin{aligned}
+                    \alpha(j)
+                    &= \sigma(i_1~i_2~\cdots~i_k)\underbrace{\sigma^{-1}\left(\sigma(i_r)\right)}_{i_r}\\
+                    &= \sigma(i_{r+1})\\
+                \end{aligned}
+            \end{equation*}
+
+            D'autre part,
+            \begin{equation*}
+                \begin{aligned}
+                    \beta(j)
+                    &= (\sigma(i_1)~\sigma(i_2)~\ldots~\sigma(i_k))(\sigma(i_r))\\
+                    &= \sigma(i_{r+1})\\
+                \end{aligned}
+            \end{equation*}
+            Donc \(\alpha(j) = \beta(j)\).
+
+            Conclusion: on a \(\forall j\in\{1,\ldots,n\}, \alpha(j) = \beta(j)\) donc \(\alpha = \beta\).
+
+            \begin{remark}[Ca sort d'où?]
+                Soient deux ensembles \(E\) et \(F\) de cardinal fini \(n\).
+                Soit \(\sigma\colon E\to F\) une bijection. 
+
+                Soit \(f\in \text{Bij}(E)\). Alors, \(\sigma f \sigma^{-1}\) est une bijection de \(F\).
+
+                Slogan: ``\(\sigma f \sigma^{-1}\), c'est comme \(f\), après avoir renommé les éléments''.
+
+                En effet, notons \(E = \{x_1,\ldots,x_n\}\) et \(F = \{y_1,\ldots,y_n\}\) avec \(\sigma(x_i) = y_i\).
+
+                Si \(f(x_i) = x_j\) alors
+                \begin{equation*}
+                    (\sigma f \sigma^{-1})(y_i) = (\sigma f)(x_i) = \sigma(f(x_i)) = \sigma(x_j) = y_j
+                \end{equation*}
+                et
+                \begin{equation*}
+                    (\sigma f \sigma^{-1})(y_i) = y_j
+                \end{equation*}
+            \end{remark}
+
+            \item Il suffit de montrer que toutes les transpositions adjacentes 
+            \((1~2), (2~3), \ldots, (n-1~n)\) sont dans
+            \begin{equation*}
+                \langle (1~2), (1~2~\cdots~n)\rangle
+            \end{equation*}
+            (car par le cours, les transpositions adjacentes engendrent \(\mathfrak{S}_n\)).
+
+            On a
+            \begin{equation*}
+                \begin{aligned}
+                    &(1~2~\cdots~n)(1~2){(1~2~\cdots~n)}^{-1} = (2~3)\\
+                    &(1~2~\cdots~n)(2~3){(1~2~\cdots~n)}^{-1} = (3~4)\\
+                    \text{etc.}
+                \end{aligned}
+            \end{equation*}
+            donc toutes les transpositions adjacentes sont dans \(\langle (1~2), (1~2~\cdots~n)\rangle\).
+
+            Conclusion: \(\mathfrak{S}_n = \langle (1~2), (1~2~\cdots~n)\rangle\).
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Exo 13] % 13
+    Enoncé à remplir.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 13
+        Soient \(s_1,s_2\) deux réflexions de \(\bb R^2\).
+
+        Sens indirect: Si \(s_1=s_2\) alors \(s_1s_2 =s_2s_1\).
+
+        Si \(s_1=-s_2\) alors \(s_1s_2 = s_1(-s_1) = s_1\circ(-s_1) = -s_1\circ s_1 = -\id\).
+        et \(s_2s_1 =(-s_1)\circ s_1 = -s_1\circ s_1 = -\id\).
+
+        Sens direct: On suppose que \(s_1s_2 = s_2s_1\).
+
+        Ecrivons \(s_1 = s_{\Delta_1}\) et \(s_2 = s_{\Delta_2}\) avec \(\Delta_1\) et \(\Delta_2\) deux droites linéaires de \(\bb R^2\).
+
+        On sait par le cours que 
+        \begin{equation*}
+            s_1s_2=r_{-2\theta}
+        \end{equation*}
+        où \(\theta\) est l'angle orient de \(\Delta_1\) vers \(\Delta_2\).
+
+        De même, on a
+        \begin{equation*}
+            s_2s_1=r_{+2\theta}
+        \end{equation*}
+
+        On obtient donc que \(r_{-2\theta} = r_{+2\theta}\) donc il existe \(k\in\bb Z\) tel que
+        \(-2\theta = 2\theta + 2k\pi\) donc \(\theta = -k\frac{\pi}{2}\).
+
+        On a donc soit \(\Delta_1 = \Delta_2\), soit \(\Delta_1 = \Delta_2^\perp\) (orthogonalité).
+
+        Le premier donne \(s_1=s_2\), le second donne \(s_1=-s_{\Delta_2^\perp}\) donc \(s_1=-s_{\Delta_2}=s_2\).
+
+        En effet, c'est un fait générale que
+        \begin{equation*}
+            s_{\Delta^\perp} = -s_\Delta
+        \end{equation*}
+
+        Pour se convaincre, choisissons une base \(e,f\) avec \(e\) dans \(\Delta\) et \(f\) dans \(\Delta^\perp\). Alors
+        la matrice de \(s_\Delta\) est
+        \begin{equation*}
+            \begin{pmatrix}
+                1 & 0\\
+                0 & -1
+            \end{pmatrix}
+        \end{equation*}
+        et la matrice de \(-s_{\Delta}\) est
+        \begin{equation*}
+            \begin{pmatrix}
+                -1 & 0\\
+                0 & 1
+            \end{pmatrix}
+        \end{equation*}
+        c'est la matrice de \(s_{\Delta^\perp}\).
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Exo 13] % 13
+    Enoncé à remplir.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 13
+        solution à remplir
+    \end{td-sol}
+}{}
+    

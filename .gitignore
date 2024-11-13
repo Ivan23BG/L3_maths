@@ -9,3 +9,5 @@ logs/
 *.dvi
 *.synctex.gz
 package_finder.py
+log_filterer.py
+structure.txt

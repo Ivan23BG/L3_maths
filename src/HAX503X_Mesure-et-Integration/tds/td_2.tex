@@ -11,7 +11,7 @@
 \end{td-exo}
 % ----- Solutions exo 1
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
             \begin{enumerate}
                 \item Montrons que \(\scr D\) vérifie les axiomes d'une tribu.
                 \begin{itemize}
@@ -63,13 +63,13 @@
 
                 En conclusion, on a \(\scr D=\sigma(\scr D)\).
             \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 %
-\begin{nnremark}
+\begin{remark}
     Noter que dans l'exercice suivant, l'ensemble \(X\) n'est pas nécessairement borélien\ldots
-\end{nnremark}
+\end{remark}
 
 \begin{td-exo}[Tribu induite]
     Soit \(X\subset \R^n\), on note
@@ -88,7 +88,7 @@
 \end{td-exo}
 
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item Commençons par vérifier les axiomes d'une tribu:
             \begin{itemize}
@@ -104,7 +104,7 @@
 
         \end{enumerate}
 
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 %
@@ -121,7 +121,7 @@
 \end{td-exo}
 % ----- Solutions exo 3
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item Comme \(f\) est une application, il existe \(\alpha_0\in\R\) tel que
             \begin{equation*}
@@ -156,7 +156,7 @@
                 \end{equation*}
             \end{itemize}
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 % ideees sol
@@ -166,9 +166,9 @@
 %
 
 
-\begin{nnremark}
+\begin{remark}
     On a vu en cours que la mesurabilité est compatible avec les opérations usuelles, les passages à la limite, \textit{etc}\dots{}
-\end{nnremark}
+\end{remark}
 
 \begin{td-exo}{}
     Monter que les fonctions suivantes, définies sur \(\R\), sont boréliennes:
@@ -183,7 +183,7 @@
 \end{td-exo}
 % ----- Solutions exo 4
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item \(g\) est une composée de fonctions continues, et est donc borélienne.
 
@@ -201,15 +201,15 @@
 
             \item Composée de fonctions boréliennes donc borélienne.
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 %
 
 
-\begin{nnremark}
+\begin{remark}
     La mesurabilité est aussi compatible avec la troncature, l'extension ou la décomposition en forme polaire.
-\end{nnremark}
+\end{remark}
 
 \begin{td-exo}[Troncature]
     Soit \((X,\scr A)\) un espace mesurable et \(f:X\to\R\) une fonction mesurables.
@@ -225,7 +225,7 @@
 \end{td-exo}
 % ----- Solutions exo 5
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         Première solution:
 
         On considère les ensembles suivants:
@@ -252,7 +252,7 @@
             \item Si \(a,-a\in B\) alors \(f^{-1}(B)=f^{-1}(B_a)\cup f^{-1}(\{-a,a\})\).
         \end{itemize}
         Dans tous les cas, on a les \(f^{-1}(B)\cup\cdots\) qui sont dans \(\scr A\) et donc \(f_a\) est mesurable.
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 
@@ -273,7 +273,7 @@
 \end{td-exo}
 % ----- Solutions exo 6
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item On ne peut pas juste écrire \(g(x)=f(x)\one_X(x)\) car \(f(x)\) n'est tout simplement
             pas définie pour \(x\notin X\). On doit donc faire autrement, c'est à dire passer par
@@ -306,7 +306,7 @@
             \end{equation*}
             est mesurable. Enfin, par composée de fonctions mesurables, on a bien ce qu'on voulait.
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 \begin{td-exo} % 7
@@ -318,7 +318,7 @@
 \end{td-exo}
 % ----- Solutions exo 7
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item Il suffit de considérer \(B = \oo{b,+\infty}\) et alors \(f^{-1}(B)\) est un intervalle de la forme \(\oo{a,+\infty}\) ou \(\fo{a,+\infty}\) et donc borélien.
 
@@ -334,7 +334,7 @@
 
             Donc \(f'\) est borélienne.
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 \subsection*{Mesures}
@@ -347,7 +347,7 @@
 \end{td-exo}
 % ----- Solutions exo 8
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]
+    \begin{td-sol}[]
         On peut commencer par visualiser ces différents ensembles
         sur un dessin pour mieux comprendre ce qui se passe:
         \begin{center}
@@ -375,7 +375,7 @@
 
         On pourrait expliciter les cas pour \(n\le 3\) mais cela a
         peu d'impact sur les résultats.
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 \begin{td-exo}[Mesure image]\, % 9
@@ -415,7 +415,7 @@
 \end{td-exo}
 % ----- Solutions exo 11
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item Pour montrer que \(\bb P(\cdot|A)\) est une probabilité,
             il suffit de vérifier les axiomes d'une probabilité:
@@ -445,7 +445,7 @@
             \end{equation*}
             En posant \(C=A^C\), on obtient la formule de Bayes.
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 \begin{td-exo}[Fonctions de répartition] % 12
@@ -461,7 +461,7 @@
 \end{td-exo}
 % ----- Solutions exo 12
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item On a
             \begin{equation*}
@@ -508,12 +508,12 @@
             il n'y a pas de masses de Dirac dans la loi de \(X\).
             % idée: utiliser des suites croissantes pour montrer que la limite à droite est égale à la valeur en \(a\).
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
-\begin{nnremark}
+\begin{remark}
     La mesure de Lebesgue est invariante par translation. Réciproquement, cela permet de la caractériser.
-\end{nnremark}
+\end{remark}
 
 \begin{td-exo}[Invariance par translation de la mesure de Lebesgue]
     Soit \(a\in\R\) fixé. Pour tout \(A\subset\R\), on note \(A+a=\{x+a\ |\ x\in A\}\).
@@ -525,7 +525,7 @@
 \end{td-exo}
 % ----- Solutions exo 13
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item Montrons que la famille des boréliens est stable par translation.
             Soit \(A\in\scr B(\R)\). On pose
@@ -572,7 +572,7 @@
 
             Comme \(\lambda_1\) est invariante par translation, on a \(\mu=\lambda_1\).
         \end{enumerate}
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 \begin{td-exo}[Caractérisation de la mesure de Lebesgue]\label{exo_carac_lebesque}
@@ -592,7 +592,7 @@
 \end{td-exo}
 % ----- Solutions exo 14
 \iftoggle{showsolutions}{
-    \begin{nntd-sol}[]\,
+    \begin{td-sol}[]\,
         \begin{enumerate}
             \item On a \(\{0\}=\bigcap_{n\in\N^*}\fo{0,\frac1n}\).
             Donc \(\mu(\{0\})=\lim_{n\to\infty}\mu\left(\fo{0,\frac1n}\right)=0\).
@@ -649,7 +649,7 @@
             Donc \(\mu=\lambda_1\).
         \end{enumerate}
 
-    \end{nntd-sol}
+    \end{td-sol}
 }{}
 
 %

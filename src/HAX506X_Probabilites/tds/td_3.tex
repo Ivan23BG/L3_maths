@@ -1,0 +1,252 @@
+\begin{td-exo}[] % 1
+    Soit \(X\) une variable aléatoire discrète de loi 
+    \(\bb P_X = \sum_{k=0}^\infty p_k\delta_{x_k}\), avec
+    \(x_k\) une suite de réels et \(p_k\) des réels positifs qui
+    somment à 1.
+    \begin{enumerate}
+        \item Détermnier, sous réserve d'existence, la valeur
+        de \(\bb E\ff{X^p}\) pour tout entier naturel \(p\).
+
+        \item En déduire les valeurs de \(\bb E\ff{X}\) pour \(X\) 
+        suivant respectivement les lois suivantes:
+        \begin{itemize}
+            \item loi de Bernoulli,
+            \item loi binomiale,
+            \item loi de Poisson.
+        \end{itemize}
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 1
+        \begin{enumerate}
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff{X^p} 
+                    &= \int_{\bb R} x^p \der\bb P_X(x)\\
+                    &= \sum_{k=0}^\infty x^p \der \delta_{x_k}(x)\\
+                    &= \sum_{k=0}^\infty x_k^p p_k
+                \end{aligned}
+            \end{equation*}
+            Cette quantité existe si \(\bb E\ff{{\n X}^p}<\infty\),
+            c'est-à-dire si \(\sum_{k=0}^\infty {\n{x_k}}^{p} p_k < \infty\).
+
+            \item On applique la formule précédente pour les lois
+            suivantes:
+            \begin{itemize}
+                \item loi de Bernoulli: \(X \sim \mathcal B(1, p)\),
+                on a 
+                \begin{equation*}
+                    x_0 = 0, \quad x_1 = 1, \quad p_0 = 1-p, \quad p_1 = p
+                \end{equation*}
+                alors
+                \begin{equation*}
+                    \bb E\ff{X} = 0*(1-p) + 1*p = p
+                \end{equation*}
+
+                \item loi binomiale: \(X \sim \mathcal B(n, p)\),
+                on a
+                \begin{equation*}
+                    x_k = k, \quad p_k = \binom{n}{k} p^k {(1-p)}^{n-k}
+                \end{equation*}
+                alors
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb E\ff{X} 
+                        &= \sum_{k=0}^n k \binom{n}{k} p^k {(1-p)}^{n-k}\\
+                        &= \sum_{k=1}^n \frac{n!}{(k-1)!(n-k)!} p^k {(1-p)}^{n-k}\\
+                        {}_{k=j+1}&= \sum_{j=0}^{n-1} \frac{n!}{j!(n-j-1)!} p^{j+1} {(1-p)}^{n-j-1}\\
+                        &= np\sum_{j=0}^{n-1} \binom{n-1}{j} p^j {(1-p)}^{n-j-1}\\
+                        &= np {\left(p + (1-p)\right)}^{n-1}\\
+                        &= np
+                    \end{aligned}
+                \end{equation*}
+
+                \item loi de Poisson: \(X \sim \mathcal P(\lambda)\),
+                on a
+                \begin{equation*}
+                    x_k = k, \quad p_k = e^{-\theta} \frac{\theta^k}{k!}
+                \end{equation*}
+                alors
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb E\ff{X} 
+                        &= \sum_{k=0}^\infty k e^{-\theta} \frac{\theta^k}{k!}\\
+                        &= e^{-\theta} \sum_{k=1}^\infty \frac{\theta^k}{(k-1)!}\\
+                        {}_{k=j+1}&= e^{-\theta} \sum_{j=0}^\infty \frac{\theta^{j+1}}{j!}\\
+                        &= e^{-\theta} \theta \sum_{j=0}^\infty \frac{\theta^j}{j!}\\
+                        &= e^{-\theta} \theta e^\theta\\
+                        &= \theta
+                    \end{aligned}
+                \end{equation*}
+            \end{itemize}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\, % 2
+    \begin{enumerate}
+        \item Calculer les moments à tout ordre d'une variable aléatoire
+        de loi exponentielle de paramètre \(\lambda>0\). On pourra
+        commencer par le cas \(\lambda=1\).
+
+        \item Soit \(X\) une variable aléatoire réelle positive. À l'aide du
+        théorème de Fubini, montrer que pour tout entier \(k\),
+        \begin{equation*}
+            \bb E\ff{X^k} = \int_0^\infty t^{k-1} \bb P(X>t) \der\lambda_1(t)
+        \end{equation*}
+
+        \item En déduire la relation \(\Gamma(k) = {(k-1)}!\) pour tout entier
+        \(k\geq 1\), où \(\Gamma\) désigne la fonction Gamma d'Euler:
+        \begin{equation*}
+            \Gamma(k) = \int_0^\infty t^{x-1} e^{-t} \der t, \quad x>0
+        \end{equation*}
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        \begin{enumerate}
+            \item On a 
+            \begin{equation*}
+                \bb P_X = f_X \der\lambda_1, \quad f_X(x) = \lambda e^{-\lambda x}\one_{\bb R_+}(x)
+            \end{equation*}
+            \(\triangleright\) Cas \(\lambda=1\):
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff{X^p} 
+                    &= \int_{\bb R} x f_X(x) \der\lambda_1(x)\\
+                    &= \int_0^\infty x e^{-x} \der\lambda_1(x)\\
+                    &= \ff{-xe^{-x}}_0^\infty + \int_0^\infty e^{-x} \der\lambda_1(x)\\
+                    &= 0 + 1 = 1
+                \end{aligned}
+            \end{equation*}
+
+            \(\triangleright\) Formule de récurrence:
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff{X^p} 
+                    &= \int_{\bb R} x^p e^{-x} \der\lambda_1(x)\\
+                    &= \ff{-x^p e^{-x}}_0^\infty + p \int_0^\infty x^{p-1} e^{-x} \der\lambda_1(x)\\
+                    &= 0 + p \bb E\ff{X^{p-1}}
+                \end{aligned}
+            \end{equation*}
+
+            Donc par récurrence, on a \(\bb E\ff{X^p} = p!\).
+
+            \(\triangleright\) Cas général avec \(\lambda>0\) et \(Y \sim \mathcal E(\lambda)\), alors
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff{Y^p}
+                    &= \int_{0}^\infty x^p \lambda e^{-\lambda x} \der\lambda_1(x)\\
+                    {}_{y=\lambda x}&= \int_{0}^\infty \frac{y^p}{\lambda^p} e^{-y} \der\lambda_1(y)\\
+                    &= \frac{p!}{\lambda^p}
+                \end{aligned}
+            \end{equation*}
+
+            \item On calcule
+            \begin{equation*}
+                \begin{aligned}
+                    k\int_{0}^\infty t^{k-1}\bb P(X>t) \der t
+                    &= k\int_{0}^\infty t^{k-1} \int_{\Omega} \one_{X(\omega)>t} \der\bb P(\omega) \der t\\
+                    &= k\int_{0}^\infty \int_{\Omega}t^{k-1}  \one_{X(\omega)>t} \der\bb P(\omega) \der t\\
+                \end{aligned}
+            \end{equation*}
+            où le terme à intégrer est
+            \begin{equation*}
+                (\omega,t)\mapsto t^{k-1}  \one_{X(\omega)>t}
+            \end{equation*}
+            qui est mesurable et positif, donc on peut inverser l'ordre
+            d'intégration par Fubini-Tonelli:
+            \begin{equation*}
+                \begin{aligned}
+                    k\int_{\Omega} \left( \int_{0}^\infty t^{k-1}  \one_{X(\omega)>t} \der t \right) \der\bb P(\omega)
+                    &= k\int_{\Omega} \left( \int_{0}^{X(\omega)} t^{k-1} \der t \right) \der\bb P(\omega)\\
+                    &= k\int_{\Omega} \ff{\frac{t^k}{k}}_0^{X(\omega)} \der\bb P(\omega)\\
+                    &= k\int_{\Omega} \frac{X(\omega)^k}{k} \der\bb P(\omega)\\
+                    &= \int_{\Omega} X(\omega)^k \der\bb P(\omega)\\
+                    &= E\ff{X^k}
+                \end{aligned}
+            \end{equation*}
+
+            \item On considère \(X \sim \mathcal E(1)\). D'après la question précédente,
+            \begin{equation*}
+                \bb E\ff{X^k} = k \int_{0}^\infty t^{k-1} \bb P(X>t) \der t
+            \end{equation*}
+            Or ici, on a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(X>t) 
+                    &= \int_t^\infty e^{-u} \der u\\
+                    &= \ff{-e^{-u}}_t^\infty\\
+                    &= e^{-t}
+                \end{aligned}
+            \end{equation*}
+            donc
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff{X^k}
+                    &= \int_{0}^\infty t^{k-1} e^{-t} \der t\\
+                    &= k \Gamma(k)
+                \end{aligned}
+            \end{equation*}
+            Donc \(\Gamma(k) = (k-1)!\).
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 3
+    Soit \(X\) une variable aléatoire de loi \(\mathcal N(\mu, \sigma^2)\).
+    Comparer la probabilité
+    \begin{equation*}
+        \bb P\left(\n{X - \mu} \geq c \sigma\right)
+    \end{equation*}
+    donnée dans la table avec les majorations obtenues par les inégalités
+    de Bienaymé-Tchebychev pour 
+    \begin{equation*}
+        c=0.5,\quad c=1,\quad c=1.5, \quad c=2, \quad c=2.5
+    \end{equation*}
+\end{td-exo}
+% ----- Solutions exo 3
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 3
+        On pose \(Y = \frac{X-\mu}{\sigma}\), alors \(Y \sim \mathcal N(0, 1)\). Alors
+        \begin{equation*}
+            \begin{aligned}
+                \bb P\left(\n{X - \mu} \geq c \sigma\right) 
+                &= \bb P\left(\n{Y} \geq c\right)\\ 
+                &= 2\bb P(Y \geq c)
+                &= 2 (1 - \bb P(Y \leq c))
+                &= 2 (1 - \Phi(c))
+            \end{aligned}
+        \end{equation*}
+        avec 
+        \begin{equation*}
+            \Phi(x) = \int_{-\infty}^x \frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}} \der t
+        \end{equation*}
+        On rappelle par exemple que \(\Phi(1.36) = 0.9131\).
+
+        Par l'inégalité de Bienaymé-Tchebychev, on a
+        \begin{equation*}
+            \bb P\left(\n{X - \mu} \geq c \sigma\right) \leq \frac{\var(X)}{c^2\sigma^2} = \frac{1}{c^2}
+        \end{equation*}
+
+        Les résultats sont alors les suivants:
+        % sous forme de tableau
+        \begin{center}
+            \begin{tabular}{|c|c|c|}
+                \hline
+                \(c\) & \(\bb P\left(\n{X - \mu} \geq c \sigma\right)\) & \(\frac{1}{c^2}\)\\
+                \hline
+                0.5 & 0.617 & 4\\
+                1 & 0.3174 & 1\\
+                1.5 & 0.1336 & 0.4444\\
+                2 & 0.0456& 0.25\\
+                2.5 & 0.0124 & 0.16\\
+                \hline
+            \end{tabular}
+        \end{center}
+
+    \end{td-sol}
+}{}

@@ -1,0 +1,302 @@
+\begin{td-exo}[] % 1
+    Rappeler la définitions de la fonctions caractéristique
+    \(\varphi_X\) d'une variable aléatoire \(X\) et 
+    calculer \(\varphi_X\) pour les lois suivantes:
+    \begin{enumerate}
+        \item \(X\) suit une loi uniforme sur \(\ff{a,b}\),
+        \item \(X\) suit une loi exponentielle de paramètre \(\lambda\),
+        \item \(X\) suit une loi géométrique de paramètre \(p\in\oo{0,1}\),
+        \item \(X\) suit une loi normale centrée réduite. On pourra
+        dériver (en justifiant) la fonction caractéristique \(\varphi_X\)
+        puis, après intégration par parties, en déduire que \(\varphi_X\)
+        est solution d'une équation différentielle que l'on pourra résoudre.
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 1
+        On rappelle dans le cas général que la fonction caractéristique
+        d'une variable aléatoire \(X\) est définie par
+        \begin{equation*}
+            \varphi_X(t) = \bb E\left(e^{itX}\right), \quad t\in\bb R
+        \end{equation*}
+        \begin{enumerate}
+            \item On a
+            \begin{equation*}
+                f_X(x) = \frac{1}{b-a}\one_{\ff{a,b}}(x)
+            \end{equation*}
+            alors
+            \begin{equation*}
+                \begin{aligned}
+                    \varphi_X(t)
+                    &= \bb E\left(e^{itX}\right)\\
+                    &= \int_{\bb R} e^{itx} \underbrace{f_X(x) \der\lambda_1(x)}_{\der\bb P_X(x)}\\
+                    &= \int_{a}^{b} \frac{e^{itx}}{b-a} \der \lambda_1(x)\\
+                    &= \frac{1}{b-a} {\left[\frac{e^{itx}}{it}\right]}_a^b\\
+                    &= \frac{e^{itb} - e^{ita}}{it(b-a)}\\
+                \end{aligned}
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                f_X(t) = \theta e^{-\theta t}\one_{\bb R_+}(t)
+            \end{equation*}
+            alors
+            \begin{equation*}
+                \begin{aligned}
+                    \varphi_X(t)
+                    &= \bb E\left(e^{itX}\right)\\
+                    &= \int_{\bb R} e^{itx} \underbrace{f_X(x) \der\lambda_1(x)}_{\der\bb P_X(x)}\\
+                    &= \int_{0}^{+\infty} e^{itx} \theta e^{-\theta x} \der \lambda_1(x)\\
+                    &= \theta {\left[\frac{e^{(it-\theta)x}}{it-\theta}\right]}_0^{+\infty}\\
+                    &= \frac{\theta}{\theta - it}
+                \end{aligned}
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                \bb P(X = n) = p{(1-p)}^{n-1}, \quad n\in\bb N
+            \end{equation*}
+            et
+            \begin{equation*}
+                \bb P_X = \sum_{n=1}^{+\infty} p{(1-p)}^{n-1}\delta_n
+            \end{equation*}
+            alors
+            \begin{equation*}
+                \begin{aligned}
+                    \varphi_X(t)
+                    &= \bb E\left(e^{itX}\right)\\
+                    &= \int_{\bb R} e^{itx} \der \left(\sum_{n=1}^{+\infty} p{(1-p)}^{n-1}\delta_n(x)\right)\\
+                    &= \sum_{n=1}^{+\infty} p{(1-p)}^{n-1} \underbrace{\int_{\bb R} e^{itx} \der \delta_n(x)}_{e^{itn}}\\
+                    &= e^{it} p \sum_{n=1}^{+\infty} {(1-p)}^{n-1} e^{it(n-1)}\\
+                    &= \frac{pe^{it}}{1-(1-p)e^{it}}
+                \end{aligned}
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                f_X(x) = \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}
+            \end{equation*}
+            alors
+            \begin{equation*}
+                \begin{aligned}
+                    \varphi_X(t)
+                    &= \bb E\left(e^{itX}\right)\\
+                    &= \int_{\bb R} \underbrace{e^{itx} \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}}_{h(t,x)} \der(x)\\
+                \end{aligned}
+            \end{equation*}
+            \(\triangleright\) À \(t\) fixé, on a \(x\mapsto h(t,x)\) intégrable
+            par rapport à \(\lambda_1\).
+
+            \(\triangleright\) À \(x\) fixé, on a \(t\mapsto h(t,x)\) dérivable
+            par rapport à \(t\)
+
+            \(\triangleright\) On dérive par rapport à \(t\)
+            \begin{equation*}
+                \begin{aligned}
+                    \n{\frac{\partial h}{\partial t}(t,x)} 
+                    &= \n{ix e^{itx} \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}}\\
+                    &= \frac{\n x e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}\\
+                    &= o_{\pm \infty}(\frac{1}{x^2})
+                \end{aligned}
+            \end{equation*}
+
+            D'après le théorème de dérivation sous l'intégrale, on a
+            \begin{equation*}
+                \begin{aligned}
+                    \varphi_X'(t)
+                    &= \int_{\bb R} i x e^{itx} \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}\der x\\
+                    &= {\n{-i e^{itx} \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}}}_{-\infty}^{+\infty} - \int_{\bb R} -i \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} i t e^{itx} \der x\\
+                    &= -t \varphi_X(t)
+                \end{aligned}
+            \end{equation*}
+
+            Cette équation différentielle a pour solution
+            \begin{equation*}
+                \varphi_X(t) = C e^{-\frac{t^2}{2}}, \quad C\in\bb R, t\in\bb R
+            \end{equation*}
+            Comme \(\varphi_X(0) = 1\), on trouve
+            \begin{equation*}
+                \varphi_X(t) = e^{-\frac{t^2}{2}}
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 2
+    Soit \(X\simeq\mathcal N(0,1)\).
+    \begin{enumerate}
+        \item Calculer la fonction de répartition de \(-X\) en
+        fonction de celle de \(X\). Qu'en déduit-on?
+
+        \item On pose \(Y = X^2\). Déterminer la fonction de répartition
+        de \(Y\) en fonction de celle de \(X\). En déduire que \(Y\)
+        est une variable aléatoire à densité, puis calculer \(\bb E\ff Y\).
+
+        \item Reprendre la questions précédente avec \(Z = \exp X\).
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        \begin{enumerate}
+            \item On prend \(t\in\bb R\), alors
+            \begin{equation*}
+                \begin{aligned}
+                    F_{-X}(t) 
+                    &= \bb P(-X\leq t) = \bb P(X\geq -t) \\
+                    & \bb P(X\in \fo{-t,+\infty}) = \int_{-t}^{+\infty} f_X(x) \der x\\
+                    \text{\footnotesize{\(x=-u\)}}&= \int_{t}^{-\infty} f_X(-u) -\der u\\
+                    \text{\footnotesize{\(f_X\) est paire}}&= \int_{-\infty}^{t} f_X(u) \der u\\
+                    &= \bb P(X\leq t) = F_X(t)
+                \end{aligned}
+            \end{equation*}
+            Donc \(X\) et \(-X\) ont la même fonction de répartition
+            et donc la même loi.
+
+            \item On sait que \(Y = X^2\) est à valeurs dans \(\bb R_+\).
+            Donc 
+            \begin{equation*}
+                F_Y(t) = \bb P(Y\leq t) = 0, \quad \text{si } t<0
+            \end{equation*}
+            Dans le cas où \(t\geq 0\), on a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(Y\leq t)
+                    &= \bb P(X^2\leq t) = \bb P(\n X\leq \sqrt t)\\
+                    &= \bb P(-\sqrt t\leq X\leq \sqrt t)\\
+                    &= 2 \bb P(0\leq X\leq \sqrt t)\\
+                    &= 2 \int_{0}^{\sqrt t} \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
+                    &= 2 \int_{-\infty}^{\sqrt t} \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x - \underbrace{2 \int_{-\infty}^{0} \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x}_{1}\\
+                    &= 2 F_X(\sqrt t) - 1
+                \end{aligned}
+            \end{equation*}
+            Il suit
+            \begin{equation*}
+                F_Y(t) = \begin{cases}
+                    0 & \text{si } t<0\\
+                    2 F_X(\sqrt t) - 1 & \text{si } t\geq 0
+                \end{cases}
+            \end{equation*}
+            et donc \(F_Y\) est dérivable sur \(\bb R^*\) et
+            \begin{equation*}
+                F_Y'(t) = \frac{F_X'(\sqrt t)}{\sqrt t} \one_{\bb R_+}(t) = \frac{e^{-\frac{t}{2}}}{\sqrt{t2\pi}} \one_{\bb R_+}(t)
+            \end{equation*}
+            et donc \(Y\) a pour densité
+            \begin{equation*}
+                f_Y(t) = \frac{e^{-\frac{t}{2}}}{\sqrt{t2\pi}} \one_{\bb R_+}(t)
+            \end{equation*}
+
+            On a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff Y 
+                    &= \int_0^{+\infty} y \frac{e^{-\frac{y}{2}}}{\sqrt{2\pi y}} \der y\\
+                    \bb E\ff Y
+                    &= E\ff{X^2} = \int_{\bb R} x^2 \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
+                    &= 1
+                \end{aligned}
+            \end{equation*}
+            car on a la variance de \(X\) est égale à 1.
+
+            \item On sait que \(Z = \exp X\) est à valeurs dans \(\bb R_+\).
+            \begin{equation*}
+                F_Z(t) = 0, \quad \text{si } t<0
+            \end{equation*}
+            Dans le cas où \(t\geq 0\), on a
+            \begin{equation*}
+                \begin{aligned}
+                    F_Z(t) 
+                    &= \bb P(Z\leq t)\\
+                    &= \bb P(\exp X\leq t) = \bb P(X\leq \ln t)\\
+                    &= F_X(\ln t)
+                \end{aligned}
+            \end{equation*}
+            Donc \(F_Z\) est dérivale sur \(\bb R^*\) et
+            \begin{equation*}
+                \begin{aligned}
+                    F_Z'(t) 
+                    &= \frac{F_X'(\ln t)}{t} \one_{\bb R_+^*}(t)\\
+                    &= \frac{e^{-\frac{{(\ln t)}^2}{2}}}{t\sqrt{2\pi}} \one_{\bb R_+^*}(t)\\
+                    &= f_Z(t)
+                \end{aligned}
+            \end{equation*}
+
+            On a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff Z 
+                    &= \bb E\ff{e^X} = \int_{\bb R} e^x \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
+                    &= \int_{\bb R} \frac{e^{-\frac{1}{2}{(x-1)}^2 + \frac12}}{\sqrt{2\pi}} \der x\\
+                    &= \sqrt e \int_{\bb R} \frac{e^{-\frac{1}{2}{(x-1)}^2}}{\sqrt{2\pi}} \der x\\
+                    &= \sqrt e
+                \end{aligned}
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 3
+    On considère une variable aléatoire \(X\) à valeurs dans \(\bb N\)
+    de fonction génératrice
+    \begin{equation*}
+        G_X(s) = \alpha {(3 + 2s^2)}^3, \quad s\in\ff{0,1}
+    \end{equation*}
+    \begin{enumerate}
+        \item Déterminer la valeur de \(\alpha\).
+
+        \item Déterminer la loi de \(X\).
+
+        \item À partir de \(G_X\), donner les valeurs de
+        l'espérance et de la variance de \(X\).
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 3
+\iftoggle{showsolutions}{
+    \begin{td-sol}[] % 3
+        On rappelle
+        \begin{equation*}
+            G_X(s) = \bb E\ff{s^X} = \sum_{n=0}^{+\infty} s^n \bb P(X = n)
+        \end{equation*}
+        \begin{enumerate}
+            \item On a \(G_X(1) = 1\) donne \(\alpha = \frac{1}{125}\).
+
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    G_X(s) 
+                    &= \frac{1}{125} {(3 + 2s^2)}^3\\
+                    &= \frac{1}{125} \left(27 + 3\times 3^2 \times 2s^2 + 3\times 3 \times {(2s^2)}^2 + 2^3 s^6\right)\\
+                    &= \frac{27}{125} + \frac{54}{125} s^2 + \frac{36}{125} s^4 + \frac{8}{125} s^6
+                \end{aligned}
+            \end{equation*}
+            D'autre part, on a
+            \begin{equation*}
+                \begin{aligned}
+                    G_X(s) 
+                    &= \sum_{n=0}^{+\infty} s^n \bb P(X = n)\\
+                    &= \bb P(X = 0) + s^2 \bb P(X = 2) + s^4 \bb P(X = 4) + s^6 \bb P(X = 6)
+                \end{aligned}
+            \end{equation*}
+            Par unicité du développement en série entière d'un polynôme,
+            la loi de \(X\) est donnée par
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(X = 0) &= \frac{27}{125}\\
+                    \bb P(X = 2) &= \frac{54}{125}\\
+                    \bb P(X = 4) &= \frac{36}{125}\\
+                    \bb P(X = 6) &= \frac{8}{125}
+                \end{aligned}
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    G_X(s) = \bb E\ff{s^X}\\
+                    G_X'(s) = \bb E\ff{Xs^{X-1}}\\
+                \end{aligned}
+            \end{equation*}
+            donc \(G_X'(1) = \bb E\ff{X}\).
+        \end{enumerate}
+    \end{td-sol}
+}{}

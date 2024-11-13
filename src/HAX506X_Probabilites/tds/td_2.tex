@@ -1,4 +1,4 @@
-\begin{td-exo}[]\, % 1
+\begin{td-exo}[] % 1
     On tire deux fois avec remise dans une urne contenant trois boules
     numérotées \(1, 2, 3\). On désigne par \(X\) la somme des résultats
     obtenus. Montrer que \(X\) est une variable aléatoire discrète entre
@@ -7,7 +7,7 @@
 \end{td-exo}
 % ----- Solutions exo 1
 \iftoggle{showsolutions}{
-    \begin{td-sol}[]\, % 1
+    \begin{td-sol}[] % 1
         On veut montrer que \(X\) est une application mesurable de
         \(\Omega\) dans \(E\). Déterminons d'abord l'espace de départ
         \(\left(\Omega, \scr F, \bb P\right)\).
@@ -34,15 +34,22 @@
             \end{aligned}
         \end{equation*}
 
-        \(\triangleright\) La loi de \(X\) est donc
+        \(\triangleright\) La loi de \(X\) est donc une probabilité
+        uniforme sur \(E\), c'est-à-dire
         \begin{equation*}
-            \bb P_X(\omega) =
+            \bb P_X(a) =
             \begin{cases}
-                \frac 19 &\text{ si } \omega\in\{2,6\}
-                \frac 29 &\text{ si } \omega\in\{3,5\}
-                \frac 13 &\text{ si } \omega\in\{4\}
+                \frac 19 &\text{ si } a\in\{2,6\}\\
+                \frac 29 &\text{ si } a\in\{3,5\}\\
+                \frac 13 &\text{ si } a\in\{4\}
             \end{cases}
         \end{equation*}
+        avec \(a\) un singleton de \(E\). Alors
+        \begin{equation*}
+            \bb P_X = 
+            \frac 19 \delta_2 + \frac 29 \delta_3 + \frac 13 \delta_4 + \frac 29 \delta_5 + \frac 19 \delta_6
+        \end{equation*}
+
     \end{td-sol}
 }{}
 
@@ -83,17 +90,25 @@
             de réussite de 0.8.
             \begin{enumerate}
                 \item La loi de \(X\) est donnée par \(\mathcal B(10, 0.8)\).
+                Alors
+                \begin{equation*}
+                    \bb P_X(k) = \binom{n}{k} * {p}^k * {1-p}^{n - k}, \quad k = 0,1,\ldots,n
+                \end{equation*}
 
                 \item La probabilité de marquer 8 paniers ou plus vaut
                 \begin{equation*}
-                    ({0.8}^8 * {0.2}^2) + ({0.8}^9 * {0.2}) + ({0.8}^{10})
+                    \begin{aligned}
+                        \bb P(X\geq 8) &= \bb P_X(8) + \bb P_X(9) + \bb P_X(10)\\
+                        &= \binom{10}{8} * {0.8}^8 * {0.2}^2 + \binom{10}{9} * {0.8}^9 * {0.2} + \binom{10}{10} * {0.8}^{10} * {0.2}^0\\
+                        &= 0.6778 \simeq 68\%
+                    \end{aligned}
                 \end{equation*}
 
                 \item L'espérance et la variance de \(X\) sont respectivement
                 \begin{equation*}
                     \begin{aligned}
-                        \bb E(X) &= 10*0.8 = 8\\
-                        \bb V(X) &= 10*0.8*0.2 = 1.6
+                        \bb E(X) &= n*p = 10*0.8 = 8\\
+                        \bb V(X) &= n*p*(1-p) = 10*0.8*0.2 = 1.6
                     \end{aligned}
                 \end{equation*}
             \end{enumerate}
@@ -105,20 +120,21 @@
                 \begin{equation*}
                     \bb P_Y(n) = 0.8 * {0.2}^{n - 1}
                 \end{equation*}
+                et donc \(Y \sim \mathcal G(0.8)\).
 
                 \item La probabilité que Marine Johannés ait besoin de
                 strictement plus de 3 essais pour marquer son premier
                 panier est équivalente à la probabilité qu'elle ne marque
                 pas son premier panier en 1, 2 ou 3 essais, soit
                 \begin{equation*}
-                    1 - \left(0.8 + 0.8*0.2 + 0.8*{0.2}^2\right)
+                    1 - \left(0.8 + 0.8*0.2 + 0.8*{0.2}^2\right)=0.008
                 \end{equation*}
 
                 \item L'espérance et la variance de \(Y\) sont respectivement
                 \begin{equation*}
                     \begin{aligned}
-                        \bb E(Y) &= \frac 1{0.8} = 1.25\\
-                        \bb V(Y) &= \frac {0.2}{0.8^2} = 0.3125
+                        \bb E(Y) &= \frac 1{p} = \frac 1{0.8} = 1.25\\
+                        \bb V(Y) &= \frac {1-p}{p^2} = \frac {0.2}{0.8^2} \simeq 0.31
                     \end{aligned}
                 \end{equation*}
             \end{enumerate}
@@ -140,20 +156,31 @@
 \iftoggle{showsolutions}{
     \begin{td-sol}[]\, % 3
         \begin{enumerate}
-            \item La variable aléatoire \(X\) prend les valeurs
+            \item La variable aléatoire \(X\) prend les valeurs dans
             \begin{equation*}
-                X \in \left\{(0,2), (1,1), (2,0)\right\}
+                \left\{(0,2), (1,1), (2,0)\right\}
             \end{equation*}
             car on tire deux cartes et qu'il n'y a que deux couleurs.
 
             \item La loi de \(X\) est donnée par
             \begin{equation*}
                 \begin{aligned}
-                    \bb P_X(0,2) &= \frac {26}{52} * \frac {25}{51}\\
-                    \bb P_X(1,1) &= \frac {26}{52} * \frac {26}{51} + \frac {26}{52} * \frac {26}{51}\\
-                    \bb P_X(2,0) &= \frac {26}{52} * \frac {25}{51}
+                    \bb P_X(0,2) &= \frac {26}{52} * \frac {25}{51} = \frac{25}{102}\\
+                    \bb P_X(1,1) &= \frac {26}{52} * \frac {26}{51} + \frac {26}{52} * \frac {26}{51} = \frac{52}{102}\\
+                    \bb P_X(2,0) &= \frac {26}{52} * \frac {25}{51} = \frac{25}{102}
                 \end{aligned}
             \end{equation*}
         \end{enumerate}
     \end{td-sol}
 }{}
+
+% exo sup
+\begin{equation*}
+    \begin{aligned}
+        \bb P(X>t) 
+        &= \int_t^\infty f_X(u)\der\lambda_1(u)\\
+        &=\int_t^\infty \theta e^{-\theta u}\der\lambda_1(u)\\
+        &= \ff{-e^{-\theta u}}_{t}^{\infty}\\
+        &= e^{-\theta t}
+    \end{aligned}
+\end{equation*}
