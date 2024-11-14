@@ -56,7 +56,7 @@
                         \bb E\ff{X} 
                         &= \sum_{k=0}^n k \binom{n}{k} p^k {(1-p)}^{n-k}\\
                         &= \sum_{k=1}^n \frac{n!}{(k-1)!(n-k)!} p^k {(1-p)}^{n-k}\\
-                        {}_{k=j+1}&= \sum_{j=0}^{n-1} \frac{n!}{j!(n-j-1)!} p^{j+1} {(1-p)}^{n-j-1}\\
+                        \smol{\(k=j+1\)}&= \sum_{j=0}^{n-1} \frac{n!}{j!(n-j-1)!} p^{j+1} {(1-p)}^{n-j-1}\\
                         &= np\sum_{j=0}^{n-1} \binom{n-1}{j} p^j {(1-p)}^{n-j-1}\\
                         &= np {\left(p + (1-p)\right)}^{n-1}\\
                         &= np
@@ -74,7 +74,7 @@
                         \bb E\ff{X} 
                         &= \sum_{k=0}^\infty k e^{-\theta} \frac{\theta^k}{k!}\\
                         &= e^{-\theta} \sum_{k=1}^\infty \frac{\theta^k}{(k-1)!}\\
-                        {}_{k=j+1}&= e^{-\theta} \sum_{j=0}^\infty \frac{\theta^{j+1}}{j!}\\
+                        \smol{\(k=j+1\)}&= e^{-\theta} \sum_{j=0}^\infty \frac{\theta^{j+1}}{j!}\\
                         &= e^{-\theta} \theta \sum_{j=0}^\infty \frac{\theta^j}{j!}\\
                         &= e^{-\theta} \theta e^\theta\\
                         &= \theta
@@ -140,7 +140,7 @@
                 \begin{aligned}
                     \bb E\ff{Y^p}
                     &= \int_{0}^\infty x^p \lambda e^{-\lambda x} \der\lambda_1(x)\\
-                    {}_{y=\lambda x}&= \int_{0}^\infty \frac{y^p}{\lambda^p} e^{-y} \der\lambda_1(y)\\
+                    \smol{\(y=\lambda x\)}&= \int_{0}^\infty \frac{y^p}{\lambda^p} e^{-y} \der\lambda_1(y)\\
                     &= \frac{p!}{\lambda^p}
                 \end{aligned}
             \end{equation*}

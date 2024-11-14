@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.10)  14 NOV 2024 09:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.10)  14 NOV 2024 16:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1632,8 +1632,16 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 86.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 86.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 86.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 86.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 86.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 86.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 86.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 86.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -1743,6 +1751,10 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 197.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 197.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 197.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 197.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 197.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -3066,6 +3078,8 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 183.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 183.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 183.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 183.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
@@ -3232,6 +3246,14 @@ LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 280.
 LaTeX Font Info:    No math alphabet change to frozen version normal on input l
 ine 280.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 280.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 280.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 280.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input l
+ine 280.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
 ne 280.
 LaTeX Font Info:    Undo math alphabet allocation in version normal on input li
@@ -3305,41 +3327,37 @@ Package rerunfilecheck Info: File `td_main.out' has not changed.
 (rerunfilecheck)             Checksum: D53AD29A45EDFB8EBA5B31BACDCB6E83;1119.
  ) 
 Here is how much of TeX's memory you used:
- 39230 strings out of 475248
- 872232 string characters out of 5756875
+ 39227 strings out of 475248
+ 872191 string characters out of 5756875
  1964785 words of memory out of 5000000
- 59859 multiletter control sequences out of 15000+600000
- 652465 words of font info for 143 fonts, out of 8000000 for 9000
+ 59857 multiletter control sequences out of 15000+600000
+ 649281 words of font info for 140 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  107i,18n,110p,808b,785s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnS
 ymbol10.pfb><C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/type1/public/mn
 symbol/MnSymbol5.pfb><C:/Users/ileje/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/mnsymbol/MnSymbol7.pfb><C:/Users/ileje/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/mnsymbol/MnSymbol8.pfb><C:/Users/ileje/AppData/Local/Programs/m
-y_latex/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/ileje/AppData/Loc
-al/Programs/my_latex/fonts/type1/public/lm/lmmi10.pfb><C:/Users/ileje/AppData/L
-ocal/Programs/my_latex/fonts/type1/public/lm/lmmi5.pfb><C:/Users/ileje/AppData/
-Local/Programs/my_latex/fonts/type1/public/lm/lmmi6.pfb><C:/Users/ileje/AppData
-/Local/Programs/my_latex/fonts/type1/public/lm/lmmi7.pfb><C:/Users/ileje/AppDat
-a/Local/Programs/my_latex/fonts/type1/public/lm/lmmi8.pfb><C:/Users/ileje/AppDa
-ta/Local/Programs/my_latex/fonts/type1/public/lm/lmr10.pfb><C:/Users/ileje/AppD
-ata/Local/Programs/my_latex/fonts/type1/public/lm/lmr12.pfb><C:/Users/ileje/App
-Data/Local/Programs/my_latex/fonts/type1/public/lm/lmr5.pfb><C:/Users/ileje/App
-Data/Local/Programs/my_latex/fonts/type1/public/lm/lmr7.pfb><C:/Users/ileje/App
-Data/Local/Programs/my_latex/fonts/type1/public/lm/lmr8.pfb><C:/Users/ileje/App
-Data/Local/Programs/my_latex/fonts/type1/public/lm/lmr9.pfb><C:/Users/ileje/App
-Data/Local/Programs/my_latex/fonts/type1/public/lm/lmri10.pfb><C:/Users/ileje/A
-ppData/Local/Programs/my_latex/fonts/type1/public/lm/lmss10.pfb><C:/Users/ileje
-/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/i
-leje/AppData/Local/Programs/my_latex/fonts/type1/public/amsfonts/symbols/msbm10
-.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/amsfont
-s/symbols/msbm7.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1
-/public/rsfs/rsfs10.pfb>
+public/mnsymbol/MnSymbol7.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/f
+onts/type1/public/doublestroke/dsrom10.pfb><C:/Users/ileje/AppData/Local/Progra
+ms/my_latex/fonts/type1/public/lm/lmmi10.pfb><C:/Users/ileje/AppData/Local/Prog
+rams/my_latex/fonts/type1/public/lm/lmmi5.pfb><C:/Users/ileje/AppData/Local/Pro
+grams/my_latex/fonts/type1/public/lm/lmmi7.pfb><C:/Users/ileje/AppData/Local/Pr
+ograms/my_latex/fonts/type1/public/lm/lmr10.pfb><C:/Users/ileje/AppData/Local/P
+rograms/my_latex/fonts/type1/public/lm/lmr12.pfb><C:/Users/ileje/AppData/Local/
+Programs/my_latex/fonts/type1/public/lm/lmr5.pfb><C:/Users/ileje/AppData/Local/
+Programs/my_latex/fonts/type1/public/lm/lmr7.pfb><C:/Users/ileje/AppData/Local/
+Programs/my_latex/fonts/type1/public/lm/lmr9.pfb><C:/Users/ileje/AppData/Local/
+Programs/my_latex/fonts/type1/public/lm/lmri10.pfb><C:/Users/ileje/AppData/Loca
+l/Programs/my_latex/fonts/type1/public/lm/lmss10.pfb><C:/Users/ileje/AppData/Lo
+cal/Programs/my_latex/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/ileje/AppDat
+a/Local/Programs/my_latex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Us
+ers/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/amsfonts/symbols/m
+sbm7.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/rsf
+s/rsfs10.pfb>
 Output written on C:/Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX506
-X_Probabilites\tds\td_main.pdf (22 pages, 463587 bytes).
+X_Probabilites\tds\td_main.pdf (22 pages, 417786 bytes).
 PDF statistics:
- 453 PDF objects out of 1000 (max. 8388607)
+ 430 PDF objects out of 1000 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

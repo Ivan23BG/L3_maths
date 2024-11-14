@@ -135,7 +135,7 @@
                     \varphi_{X+Y}(t)
                     &= \bb E\ff{e^{it(X+Y)}}\\
                     &= \bb E\ff{e^{itX}e^{itY}}\\
-                    {}_{\text{par indep de }X,Y}&= \bb E\ff{e^{itX}}\bb E\ff{e^{itY}}\\
+                    \smol{par indep de \(X,Y\)}&= \bb E\ff{e^{itX}}\bb E\ff{e^{itY}}\\
                     &= \varphi_X(t)\varphi_Y(t)
                 \end{aligned}
             \end{equation*}
@@ -212,12 +212,12 @@
                 \begin{aligned}
                     \bb E\ff{h(t)}
                     &= \bb E\ff{h(X^2)}\\
-                    {}_{g(t)=t^2}&= \bb E\ff{(h\circ g)(X)}\\
+                    \smol{\(g(t)=t^2\)}&= \bb E\ff{(h\circ g)(X)}\\
                     % on applique la formule de transfert par rapport à la loi de X
                     &= \int_{\bb R} (h\circ g)(x) \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
                     &= \int_{\bb R} h(x^2) \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
                     &= 2 \int_{0}^{+\infty} h(x^2) \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
-                    {}_{t=x^2}&= 2 \int_{0}^{+\infty} h(t) \frac{e^{-\frac{t}{2}}}{\sqrt{2\pi}} \der \frac{t}{2\sqrt t}\\
+                    \smol{\(t=x^2\)}&= 2 \int_{0}^{+\infty} h(t) \frac{e^{-\frac{t}{2}}}{\sqrt{2\pi}} \der \frac{t}{2\sqrt t}\\
                     &= \int_{\bb R} h(t) \frac{e^{-\frac{t}{2}}}{\sqrt{2\pi t}} \one_{\bb R_+}(t) \der t
                 \end{aligned}
             \end{equation*}

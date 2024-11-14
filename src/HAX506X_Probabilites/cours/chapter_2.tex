@@ -1,3 +1,5 @@
+% do not propose \((X_n)_{n\in\bb N}\), instead propose \({(X_n)}_{n\in\bb N}\)!!
+
 On considère ici \((\Omega, \scr F, \bb P)\) un espace probabilisé.
 
 \section{Indépendances d'événements} % 2.1
@@ -61,7 +63,7 @@ On peut alors étendre la formule de Bayes à une partition \((A_i)_{i\in I}\) d
     Si une personne est malade (noté \(M\)), alors le test est positif dans 99\% des cas.
     Si une personne n'est pas malade (noté \(\comp M\)), alors le test est positif dans 1\% des cas.
 
-    Notons \(P\) l'événement \og{} le test est positif \fg{}. Alors, si un test est positif,
+    Notons \(P\) l'événement ``le test est positif \fg{}. Alors, si un test est positif,
     la probabilité que la personne soit malade est donnée par
     \begin{equation*}
         \begin{aligned}
@@ -210,10 +212,10 @@ On peut alors étendre la formule de Bayes à une partition \((A_i)_{i\in I}\) d
         \begin{aligned}
             \bb E\left[ h_1(X_1)\cdots h_n(X_n) \right]
             &= \int_{\Omega} h_1(X_1(\omega))\cdots h_n(X_n(\omega))\,\der \bb P(\omega)\\
-            {}_{\substack{\text{formule de}\\\text{transfert}}}
+            \smol{\(\substack{\text{formule de}\\\text{transfert}}\)}
             &= \int_{E_1\times\cdots\times E_n} h_1(x_1)\cdots h_n(x_n)\,\der \bb P_{(X_1,\ldots,X_n)}(x_1,\ldots,x_n)\\
             &= \int_{E_1\times\cdots\times E_n} h_1(x_1)\cdots h_n(x_n)\,\der \left( \bb P_{X_1}\otimes\cdots\otimes\bb P_{X_n} \right)(x_1,\ldots,x_n)\\
-            {}_{\substack{\text{Fubini}\\\text{Tonelli}}}
+            \smol{\(\substack{\text{Fubini}\\\text{Tonelli}}\)}
             &= \int_{E_n} \int_{E_{n-1}}\cdots \int_{E_1} h_1(x_1)\cdots h_n(x_n)\,\der \bb P_{X_1}(x_1)\cdots \der \bb P_{X_n}(x_n)\\
             &= \int_{E_1} h_1(x_1)\,\der \bb P_{X_1}(x_1)\cdots \int_{E_n} h_n(x_n)\,\der \bb P_{X_n}(x_n)\\
             &= \bb E[h_1(X_1)]\cdots \bb E[h_n(X_n)].
@@ -264,11 +266,11 @@ On peut alors étendre la formule de Bayes à une partition \((A_i)_{i\in I}\) d
     \end{equation*}
 \end{example}
 
-\section{Critères d'indépendance} % 2.3
+\subsection{Critères d'indépendance} % 2.3
 
-\subsection*{Cas dscrèt}\label{subsection:discret}
-\addcontentsline{toc}{subsection}{\nameref{subsection:discret}}
-\setcounter{subsection}{1}
+\subsubsection*{Cas discrèt}\label{subsubsection:discret}
+\addcontentsline{toc}{subsubsection}{\nameref{subsubsection:discret}}
+\setcounter{subsubsection}{1}
 
 Soit \(X\) et \(Y\) deux variables aléatoires à valeurs dans des espaces 
 discrets \(E\) et \(F\). Elles sont indépendantes si et seulement si
@@ -286,9 +288,9 @@ En effet, si \(A\subset E\) et \(B\subset F\), alors
     \end{aligned}
 \end{equation*}
 
-\subsection*{Avec les fonctions de répartition}\label{subsection:fonctions_de_repartition}
-\addcontentsline{toc}{subsection}{\nameref{subsection:fonctions_de_repartition}}
-\setcounter{subsection}{2}
+\subsubsection*{Avec les fonctions de répartition}\label{subsubsection:fonctions_de_repartition}
+\addcontentsline{toc}{subsubsection}{\nameref{subsubsection:fonctions_de_repartition}}
+\setcounter{subsubsection}{2}
 Soient \(X\) et \(Y\) deux variables aléatoires à valeurs réelles. Elles sont indépendantes
 si et seulement si pour tout \(x,y\in\bb R\),
 \begin{equation*}
@@ -299,9 +301,9 @@ c'est-à-dire
     F_{X,Y}(x,y) = F_X(x)F_Y(y).
 \end{equation*}
 
-\subsection*{Avec les fonctions caractéristiques}\label{subsection:fonctions_caracteristiques}
-\addcontentsline{toc}{subsection}{\nameref{subsection:fonctions_caracteristiques}}
-\setcounter{subsection}{3}
+\subsubsection*{Avec les fonctions caractéristiques}\label{subsubsection:fonctions_caracteristiques}
+\addcontentsline{toc}{subsubsection}{\nameref{subsubsection:fonctions_caracteristiques}}
+\setcounter{subsubsection}{3}
 Soient \(X_1, X_2\) deux variables aléatoires à valeurs réelles. Elles sont indépendantes
 si et seulement si
 \begin{equation*}
@@ -315,9 +317,9 @@ c'est-à-dire
     \varphi_{(X_1+X_2)}(t_1+t_2) = \varphi_{X_1}(t_1)\varphi_{X_2}(t_2).
 \end{equation*}
 
-\subsection*{Cas des variables aléatoires à densité}\label{subsection:densite}
-\addcontentsline{toc}{subsection}{\nameref{subsection:densite}}
-\setcounter{subsection}{4}
+\subsubsection*{Cas des variables aléatoires à densité}\label{subsubsection:densite}
+\addcontentsline{toc}{subsubsection}{\nameref{subsubsection:densite}}
+\setcounter{subsubsection}{4}
 Soit \((X_1,X_2)\) un vecteur aléatoire de densité \(f_{(X_1,X_2)}\)
 par rapport à \(\lambda_2\) (mesure de Lebesgue sur \(\bb R^2\)). On suppose que
 \begin{equation*}
@@ -341,4 +343,246 @@ respectives \(f_1\) et \(f_2\).
     \end{equation*}
     donc les variables aléatoires \(X\) et \(Y\) sont indépendantes et
     suivent toutes les deux une loi normale centrée réduite.
+\end{example}
+
+\section{Résultats asymptotiques} % 2.3
+
+\subsection{Lemme de Borel-Cantelli} % 2.3.1
+
+Si \({(A_n)}_{n\in\bb N}\) est une suite d'événements et \(A_n\in\scr F, \forall n\in\bb N\),
+alors on pose
+\begin{equation*}
+    \limsup_{n\to\infty} A_n = \bigcap_{n=0}^\infty \bigcup_{k=n}^\infty A_k = \left\{ \omega\in\Omega\mid \omega\in A_k, \text{pour une infinité de } k \right\}.
+\end{equation*}
+et
+\begin{equation*}
+    \liminf_{n\to\infty} A_n = \bigcup_{n=0}^\infty \bigcap_{k=n}^\infty A_k = \left\{ \omega\in\Omega\mid \omega\in A_k, \text{pour tout } k \text{ à partir d'un certain rang} \right\}.
+\end{equation*}
+
+On remarque que
+\begin{equation*}
+    {(\limsup_{n\to\infty} A_n)}^c = \liminf_{n\to\infty} A_n^c.
+\end{equation*}
+et
+\begin{equation*}
+    {(\liminf_{n\to\infty} A_n)}^c = \limsup_{n\to\infty} A_n^c.
+\end{equation*}
+
+\begin{proposition}[Lemme de Borel-Cantelli]
+    Soit \({(A_n)}_{n\in\bb N}\) une suite d'événements, alors
+    \begin{enumerate}
+        \item Si \(\sum_{n=0}^\infty \bb P(A_n) < \infty\), alors
+        \begin{equation*}
+            \bb P(\limsup_{n\to\infty} A_n) = 0.
+        \end{equation*}
+        ou de manière équivalente
+        \begin{equation*}
+            \{n\in\bb N,\omega\in A_n\} \text{ est fini, } \bb P\text{-p.s.}
+        \end{equation*}
+
+        \item Si \(\sum_{n=0}^\infty \bb P(A_n) = \infty\) et les événements \(A_n\) sont indépendants,
+        alors
+        \begin{equation*}
+            \bb P(\limsup_{n\to\infty} A_n) = 1.
+        \end{equation*}
+        ou de manière équivalente
+        \begin{equation*}
+            \{n\in\bb N,\omega\in A_n\} \text{ est infini, } \bb P\text{-p.s.}
+        \end{equation*}
+    \end{enumerate}
+
+    \begin{remark}
+        L'indépendance est nécessaire. Prendre \(A_n=A\) avec \(\bb P(A) \in \oo{0,1}\).
+        Alors \(\sum_{n=0}^\infty \bb P(A) = \infty\) et \(\bb P(\limsup_{n\to\infty} A_n) = \bb P(A) \neq 1\).
+    \end{remark}
+\end{proposition}
+
+\begin{proof}
+    \(\triangleright\) On montre 1.
+
+    On pose \(B_n = \bigcup_{k=n}^\infty A_k\). Comme
+    les \({(B_n)}_{n\in\bb N}\) sont décroissants, on a
+    \begin{equation*}
+        \bb P(\bigcap_{n=0}^\infty B_n)
+        = \lim_{n\to\infty} \bb P(B_n)
+    \end{equation*}
+    et
+    \begin{equation*}
+        \begin{aligned}
+            \bb P(B_n)
+            &= \bb P\left( \bigcup_{k=n}^\infty A_k \right)\\
+            &\leq \sum_{k=n}^\infty \bb P(A_k)\\
+            &\underset{n\to\infty}{\longrightarrow} 0.
+        \end{aligned}
+    \end{equation*}
+    donc
+    \begin{equation*}
+        \bb P(\limsup_{n\to\infty} A_n) = \bb P(\bigcap_{n=0}^\infty B_n) = 0.
+    \end{equation*}
+
+    \(\triangleright\) On montre 2.
+
+    Pour \(n\in\bb N\), on a
+    \begin{equation*}
+        \begin{aligned}
+            \bb P(\bigcap_{k=n}^\infty A_k^c)
+            &= \bb E\ff{\one_{\bigcap_{k=n}^\infty A_k^c}}\\
+            &= \bb E\ff{\lim_{N\to\infty} \one_{\bigcap_{k=n}^N A_k^c}}\\
+            &= \bb E\ff{\lim_{N\to\infty} \prod_{k=n}^N \one_{A_k^c}}\\
+        \end{aligned}
+    \end{equation*}
+
+    Par théorème de convergence dominée (par 1), on a
+    \begin{equation*}
+        \begin{aligned}
+            \bb P(\bigcap_{k=n}^\infty A_k^c)
+            &= \lim_{N\to\infty} \bb E\ff{\prod_{k=n}^N \one_{A_k^c}}\\
+            &= \lim_{N\to\infty} \bb P\left( \bigcap_{k=n}^N A_k^c \right)\\
+            \smol{par indep des \(A_k\)}&= \lim_{N\to\infty} \prod_{k=n}^N \bb P(A_k^c)\\
+            &= \lim_{N\to\infty} \prod_{k=n}^N (1-\bb P(A_k))\\
+            &\leq \lim_{N\to\infty} \prod_{k=n}^N e^{-\bb P(A_k)}\\
+            &= \lim_{N\to\infty} e^{-\sum_{k=n}^N \bb P(A_k)}\\
+            &= e^{-\sum_{k=n}^\infty \bb P(A_k)}\\
+            &= 0.
+        \end{aligned}
+    \end{equation*}
+    On conclut en écrivant
+    \begin{equation*}
+        \bb P(\liminf_{n\to\infty} A_k^c) = \bb P\left( \bigcup_{n=0}^\infty \bigcap_{k=n}^\infty A_k^c \right) = 0
+    \end{equation*}
+\end{proof}
+
+\begin{example}
+    Soit \({(X_n)}_{n\in\bb N}\) une suite de variables aléatoires
+    avec \(X_n\sim\mathcal B(p_n)\).\\
+    On considère les événements \(A_n = \{X_n = 1\}\).\\
+    de sorte que \(p_n = \bb P(X_n = 1) = \bb P(A_n)\).\\
+    Borel-Cantelli donne alors
+    \begin{enumerate}
+        \item Si \(\sum_{n=0}^\infty p_n < \infty\) alors la suite \((X_n)\) prend 
+        la valeur 1 un nombre fini de fois, \(\bb P\)-presque sûrement.
+
+        \item Si \(\sum_{n=0}^\infty p_n = \infty\) et que les \((X_n)\) sont 
+        indépendantes, alors la suite \((X_n)\) prend une infinité de fois
+        la valeur 1, \(\bb P\)-presque sûrement.
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    On observe les motifs dans une suite indépendante et idéntiquement distribuée.
+
+    Soit \({(X_k)}_{k\geq 1}\) une suite de variables aléatoires indépendantes
+    et de même loi \(\mathcal B(\frac12)\).\\
+    Soit \(n\geq 1\) fixé. Soit \(\varepsilon = \left(\varepsilon_1,\ldots,\varepsilon_n\right)\)
+    une suite déterministe fixée dans \({\{0,1\}}^n\).\\
+    Pour \(k\in\bb N\), on définit
+    \begin{equation*}
+        B_k(\varepsilon) = \left\{ {(x_i)}_{i\geq 1}\in{\{0,1\}}^{\bb N^\ast}
+        \mid x_{k+1} = \varepsilon_1, \ldots, x_{k+n} = \varepsilon_n \right\}.
+    \end{equation*}
+    On considère alors l'événement
+    \begin{equation*}
+        A_k(\varepsilon) = \left\{ {(X_i)}_{i\geq 1}\in B_k(\varepsilon) \right\} = \left\{ X_{k+i-1} = \varepsilon_1,\ldots X_{k+n} = \varepsilon_n \right\}.
+    \end{equation*}
+    l'événement \(A_k(\varepsilon)\) est réalisé si \(X_{k+1}\) prend la valeur
+    \(\varepsilon_1\), \(X_{k+2}\) prend la valeur \(\varepsilon_2\) et ainsi de suite 
+    avec \(X_{k+n}\) qui prend la valeur \(\varepsilon_n\). On pose
+    \begin{equation*}
+        A(\varepsilon)
+        = \limsup_{k\to\infty} A_k(\varepsilon)
+    \end{equation*}
+    qui correspond à l'événement ''le motif \(\varepsilon = \left(\varepsilon_1,\ldots,\varepsilon_n\right)\)
+    apparaît une infinité de fois dans la suite \({(X_k)}_{k\geq 1}\)\fg{}.\\
+    Les événements \({(A_k(\varepsilon))}_{k\geq 0}\) ne sont pas indépendants:
+    \begin{equation*}
+        \begin{aligned}
+            A_0(\varepsilon) &= \{X_1 = \varepsilon_1,\ldots,X_n = \varepsilon_n\},\\
+            A_1(\varepsilon) &= \{X_2 = \varepsilon_1,\ldots,X_{n+1} = \varepsilon_n\}.
+            A_2(\varepsilon) &= \{X_3 = \varepsilon_1,\ldots,X_{n+2} = \varepsilon_n\}.
+        \end{aligned}
+    \end{equation*}
+    les événements \({(A_{k\times n}(\varepsilon))}_{k\in \bb N}\) sont indépendants
+    \begin{equation*}
+        \begin{aligned}
+            A_{0\times n}(\varepsilon) &= \{X_1 = \varepsilon_1,\ldots,X_n = \varepsilon_n\},\\
+            A_{1\times n}(\varepsilon) &= \{X_{n+1} = \varepsilon_1,\ldots,X_{2n} = \varepsilon_n\}.
+            A_{2\times n}(\varepsilon) &= \{X_{2n+1} = \varepsilon_1,\ldots,X_{3n} = \varepsilon_n\}.
+        \end{aligned}
+    \end{equation*}
+    Par ailleurs, on a
+    \begin{equation*}
+        \begin{aligned}
+            \bb P(A_{k\times n}(\varepsilon)) 
+            &= \bb P(X_{k\times n + 1} = \varepsilon_1,\ldots,X_{(k+1)\times n} = \varepsilon_n)\\
+            &= \bb P(X_{k\times n + 1} = \varepsilon_1)\cdots \bb P(X_{(k+1)\times n} = \varepsilon_n)\\
+            &= \frac{1}{2^n}.
+        \end{aligned}
+    \end{equation*}
+    qui est le terme général d'une série DIVERGENTE (car on somme sur \(k\)).\\
+    Par Borel-Cantelli, on a
+    \begin{equation*}
+        \bb P(\limsup_{k\to\infty} A_{k\times n}(\varepsilon)) = 1.
+    \end{equation*}
+    Il en suit
+    \begin{equation*}
+        \begin{aligned}
+            \bb P(A(\varepsilon))
+            &= \bb P(\limsup_{k\to\infty} A_k(\varepsilon))\\
+            &= \bb P(\limsup_{k\to\infty} A_{k\times n}(\varepsilon))\\
+            &= 1.
+        \end{aligned}
+    \end{equation*}
+    Donc si on tape au hasard sur un clavier binaire, on fera apparaitre n'importe
+    quel texte une infinité de fois avec probabilité 1.
+\end{example}
+
+\subsection{Loi du \(0-1\) de Kolmogorov} % 2.3.2
+
+Soit \(\scr F_1, \scr F_2,\ldots\) des sous-tribus de \(\scr F\). On pose
+\begin{equation*}
+    \ol{\scr F_n} = \sigma(\scr F_n,\scr F_{n+1},\ldots).
+\end{equation*}
+la tribu engendrée par les \(\scr F_k, k\geq n\).\\
+On définit alors la tribu asymptotique (ou de queue) par
+\begin{equation*}
+    \scr F_\infty = \bigcap_{n\geq 1} \ol{\scr F_n}.
+\end{equation*}
+
+\begin{example}
+    Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+    et \(\scr F_n = \sigma(X_n) = \left\{ X_n^{-1}(B), B\in\scr B \right\}\).
+    Montrons que l'événement ``\(X_n\) converge'' est dans \(\scr F_\infty\).
+
+    L'événement ``\(X_n\) converge'' est réalisé si et seulement
+    si l'événement ``\({(X_n)}_{n\geq k}\) converge'' est réalisé
+    pour tout \(k\geq 1\). Bref, 
+    \begin{equation*}
+        \left\{ {(X_n)}_{n\geq 1} \text{ converge} \right\} = \left\{ {(X_n)}_{n\geq k} \text{ converge}\right\} \in \ol{\scr F_k}.
+    \end{equation*}
+    car \({(X_n)}_{n\geq k}\) ne dépend que de \(X_k, X_{k+1},\ldots\).\\
+    Ceci est vrai pour tout \(k\) donc
+    \begin{equation*}
+        \left\{ {(X_n)}_{n\geq 1} \text{ converge} \right\} \in
+        \bigcap_{k\geq 1} \ol{\scr F_k} = \scr F_\infty.
+    \end{equation*}
+\end{example}
+
+\begin{proposition}[Loi du \(0-1\) de Kolmogorov]
+    Si les tribus \(\scr F_1, \scr F_2,\ldots\) sont indépendantes
+    (un événement d'une tribu est indépendant de tout événement d'une autre tribu),
+    alors la tribu asymptotique \(\scr F_\infty\) ne contient que des événements
+    de probabilité 0 ou 1:
+    \begin{equation*}
+        \forall A\in\scr F_\infty, \bb P(A) \in \{0,1\}.
+    \end{equation*}
+\end{proposition}
+
+\begin{example}
+    Dans l'exemple précédent, on a donc 
+    \begin{equation*}
+        \bb P\left( {(X_n)}_{n\geq 1} \text{ converge} \right) \in \{0,1\}.
+    \end{equation*}
+    Donc soit la suite \({(X_n)}_{n\geq 1}\) converge presque sûrement,
+    soit elle diverge presque sûrement.
+    
 \end{example}
