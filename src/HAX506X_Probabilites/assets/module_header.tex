@@ -1,9 +1,23 @@
 \makeatletter
+%--------------------------------------------------------------------------------
+% Custom sectioning commands
+%--------------------------------------------------------------------------------
 
 \dottedcontents{suprasection}[3.5em]{}{2.3em}{1pc}    % Was 1.5em, now 3.5em
 \dottedcontents{section}[5.8em]{}{2.8em}{1pc}         % Was 3.8em, now 5.8em
 \dottedcontents{subsection}[9.0em]{}{3.2em}{1pc}      % Was 7.0em, now 9.0em
 \dottedcontents{subsubsection}[12.0em]{}{3.8em}{1pc}  % Was 10.0em, now 12.0em
+
+%--------------------------------------------------------------------------------
+\newcommand{\cv}{\longrightarrow}
+\newcommand{\cvn}{\underset{n\to\infty}{\cv}}
+\newcommand{\cvps}{{\overset{\text{p.s.}}{\longrightarrow}}}
+\newcommand{\cvpsn}{\underset{n\to\infty}{\cvps}}
+\newcommand{\cvp}{{\overset{\mathbb{P}}{\longrightarrow}}}
+\newcommand{\cvpn}{\underset{n\to\infty}{\cvp}}
+\newcommand{\cvlp}{{\overset{\mathcal{L}^{p}}{\longrightarrow}}}
+\newcommand{\cvlpn}{\underset{n\to\infty}{\cvlp}}
+
 
 
 %--------------------------------------------------------------------------------
