@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1731670722.53992 "td_main.tex" "/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.pdf" "td_main" 1731670736.01744 0
+["pdflatex"] 1731671771.24952 "td_main.tex" "/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.pdf" "td_main" 1731671785.24938 0
   "../../common/common_header.tex" 1731661532.04605 5246 31321ed60294d0e91caeb79fe9ecf10a ""
   "../../common/macros/math.tex" 1731594857.08875 3803 5e108d1cc614b07950eeb7b43f5a2e1b ""
   "../../common/macros/theorems.tex" 1731058181.18082 1297 084a1ddeab7f7b2d6fa9802ac974fc02 ""
@@ -9,10 +9,10 @@
   "../tds/td_3.tex" 1731595393.58158 10498 4ecbbb28d76f888acd6067c8022ed6b3 ""
   "../tds/td_4.tex" 1731595427.96482 12969 57cdaef3ee31f6f194c05876e254037a ""
   "../tds/td_5.tex" 1731595464.54757 12195 5dec5c019193558ca5e10c53297cd8b8 ""
-  "/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.aux" 1731670734.1885 1661 577063e1175a5c44df231b9de15bf8a0 "pdflatex"
-  "C:/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.aux" 1731670734.1885 1661 577063e1175a5c44df231b9de15bf8a0 "pdflatex"
-  "C:/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.out" 1731670734.1915 1119 d53ad29a45edfb8eba5b31bacdcb6e83 "pdflatex"
-  "C:/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.toc" 1731670734.1935 349 04a7e66e435ee0b49ec27ff4b9942260 "pdflatex"
+  "/c/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.aux" 1731671783.36922 1661 577063e1175a5c44df231b9de15bf8a0 "pdflatex"
+  "C:/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.aux" 1731671783.36922 1661 577063e1175a5c44df231b9de15bf8a0 "pdflatex"
+  "C:/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.out" 1731671783.37176 1119 d53ad29a45edfb8eba5b31bacdcb6e83 "pdflatex"
+  "C:/Users/ileje/00_File_System/2024_2025/L3_Maths/build/HAX506X_Probabilites/tds/td_main.toc" 1731671783.37176 349 04a7e66e435ee0b49ec27ff4b9942260 "pdflatex"
   "C:/Users/ileje/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1731481994.40994 100681 c0f180cb0d99fb2ceb4f3e36710f6abc ""
   "C:/Users/ileje/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1673945398.53633 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/ileje/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1673945400.25962 684 3a51bd4fd9600428d5264cf25f04bb9a ""
