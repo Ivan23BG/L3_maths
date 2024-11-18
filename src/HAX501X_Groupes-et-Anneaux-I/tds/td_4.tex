@@ -1,0 +1,90 @@
+\subsection*{Exercices en TD}\label{sec:tutorial_4}
+\addcontentsline{toc}{subsection}{\nameref{sec:tutorial_4}}
+
+\begin{td-exo}[Un corps exotique] % 1
+    On définit sur l'ensemble \(\bb R^2\) une addition
+    \begin{equation*}
+        (x,y) + (x',y') = (x+x',y+y')
+    \end{equation*}
+    et une multiplication
+    \begin{equation*}
+        (x,y) \cdot (x',y') = (xx'-yy',xy'+x'y.)
+    \end{equation*}
+    Montrer que \(\bb R^2\) muni de ces deux lois est un corps.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 1
+        Il faut montrer que \(\bb R^2\) muni de ces deux lois est un corps, soit
+        que c'est un anneau commutatif dans lequel tout élément non nul est inversible.
+
+        \ptr{} Commençons par montrer que c'est un anneau.\\
+        Il faut vérifier les 4 axiomes:
+        \begin{enumerate}
+            \item On sait que \(\bb R^2\) muni de l'addition par composantes est un groupe abélien.
+
+            \item On vérifie que la multiplication est associative:
+            \begin{equation*}
+                \begin{aligned}
+                    ((x,y) \cdot (x',y')) \cdot (x'',y'') &= (xx'-yy',xy'+x'y) \cdot (x'',y'')\\
+                    &= ((xx'-yy')x''-(xy'+x'y)y'',(xx'-yy')y''+(xy'+x'y)x'')\\
+                    &= (x(x'x''-y'y'')-y(y'x''+x'y''),x(x'y''+x'y'')+y(x'x''-y'y''))\\
+                    &= (x(x'x''-y'y'')-y(y'x''+x'y''),x(x'y''+x'y'')+y(x'x''-y'y''))\\
+                    &= (x,y) \cdot (x',y') \cdot (x'',y'').
+                \end{aligned}
+            \end{equation*}
+
+            \item On vérifie qu'il existe un élément neutre pour la multiplication:
+            \begin{equation*}
+                \begin{aligned}
+                    (x,y) \cdot (1,0) &= (x\cdot 1-y\cdot 0,x\cdot 0+y\cdot 1)\\
+                    &= (x,y).
+                \end{aligned}
+            \end{equation*}
+
+            \item On vérifie la distributivité de la multiplication par rapport à l'addition:
+            \begin{equation*}
+                \begin{aligned}
+                    (x,y) \cdot \left((x',y')+(x'',y'')\right) &= (x,y) \cdot (x'+x'',y'+y'')\\
+                    &= (x(x'+x'')-y(y'+y''),x(y'+y'')+y(x'+x''))\\
+                    &= (xx'-yy'+xx''-yy'',xy'+xy''+yx'+yx'')\\
+                    &= (xx'-yy',xy'+x'y) + (xx''-yy'',xy''+x'y'')\\
+                    &= (x,y) \cdot (x',y') + (x,y) \cdot (x'',y'').
+                \end{aligned}
+            \end{equation*}
+        \end{enumerate}
+
+        \ptr{} Montrons maintenant que cet anneau est commutatif.\\
+        Il faut vérifier que la multiplication est commutative:
+        \begin{equation*}
+            \begin{aligned}
+                (x,y) \cdot (x',y') &= (xx'-yy',xy'+x'y)\\
+                &= (x'x-y'y,x'y+xy')\\
+                &= (x',y') \cdot (x,y).
+            \end{aligned}
+        \end{equation*}
+
+        \ptr{} Montrons enfin que tout élément non nul est inversible.\\
+        Soit \((x,y) \in \bb R^2\) tel que \(x^2+y^2 \neq 0\). On a
+        \begin{equation*}
+            \begin{aligned}
+                (x,y) \cdot \left(\frac{x}{x^2+y^2},-\frac{y}{x^2+y^2}\right) &= \left(x\cdot \frac{x}{x^2+y^2}-y\cdot \left(-\frac{y}{x^2+y^2}\right),x\cdot \left(-\frac{y}{x^2+y^2}\right)+y\cdot \frac{x}{x^2+y^2}\right)\\
+                &= \left(\frac{x^2}{x^2+y^2}+\frac{y^2}{x^2+y^2},\frac{xy}{x^2+y^2}-\frac{xy}{x^2+y^2}\right)\\
+                &= \left(1,0\right).
+            \end{aligned}
+        \end{equation*}
+        Donc tout élément non nul est inversible.
+
+        \ptr{} Conclusion: \(\bb R^2\) muni de ces deux lois est un corps.
+    \end{td-sol}
+}{}
+
+% \begin{td-exo}[Exo 1]\, % 1
+%     Enoncé à remplir.
+% \end{td-exo}
+% 
+% \iftoggle{showsolutions}{
+%     \begin{td-sol}[]\, % 1
+%         solution à remplir
+%     \end{td-sol}
+% }{}

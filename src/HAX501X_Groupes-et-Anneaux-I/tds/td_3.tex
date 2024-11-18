@@ -587,6 +587,25 @@
             donc toutes les transpositions adjacentes sont dans \(\langle (1~2), (1~2~\cdots~n)\rangle\).
 
             Conclusion: \(\mathfrak{S}_n = \langle (1~2), (1~2~\cdots~n)\rangle\).
+
+            \begin{remark}
+                Le sous-groupe engendré par \((i~j), (1~2~\cdots~n)\) est déterminé
+                dans un autre pdf. Pour le cas
+                \begin{equation*}
+                    S = \langle (1~3), (1~2~3~4)\rangle
+                \end{equation*}
+                On a \(S \simeq D_4\), le groupe diédral d'ordre 8.
+
+                Plus précisément, on a un morphisme de groupes
+                \begin{equation*}
+                    \begin{aligned}
+                        F\colon & D_4\to S_4\\
+                        & f\mapsto\sigma_f
+                    \end{aligned}
+                \end{equation*}
+                où \(\sigma_f\) est la restriction de \(f\) à \(\{1,2,3,4\}\).
+                Alors \(S = \im(F)\).
+            \end{remark}
         \end{enumerate}
     \end{td-sol}
 }{}
@@ -650,13 +669,50 @@
     \end{td-sol}
 }{}
 
-\begin{td-exo}[Exo 13] % 13
-    Enoncé à remplir.
+\begin{td-exo}[Centre du groupe diédral] % 14
+    Déterminer le centre du groupe diéedral \(D_n\), pour \(n\in \bb N^*\).
 \end{td-exo}
 
 \iftoggle{showsolutions}{
-    \begin{td-sol}[]\, % 13
-        solution à remplir
+    \begin{td-sol}[]\, % 14
+
+        \ptr{} Pour \(n\leq 2\), le groupe \(D_n\) est abélien donc 
+        \begin{equation*}
+            Z(D_n) = D_n
+        \end{equation*}
+
+        \ptr{} Pour \(n\geq 3\), on a
+        \begin{equation*}
+            \begin{aligned}
+                r^k s = s r^{-k}
+            \end{aligned}
+        \end{equation*}
+        pour tout \(k\in\{0,\ldots,n-1\}\).
+
+        \ptr{} Soit \(r\) une rotation. Alors, pour tout \(k\in\{0,\ldots,n-1\}\), on a
+        \begin{equation*}
+            r^k s = s r^{-k}
+        \end{equation*}
+        Donc pour que \(r\in Z(D_n)\), il faut que \(r\) soit une rotation telle que \(r^k = r^{-k}\) pour tout \(k\in\{0,\ldots,n-1\}\).
+        Alors, \(r\) est une rotation d'angle \(0\) ou \(\pi\).
+
+        \ptr{} Avec les notations du cours, on peut montrer qu'aucune réflexion n'est dans le centre de \(D_n\).\\
+        Par exemple, on montre que pour \(k\in \{0,\ldots,n-1\}\), on a \(r^k s\) qui ne commute
+        pas avec \(r\).
+        \begin{equation*}
+            \begin{aligned}
+                \cdot\  r(r^k s) = r^{k+1} s\\
+                \cdot\  (r^k s)r = r^{k-1} s
+            \end{aligned}
+        \end{equation*}
+        Ces éléments sont différents car \(r\neq r^{-1}\) pour \(n\geq 3\).
+
+        Ainsi les seuls éléments dans le centre de \(D_n\)
+        \begin{equation*}
+            \begin{aligned}
+                Z(D_n) = \{\id, r^{\frac{n}2}\},\quad n\text{ pair},\\
+                Z(D_n) = \{\id\},\quad n\text{ impair}.
+            \end{aligned}
+        \end{equation*}
     \end{td-sol}
 }{}
-    
