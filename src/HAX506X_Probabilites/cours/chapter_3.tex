@@ -306,63 +306,7 @@ et une variable aléatoire \(X\) réelle (ou complexe).
     \end{enumerate}
 \end{remark}
 
-
-% insert special set graph in a triangle form with 3 circles as sets
-% top left, top right and bottom
-% top left: "convergence presque sûre"
-% top right: "convergence sur Lp"
-% bottom: "convergence en probabilité"
-% arrows between sets:
-% top left -> top right: "implique si domination" in blue
-% top right -> bottom: "implique" in red ---------------------------
-% bottom -> top left: "implique si extraction" in blue
-% top left -> bottom: "implique" in red ----------------------------
-% top right -> top left: "implique si extraction" in blue
-% bottom -> top right: "implique si hypothèse de moment" in blue
-
-\usetikzlibrary{arrows}
-\begin{center}
-    \begin{tikzpicture}
-        % circle centers with labels
-        \node (c1) at (-2.5, 1.5) {\(\substack{\text{convergence}\\\text{presque sûre}}\)};
-        \node (c2) at (2.5, 1.5) {\(\substack{\text{convergence}\\\text{sur }\mathcal L^p}\)};
-        \node (c3) at (0, -2) {\(\substack{\text{convergence}\\\text{en probabilité}}\)};
-
-        % circles around the centers with labels
-        \draw (c1) circle (1);
-        \draw (c2) circle (1);
-        \draw (c3) circle (1);
-
-        % implies arrows between top and bot sets edge to edge
-        \draw[-implies,double equal sign distance, red] (-2.1,0.6) to[bend right] (-0.4, -1.6);
-        \draw[-implies,double equal sign distance, red] (2.1,0.6) to[bend left] (0.4, -1.6);
-
-        % curved arrows between sets and using ->
-        \draw[->] (-1.8, 2.2) to[bend left] (1.8, 2.2);
-        \draw node at (0, 2.2) {domination};
-
-        \draw[->, blue] (-0.8,-1.3) to[bend right] (-1.8, 0.8);
-        \draw node at (-1.3, -1.3) {extraction};
-
-        \draw[->, blue] (1.8, 0.8) to[bend left] (-1.8, 0.8);
-        \draw node at (0, 0.8) {extraction};
-
-        \draw[->, blue] (0.8,-1.3) to[bend left] (1.8, 0.8);
-        \draw node at (1.3, -1.3) {hypothèse de moment};
-        
-
-        % curved lower arrow from right circle to left circle, arrow is => and not ->
-        %\draw[->, red] (1, 0.7) to[bend left] (-1, 1) node[midway, below] {implique};
-
-
-        %\draw[->, blue] (-1, 1) -- (1, 1) node[midway, above] {implique si domination};
-        %\draw[->, red] (1, 1) -- (0, -1) node[midway, right] {implique};
-        %\draw[->, blue] (0, -1) -- (-1, 1) node[midway, left] {implique si extraction};
-        %\draw[->, red] (-1, 1) -- (0, -1) node[midway, below] {implique};
-        %\draw[->, blue] (1, 1) -- (-1, 1) node[midway, above] {implique si extraction};
-        %\draw[->, blue] (0, -1) -- (1, 1) node[midway, right] {implique si hypothèse de moment};
-    \end{tikzpicture}
-\end{center}
+\input{../assets/tikz/02_figure_cours3_conv.tex}
 
 \section{Loi forte des grands nombres} % 3.2
 
