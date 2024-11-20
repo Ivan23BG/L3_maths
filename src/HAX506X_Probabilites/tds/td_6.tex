@@ -1,0 +1,220 @@
+\begin{td-exo}[] % 1
+    On souhaite transmettre un message d'un point à un autre
+    à travers des canaux successifs. Ce message peut prendre
+    deux valeurs: 0 ou 1. Au passage de chaque canal, le 
+    message a une probabilité \(p\in\oo{0,1}\) d'être bruité,
+    c'est-à-dire d'être transformé en son contraire et \(1-p\)
+    d'être transmis fidèlement. Les canaux de transmission
+    sont indépendants les uns des autres.
+    \begin{enumerate}
+        \item On considère l'événement \(A_n\) : \og{}
+        après le canal \(n\), le message est identique au
+        message initial\fg{}, et on note \(p_n\) sa probabilité.
+        Exprimer \(p_{n+1}\) en fonction de \(p_n\) et de \(p\).
+        Que vaut \(p_1\)?
+
+        \item On définit la suite \((x_n)_{n\geq 1}\) par 
+        \(x_n = p_n-\frac12\). Vérifier que cette suite
+        est géométrique. En déduire une expression pour
+        \(p_n\).
+
+        \item Déterminer \(\lim_{n\to\infty} p_n\).
+    \end{enumerate}
+\end{td-exo}
+&= \ \vdots\\
+&= \frac{\lambda}{\lambda+\mu} \times e^{-\la}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 1
+        \begin{enumerate}
+            \item On utilise la formule des probabilités totales:
+            \begin{equation*}
+                \begin{aligned}
+                    p_{n+1} &= 
+                    \bb P(A_{n+1}) =
+                    \bb P(A_{n+1}\mid A_n)\bb P(A_n) +
+                    \bb P(A_{n+1}\mid \ol{A_n})\bb P(\ol{A_n})\\
+                    &= (1-p)p_n + p(1-p_n)\\
+                    &= p_n(1-2p) + p
+                \end{aligned}
+            \end{equation*}
+
+            \item On pose \(x_n = p_n-\frac12\). Alors
+            \begin{equation*}
+                \begin{aligned}
+                    x_{n+1} &= p_{n+1} - \frac12\\
+                    &= p_n(1-2p) + p - \frac12\\
+                    &= x_n(1-2p)
+                \end{aligned}
+            \end{equation*}
+            La suite \((x_n)\) est donc géométrique de raison
+            \(1-2p\) et de premier terme \(x_1 = p_1-\frac12 = \frac12 - p\).
+            On a donc
+            \begin{equation*}
+                x_n = x_1{(1-2p)}^{n-1} = \frac12 {\left(1-2p\right)}^{n}
+            \end{equation*}
+            et
+            \begin{equation*}
+                p_n = x_n + \frac12 = \frac12 + \frac12 {\left(1-2p\right)}^{n}
+            \end{equation*}
+
+            \item Il y a plusieurs cas à considérer:
+            \begin{itemize}[label=\ptr{}]
+                \item Cas 1: \(p\in\oo{0,1}\). Alors
+                \begin{equation*}
+                    | 1-2p | < 1 
+                \end{equation*}
+                donc
+                \begin{equation*}
+                    \lim_{n\to\infty} p_n = \frac12
+                \end{equation*}
+                On a perdu toute l'information du message initial.
+
+                \item Cas 2: \(p=0\). Alors
+                \begin{equation*}
+                    p_n = 1
+                \end{equation*}
+                pour tout \(n\), donc après chaque canal, on
+                conserve le message initial.
+
+                \item Cas 3: \(p=1\). Alors
+                \begin{equation*}
+                    \begin{aligned}
+                        p_n &= \frac12 + \frac12{(-1)}^n\\
+                        &=\begin{cases}
+                            1 & \text{si } n \text{ est pair}\\
+                            0 & \text{si } n \text{ est impair}
+                        \end{cases}
+                    \end{aligned}
+                \end{equation*}
+            \end{itemize}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[] % 2
+    Soit \(X\) et \(Y\) deux variables aléatoires indépendantes
+    de loi exponentielle de paramètres respectifs \(\lambda\)
+    et \(\mu\). 
+    \begin{enumerate}
+        \item Rappeler la loi du couple \((X,Y)\).
+
+        \item Calculer la probabilité \(\bb P(X\leq Y)\).
+
+        \item Déterminer \(\bb P(X>t)\), pour tout réel \(t\).
+        En déduire la fonction de répartition puis la loi
+        de \(Z = \min(X,Y)\).
+
+        \item Soit \(t\geq 0\). Montrer que les
+        événements \(\{X\leq Y\}\) et \(\{Z>t\}\) sont indépendants.
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        \begin{enumerate}
+            \item Soient \(A,B\in\scr B(\bb R)\). On a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P((X,Y)\in A\times B) 
+                    &= \bb P(X\in A, Y\in B)\\
+                    \smol{par indep}&= \bb P(X\in A)\bb P(Y\in B)\\
+                    &= \int_A \lambda e^{-\lambda x}\one_{\bb R_+}(x)\der x \int_B \mu e^{-\mu y}\one_{\bb R_+}(y)\der y\\
+                    &= \int_{A\times B} \color{verdant}\underbrace{\color{black}\lambda\mu e^{-\lambda x-\mu y} \one_{\bb R_+\times\bb R_+}(x,y)}_{f_{(X,Y)}(x,y)}\color{black}\der x\der y
+                \end{aligned}
+            \end{equation*}
+            Donc \((X,Y)\) est un vecteur aléatoire de densité
+            \begin{equation*}
+                f_{(X,Y)}(x,y) = \lambda\mu e^{-\lambda x-\mu y}
+            \end{equation*}
+            et
+            \begin{equation*}
+                \der\bb P_{(X,Y)} = f_{(X,Y)}(x,y)\der \lambda_2
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(X\leq Y)
+                    &= \bb P((X,Y)\in \left\{ (x,y)\in\bb R^2 \mid x\leq y \right\})\\
+                    &= \int_{\substack{x\leq y\\x\leq y}} f_{(X,Y)}(x,y)\der x\der y\\
+                    &= \int_{0\leq x \leq y} \lambda\mu e^{-\lambda x-\mu y}\der x\der y\\
+                    &= \int_0^{+\infty} \int_0^y \lambda\mu e^{-\lambda x-\mu y}\der x\der y\\
+                    &= \int_0^{+\infty} {\left[ -e^{-\lambda x-\mu y} \right]}_0^y\der y\\
+                    &= \ \vdots\\
+                    &= \frac{\lambda}{\lambda+\mu}
+                \end{aligned}
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(X>t)
+                    &= \int_t^{+\infty} f_X(x)\der x\\
+                    &= \int_t^{+\infty} \lambda e^{-\lambda x}\one_{\bb R_+}(x)\der x\\
+                    &= \begin{cases}
+                        e^{-\lambda t} & \text{si } t\geq 0\\
+                        1 & \text{si } t<0
+                    \end{cases}
+                \end{aligned}
+            \end{equation*}
+            La fonction de répartition de \(X\) est donc
+            \begin{equation*}
+                F_X(t) = \begin{cases}
+                    0 & \text{si } t<0\\
+                    1-e^{-\lambda t} & \text{si } t\geq 0
+                \end{cases}
+            \end{equation*}
+            et
+            \begin{equation*}
+                \begin{aligned}
+                    F_Z(t) &= \bb P(\min(X,Y)\leq t)\\
+                    &= 1 - \bb P(\min(X,Y)>t)\\
+                    &= 1 - \bb P(X>t, Y>t)\\
+                    \smol{par indep}&= 1 - \bb P(X>t)\bb P(Y>t)\\
+                    &= \begin{cases}
+                        0 & \text{si } t<0\\
+                        1 - e^{-(\lambda+\mu)t} & \text{si } t\geq 0
+                    \end{cases}
+                \end{aligned}
+            \end{equation*}
+            donc, par unicité de la fonction de répartition,
+            \(Z\) suit une loi exponentielle de paramètre \(\lambda+\mu\).
+
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(X\leq Y, Z>t)
+                    &= \bb P(X\leq Y, \min(X,Y)>t)\\
+                    &= \bb P(X\leq Y, X>t, Y>t)\\
+                    &= \bb P(X\leq Y, X>t)\\
+                \end{aligned}
+            \end{equation*}
+            On pose \(D_t = \left\{ (x,y)\in\bb R^2 \mid t<x\leq y \right\}\).
+            Alors
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P((X,Y)\in D_t)
+                    &= \int_D_t f_{(X,Y)}(x,y)\der x\der y\\
+                    &= \int_t^{+\infty} \left(\int_x^{\infty} f_{(X,Y)}(x,y)\der y\right)\der x\\
+                    &= \int_t^{+\infty} \left(\int_x^{\infty} \lambda\mu e^{-\lambda x-\mu y}\der y\right)\der x\\
+                    &= \ \vdots\\
+                    &= \frac{\lambda}{\lambda+\mu} \times e^{-\lambda+\mu t}
+                    &= \bb P(X\leq Y)\bb P(Z>t) 
+                \end{aligned}
+            \end{equation*}
+            donc les événements \(\{X\leq Y\}\) et \(\{Z>t\}\) sont indépendants.
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+
+%\begin{td-exo}[] % 1
+%    fill
+%\end{td-exo}
+%% ----- Solutions exo 1
+%\iftoggle{showsolutions}{
+%    \begin{td-sol}[]\, % 1
+%        fill
+%    \end{td-sol}
+%}{}
