@@ -65,19 +65,251 @@
         \end{equation*}
 
         \ptr{} Montrons enfin que tout élément non nul est inversible.\\
-        Soit \((x,y) \in \bb R^2\) tel que \(x^2+y^2 \neq 0\). On a
+        Soit \((x,y) \in \bb R^2\setminus\{(0,0)\}\). On cherche \((x',y') \in \bb R^2\) tel que \((x,y) \cdot (x',y') = (1,0)\). On a donc
         \begin{equation*}
             \begin{aligned}
-                (x,y) \cdot \left(\frac{x}{x^2+y^2},-\frac{y}{x^2+y^2}\right) &= \left(x\cdot \frac{x}{x^2+y^2}-y\cdot \left(-\frac{y}{x^2+y^2}\right),x\cdot \left(-\frac{y}{x^2+y^2}\right)+y\cdot \frac{x}{x^2+y^2}\right)\\
-                &= \left(\frac{x^2}{x^2+y^2}+\frac{y^2}{x^2+y^2},\frac{xy}{x^2+y^2}-\frac{xy}{x^2+y^2}\right)\\
-                &= \left(1,0\right).
+                &\begin{cases}
+                    xx'-yy' &= 1\\
+                    xy'+x'y &= 0
+                \end{cases}\\
+                \iff &\begin{pmatrix}
+                    x & -y\\
+                    y & x
+                \end{pmatrix}
+                \begin{pmatrix}
+                    x'\\
+                    y'
+                \end{pmatrix}
+                = \begin{pmatrix}
+                    1\\
+                    0
+                \end{pmatrix}\\
+                \iff & \frac{1}{x^2+y^2}\begin{pmatrix}
+                    x & y\\
+                    -y & x
+                \end{pmatrix}
+                \begin{pmatrix}
+                    x'\\
+                    y'
+                \end{pmatrix}
+                = \begin{pmatrix}
+                    1\\
+                    0
+                \end{pmatrix}\\
+                \iff & \begin{pmatrix}
+                    x'\\
+                    y'
+                \end{pmatrix}
+                = \frac{1}{x^2+y^2}\begin{pmatrix}
+                    x & y\\
+                    -y & x
+                \end{pmatrix}
+                \begin{pmatrix}
+                    1\\
+                    0
+                \end{pmatrix}
+                = \begin{pmatrix}
+                    \frac{x}{x^2+y^2}\\
+                    \frac{-y}{x^2+y^2}
+                \end{pmatrix}
             \end{aligned}
         \end{equation*}
-        Donc tout élément non nul est inversible.
+        On pose alors
+        \begin{equation*}
+            (x',y') = \left(\frac{x}{x^2+y^2},\frac{-y}{x^2+y^2}\right).
+        \end{equation*}
+        et on vérifie que \((x,y) \cdot (x',y') = (1,0)\).
 
-        \ptr{} Conclusion: \(\bb R^2\) muni de ces deux lois est un corps.
+        Ce corps est \(\bb C\):
+        \begin{equation*}
+            \begin{aligned}
+                &\bb R^2&\bb C\\
+                &(x,y) \longleftrightarrow& x+iy
+            \end{aligned}
+        \end{equation*}
     \end{td-sol}
 }{}
+
+\begin{td-exo}[Entiers de Gauss]\, % 3
+    On définit l'ensemble des entiers de Gauss:
+    \begin{equation*}
+        \bb Z[i] = \{a+ib \mid a,b \in \bb Z\}.
+    \end{equation*}
+    \begin{enumerate}
+        \item Montrer que \(\bb Z[i]\) est un sous-anneau de \(\bb C\).
+        Est-il commutatif? Est-il un intègre? Est-il un corps?
+
+        \item Pour \(z = a+ib \in \bb Z[i]\), on pose
+        \begin{equation*}
+            N(z) = \n{z}^2 = a^2+b^2
+        \end{equation*}
+        qu'on appelle la norme. Montrer qu'on a
+        \begin{equation*}
+            \forall z,z' \in \bb Z[i],\quad N(zz') = N(z)N(z').
+        \end{equation*}
+
+        \item Montrer que si \(z\in\bb Z[i]\) est inversible
+        si et seulement si \(N(z) = 1\). Identifier le groupe
+        des inversibles de \(\bb Z[i]\).
+
+        \item Soient \(m,n\in\bb N\). Montrer que si \(m\) et \(n\) 
+        peuvent être écrits comme somme de deux carrés, alors leur
+        produit \(mn\) aussi.
+
+        \item Soit maintenant l'ensemble des rationnels de Gauss:
+        \begin{equation*}
+            \bb Q(i) = \left\{a+ib \in \bb C \mid a,b \in \bb Q\right\}.
+        \end{equation*}
+        Montrer qu'il s'agit d'un sous-corps de \(\bb C\).
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 3
+        On se place dans
+        \begin{equation*}
+            \bb Z[i] = \{a+ib \mid a,b \in \bb Z\}.
+        \end{equation*}
+        \begin{enumerate}
+            \item On montre facilement que c'est un sous-anneau de \(\bb C\)
+            en vérifiant les axiomes.
+            \begin{itemize}[\ptr{}]
+                \item On a bien \(0\in\bb Z[i]\)
+
+                \item On a bien \(\bb Z[i]\) stable par addition.
+
+                \item On a bien \(\bb Z[i]\) stable par passage à l'opposé.
+
+                \item On a bien \(1\in\bb Z[i]\)
+
+                \item On a bien \(\bb Z[i]\) stable par multiplication.
+            \end{itemize}
+            Donc \(\bb Z[i]\) est un sous-anneau de \(\bb C\).
+
+            Cet anneau est bien commutatif car \(\bb C\) l'est. 
+            De même pour l'intégrité.\\
+            Par contre, \(\bb Z[i]\) n'est pas un corps car \(2\in\bb Z[i]\)
+            n'est pas inversible.
+
+            \item On sait que 
+            \begin{equation*}
+                \forall z,z' \in \bb C,\quad \n{zz'} = \n{z}\n{z'}.
+            \end{equation*}
+            et donc
+            \begin{equation*}
+                N(zz') = N(z)N(z').
+            \end{equation*}
+
+            \item \ptr{} Montrons d'abord le sens direct.\\
+            On suppose que \(z\in\bb Z[i]\) est inversible.\\
+            Alors, il existe \(z'\in\bb Z[i]\) tel que \(zz' = 1\).\\
+            En utilisant la question précédente, on a
+            \begin{equation*}
+                N(zz') = N(z)N(z') = 1.
+            \end{equation*}
+            Comme \(N(z)\in\bb N\) et \(N(z')\in\bb N\), on a
+            \begin{equation*}
+                N(z) = N(z') = 1.
+            \end{equation*}
+
+            \ptr{} Montrons maintenant le sens réciproque.\\
+            On suppose que \(N(z) = 1\).\\
+            Alors \(z = a+ib\) avec \(a,b\in\bb Z\) et \(a^2+b^2 = 1\).
+            Alors
+            \begin{equation*}
+                (a+ib)(a-ib) = 1.
+            \end{equation*}
+            Donc \(a+ib\) est inversible dans \(\bb Z[i]\),
+            d'inverse \(a-ib\).
+
+            Pour \(a,b\in\bb Z\), on a
+            \begin{equation*}
+                a^2+b^2 = 1 \iff (a,b) \in \left\{(1,0),(0,1),(-1,0),(0,-1)\right\}.
+            \end{equation*}
+            Donc les inversibles de \(\bb Z[i]\) sont
+            \begin{equation*}
+                \bb {Z[i]}^\times = \{1,-1,i,-i\} = \bb U_4.
+            \end{equation*}
+            (groupe cyclique d'ordre 4, engendré par \(i\) ou \(-i\))
+
+            \item Formule magique vue à la question 2:
+            \begin{equation*}
+                (a^2+b^2)(a'^2+b'^2) = {(aa'-bb')}^2 + {(ab'+ba')}^2.
+            \end{equation*}
+
+            \item C'est clair que \(\bb Q(i)\) est un sous-corps de \(\bb C\),
+            montrons simplement l'axiome de stabilité par passage à l'inverse.\\
+            Pour \(a,b\in\bb Q\), si \(a+ib\neq 0\), alors
+            \begin{equation*}
+                \frac{1}{a+ib} = \frac{a}{a^2+b^2} - i\frac{b}{a^2+b^2} \in \bb Q(i).
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Nilpotents]\, % 4
+    Soit \(A\) un anneau commutatif. On dit qu'un élément
+    \(x\in A\) est nilpotent s'il existe \(n\in\bb N\) tel que
+    \(x^n = 0\).
+    \begin{enumerate}
+        \item Donner un exemple d'un anneau commutatif \(A\)
+        et d'un élément nilpotent \(x\in A\) non nul.
+
+        \item Montrer que si \(x\) est nilpotent et que \(y\)
+        est n'importe quel élément de \(A\), alors \(xy\) est nilpotent.
+
+        \item Montrer que l'ensemble des éléments nilpotents de \(A\)
+        est un sous-groupe de \(A\). Est-ce un sous-anneau?
+
+        \item Montrer que si \(x\) est nilpotent alors \(1-x\)
+        est inversible.
+
+        \item Soient \(u,x\in A\) tel que \(u\) est inversible et
+        \(x\) est nilpotent. Montrer que \(u+x\) est inversible.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 4
+        \begin{itemize}
+            \item On considère
+            \begin{equation*}
+                A = \bb Z/4\bb Z
+            \end{equation*}
+            alors \(x=\ol 2\neq \ol 0\) est nilpotent car \(x^2 = \ol 4 = \ol 0\).
+
+            \item Soit \(x\in A\) nilpotent (d'ordre \(n\)) et \(y\in A\). Alors
+            \begin{equation*}
+                {(xy)}^n = x^n y^n = 0.
+            \end{equation*}
+
+            \item Soit \(N\) l'ensemble des éléments nilpotents de \(A\).
+            Vérifions les axiomes:
+            \begin{itemize}[\ptr{}]
+                \item On a bien \(0\in N\) car \(0^1 = 0\).
+
+                \item Soit \(x\in N\). Alors il existe \(n\in\bb N\) tel que \(x^n = 0\).
+                Alors \({(-x)}^n = (-1)^n x^n = 0\), donc \(-x\in N\).
+
+                \item Soit \(x,y\in N\). Alors il existe \(n,m\in\bb N\) tels que \(x^n = 0\) et \(y^m = 0\).
+                Alors
+                \begin{equation*}
+                    \begin{aligned}
+                        {(x+y)}^{n+m} 
+                        &= \sum_{k=0}^{n+m} \binom{n+m}{k} x^k y^{n+m-k}\\
+                        &= \sum_{k=0}^{n} \binom{n+m}{k} x^k y^{n+m-k} + \sum_{k=n+1}^{n+m} \binom{n+m}{k} x^k y^{n+m-k}\\
+                        &= 0.
+                    \end{aligned}
+                \end{equation*}
+                Comme \(1\) n'est pas nilpotent, \(N\) n'est pas un sous-anneau.
+                \begin{remark}
+                    C'est un idéal de \(A\) par la question 2.
+                \end{remark}
+            \end{itemize}
+        \end{itemize}
+    \end{td-sol}
+}{}
+
 
 % \begin{td-exo}[Exo 1]\, % 1
 %     Enoncé à remplir.

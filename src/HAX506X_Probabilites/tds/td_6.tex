@@ -21,8 +21,6 @@
         \item Déterminer \(\lim_{n\to\infty} p_n\).
     \end{enumerate}
 \end{td-exo}
-&= \ \vdots\\
-&= \frac{\lambda}{\lambda+\mu} \times e^{-\la}
 % ----- Solutions exo 1
 \iftoggle{showsolutions}{
     \begin{td-sol}[]\, % 1
@@ -190,12 +188,12 @@
                     &= \bb P(X\leq Y, X>t)\\
                 \end{aligned}
             \end{equation*}
-            On pose \(D_t = \left\{ (x,y)\in\bb R^2 \mid t<x\leq y \right\}\).
+            On pose \({D_t} = \left\{ (x,y)\in\bb R^2 \mid t<x\leq y \right\}\).
             Alors
             \begin{equation*}
                 \begin{aligned}
-                    \bb P((X,Y)\in D_t)
-                    &= \int_D_t f_{(X,Y)}(x,y)\der x\der y\\
+                    \bb P((X,Y)\in {D_t})
+                    &= \int_{D_t} f_{(X,Y)}(x,y)\der x\der y\\
                     &= \int_t^{+\infty} \left(\int_x^{\infty} f_{(X,Y)}(x,y)\der y\right)\der x\\
                     &= \int_t^{+\infty} \left(\int_x^{\infty} \lambda\mu e^{-\lambda x-\mu y}\der y\right)\der x\\
                     &= \ \vdots\\

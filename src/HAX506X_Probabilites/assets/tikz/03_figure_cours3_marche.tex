@@ -1,0 +1,38 @@
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel = \(n\),
+            xmin = 0,
+            xmax = 10,
+            ymin = -1, % Ensures some space below the x-axis
+            ymax = 3,
+            width = 12cm, % Makes x-axis longer
+            height = 5cm, % Adjusts graph height
+            axis lines = middle, % Places x-axis at y=0 and y-axis at x=0
+            xtick = {0,1,2,3,4,5,6,7,8,9,10}, % Ensures all x values are shown
+            ytick = {-1,0,1,2,3}, % Custom y-ticks
+            every axis x label/.style={at={(ticklabel* cs:1.05)},anchor=north}, % Moves x-label below axis
+            every axis y label/.style={at={(ticklabel* cs:1.05)},anchor=east}, % Moves y-label left of axis
+        ]
+            % Add points in order and link them with a broken line
+            \addplot [
+                color=red,
+                mark=*,
+            ]
+            coordinates {
+                (0,0)
+                (1,1)
+                (2,2)
+                (3,1)
+                (4,2)
+                (5,3)
+                (6,2)
+                (7,1)
+                (8,2)
+                (9,1)
+            };
+            \node[red] at (axis cs:9,1) {\(\bullet\)};
+            \node[anchor=west, red] at (axis cs:9,1) {\(S_9\)};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}

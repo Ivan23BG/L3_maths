@@ -320,3 +320,201 @@ et une variable aléatoire \(X\) réelle (ou complexe).
         \ol{X_n} = \frac{X_1 + \cdots + X_n}{n} \cvpsn \bb E[X_1].
     \end{equation*}
 \end{theorem}
+
+\begin{remark}\,
+    \begin{enumerate}
+        \item Si les \(X_n\) sont des variables aléatoires
+        positives d'espérance infinie (\(\bb E[X_1] = +\infty\)),
+        alors le théorème reste vrai au sens suivant:
+        \begin{equation*}
+            \frac{X_1 + \cdots + X_n}{n} \cvpsn +\infty.
+        \end{equation*}
+
+        \item La convergence est également vérifiée dans
+        \(\mathcal L^1(\Omega, \scr F, \bb P)\):
+        \begin{equation*}
+            \frac{X_1 + \cdots + X_n}{n} \cvlpn \bb E[X_1].
+        \end{equation*}
+    \end{enumerate}
+\end{remark}
+
+\begin{proof}\,\\
+    \ptr{} Posons \(S_n = X_1 + \cdots + X_n\) et \(S_0 = 0\).\\
+    Considérons \(a\geq \bb E\ff{X_1}\)
+
+    \ptr{} Idée: on va montrer que
+    \begin{equation*}
+        S_n - na \leq M < +\infty \quad\text{p.s.}
+    \end{equation*}
+    pour un certain \(M\). Si c'est vrai, alors
+    \begin{equation*}
+        \frac{S_n}{n}\leq a + \frac{M}{n} \quad\text{p.s.}
+    \end{equation*}
+    et donc
+    \begin{equation*}
+        \left(\limsup_{n\to\infty} \frac{S_n}{n}\right) \leq a \quad\text{p.s.}
+    \end{equation*}
+    et on conclut en faisant tendre \(a\) vers \(\bb E\ff{X_1}\).
+
+    \ptr{} On pose
+    \begin{equation*}
+        M_n = \max\limits_{k=0, \ldots, n} (S_k - ka) = \max(0,X_1-a, X_1 - a + X_2 - a, \ldots, (X_1 - a) + \cdots + (X_n - a)).
+    \end{equation*}
+    La suite \({(M_n)}_{n\geq 0}\) est positive et croissante,
+    donc elle converge presque sûrement vers
+    \begin{equation*}
+        M = \sup_{n\geq 0} (S_n - na)\in \ff{0, +\infty}.
+    \end{equation*}
+
+    \ptr{} \'Etape 1: montrons que \(\bb P(M=\infty) \in\{0,1\}\)\\
+    Pour \(k\geq 1\), on écrit
+    \begin{equation*}
+        \begin{aligned}
+            \{M=\infty\} 
+            &= \left\{\sup_{n\geq 0} (X_1 + \cdots + X_n - na) = +\infty\right\}\\
+            &= \left\{\sup_{n\geq k} (X_k + \cdots + X_n - na) = +\infty\right\}\\
+        \end{aligned}
+    \end{equation*}
+    Ce dernier événement dépend uniquement de \(X_k, X_{k+1}, \ldots\).
+    Donc il appartient à \(\ol{\scr F_k}\sigma(X_k, X_{k+1}, \ldots)\).\\
+    Céci étant vrai pour tout \(k\geq 1\), on en déduit que
+    \begin{equation*}
+        \{M=\infty\} \in \bigcap_{k\geq 1} \ol{\scr F_k} = \scr F_\infty.
+    \end{equation*}
+
+    Les \(X_n\) étant indépendantes, la loi du 0--1 de Kolmogorov
+    assure que \(\bb P(M=\infty) \in \{0,1\}\).
+    
+    \ptr{} \'Etape 2: montrons que \(\bb P(M=\infty) = 0\)\\
+    On pose \(S_n' = X_2 + \cdots + X_{n+1}, n\geq 1\) et \(S_0' = 0\).
+    Alors
+    \begin{equation*}
+        M'_n = \max\limits_{k=0, \ldots, n} (S_k' - ka) = \max(0, X_2 - a, X_2 - a + X_3 - a, \ldots, (X_2 - a) + \cdots + (X_{n+1} - a)).
+    \end{equation*}
+    On obtient la relation
+    \begin{equation*}
+        \begin{aligned}
+            M_{n+1} 
+            &= \max(0,M'_n + (X_1 - a))\\
+            &= M'_n - \min(a - X_1, M'_n).
+        \end{aligned}
+    \end{equation*}
+    Comme avant, la suite \({(M'_n)}_{n\geq 0}\) est croissante
+    positive donc converge vers \(M' = \sup_{n\geq 0} (M_n' - na)\in \ff{0, +\infty}\).\\
+    Comme les variables aléatoires \(X_n\) sont i.i.d., on en déduit
+    que \({(S_n)}_{n\geq 0}\) et \({(S_n')}_{n\geq 0}\) ont même loi.\\
+    De même, \(M_n\) et \(M_n'\) ont même loi et
+    \(M\) et \(M'\) ont même loi. Alors
+    \begin{equation*}
+        \bb E[\min(a - X_1, M'_n)] = \underbrace{\bb E[M'_n]}_{\bb E[M_n]} - \bb E[M_{n+1}] \leq 0
+    \end{equation*}
+    Or, la suite \(Y_n = \min(a-X_1,M'_n)\) converge vers
+    \(Y = \min(a-X_1,M')\) et vérifie \(\n{Y_n} \leq \n{a-X_1}\)
+    qui est intégrable.
+
+    On en deduit que
+    \begin{equation*}
+        \bb E[\min(a - X_1, M')] = \lim_{n\to\infty} \bb E[\min(a - X_1, M'_n)] \leq 0.
+    \end{equation*}
+    Si on suppose que \(\bb P(M=\infty) = 1\), alors
+    \(\bb P(M'=\infty = 1)\) (de même loi) et donc
+    \(\bb E[\min(a - X_1, M')] = \bb E[a-X_1]\), ce qui donne
+    \(a\leq \bb E[X_1]\), ce qui est exclu. Donc \(\bb P(M=\infty) = 0\),
+    c'est-à-dire que \(M\) est fini presque sûrement.
+
+    \ptr{} \'Etape 3: Conclusion\\
+    Comme \(M = \sup_{n\geq 0} (S_n - na)\), on obtient pour
+    tout \(n\geq 0\),
+    \begin{equation*}
+        \begin{aligned}
+            & S_n - na \leq M\\
+            & \frac{S_n}{n} \leq a + \frac{M}{n}
+        \end{aligned}
+    \end{equation*}
+    Par suite, comme \(M\) est fini p.s., on obtient
+    \begin{equation*}
+        \bb P\left(\left(\limsup_{n\to\infty} \frac{S_n}{n}\right) \leq a\right) = 1.
+    \end{equation*}
+    On en déduit que
+    \begin{equation*}
+        \begin{aligned}
+            \bb P\left(\left(\limsup_{n\to\infty} \frac{S_n}{n}\right) \leq \bb E[X_1]\right)
+            &= \bb P\left(\bigcap_{\substack{a>\bb E[X_1]\\ a\in\bb Q}}\left\{\left(\limsup_{n\to\infty} \frac{S_n}{n}\right) \leq a\right\}\right)\\
+            \substack{\smol{decroissance}\\\smol{monotone}}&= \lim_{\substack{a\searrow \bb E[X_1]\\ a\in\bb Q}} \bb P\left(\left(\limsup_{n\to\infty} \frac{S_n}{n}\right) \leq a\right)\\
+            &= 1.
+        \end{aligned}
+    \end{equation*}
+    En faisant de même avec \(-X_n\), on obtient
+    \begin{equation*}
+        \bb P\left(\left(\liminf_{n\to\infty} \frac{S_n}{n}\right) \geq \bb E[X_1]\right) = 1.
+    \end{equation*}
+    Ceci prouve que
+    \begin{equation*}
+        \bb P\left(\limsup_{n\to\infty} \frac{S_n}{n} = \liminf_{n\to\infty} \frac{S_n}{n} = \bb E[X_1]\right) = 1.
+    \end{equation*}
+    donc
+    \begin{equation*}
+        \bb P\left(\lim_{n\to\infty} \frac{S_n}{n} = \bb E[X_1]\right) = 1.
+    \end{equation*}
+\end{proof}
+
+\subsection{Applications} % 3.2.2
+
+\subsubsection*{Marche aléatoire non centrée\label{subsubsection:marche_aleatoire_non_centree}}
+\addcontentsline{toc}{subsubsection}{\nameref{subsubsection:marche_aleatoire_non_centree}}
+\setcounter{subsubsection}{1}
+
+Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+réelle i.i.d.\ intégrables. On pose \(S_n = X_1 + \cdots + X_n\).
+On appelle souvent \({(S_n)}_{n\geq 1}\) une \defemph{marche aléatoire}.
+
+\begin{example}
+    On considère \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+    réelles i.i.d.\ comme suit:
+    \begin{equation*}
+        X_n=\begin{cases}
+            1 & \text{avec probabilité } p\\
+            -1 & \text{avec probabilité } 1-p
+        \end{cases}
+    \end{equation*}
+
+    \input{../assets/tikz/03_figure_cours3_marche.tex}
+
+    Dans le cas général, supposons que \(\bb E[X_1] \neq 0\).
+    La loi forte des grands nombres donne alors
+    \begin{equation*}
+        \frac{S_n}{n} \cvpsn \bb E[X_1] 
+    \end{equation*}
+    donc
+    \begin{equation*}
+        \n{\frac{S_n}{n}} \cvpsn +\infty,\qquad \left(\bb P\left(\n{S_n} \cvn +\infty\right) = 1\right). 
+    \end{equation*}
+
+    \subsubsection*{Approximation d'intégrales}\label{subsubsection:approximation_d_integrales}
+    \addcontentsline{toc}{subsubsection}{\nameref{subsubsection:approximation_d_integrales}}
+    \setcounter{subsubsection}{2}
+
+    Soit \(f:\bb R\to\bb R\) une fonction intégrable. On
+    souhaite calculer
+    \begin{equation*}
+        \int_0^1 f(x) \der\lambda_1(x).
+    \end{equation*}
+    Souvent, on ne sait pas faire donc on cherche une valeur
+    approchée. Soient \(U_1,\ldots,U_n\) des variables
+    aléatoires indépendantes de loi uniforme sur \([0,1]\).
+    Alors, les variables aléatoires \(f(U_1),\ldots,f(U_n)\)
+    sont i.i.d.\ et intégrables donc la loi forte des grands
+    nombres donne
+    \begin{equation*}
+        \frac{f(U_1) + \cdots + f(U_n)}{n} \cvpsn \bb E[f(U_1)] = \int_0^1 f(x) \der\lambda_1(x).
+    \end{equation*}
+
+    \ptr{} Avantages de la méthode: aucune hypothèse
+    de régularité sur \(f\) et extensible au cas
+    \(f:\bb R^d\to\bb R\) (en considérant 
+    \(U_1,\ldots,U_n\) uniformes sur \([0,1]^d\)).
+
+    \ptr{} Inconvénient: convergence lente (en \(\sqrt n\)).
+
+    Cette méthode est appelée \defemph{méthode de Monte-Carlo}.
+\end{example}
