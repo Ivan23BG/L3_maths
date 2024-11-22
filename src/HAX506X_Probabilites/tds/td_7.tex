@@ -1,0 +1,226 @@
+\begin{td-exo}[] % 1
+    On considère l'espace probabilisé 
+    \((\ff{0,1},\mathcal B(\ff{0,1}),\bb P)\) où
+    \(\bb P\) est la mesure de Lebesgue et on pose
+    \(A_n = \of{0,\frac1n}\) pour tout entier \(n\geq 1\).
+
+    \begin{enumerate}
+        \item Expliciter l'événement
+        \begin{equation*}
+            \limsup_{n\to\infty} A_n.
+        \end{equation*}
+
+        \item Calculer
+        \begin{equation*}
+            \sum_{n=1}^\infty \bb P(A_n).
+        \end{equation*}
+        Commenter.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\,
+        \begin{enumerate}
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    \limsup_{n\to\infty} A_n
+                    &=\bigcap_{n\geq 1}\bigcup_{k\geq n} A_k\\
+                    &= \bigcap_{n\geq 1}\bigcup{k\geq n}\of{0,\frac1k}\\
+                    &=\bigcap_{n\geq 1} \of{0,frac1n}\\
+                    &=\varnothing
+                \end{aligned}
+            \end{equation*}
+
+            \item On a
+            \begin{equation*}
+                \sum_{n=1}^\infty \bb P(A_n) = \sum_{n=1}^\infty\frac1n=\infty
+            \end{equation*}
+            et
+            \begin{equation*}
+                \bb P\left(\limsup_{n\to\infty} A_n\right) = \bb P(\varnothing) = 0
+            \end{equation*}
+
+            Les \(A_n\) ne sont pas indépendants:
+            \begin{equation*}
+                \begin{aligned}
+                    &\bb P(A_2\cap A_3) = \bb P(A_3) = \frac13\\
+                    &\bb P(A_2)\bb P(A_3) = \frac12\frac13=\frac16
+                \end{aligned}
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\, % 2
+    On lance une infinite de fois une pièce de monnaie équilibrée et
+    on considère un entier \(k\in\bb N^\ast\). Montrer qu'avec probabilité
+    1, on obtiendra une infinité de fois \(k\) Pile consécutifs.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        \ptr{} On considère les événements suivants:
+        \begin{itemize}
+            \item \(A_1=\) \og{} on n'obtient que des Pile entre \(1\) et \(k\)\fg{},
+            \item \(A_2=\) \og{} on n'obtient que des Pile entre \(k+1\) et \(2k\)\fg{},
+            \item \(A_3=\) \og{} on n'obtient que des Pile entre \(2k+1\) et \(3k\)\fg{},
+            \item \(A_n=\) \og{} on n'obtient que des Pile entre \((n-1)k+1\) et \(nk\)\fg{}.
+        \end{itemize}
+
+        Les événements \({(A_n)}_{n\geq 1}\) sont indépendants et
+        \begin{equation*}
+            \sum_{n=1}^\infty \bb P(A_n)=\sum_{n=1}^\infty\frac{1}{2^k}=\infty
+        \end{equation*}
+        Donc Borel-Cantelli assure que
+        \begin{equation*}
+            \bb P\left(\limsup_{n\to\infty} A_n\right) = 1
+        \end{equation*}
+
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\, % 3
+    Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires réelles
+    indépendantes telles que
+    \begin{equation*}
+        \forall n\geq 1,\quad \bb P(X_n=1)=p=1-\bb P(X_n=-1),\quad p\in\oo{0,1}
+    \end{equation*}
+    On pose \(S_0=0\) et \(S_n = X_1+\cdots+X_n\). Enfin, on considère l'événement
+    \(A_n = \{S_n = 0\}\).
+    \begin{enumerate}
+        \item Déterminer la probabilité de \(A_n\). On pourra distinguer
+        suivant la parité de \(n\).
+
+        \item A l'aide de la formule de Stirling, déterminer un équivalent
+        de \(\bb P(A_{2n})\).
+
+        \item On pose \(A=\limsup_{n\to\infty} A_n\). Que représente cet
+        événement? Déterminer \(\bb P(A)\) dans le cas \(p\neq\frac12\).
+
+        \item On suppose maintenant que \(p=\frac12\). On va montrer que
+        \(\bb P(A)=1\).
+        \begin{enumerate}
+            \item Expliquer pourquoi le lemme de Borel-Cantelli ne
+            s'applique pas.
+
+            \item Montrer que pour tout \(n\geq 1\) et pour tout \(k\geq 1\),
+            les vecteurs aléatoires \((X_{k+1},\ldots,X_{k+n})\) et
+            \(X_1,\ldots,X_n\) ont la même loi.
+
+            \item On rappelle que \(A=\limsup_{n\to\infty}A_n\). Montrer que
+            \begin{equation*}
+                A^c = \bigcup_{k=0}^\infty\left\{ S_k=0\text{ et }\forall n\geq 1,S_{n+k}\neq 0\right\}
+            \end{equation*}
+            et que cette union est formée d'événements disjoints.
+
+            \item En déduire que \(\bb P(A)=1\).
+        \end{enumerate}
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % x
+        \begin{enumerate}
+            \item Si \(n\) est impair, alors \(\bb P(A_n) = 0\).\\
+            Si \(n=2k\) est pair, alors
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(A_{2k}) 
+                    &= \bb P(S_{2k}=0)\\
+                    &= \underbrace{\binom{2k}{k}}_{\substack{\text{nb de}\\\text{chemins}}} \underbrace{p^k}_{\text{ch }\nearrow}\underbrace{{(1-p)}^{n-k}}_{\text{ch }\searrow}
+                \end{aligned}
+            \end{equation*}
+
+            \item On veut montrer que
+            \begin{equation*}
+                n!\sim{n\to\infty} \frac{n^n}{e^n}\sqrt{2\pi n}
+            \end{equation*}
+            Alors
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(A_{2n})
+                    &= \frac{(2n)!}{{(n!)}^2}p^n{(1-p)}^n\\
+                    &\underset{n\to\infty}{\sim}\frac{{(2n)}^{2n}}{e^{2n}}\sqrt{4\pi n}\frac{{(e^n)}^2}{{(n^n)}^2 {\sqrt{2\pi n}}^2}p^n{(1-p)}^n\\
+                    &\underset{n\to\infty}{\sim} \frac{4^n p^n{(1-p)}^n}{\sqrt{\pi n}}\\
+                    &\underset{n\to\infty}{\sim}\frac{{(4p(1-p))}^n}{\sqrt{\pi n}}
+                \end{aligned}
+            \end{equation*}
+
+            \item On considère 
+            \begin{equation*}
+                A = \limsup_{n\to\infty} A_n = \text{ on repasse une infinité de fois par }0
+            \end{equation*}
+            alors, comme \(p\neq\frac12\), la série des \(\bb P(A_n)\) converge
+            par le critère de D'Alembert et donc
+            \begin{equation*}
+                \bb P(\limsup_{n\to\infty} A_n) = 0.
+            \end{equation*}
+
+            Si \(p=\frac12\), alors
+            \begin{enumerate}
+                \item on a
+                \begin{equation*}
+                    \sum_{n=1}^\infty \bb P(A_n)=+\infty
+                \end{equation*}
+                mais les \(A_n\) ne sont pas indépendants donc Borel-Cantelli 
+                ne s'applique pas.
+
+                \item On a
+                \begin{equation*}
+                    \begin{aligned}
+                        &~\bb P\left((X_1,\ldots,X_n)\in B_1\times\cdots B_n\right)\\
+                        &=\bb P\left(X_1\in B_1,\ldots,X_n\in B_n\right)\\
+                        &=\bb P(X_1\in B_1)\cdots \bb P(X_n\in B_n)
+                    \end{aligned}
+                \end{equation*}
+                et
+                \begin{equation*}
+                    \begin{aligned}
+                        &~\bb P\left((X_{k+1},\ldots,X_{k+n})\in B_1\times\cdots B_n\right)\\
+                        \smol{indep}&=\bb P(X_{k+1}\in B_1)\cdots \bb P(X_{k+n}\in B_n)\\
+                        \smol{mm loi}&=\bb P(X_1\in B_1)\cdots \bb P(X_n\in B_n)
+                    \end{aligned}
+                \end{equation*}
+                Donc \((X_1,\ldots,X_n)\) et \((X_{k+1},\ldots,X_{k+n})\) ont
+                la même loi
+
+                \item On a
+                \begin{equation*}
+                    \begin{aligned}
+                        A^c
+                        &= {\left(\bigcap_{n\geq 0}\bigcup_{k\geq n}A_k\right)}^c\\
+                        &= \bigcup_{n\geq 0}\bigcap{k\geq n}{A_k}^c\\
+                        &=\bigcup_{n\geq 0}\bigcap_{k=0}^\infty {A_{k+n}}^c\\
+                        &= \bigcup_{n\geq 0}\bigcap_{k=0}^\infty \left\{S_{n+k}\neq 0\right\}\\
+                        &\iff \substack{\text{il existe un pas de temps à partir}\\\text{duquel on ne repasse plus par }0}\\
+                        &=\bigcup_{n=0}^\infty \color{red}\underbrace{\color{black}\left\{S_n=0,\forall k\geq 1,S_{k+n}\neq 0\right\}}_{{B_n}}\color{black}
+                    \end{aligned}
+                \end{equation*}
+                Alors
+                \begin{equation*}
+                    B_n= \left\{ X_1+\cdots+X_n = 0\text{ et }\forall k\geq 1,X_{n+1}+\cdots X_{n+k}\neq 0\right\}
+                \end{equation*}
+                Si \(n'>n\), alors dans \(B_n\) on a \(S_{n'}\neq 0\) (car \(n'>n\)) et
+                dans \(B'_n\) on a \(S_{n'}=0\).
+
+                \item On a
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb P(A^c) 
+                        &= \sum_{n=0}^\infty \bb P(S_n=0,\forall k\geq 1, X_{n+1}+\cdots X_{n+k}\neq 0)\\
+                        \smol{indep des \(1\ldots n\),\(n+1\ldots n+k\)}&= \sum_{n=0}^\infty\bb P(S_n = 0)\bb P(\forall k \geq 1, X_{n+1}+\cdots+ X_{n+k}\neq 0)\\
+                        &= \sum_{n=0}^\infty \bb P(S_n = 0)\bb P(\forall k\geq 1,X_1+\cdots X_k \neq 0)
+                    \end{aligned}
+                \end{equation*}
+                Bref, on a montré que
+                \begin{equation*}
+                    \bb P(A^c) = \bb P(\forall k\geq 1,S_k\neq 0)\underbrace{\sum_{n=0}^\infty \underbrace{\bb P(S_n = 0)}_{\bb P(A_n)}}_{=\infty}
+                \end{equation*}
+                Nécessairement, comme \(\bb P(A^c)\in\ff{0,1}\), on obtient
+                \(\bb P(A^c)=0\) et donc \(\bb P(A)=1\).
+
+            \end{enumerate}
+        \end{enumerate}
+    \end{td-sol}
+}{}
