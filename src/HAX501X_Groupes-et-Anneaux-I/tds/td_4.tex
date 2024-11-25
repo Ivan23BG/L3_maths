@@ -271,7 +271,7 @@
 
 \iftoggle{showsolutions}{
     \begin{td-sol}[]\, % 4
-        \begin{itemize}
+        \begin{enumerate}
             \item On considère
             \begin{equation*}
                 A = \bb Z/4\bb Z
@@ -289,7 +289,7 @@
                 \item On a bien \(0\in N\) car \(0^1 = 0\).
 
                 \item Soit \(x\in N\). Alors il existe \(n\in\bb N\) tel que \(x^n = 0\).
-                Alors \({(-x)}^n = (-1)^n x^n = 0\), donc \(-x\in N\).
+                Alors \({(-x)}^n = {(-1)}^n x^n = 0\), donc \(-x\in N\).
 
                 \item Soit \(x,y\in N\). Alors il existe \(n,m\in\bb N\) tels que \(x^n = 0\) et \(y^m = 0\).
                 Alors
@@ -305,11 +305,112 @@
                 \begin{remark}
                     C'est un idéal de \(A\) par la question 2.
                 \end{remark}
+
+                \item Soit \(x\in A\) nilpotent. Alors il existe \(n\in\bb N\) tel que \(x^n = 0\).
+                Alors
+                \begin{equation*}
+                    (1-x)(1+x+x^2+\cdots+x^{n-1}) = 1-x^n = 1.
+                \end{equation*}
+                Donc \(1-x\) est inversible, d'inverse \(1+x+x^2+\cdots+x^{n-1}\).
+
+                \item Soit \(u,x\in A\) tel que \(u\) est inversible et \(x\) est nilpotent.
+                Alors
+                \begin{equation*}
+                    u+x = u(1 + u^{-1}x) = u(1-(-u^{-1}x)).
+                \end{equation*}
+                Comme \(-u^{-1}x\) est nilpotent par la question 4, \(1-(-u^{-1}x)\) est inversible,
+                donc \(u+x\) est inversible (produit de deux éléments inversibles).
             \end{itemize}
-        \end{itemize}
+        \end{enumerate}
     \end{td-sol}
 }{}
 
+
+\begin{td-exo}[Anneaux intègres finis]\, % 5
+    Soit \(A\) un anneau intègre fini. Montrer que \(A\) est un corps.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 5
+        Commençons par montrer que tout élément non nul est inversible.
+
+        \ptr{} Montrons maintenant que tout élément non nul est inversible.\\
+        Soit \(a\in A\setminus\{0\}\). Considérons la multiplication à gauche par \(a\):
+        \begin{equation*}
+            \begin{aligned}
+                \begin{array}{c|c} %chktex 44
+                    \times a & a \\
+                    \hline %chktex 44
+                    a_1 & a_1a\\
+                    a_2 & a_2a\\
+                    \vdots & \vdots\\
+                    a_n & a_n a
+                \end{array}
+            \end{aligned}
+        \end{equation*}
+        avec \(a_1,\ldots,a_n\) les éléments de \(A\) (distincts).\\
+        Alors la multiplication à gauche par \(a\) est une bijection de \(A\)
+        sur \(A\). Donc il existe \(b\in A\) tel que \(ba = 1\). Donc \(a\) est inversible.\\
+        Comme \(a\) est quelconque, tout élément non nul de \(A\) est inversible.\\
+        Donc \(A\) est un corps.
+
+        Autre rédaction possible: Soit \(a\in A\setminus\{0\}\). Considérons les puissances de \(a\):
+        \begin{equation*}
+            1,a,a^2,\ldots
+        \end{equation*}
+        Comme \(A\) est fini, il existe \(n,m\in\bb N\) tels que \(a^n = a^{n+m}\).\\
+        Alors \(a^n(1-a^m) = 0\). Comme \(A\) est intègre, on a \(1-a^m = 0\), donc \(a^m = 1\).
+
+    \end{td-sol}
+}{}
+
+
+\begin{td-exo}[L'anneau \(\bb Z\ff{\sqrt{2}}\)]\, % 6
+    On définit:
+    \begin{equation*}
+        \bb Z\ff{\sqrt{2}} = \left\{a+b\sqrt{2} \mid a,b\in\bb Z\right\}.
+    \end{equation*}
+    \,\begin{enumerate}
+        \item Montrer que \(\bb Z\ff{\sqrt{2}}\) est un sous-anneau
+        de \(\bb R\).
+
+        \item Montrer que \(\bb Z\ff{\sqrt{2}}\) n'est pas isomorphe
+        à l'anneau des entiers de Gauss \(\bb Z[i]\).
+
+        \item Montrer que le groupe \({\bb Z\ff{\sqrt{2}}}^\times\)
+        est infini.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 6
+        \begin{enumerate}
+            \item Vérifions les axiomes:
+            \begin{itemize}[{\ptr{}}]
+                \item On a bien \(Z\ff{\sqrt{2}}\) un groupe 
+                abélien pour l'addition.
+
+                \item On a bien \(0\in\bb Z\ff{\sqrt{2}}\).
+
+                \item Soit \(z = a+b\sqrt{2}, z' = a'+b'\sqrt{2}\in\bb Z\ff{\sqrt{2}}\).
+                Alors
+                \begin{equation*}
+                    zz' (a+b\sqrt{2})(a'+b'\sqrt{2}) = aa' + 2bb' + (ab'+ba')\sqrt{2} \in \bb Z\ff{\sqrt{2}}.
+                \end{equation*}
+            \end{itemize}
+            Donc \(\bb Z\ff{\sqrt{2}}\) est un sous-anneau de \(\bb R\).
+
+            \item Montrons que \(\bb Z\ff{\sqrt{2}}\) n'est pas isomorphe à \(\bb Z[i]\).\\
+            Regardons l'ensemble des solutions de l'équation \(x^2 = -1\).\\
+            Pour \(\bb Z\ff{\sqrt{2}}\), on a aucune solution.\\
+            Pour \(\bb Z[i]\), on a \(x = i\).\\
+            Donc \(\bb Z\ff{\sqrt{2}}\) n'est pas isomorphe à \(\bb Z[i]\).
+
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+% a faire: finir 6, faire 8 et 2
 
 % \begin{td-exo}[Exo 1]\, % 1
 %     Enoncé à remplir.
