@@ -1,0 +1,239 @@
+\begin{td-exo}[]\, % 1
+    Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+    de loi donnée par
+    \begin{equation*}
+        \bb P(X_n=n)=\bb P(X_n=-n)=\frac{1}{2n}\quad\text{et}\quad \bb P(X_n=0)=1-\frac{1}{2n}
+    \end{equation*}
+    \begin{enumerate}
+        \item Montrer que la suite \({(X_n)}_{n\geq 1}\) 
+        converge en probabilité vers 0. Y a-t-il convergence
+        dans \(\scr L^p\)?
+
+        \item On suppose maintenant que les variables aléatoires
+        \({(X_n)}_{n\geq 1}\) sont indépendantes. On considère
+        l'événement \(A_n=\{X_n=n\}\). Montrer que
+        \begin{equation*}
+            \bb P\left(\limsup_{n\to\infty} A_n\right) = 1
+        \end{equation*}
+        puis en déduire que
+        \begin{equation*}
+            \bb P\left(\lim_{n\to\infty} X_n = +\infty\right) = 1
+        \end{equation*}
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 1
+        \begin{enumerate}
+            \item Soit \(\varepsilon>0\) et \(n\geq\varepsilon\). Alors
+            \begin{equation*}
+                \bb P(|X_n|\geq\varepsilon) = \bb P(X_n=n)+\bb P(X_n=-n)=\frac{1}{n}\cvn 0
+            \end{equation*}
+            donc
+            \begin{equation*}
+                X_n\cvpn 0
+            \end{equation*}
+            mais
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E(|X_n|^p) 
+                    &= |n|^p\frac{1}{2n}+|-n|^p\frac{1}{2n} + 0^p\left(1-\frac{1}{n}\right) \\
+                    &= n^{p-1}\not\cvn 0\quad\text{pour }p\geq 1
+                \end{aligned}
+            \end{equation*}
+            donc \({(X_n)}_{n\geq 1}\) ne converge pas dans \(\scr L^p\).
+
+            \item Les événements \({(A_n)}_{n\geq 1}\) sont indépendants et
+            \begin{equation*}
+                \bb P(A_n) = \bb P(X_n=n) = \frac{1}{2n}
+            \end{equation*}
+            qui est le terme général d'une série divergente. Donc
+            Borel-Cantelli assure que
+            \begin{equation*}
+                \bb P\left(\limsup_{n\to\infty} A_n\right) = 1
+            \end{equation*}
+
+            De plus,
+            \begin{equation*}
+                \begin{aligned}
+                    1
+                    &= \bb P\left(\bigcap_{n=1}^\infty\bigcup_{k=n}^\infty A_k\right) \\
+                    &= \bb P\left(\forall n\geq 1,\exists k\geq n,X_k=k\right)\\
+                    &\leq \bb P\left(\forall n\geq 1,\sup_{k\geq n}X_k\geq n\right)\\
+                    &\leq \bb P\left(\left(\limsup_{n\to\infty}X_n\right)=+\infty\right)
+                \end{aligned}
+            \end{equation*}
+            donc
+            \begin{equation*}
+                \left(\lim_{n\to\infty}X_n\right)=+\infty \text{ p.s.}
+            \end{equation*}
+            et \({(X_n)}_{n\geq 1}\) ne converge pas p.s..
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\, % 2
+    \begin{enumerate}
+        \item Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+        indépendantes. Montrer que \((X_n)\) converge vers 0 presque
+        sûrement si et seulement si pour tout \(\varepsilon>0\),
+        la série
+        \begin{equation*}
+            \sum_{n=1}^\infty \bb P(|X_n|>\varepsilon)
+        \end{equation*}
+        est convergente.
+
+        \item On suppose maintenant que \(X_n\) suit une loi
+        de Bernoulli de paramètre \(p_n\).
+        \begin{enumerate}
+            \item Montrer que la suite \((X_n)\) converge
+            vers 0 en probabilité si et seulement si
+            \(p_n\to 0\) quand \(n\to\infty\).
+
+            \item Montrer que la suite \((X_n)\) converge
+            vers 0 dans \(\scr L^p\) si et seulement si
+            \(p_n\to 0\) quand \(n\to\infty\).
+
+            \item On suppose que les \(X_n\) sont indépendantes.
+            Montrer que la suite \((X_n)\) converge vers 0
+            presque sûrement si et seulement si la série
+            \(\sum_{n=1}^\infty p_n\) converge.
+        \end{enumerate}
+
+        \item Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+        indépendantes telles que \(X_n \sim \mathcal E(n)\). Montrer
+        que la suite \((X_n)\) converge vers 0 presque sûrement.
+        Y a-t-il convergence dans \(\scr L^p\)?
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        \begin{enumerate}
+            \item Montrons que
+            \begin{equation*}
+                X_n\cvpsn 0 \iff \forall \varepsilon>0,\quad \sum_{n=1}^\infty \bb P(|X_n|>\varepsilon)<\infty
+            \end{equation*}
+            \begin{itemize}[\ptr{}]
+                \item Sens direct:\\
+                On rappelle que \(X_n\cvpsn 0\) si et seulement si
+                \begin{equation*}
+                    \bb P\left(\forall\varepsilon>0,\exists k\geq 1,\forall n\geq k,|X_n|<\varepsilon\right) = 1.
+                \end{equation*}
+                On pose
+                \begin{equation*}
+                    B_\varepsilon = \bigcup_{k\geq 1}\bigcap_{n\geq k}\{|X_n|<\varepsilon\}
+                \end{equation*}
+                où
+                \begin{equation*}
+                    \bb P\left(\bigcap_{\varepsilon>0}B_\varepsilon\right) = 1.
+                \end{equation*}
+                Soit \(\varepsilon>0\). Alors
+                \begin{equation*}
+                    \bigcap_{\alpha>0}B_\alpha \subset B_\varepsilon
+                \end{equation*}
+                donc
+                \begin{equation*}
+                    \bb P(B_\varepsilon) \geq \bb P\left(\bigcap_{\alpha>0}B_\alpha\right) = 1
+                \end{equation*}
+                Ainsi,
+                \begin{equation*}
+                    \bb P(B_\varepsilon) = \bb P\left(\liminf_{n\to\infty}\{|X_n|<\varepsilon\}\right) = 1
+                \end{equation*}
+                d'où
+                \begin{equation*}
+                    \bb P\left(\limsup_{n\to\infty}\{|X_n|\geq\varepsilon\}\right) = 0.
+                \end{equation*}
+                Par Borel-Cantelli, on a donc
+                \begin{equation*}
+                    \sum_{n=1}^\infty \bb P(|X_n|\geq\varepsilon)<\infty
+                \end{equation*}
+
+                \item Sens réciproque:\\
+                Par Borel-Cantelli, on a
+                \begin{equation*}
+                    \begin{aligned}
+                        & \forall\varepsilon>0,\bb P\left(\limsup_{n\to\infty}\{|X_n|\geq\varepsilon\}\right) = 0\\
+                        & \forall\varepsilon>0,\bb P\left(\bigcup_{k\geq 1}\bigcap_{n\geq k}\{|X_n|<\varepsilon\}\right) = 1
+                    \end{aligned}
+                \end{equation*}
+                \begin{remark}
+                    Si \(\bb P(A_n)=0\) pour tout \(n\geq 1\), alors
+                    \begin{equation*}
+                        \bb P\left(\bigcup_{n=1}^\infty A_n\right) \leq \sum_{n=1}^\infty \bb P(A_n)=0
+                    \end{equation*}
+                    De même, si \(\bb P(A_n)=1\) pour tout \(n\geq 1\), alors
+                    \begin{equation*}
+                        \bb P\left(\bigcap_{n=0}^\infty A_n\right)=1
+                    \end{equation*}
+                \end{remark}
+                Ainsi, on a
+                \begin{equation*}
+                    \bb P\left(\bigcap_{\substack{\varepsilon>0\\\varepsilon\in\bb Q}}\bigcup_{k\geq 1}\bigcap_{n\geq k}\{|X_n|<\varepsilon\}\right)=1
+                \end{equation*}
+                c'est-à-dire
+                \begin{equation*}
+                    \bb P(\forall\varepsilon\in\bb Q_+^*,\exists k\geq 1,\forall n\geq k,|X_n|<\varepsilon)=1
+                \end{equation*}
+                et alors
+                \begin{equation*}
+                    \bb P\left(\lim_{n\to\infty}X_n=0\right)=1
+                \end{equation*}
+                donc \(X_n\cvpsn 0\).
+            \end{itemize}
+
+            \item On a \(X_n\sim\scr B(p_n)\).
+            \begin{enumerate}
+                \item On montre dans les deux sens
+                \begin{itemize}[\ptr{}]
+                    \item Soit \(\varepsilon>0\), alors
+                    \begin{equation*}
+                        \bb P\left(|X|\geq \varepsilon\right)\leq \bb P(X_n=1)=p_n
+                    \end{equation*}
+                    dinc si \(p_n\to 0\), alors \(X_n\cvpn0\).
+
+                    \item Réciproquement, si \(X\cvpn0\), alors
+                    \begin{equation*}
+                        \bb P\left(|X_n|\geq 1\right)\cvn 0\quad (\varepsilon=1)
+                    \end{equation*}
+                    et donc \(p_n\cvn 0\).
+                \end{itemize}
+
+                \item On a
+                \begin{equation*}
+                    \begin{aligned}
+                        \bb E \ff{{\n{X_n}}^p}
+                        &= 0^p\times (1-p_n) + 1^p \times p_n\\
+                        &= p_n
+                    \end{aligned}
+                \end{equation*}
+                Donc \(X_n \cvlpn 0\) si et seulement si \(p_n\cv0\)
+
+                \item On a
+                \begin{equation*}
+                    \bb P\left(\n{X_n}\geq\varepsilon\right)=
+                    \begin{cases}
+                        0&\text{ si }\varepsilon>1\\
+                        1&\text{ sinon}
+                    \end{cases}
+                \end{equation*}
+                Donc d'après la question 2, on a \(X_n\cvpsn0\) si
+                et seulement si \(\sum_{n=1}^{\infty}p_n<\infty\)
+            \end{enumerate}
+
+            \item On rappelle que \(X_n\cvpn0\) par le cours.\\
+            Soit \(\varepsilon>0\), on a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P\left(\n{X_n}\geq\varepsilon\right)
+                    &=\bb P\left(X_n\geq\varepsilon\right)\\
+                    &=\int_{\varepsilon}^\infty ne^{-nt}\der t\\
+                    &=\ff{-e^{-nt}}_{\varepsilon}^{\infty}\\
+                    &= e^{-\varepsilon}
+                \end{aligned}
+            \end{equation*}
+            Comme \(\sum_{n=1}^\infty e^{-n\varepsilon}<\infty\), on en déduit que 
+            \(X_n\cvpsn 0\).
+        \end{enumerate}
+    \end{td-sol}
+}{}
