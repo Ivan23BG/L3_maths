@@ -328,4 +328,323 @@ munies de la norme
     \end{equation*}
 \end{example}
 
-\subsection[Lien avec les autres modes de convergence]
+\subsection{Lien avec les autres modes de convergence}
+
+\begin{proposition}\,
+    Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+    et \(X\) une variable aléatoire. Alors
+    \begin{equation*}
+        X_n\cvpn X \implies X_n\cvlawn X
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    Soit \(h\in C_b^0(\bb R)\) et \(\varepsilon>0\). On a
+    \begin{equation*}
+        \underbrace{\n{\bb E[h(X_n)] - \bb E[h(X)]}}_{=\alpha} \leq \bb E[\n{h(X_n)-h(X)}]
+    \end{equation*}
+    où
+    \begin{equation*}
+        \begin{aligned}
+            \alpha 
+            &= \bb E[\n{h(X_n)-h(X)}\one_{\n{h(X_n)-h(X)}\geq \varepsilon}]\quad \color{red}(1)\\
+            \color{black}&+ \bb E[\n{h(X_n)-h(X)}\one_{\n{h(X_n)-h(X)}< \varepsilon}]\quad \color{blue}(2)
+        \end{aligned}
+    \end{equation*}
+    On a alors
+    \begin{equation*}
+        \begin{aligned}
+            \color{red}(1) \color{black}
+            &\leq \bb E[\left(\n{h(X_n)}+\n{h(X)}\right)\one_{\n{h(X_n)-h(X)}\geq \varepsilon}]\\
+            &\leq 2 \nn{h}_{\infty} \underbrace{\bb P(\n{h(X_n)-h(X)}\geq \varepsilon)}_{\leq\varepsilon}\\
+        \end{aligned}
+    \end{equation*}
+    car \(h(X_n)\cvpn h(X)\).
+    De même,
+    \begin{equation*}
+        \color{blue}(2) \color{black}
+        \leq \bb E[\varepsilon \one_{\n{h(X_n)-h(X)}< \varepsilon}]\leq \varepsilon
+    \end{equation*}
+    Bref, on a
+    \begin{equation*}
+        \n{\bb E[h(X_n)] - \bb E[h(X)]} \leq \varepsilon(1 + 2\nn{h}_{\infty})
+    \end{equation*}
+    donc \(\bb E[h(X_n)] \cvn \bb E[h(X)]\), donc \(X_n\cvlawn X\).
+\end{proof}
+
+\begin{example}[Réciproque fausse]
+    On prend
+    \begin{equation*}
+        X\sim \mathcal B\left(\frac12\right),\quad X_n = X \quad\text{pour tout } n\geq 1
+    \end{equation*}
+    Alors, on a bien \(X_n\cvlawn X\).\\
+    Remarquons que \(Y = 1-X\sim \mathcal B\left(\frac12\right)\) donc on a ausse
+    \(X_n\cvlawn Y\) (ce qu'on écrit \(X_n\cvlawn \mathcal B\left(\frac12\right)\)).\\
+    Or, on a
+    \begin{equation*}
+        \n{X_n - Y} = \n{X-(1-X)} = \n{2X-1} = 1
+    \end{equation*}
+    et donc \({(X_n)}_{n\geq 1}\) ne converge pas en probabilité vers \(Y\).
+\end{example}
+
+\begin{proposition}
+    Si \(X_n\cvlawn c\) où \(c\) est une constante, alors \(X_n\cvpn c\).
+\end{proposition}
+
+\begin{proof}
+    Soit \(\varepsilon>0\). On a
+    \begin{equation*}
+        \begin{aligned}
+            \bb P(\n{X_n-c}\geq \varepsilon)
+            &= \bb E[\one_{\n{X_n-c}\geq \varepsilon}]\\
+            &\leq \bb E[h(X_n)]\cvn \bb E[h(c)] = 0
+        \end{aligned}
+    \end{equation*}
+    pour un \(h\) judicieusement choisi.\\
+    On choisit alors \(h(x) = \min(1,\frac{\n{x-c}}{\varepsilon})\). On a
+    % insert tikz graph here as follows:
+    % 1 between -1 and 1, down to 0 at 2, up to 1 at 3 stays at 1 until 5
+    % "c" at 2, "c+\varepsilon" at 3, "c-\varepsilon" at 1, 
+    % function above in blue, following function shifted by 0.05 in height in orange
+    % same as above but 1 at [...,-1], 0 from ]-1,1[, 1 at [1,...]
+    % h in blue, \one_{\n{X_n-c}\geq \varepsilon} in orange
+    \begin{center}
+        \begin{tikzpicture}
+            % axes
+            \draw[->] (-2,0) -- (5,0);
+            \draw[->] (0,-0.5) -- (0,1.5);
+%
+            % h
+            \draw[blue] (-1,1) -- (1,1) -- (2,0) -- (3,1) -- (5,1);
+            \draw[orange] (-1,0.97) -- (1,0.97);
+            \draw[orange] (3,0.97) -- (5,0.97);
+            \draw[orange] (1,-0.03) -- (3,-0.03);
+%
+            % labels
+            \node[below] at (1,0) {\(c-\varepsilon\)};
+            \node[below] at (3,0) {\(c+\varepsilon\)};
+            \node[below] at (2,0) {\(c\)};
+        \end{tikzpicture}
+    \end{center}
+\end{proof}
+
+\section{Caractérisation de la convergence en loi}
+
+\subsection{Restriction des fonctions tests}
+
+\subsubsection*{Notation}
+
+On note \(\mathcal C_C^0(\bb R)\) l'ensemble des fonctions continues à support 
+compact. Cet ensemble est dense pour la norme \(\nn{\cdot}_{\infty}\) dans \(C_b^0(\bb R)\).
+
+\begin{proposition}
+    Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires réelles
+    et \(X\) une variable aléatoire réelle. Alors, 
+    \begin{equation*}
+        X_n\cvlawn X \iff \forall h\in \mathcal C_C^0(\bb R),\quad \bb E[h(X_n)] \cvn \bb E[h(X)]
+    \end{equation*}
+
+    De plus, si \(H\) est un ensemble de fonctions mesurables bornées tel que
+    \(\mathcal C_C^0(\bb R)\subset \ol H\) (adhérence de \(H\) pour la norme
+    \(\nn{\cdot}_{\infty}\)), et si \(\forall h\in H\), \(\bb E[h(X_n)] \cvn \bb E[h(X)]\),
+    alors \(X_n\cvlawn X\).
+\end{proposition}
+
+\begin{proof}
+    On montre l'équivalence.\\
+    \begin{itemize}[\ptr{}]
+        \item Sens direct: evident.
+
+        \item Sens indirect:\\
+        Soit \(h\in C_b^0(\bb R)\). Soit \(g_k\) la fonction dans \(\mathcal C_C^0(\bb R)\)
+        définie par 
+        % tikz graph -5,-4 =0, up to 1 at -3, stays 1 until 3, down to 0 at 4, 0 to 5
+        % -(k+1) at -4, (k+1) at 4, -k at -3, k at 3
+        % g_k in blue
+        %\begin{center}
+        %    \begin{tikzpicture}
+        %        % axes
+        %        \draw[->] (-5,0) -- (5,0);
+        %        \draw[->] (0,-0.5) -- (0,1.5);
+%
+        %        % g_k
+        %        \draw[blue] (-5,0) -- (-4,0) -- (-3,1) -- (3,1) -- (4,0) -- (5,0);
+%
+        %        % labels
+        %        \node[below] at (-4,0) {\(-(k+1)\)};
+        %        \node[below] at (-3,0) {\(-k\)};
+        %        \node[below] at (3,0) {\(k\)};
+        %        \node[below] at (4,0) {\(k+1\)};
+        %    \end{tikzpicture}
+        %\end{center}
+        On obtient que \(g_k\cv 1\) et donc \(h_{g_k}\in \mathcal C_C^0(\bb R)\)
+        vérifie \(h_{g_k}\cv h\). En particulier, pour tout \(k\geq 1\),
+        \begin{equation*}
+            \bb E[h_{g_k}(X_n)] \cvn \bb E[h_{g_k}(X)]
+        \end{equation*}
+        On écrit
+        \begin{equation*}
+            \n{\bb E[h(X_n) -h(X)]} 
+            \leq \color{orange}\underbrace{\color{black}\n{\bb E[h(X_n) - h_{g_k}(X_n)]}}_{(1)} \color{black}
+            + \color{verdant}\underbrace{\color{black}\n{\bb E[h_{g_k}(X_n) - h_{g_k}(X)]}}_{(2)} \color{black}
+            + \color{blue}\underbrace{\color{black}\n{\bb E[h_{g_k}(X) - h(X)]}}_{(3)}
+        \end{equation*}
+        On a alors
+        \begin{itemize}
+            \item[\(\color{verdant}(2)\)] \(\leq\varepsilon\) pour \(n\) assez grand
+            car \(h_{g_k}\in \mathcal C_C^0(\bb R)\),
+
+            \item[\(\color{orange}(1)\)] \(\leq \bb E[\n{h-h_{g_k}}(X_n)]\leq \bb E[\nn{h-h_{g_k}}_{\infty}]=\nn{h-h_{g_k}}_{\infty}\cv 0\),
+
+            \item[\(\color{blue}(3)\)] \(\leq \bb E[\n{h-h_{g_k}}(X)]\leq \nn{h-h_{g_k}}_{\infty}\cv 0\).
+        \end{itemize}
+        Pour le deuxième, on utilise la même technique en prenant \(h\in \mathcal C_C^0(\bb R)\)
+        et \(g_k\in H\) telle que \(g_k\cv h\) pour \(\nn{\cdot}_\infty\)
+    \end{itemize}
+\end{proof}
+
+\subsubsection*{Application} Preuve de
+\begin{equation*}
+    \bb P(X_n=k)\cvn \bb P(X=k) \implies X_n\cvlawn X
+\end{equation*}
+pour \(X_n\) et \(X\) des variables aléatoires à valeurs dans \(\bb N\).\\
+(cf.\ proposition de la section 1.2.1)\\
+Soit \(h\in \mathcal C_C^0(\bb R)\); \(h\) est nulle en dehors de \(\ff{-K,K}\). Alors
+\begin{equation*}
+    \begin{aligned}
+        \bb E[h(X_n)]
+        &= \sum_{k=0}^{+\infty} h(k) \bb P(X_n=k)\\
+        &= \sum_{k=0}^{\lfloor K\rfloor} h(k) \bb P(X_n=k)\\
+        &\cvn \sum_{k=0}^{\lfloor K\rfloor} h(k) \bb P(X=k)\\
+        &= \bb E[h(X)]
+    \end{aligned}
+\end{equation*}
+et donc \(X_n\cvlawn X\).
+
+\subsection{Caractérisation via la fonction de répartition et la fonction caractéristique}
+
+\subsubsection*{Rappel}
+Si \(X\) est une variable aléatoire réelle, sa fonction de répartition \(F_X\)
+est définie par
+\begin{equation*}
+    F_X(t) = \bb P(X\leq t) = \bb E[\one_{\of{-\infty,t}}(X)]
+\end{equation*}
+
+On sait que \(F_X\) est continue à droite et que
+\begin{equation*}
+    \bb P(X=t) = F_X(t) - \lim\limits_{\substack{\varepsilon\to 0\\ \varepsilon>0}} F_X(t-\varepsilon)
+\end{equation*}
+donc \(F_X\) est continue en \(t\) si et seulement si \(\bb P(X=t) = 0\).
+
+\begin{proposition}
+    \({(X_n)}_{n\geq 1}\) converge en loi vers une variable aléatoire \(X\)
+    si et seulement si pour tout point de continuité \(t\) de \(F_X\), on a
+    \begin{equation*}
+        F_{X_n}(t) \cvn F_X(t)
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    Dans les grandes lignes, on a
+    \begin{itemize}[\ptr{}]
+        \item Sens direct:\\
+        Supposons 
+        \begin{equation*}
+            \bb E[h(X_n)] \cvn \bb E[h(X)]
+        \end{equation*}
+        Ob va approcher \(\one_{\of{-\infty,t}}\) par une fonction
+        continue bornée \(h\):
+        % 3 functions:
+        % fct 1: 1 from 0 to 1, 0 from 1 to 3, noted \one_{\of{-\infty,t}, orange
+        % fct 2: 1 from 0 to 2, 0 from 2 to 3, noted \one_{\of{-\infty,t+\varepsilon}, blue
+        % fct 3: 1 from 0 to 1, downslope to 0 at 2, 0 from 2 to 3, noted h, verdant
+        % all 3 functions shifted by 0.05 in height
+        % points t and t+\varepsilon marked on the x-axis
+        %\begin{center}
+        %    \begin{tikzpicture}
+        %        % axes
+        %        \draw[->] (-1,0) -- (4,0);
+        %        \draw[->] (0,-0.5) -- (0,1.5);
+%
+        %        % functions
+        %        \draw[orange] (0,1) -- (1,1) -- (1,0) -- (3,0);
+        %        \draw[blue] (0,1) -- (2,1) -- (2,0) -- (3,0);
+        %        \draw[verdant] (0,1) -- (1,1) -- (2,0) -- (3,0);
+%
+        %        % labels
+        %        \node[below] at (1,0) {\(t\)};
+        %        \node[below] at (2,0) {\(t+\varepsilon\)};
+        %    \end{tikzpicture}
+        %\end{center}
+
+        On sait qu'il y a convergence de \(\bb E[h(X_n)]\) vers \(\bb E[h(X)]\)
+        donc par encadrement il y a convergence de \(\bb E[\one_{\of{-\infty,t}}(X_n)]\)
+        vers \(\bb E[\one_{\of{-\infty,t}}(X)]\)
+
+        \item Sens indirect:\\
+        On note \(D\) l'ensemble des points de discontinuité de \(F_X\) et
+        on définit
+        \begin{equation*}
+            H=\{\one_{\of{a,b}},a<b,a,b\in\bb R\setminus D\}
+        \end{equation*}
+        On montre que
+        \begin{itemize}[]
+            \item \(\forall h\in H,\bb E[h(X_n)] \cvn \bb E[h(X)]\),
+            \item \(\mathcal C_C^0(\bb R)\subset \ol H\).
+        \end{itemize}
+        et on applique la proposition précédente.
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}[de Lévy]
+    On a
+    \begin{equation*}
+        X_n\cvlawn X \iff \forall t\in\bb R,\quad \varphi_{X_n}(t) \cvn \varphi_X(t)
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    admise, elle s'appuie sur l'injectivité de la transformée de Fourier
+    de mesures.
+\end{proof}
+
+\section{Théorème central limite}
+
+\subsubsection*{Rappel}
+Si \({(X_n)}_{n\geq 1}\) est une suite de variables aléatoires \iid{}
+dans \(L^1(\Omega,\scr F,\bb P)\), alors la loi forte des grands nombres
+assure que
+\begin{equation*}
+    \ol{X_n} = \frac{X_1+\cdots+X_n}{n} =\frac{S_n}{n} \cvpsn \bb E[X_1]
+\end{equation*}
+Que dire alors de l'écart entre \(S_n\) et \(n\bb E[X_1]\)?\\
+
+\begin{theorem}[central limite]
+    Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+    réelles \iid{} dans \(L^2(\Omega,\scr F,\bb P)\). On suppose que
+    \(\sigma^2=\var(X_1)>0\). Alors
+    \begin{equation*}
+        \frac{S_n-n\bb E[X_1]}{\sigma\sqrt{n}} \cvlawn \mathcal N(0,1)
+    \end{equation*}
+\end{theorem}
+
+\begin{remark}\,
+    \begin{enumerate}
+        \item Pour se souvenir de la normalisation, il suffit de 
+        penser à centrer et réduire \(S_n\) avec
+        \begin{equation*}
+            \begin{aligned}
+                \bb E[S_n] &= n\bb E[X_1]\\
+                \var(S_n) &= n\var(X_1) = n\sigma^2
+            \end{aligned}
+        \end{equation*}
+
+        \item On peut réécrire la convergence de diverses façons:
+        \begin{equation*}
+            \begin{aligned}
+                \frac{S_n-n\bb E[X_1]}{\sqrt{n}} &\cvlawn \mathcal N(0,\sigma^2)\\
+                \frac{\ol{X_n}-\bb E[X_1]}{\frac{\sigma}{\sqrt{n}}} &\cvlawn \mathcal N(0,1)\\
+            \end{aligned}
+        \end{equation*}
+    \end{enumerate}
+\end{remark}
