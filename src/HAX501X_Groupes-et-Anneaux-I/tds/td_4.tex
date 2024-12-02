@@ -406,9 +406,155 @@
             Pour \(\bb Z[i]\), on a \(x = i\).\\
             Donc \(\bb Z\ff{\sqrt{2}}\) n'est pas isomorphe à \(\bb Z[i]\).
 
+            Autre rédaction, il y a bien une bijection
+            \begin{equation*}
+                \begin{aligned}
+                    \varphi : \bb Z[i] &\longrightarrow \bb Z\ff{\sqrt{2}}\\
+                    a+ib &\longmapsto a+b\sqrt{2}
+                \end{aligned}
+            \end{equation*}
+            Cette bijection est un isomorphisme de groupes:
+            \begin{equation*}
+                \begin{aligned}
+                    \varphi((a+ib) + (a'+ib))
+                    &= \varphi((a+a') + i(b+b'))\\
+                    &= (a+a') + (b+b')\sqrt{2}\\
+                    &= (a+b\sqrt{2}) + (a'+b'\sqrt{2})\\
+                    &= \varphi(a+ib) + \varphi(a'+ib).
+                \end{aligned}
+            \end{equation*}
+            Mais \(\varphi\) n'est pas un morphisme d'anneaux car
+            \begin{equation*}
+                \begin{aligned}
+                    & \varphi(i\times i) = \varphi(-1) = -1\\
+                    & \varphi(i)\times\varphi(i) = \sqrt{2}\times\sqrt{2} = 2.
+                \end{aligned}
+            \end{equation*}
+            Cela ne montre pas que \(\bb Z\ff{\sqrt{2}}\) n'est pas isomorphe à \(\bb Z[i]\)
+            en tant qu'anneaux, simplement que \(\varphi\) n'est pas un morphisme d'anneaux.
+
+            Montrons que \(\bb Z\ff{\sqrt{2}}\) n'est pas isomorphe à \(\bb Z[i]\) en tant qu'anneaux.\\
+            Par l'absurde, supposons qu'il existe un isomorphisme d'anneaux
+            \(f : \bb Z[i] \to \bb Z\ff{\sqrt{2}}\). Alors 
+            \begin{equation*}
+                {f(i)}^2 = f(i^2) = f(-1) = -1.
+            \end{equation*}
+            donc \({\left(f(i)\right)}^2=-1\) donc \(f(i) = \pm i\).\\ 
+            Absurde car \(f(i)\in \bb Z\ff{\sqrt{2}}\) et \(i\notin\bb Z\ff{\sqrt{2}}\).
+
+            \item Comme
+            \begin{equation*}
+                \left(1+\sqrt 2\right)\left(-1+\sqrt 2\right)=1
+            \end{equation*}
+            on a que \(1+\sqrt 2\) est inversible.\\
+            On en déduit que
+            \begin{equation*}
+                \forall n\in\bb N,\quad {\left(1+\sqrt 2\right)}^n \in {\bb Z\ff{\sqrt{2}}}^\times.
+            \end{equation*}
+            Comme ils sont tous distincts, \({\bb Z\ff{\sqrt{2}}}^\times\) est infini.
+
+            \begin{remark}
+                Cela donne une autre preuve du fait que \(\bb Z\ff{\sqrt{2}}\) 
+                et \(\bb Z[i]\) ne sont pas isomorphes en tant qu'anneaux,
+                puisque \({\bb Z[i]}^\times\) est fini.
+
+                En effet, si \(f:A\to B\) est un isomorphisme d'anneaux, alors
+                il induit un isomorphisme de groupes \({f^\times}:{A^\times}\to{B^\times}\).
+            \end{remark}
+
+            \begin{remark}
+                On peut montrer que
+                \begin{equation*}
+                    {\bb Z\ff{\sqrt{2}}}^\times = \left\{\varepsilon {\left(1+\sqrt{2}\right)}^n \mid \varepsilon\in\{-1,1\},n\in\bb Z\right\}.
+                \end{equation*}
+            \end{remark}
         \end{enumerate}
     \end{td-sol}
 }{}
+
+\begin{td-exo}[Idéaux et inversibles]\, % 8
+    Enoncé à remplir
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 8
+        Soit \(A\) un anneau commutatif.
+        \begin{enumerate}
+            \item Evident
+
+            \item Deux cas:
+            \begin{itemize}[{\ptr{}}]
+                \item Si \(I=A\), alors \(1\in I\) et 1 est inversible.
+
+                \item Si \(I\) contient un inversible \(u\in A^\times\),
+                alors \(u^{-1}u\in I\) (car \(I\) est un idéal) et donc \(1\in I\)
+                et donc \(I=A\).
+            \end{itemize}
+
+            \item Soit \(a\in A\)
+            \begin{itemize}[{\ptr{}}]
+                \item Si \((a) = A\), alors \(1\in (a)\) et donc il existe
+                \(b\in A\) tel que \(ab = 1\), donc \(a\) est inversible.
+
+                \item Si \(a\) est inversible, alors \((a) = A\)
+                par la question 2
+            \end{itemize}
+
+            \item On suppose que \(A\neq\{0\}\).
+            \begin{itemize}[{\ptr{}}]
+                \item On suppose que \(A\) est un corps.\\
+                Soit \(I\) un idéal de \(A\) qui n'est pas \(\{0\}\).\\
+                Alors \(I\) contient un élément non nul \(a\) qui est
+                inversible car \(A\) est un corps. Donc \(I = A\).
+
+                \item On suppose que les seuls idéaux de \(A\) sont \(\{0\}\) et \(A\).\\
+                Soit \(a\in A\setminus\{0\}\).\\
+                L'idéal \((a)\) est non nul, donc \((a) = A\).\\
+                Donc \(a\) est inversible. Donc \(A\) est un corps.
+            \end{itemize}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Un corps]\, % 2
+    Pouvez-vous construire un corps \(K\) qui contient \(\bb C\) comme
+    sous-corps et tel qu'il existe \(\alpha\in K\setminus \bb C\) tel que
+    \(\alpha^2 = i\)?
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 2
+        NON!\ Il existe déjà un \(z\in\bb C\) tel que \(z^2 = 1\).
+        \begin{equation*}
+            z=e^{i\frac{\pi}{4}} = \frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}.
+        \end{equation*}
+        Supposons qu'il existe un corps \(K\) contenant \(\bb C\) comme
+        sous-corps et tel qu'il existe \(\alpha\in K\setminus \bb C\) tel que
+        \(\alpha^2 = 1\).\\
+        Alors \(\alpha^2 = z^2\) et donc \(\alpha = z\) ou \(\alpha = -z\)
+        car un corps est intègre.\\
+        Donc \(\alpha\in\bb C\), contradiction.
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Exo 9]\, % 9
+    Enoncé à remplir.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 9
+        \begin{enumerate}
+            \item On a que
+            \begin{equation*}
+                A = (2, X) = \{2k + k'X \mid k,k'\in\bb Z\}.
+            \end{equation*}
+            Supposons que \(A\) est principal. Alors il existe \(a\in A\)
+            tel que \(A = (a)\). Donc \(2\in (a)\) et \(X\in (a)\).
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+
 
 % a faire: finir 6, faire 8 et 2
 
