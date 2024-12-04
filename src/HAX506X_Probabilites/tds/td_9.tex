@@ -1,0 +1,208 @@
+\begin{td-exo}[]
+    Soit \({(X_n)}_{n \geq 1}\) une suite de variables aléatoires \iid{}
+    de loi \(\mathcal N(0,1)\). Montrer que la suite de terme général
+    \begin{equation*}
+        Y_n = \frac{1}{n} \sum_{k=1}^n X_k e^{X_k}
+    \end{equation*}
+    converge presque sûrement lorsque \(n\) tend vers l'infini vers
+    une limite que l'on précisera.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]
+        Les variables aléatoires \(Z_k = X_k e^{X_k}\) sont
+        \iid{} car les \(X_k\) le sont.\\
+        Par ailleurs, les \(Z_k\) sont intégrables car
+        \begin{equation*}
+            x\mapsto |x| e^{|x|} \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}
+        \end{equation*}
+        est intégrable en \(\pm \infty\). D'après la loi
+        des grands nombres, on a 
+        \begin{equation*}
+            Y_n = \frac{1}{n} \sum_{k=1}^n Z_k \cvpsn \bb E[Z_1] 
+        \end{equation*}
+        et
+        \begin{equation*}
+            \begin{aligned}
+                \bb E[Z_1] 
+                &= \bb E[X_1 e^{X_1}]\\
+                &= \int_{-\infty}^{+\infty} x e^x \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}} \der x\\
+                &=\int_{-\infty}^{+\infty} \frac{x}{\sqrt{2\pi}} e^{-\frac{1}{2}{\left(x-1\right)}^2+\frac{1}{2}} \der x\\
+                &= \sqrt{e} \int_{-\infty}^{+\infty} \frac{xe^{-\frac{1}{2}{\left(x-1\right)}^2}}{\sqrt{2\pi}} \der x\\
+                \smol{\(t=x-1\)}&= \sqrt{e} \int_{-\infty}^{+\infty} \left(t+1\right) \frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}} \der t\\
+                &= \sqrt{e} \left(\color{red}\underbrace{\color{black}\int_{-\infty}^{+\infty} t \frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}} \der t}_{\bb E[X_1]=0}\color{black} + \color{blue}\underbrace{\color{black}\int_{-\infty}^{+\infty} \frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}} \der t}_{1}\color{black}\right)\\
+                &= \sqrt{e}.
+            \end{aligned}
+        \end{equation*}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]
+    On considère une suite de lancers d'un dé équilibré
+    et on désigne par \(X_k\) le résultat du \(k\)-ième lancer.
+    \begin{enumerate}
+        \item On note \(Y_n\) la variable aléatoire donnant le
+        plus grand résultat observé au cours des \(n\) premiers lancers.
+        Etudier la convergence de la suite \({(Y_n)}_{n \geq 1}\).
+
+        \item On note \(N_n\) la variable aléatoire donnant le
+        nombre de 6 obtenus lors des \(n\) premiers lancers.
+        Etudier la convergence de la suite \({(N_n/n)}_{n \geq 1}\).
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\,
+        \begin{enumerate}
+            \item On a \(Y_n\) une suite croissante majorée par 6.
+            Donc,
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(Y_n \neq 6)
+                    &= \bb P(\forall k \in \llbracket 1,n \rrbracket, X_k \neq 6)\\
+                    &= {\left(\frac{5}{6}\right)}^n
+                \end{aligned}
+            \end{equation*}
+            Alors,
+            \begin{equation*}
+                \begin{aligned}
+                    \bb P(Y_n\cvn 6)
+                    &= \bb P(\exists n_0 \in \bb N, Y_{n_0} = 6)\\
+                    &= 1 - \bb P(\forall n \in \bb N, Y_n \neq 6)\\
+                    &= 1 - \lim_{n\to\infty} \bb P(Y_n \neq 6)\\
+                    &= 1.
+                \end{aligned}
+            \end{equation*}
+            car \((Y_n)\) est a valeurs dans \(\{1,2,3,4,5,6\}\) et croissante.
+
+            \item On a
+            \begin{equation*}
+                N_n = \sum_{k=1}^n \one_{X_k=6} \sim \mathcal B(n,1/6)
+            \end{equation*}
+            Les variables aléatoires \(\one_{X_k=6}\) sont \iid{} et
+            intégrables (car bornées) donc la loi forte des grands nombres
+            assure que
+            \begin{equation*}
+                \frac{N_n}{n} = \frac{1}{n} \sum_{k=1}^n \one_{X_k=6} \cvpsn \bb E[\one_{X_1=6}] = \frac{1}{6}.
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]
+    On suppose que le sexe d'un nouveau-né est équiréparti entre fille et
+    garçon. Un pays propose la politique de natalité suivante:
+    tous les couples ont des enfants jusqu'à obtenir une fille.
+    \begin{enumerate}
+        \item Soit \(X\) le nombre d'enfants d'un couple pris au hasard
+        dans la population. Donner la loi de la variable aléatoire \(X\)
+        et son espérance.
+
+        \item On considère une génération en âge de procréer constituée
+        de \(n\) couples. On note \(X_1,\ldots,X_n\) le nombre d'enfants
+        respectifs de chaque couple. On désigne par \(P_n\) la variable
+        aléatoire donnant la proportion de filles issues de cette génération.
+        Exprimer \(P_n\) en fonction de \(X_1,\ldots,X_n\), puis déterminer
+        la limite de \(P_n\) quand \(n\) tend vers l'infini. La politique
+        de natalité du pays a-t-elle un effet?
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\,
+        \begin{enumerate}
+            \item On répète une expérience de Bernoulli de paramètre \(1/2\)
+            de manière indépendante jusqu'à obtenir un succès. Le nombre
+            d'enfants \(X\) suit alors une loi géométrique \(\mathcal G\left(\frac{1}{2}\right)\).
+            \begin{itemize}[\ptr{}]
+                \item \(X\) est à valeurs dans \(\bb N^*\),
+                \item \(\bb P(X=k) = {\left(\frac{1}{2}\right)}^{k-1} \frac{1}{2} = \frac{1}{2^k}\),
+                \item \(\bb E[X] = \sum_{k=1}^{+\infty} k \frac{1}{2^k} = 2\).
+            \end{itemize}
+            
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    P_n
+                    &= \frac{\text{nombre de filles}}{\text{nombre total d'enfants}}\\
+                    &= \frac{n}{X_1+\cdots+X_n}\\
+                \end{aligned}
+            \end{equation*}
+            Les \(X_k\) sont \iid{} et intégrables donc la loi forte des
+            grands nombres assure que
+            \begin{equation*}
+                \frac{X_1+\cdots+X_n}{n} \cvpsn \bb E[X_1] = 2
+            \end{equation*}
+            et donc
+            \begin{equation*}
+                P_n \cvpsn \frac{1}{2}.
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[Pour aller plus loin]\,\\
+    On considère une suite \iid{} \({(X_n)}_{n \geq 1}\) de variables aléatoires
+    réelles et on pose \(S_n = \sum_{k=1}^n X_k\).
+    \begin{enumerate}
+        \item En utilisant le théorème de Fubini, montrer que
+        pour toute variable aléatoire positive \(Y\),
+        \begin{equation*}
+            \bb E[Y] = \int_0^{+\infty} \bb P(Y \geq t) \der t.
+        \end{equation*}
+        puis en déduire que 
+        \begin{equation*}
+            \bb E[|X_1|] \leq 1 + \sum_{n=1}^{+\infty} \bb P(|X_n| \geq n).
+        \end{equation*}
+
+        \item En déduire que si \(X_1\) n'est pas intégrable,
+        alors la suite \({(S_n/n)}_{n \geq 1}\) diverge presque sûrement.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\,
+        \begin{enumerate}
+            \item On a
+            \begin{equation*}
+                \begin{aligned}
+                    \int_0^{+\infty} \bb P(Y \geq t) \der t
+                    &= \int_0^{+\infty} \left(\int_{\Omega} \one_{Y(\omega) \geq t} \bb P(\der \omega)\right) \der t\\
+                    \smol{Fubini}&= \int_{\Omega} \left(\int_0^{+\infty} \one_{Y(\omega) \geq t} \der t\right) \der \bb P(\omega)\\
+                    &= \int_{\Omega} \left(\int_0^{Y(\omega)} 1\der t\right) \der \bb P(\omega)\\
+                    &= \int_{\Omega} Y(\omega) \der \bb P(\omega)\\
+                    &= \bb E[Y].
+                \end{aligned}
+            \end{equation*}
+
+            On en déduit
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E[|X_1|]
+                    &= \int_0^{+\infty} \bb P(|X_1| \geq t) \der t\\
+                    &= \int_0^{+\infty} \sum_{n=0}^{+\infty} \bb P(|X_1| \geq t)\one_{n \leq t < n+1} \der t\\
+                    &\leq \int_0^{+\infty} \sum_{n=0}^{+\infty} \bb P(|X_1| \geq n) \one_{n \leq t < n+1} \der t\\
+                    \smol{TCM/Fubini}&= \sum_{n=0}^{+\infty} \bb P(|X_1| \geq n) \int_{0}^{\infty} \one_{n \leq t < n+1} \der t\\
+                    &= \sum_{n=0}^{+\infty} \bb P(|X_1| \geq n)\\
+                    &\leq 1 + \sum_{n=1}^{+\infty} \bb P(|X_n| \geq n).
+                \end{aligned}
+            \end{equation*}
+            en résumé, on a montré que
+            \begin{equation*}
+                \bb E[|X_1|] \leq 1 + \sum_{n=1}^{+\infty} \bb P(|X_n| \geq n).
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+
+% template:
+% \begin{td-exo}
+%     
+% \end{td-exo}
+
+% \iftoggle{showsolutions}{
+%     \begin{td-sol}[]\,
+% 
+%     \end{td-sol}
+% }{}
