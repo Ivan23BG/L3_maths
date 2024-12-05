@@ -646,5 +646,231 @@ Que dire alors de l'écart entre \(S_n\) et \(n\bb E[X_1]\)?\\
                 \frac{\ol{X_n}-\bb E[X_1]}{\frac{\sigma}{\sqrt{n}}} &\cvlawn \mathcal N(0,1)\\
             \end{aligned}
         \end{equation*}
+
+        \item La caractérisation de la convergence en loi via les fonctions de répartition
+        donne:
+        \begin{equation*}
+            \forall x\in\bb R,\quad \bb P\left(\frac{S_n-n\bb E[X_1]}{\sigma\sqrt{n}}\leq x\right) \cvn \bb P(N\leq x) = \int_{-\infty}^x \frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}} \der t
+        \end{equation*}
+        avec \(N\sim\mathcal N(0,1)\).\\
+        Plus généralement, si \(a<b\), alors
+        \begin{equation*}
+            \bb P\left(a\leq \frac{S_n-n\bb E[X_1]}{\sigma\sqrt{n}}\leq b\right) \cvn \int_a^b \frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}} \der t
+        \end{equation*}
+        On notera parfois
+        \begin{equation*}
+            \Phi(x) = \int_{-\infty}^x \frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}} \der t = \bb P(N\leq x)
+        \end{equation*}
     \end{enumerate}
 \end{remark}
+
+\begin{proof}
+    On montre la convergence en loi via les fonctions caractéristiques.\\
+    On suppose, quitte à remplacer \(X_k\) par \(X_k-\bb E[X_1]\), que les \(X_k\)
+    sont centrées.\\
+    Montrons que
+    \begin{equation*}
+        \frac{S_n}{\sigma\sqrt{n}} \cvlawn \mathcal N(0,1)
+    \end{equation*}
+    Montrons que
+    \begin{equation*}
+        \varphi_{\frac{S_n}{\sigma\sqrt{n}}}(t) \cvn \varphi_N(t) = e^{-\frac{t^2}{2}}
+    \end{equation*}
+    pour tout \(t\in\bb R\). On a
+    \begin{equation*}
+        \begin{aligned}
+            \varphi_{\frac{S_n}{\sigma\sqrt{n}}}(t)
+            &= \bb E[e^{it\frac{S_n}{\sigma\sqrt{n}}}]\\
+            &= \bb E[e^{it\frac{X_1+\cdots+X_n}{\sigma\sqrt{n}}}]\\
+            &= \bb E[e^{it\frac{X_1}{\sigma\sqrt{n}}}\cdots e^{it\frac{X_n}{\sigma\sqrt{n}}}]\\
+            &= \bb E[e^{it\frac{X_1}{\sigma\sqrt{n}}}]\cdots \bb E[e^{it\frac{X_n}{\sigma\sqrt{n}}}]\\
+            &= \bb {E[e^{it\frac{X_1}{\sigma\sqrt{n}}}]}^n
+            &= {\varphi_{X_1}\left(\frac{t}{\sigma\sqrt{n}}\right)}^n 
+        \end{aligned}
+    \end{equation*}
+    Comme les \(X_k\) sont dans \(L^2(\Omega,\scr F,\bb P)\), \(\varphi_{X_1}\) est
+    dans \(\mathscr C^2(\bb R, \bb C)\) avec
+    \begin{equation*}
+        \begin{aligned}
+            & \varphi_{X_1}'(0)=i\bb E[X_1]=0,\\
+            & \varphi_{X_1}''(0)=-\bb E[X_1^2]=-\sigma^2
+        \end{aligned}
+    \end{equation*}
+    Un développement limité en 0 de \(\varphi_{X_1}\) donne
+    \begin{equation*}
+        \varphi_{X_1}(x) = \varphi_{X_1}(0) + x\varphi_{X_1}'(0) + \frac{x^2}{2}\varphi_{X_1}''(0) + o(x^2)
+    \end{equation*}
+    On en déduit que
+    \begin{equation*}
+        \begin{aligned}
+            \varphi_{\frac{S_n}{\sigma\sqrt{n}}}(t) 
+            &= {\varphi_{X_1}\left(\frac{t}{\sigma\sqrt{n}}\right)}^n\\
+            &= {\left(1-\frac{t^2}{2n\sigma^2}\sigma^2 + o\left(\frac{t^2}{n}\right)\right)}^n\\
+            &\cvn e^{-\frac{t^2}{2}}
+        \end{aligned}
+    \end{equation*}
+\end{proof}
+
+\begin{example}
+    Soient \(X_1\ldots,X_n\) des variables aléatoires \iid{} de loi \(\mathcal B\left(\frac12\right)\).
+    
+    On pose \(S_n = X_1+\cdots+X_n\). Ici, on a
+    \begin{equation*}
+        \begin{aligned}
+            \bb E[X_1] &= \frac12\\
+            \var(X_1) &= \frac12\left(1-\frac12\right) = \frac14
+        \end{aligned}
+    \end{equation*}
+    le théorème central limite donne
+    \begin{equation*}
+        2\sqrt{n} \left(\frac{S_n}{n}-\frac12\right) \cvlawn \mathcal N(0,1)
+    \end{equation*}
+\end{example}
+
+\subsubsection*{Application à la statistique}
+
+\ptr{} \defemph{Contexte général}: On dispose de données 
+\(x_1,\ldots,x_n\) que l'on suppose provenir des variables aléatoires
+\(X_1,\ldots,X_n\), supposées \iid{}. Cela signifie que
+\(x_1 = X_1(\omega),\ldots,x_n = X_n(\omega)\) pour un certain
+\(\omega\in\Omega\).
+
+Si on souhaite estimer la quantité \(\mu = \bb E[X_1]\),
+qui est inconnue, on va considérer l'estimateur
+\begin{equation*}
+    \ol{X_n} = \frac{X_1+\cdots+X_n}{n}
+\end{equation*}
+On sait d'après la loi forte des grands nombres que
+\begin{equation*}
+    \ol{X_n} \cvpsn \mu
+\end{equation*}
+
+Si on suppose que les \(X_k\) sont dans \(L^2(\Omega,\scr F,\bb P)\),
+alors le théorème central limite assure que
+\begin{equation*}
+    \sqrt{n}\frac{\ol{X_n}-\mu}{\sigma} \cvlawn \mathcal N(0,1)
+\end{equation*}
+où \(\sigma^2 = \var(X_1)\).
+
+Plus spécifiquement, pour \(t>0\),
+\begin{equation*}
+    \begin{aligned}
+        \bb P(\n{\ol{X_n}-\mu}\geq \frac{\sigma t}{\sqrt{n}})
+        &= \bb P\left(\sqrt{n} \n{\frac{\ol{X_n}-\mu}{\sigma}}\geq t\right)\\
+        &\cvn \bb P(\n{N}\geq t)
+    \end{aligned}
+\end{equation*}
+où \(N\sim\mathcal N(0,1)\).
+
+Or, on a
+\begin{equation*}
+    \begin{aligned}
+        \bb P(\n{N}\geq t) 
+        &= \bb P(N\leq -t) + \bb P(N\geq t)\\
+        &= 2\bb P(N\geq t)\\
+        &= 2\left(1-\bb P(N\leq t)\right)\\
+        &= 2\left(1-\Phi(t)\right)
+    \end{aligned}
+\end{equation*}
+
+Si on souhaite avoir \(\bb P\left(\n{N}\geq t\right) = 0.05\), 
+alors la table de la loi normale standard donne \(t\approx 1.96\).
+Donc, avec cette valeur, on obtient
+\begin{equation*}
+    \bb P\left(\n{\ol{X_n}-\mu}\leq\frac{1.96 \sigma}{\sqrt{n}}\right) \cvn 1 - 0.05 = 0.95
+\end{equation*}
+c'est-à-dire,
+\begin{equation*}
+    \bb P\left(\ol{X_n}-\frac{1.96\sigma}{\sqrt{n}}\leq \mu \leq \ol{X_n}+\frac{1.96\sigma}{\sqrt{n}}\right) \cvn 0.95
+\end{equation*}
+Ainsi, il y a asymptotiquement 95\% de chances que le paramètre
+inconnu \(\mu\) soit dans l'intervalle
+\begin{equation*}
+    \ff{\ol{X_n}-\frac{1.96\sigma}{\sqrt{n}},\ol{X_n}+\frac{1.96\sigma}{\sqrt{n}}}
+\end{equation*}
+Cet intervalle est appelé \defemph{intervalle de confiance}
+asymptotique de niveau 95\% pour \(\mu\).
+
+\begin{example}[Les sondages]
+    On considère une élection avec deux candidats \(A\) et \(B\).
+    On note \(p\) la proportion de votes en faveur de \(A\) le
+    jour de l'élection: c'est une quantité inconnue. 
+
+    Un sondage consiste à interroger \(n\) personnes et à
+    noter leur intention de vote (en pratique, on a souvent
+    \(n=1000\) ou plus). On note \(X_k\) la variable aléatoire
+    qui vaut 1 si la \(k\)-ième personne interrogée vote pour \(A\)
+    et 0 sinon. 
+    
+    Ainsi, les \(X_k\) suivent une loi \(\mathcal B(p)\)
+    et on les suppose indépendantes.
+    A l'issue du sondage, on obtient des données \(x_1,\ldots,x_n\)
+    dans \(\{0,1\}\).
+
+    On estime la quantité inconnue \(p\) par \(\ol{X_n}\)
+    et la loi forte des grands nombres assure que
+    \begin{equation*}
+        \ol{X_n} \cvpsn \bb E[X_1] = p
+    \end{equation*}
+    Quelle erreur fait-on en assimilant \(p\) à \(\ol{X_n}\)?
+    Le théorème central limite donne
+    \begin{equation*}
+        \sqrt{n}\frac{\ol{X_n}-p}{\sqrt{p(1-p)}} \cvlawn N \sim \mathcal N(0,1)
+    \end{equation*}
+    ce qui se réécrit
+    \begin{equation*}
+        \bb P\left(\sqrt{n}\frac{\n{\ol{X_n}-p}}{\sqrt{p(1-p)}}\geq t\right) \cvn \bb P(\n{N}\geq t)=2\left(1-\Phi(t)\right)
+    \end{equation*}
+    En prenant \(2\left(1-\Phi(t)=0.05\right)\), la table de la loi normale
+    standard donne \(t\approx 1.96\). On obtient alors
+    \begin{equation*}
+        \begin{aligned}
+            &\bb P\left(\sqrt{n}\frac{\n{\ol{X_n}-p}}{\sqrt{p(1-p)}}\leq 1.96\right) \cvn 0.95\\
+            \iff &\bb P\left(\ol{X_n}-\frac{1.96\sqrt{p(1-p)}}{\sqrt{n}}\leq p \leq \ol{X_n}+\frac{1.96\sqrt{p(1-p)}}{\sqrt{n}}\right) \cvn 0.95
+        \end{aligned}
+    \end{equation*}
+    Ainsi, asymptotiquement, le paramètre inconnu \(p\) se trouve
+    dans l'intervalle
+    \begin{equation*}
+        \ff{\ol{X_n}-\frac{1.96\sqrt{p(1-p)}}{\sqrt{n}},\ol{X_n}+\frac{1.96\sqrt{p(1-p)}}{\sqrt{n}}}
+    \end{equation*}
+    avec une probabilité de 95\%.
+
+    Cet intervalle est inutilisable en pratique car il dépend de \(p\).
+    On majore alors \(p(1-p)\) par \(\frac12\), et on obtient
+    alors l'intervalle de confiance asymptotique de niveau 95\%
+    suivant:
+    \begin{equation*}
+        I_c = \ff{\ol{X_n}-\frac{0.98}{\sqrt{n}},\ol{X_n}+\frac{0.98}{\sqrt{n}}}
+    \end{equation*}
+
+    Avec \(n=1000\), on obtient \(\frac{0.98}{\sqrt{1000}}\approx 0.03\),
+    qui est la marge d'erreur du sondage, ici de 3\%.
+    
+    \ptr{} Question: est-il possible de déterminer un intervalle de confiance 
+    non asymptotique?\\
+    On souhaite contrôler \(\bb P\left(\n{\ol{X_n}-p}\geq t\right)\).
+
+    D'après Bienaymé-Tchebychev, on peut écrire
+    \begin{equation*}
+        \bb P\left(\n{\ol{X_n}-p}\geq t\right) \leq \frac{\var(\ol{X_n})}{t^2} = \frac{p(1-p)}{nt^2} \leq \frac{1}{4nt^2}
+    \end{equation*}
+    où on utilise l'inégalité \(p(1-p)\leq \frac14\).
+
+    En prenant \(\frac{1}{4nt^2} = 0.05\), on obtient \(t=\frac{1}{2\sqrt{0.05n}} = \frac{2.24}{\sqrt{n}}\).
+    Ainsi, on obtient
+    \begin{equation*}
+        \bb P\left(\n{\ol{X_n}-p}\leq \frac{2.24}{\sqrt{n}}\right) \geq 0.95.
+    \end{equation*}
+    On a donc un intervalle de confiance non asymptotique de niveau 95\%
+    pour \(p\) donné par
+    \begin{equation*}
+        I_c'=\ff{\ol{X_n}-\frac{2.24}{\sqrt{n}},\ol{X_n}+\frac{2.24}{\sqrt{n}}}
+    \end{equation*}
+
+    On remarque que \(I_c'\) est plus large que \(I_c\),
+    cependant, l'intervalle de confiance \(I_c'\) est
+    valable pour tout \(n\), alors que \(I_c\) ne l'est
+    que pour \(n\) grand.
+
+\end{example}
