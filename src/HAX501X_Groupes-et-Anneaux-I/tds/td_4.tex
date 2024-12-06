@@ -537,8 +537,23 @@
     \end{td-sol}
 }{}
 
-\begin{td-exo}[Exo 9]\, % 9
-    Enoncé à remplir.
+\begin{td-exo}[Idéaux des polynômes à facteurs relatifs]\, % 9
+    On travaille dans l'anneau \(\bb Z[X]\).
+    \begin{enumerate}
+        \item Montrer que l'idéal \((2,X)\) n'est pas principal.
+
+        \item Soit \(I\) l'ensemble des polynômes \(f\in\bb Z[X]\) tels que
+        \(f(1)\) et \(f(-1)\) soient pairs. Montrer que \(I\) est un idéal
+        de \(\bb Z[X]\) et donner des générateurs de \(I\).\\
+        On pourra commencer par faire les échauffements suivant:
+        \begin{enumerate}
+            \item Soit \(I=\left\{f\in\bb R[X] \mid f(1)=0\right\}\).
+            Montrer que c'est un idéal de \(\bb R[X]\) et en donner un
+            système de générateurs.
+
+            \item Pareil avec \(\bb R\rightsquigarrow \bb Z\).
+        \end{enumerate}
+    \end{enumerate}
 \end{td-exo}
 
 \iftoggle{showsolutions}{
@@ -548,8 +563,56 @@
             \begin{equation*}
                 A = (2, X) = \{2k + k'X \mid k,k'\in\bb Z\}.
             \end{equation*}
-            Supposons que \(A\) est principal. Alors il existe \(a\in A\)
-            tel que \(A = (a)\). Donc \(2\in (a)\) et \(X\in (a)\).
+            Supposons que \(A\) est principal. Alors il existe \(f\in A\)
+            tel que \(A = (f)\). Donc \(2\in (f)\) et \(X\in (f)\).
+
+            Plus précisément, on a \(f|2\) et \(f|X\),donc
+            \begin{equation*}
+                f\in\{1,-1,2,-2\},\quad\text{et}\quad f\in\{1,-1,X,-X\}
+            \end{equation*}
+            Donc \(f\in\{1,-1\}\). En particulier,
+            on a \(1\in(2,X)\), ce qui veut dire qu'il existe
+            \(u,v\in\bb Z[X]\) tels que \(1 = 2u + Xv\).
+            En evaluant en \(X=0\), on a \(1 = 2u(0)\), contradiction.
+
+            \item Echauffements:
+            \begin{enumerate}
+                \item\(I\) est clairement un sous-groupe de \(\bb R[X]\),
+                montrons qu'il est stable par multiplication.\\
+                Soit \(f\in I\) et \(g\in\bb R[X]\). Alors
+                \begin{equation*}
+                    \begin{aligned}
+                        (fg)(1) &= f(1)g(1)\\
+                    \end{aligned}
+                \end{equation*}
+                est pair. Donc \(fg\in I\).\\
+                Donc \(I = (X-1)\).
+
+                \item Même raisonnement pour montrer que \(I\) est un idéal.
+                On a \(I = (X-1)\) car on peut effectuer la division euclidienne
+                de \(f\) par \(X-1\).
+            \end{enumerate}
+
+            On peut facilement vérifier que cet ensemble est un idéal de \(\bb Z[X]\).
+
+            Soit \(f\in I\), on écrit sa division euclidienne par \(X-1\):
+            \begin{equation*}
+                f = (X-1)q + r,\quad q\in \bb Z[X], r\in\bb Z.
+            \end{equation*}
+            donc \(r = f(1)\) est pair et alors il existe \(k\in\bb Z\) tel que
+            \begin{equation*}
+                f = (X-1)q + 2k.
+            \end{equation*}
+            Alors \(f\in (X-1,2)\).\\
+            
+            On a montré que \(I\subset (X-1,2)\).\\
+            Montrons maintenant que \((X-1,2)\subset I\).\\
+            Comme \(X-1\in I\) et \(2\in I\), on a \((X-1,2)\subset I\).\\
+            Donc \(I = (X-1,2)\).
+
+            % Un système de générateurs est \((X-1),2\).
+            % point fixe minimal non nul stabilisateur de parité par somme 
+            % et générateur d'écart de parité par différence
         \end{enumerate}
     \end{td-sol}
 }{}
