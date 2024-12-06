@@ -455,6 +455,7 @@ INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\tfm\public\lm\ec-lmss
 INPUT C:\Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX506X_Probabilites\tds\td_main.toc
 INPUT C:\Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX506X_Probabilites\tds\td_main.toc
 INPUT C:\Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX506X_Probabilites\tds\td_main.toc
+INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\tfm\public\lm\ec-lmbx10.tfm
 OUTPUT C:\Users\ileje\00_File_System\2024_2025\L3_Maths\build\HAX506X_Probabilites\tds\td_main.toc
 INPUT C:\Users\ileje\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\enc\dvips\lm\lm-ec.enc
@@ -572,6 +573,8 @@ INPUT C:\Users\ileje\AppData\Local\Programs\MiKTeX\fonts\type1\public\mnsymbol\M
 INPUT C:\Users\ileje\AppData\Local\Programs\MiKTeX\fonts\type1\public\mnsymbol\MnSymbol7.pfb
 INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\type1\public\doublestroke\dsrom10.pfb
 INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\type1\public\doublestroke\dsrom10.pfb
+INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\type1\public\lm\lmbx10.pfb
+INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\type1\public\lm\lmbx10.pfb
 INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\type1\public\lm\lmmi10.pfb
 INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\type1\public\lm\lmmi10.pfb
 INPUT C:\Users\ileje\AppData\Local\Programs\my_latex\fonts\type1\public\lm\lmmi5.pfb
