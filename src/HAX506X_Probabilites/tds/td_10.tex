@@ -1,0 +1,227 @@
+\begin{td-exo}[]\,
+    \begin{enumerate}
+        \item Rappeler la définition de la convergence en loi,
+        puis sa caractérisation via les fonctions caractéristiques
+        et les fonctions de répartition (dans le cas de variables
+        aléatoires réelles).
+
+        \item On suppose que \(X_n\cvlawn X\) avec \((X_n)\) et \(X\)
+        des variables aléatoires réelles. Si \(f;\bb R\to\bb R\) est
+        une fonction continue, a-t-on
+        \begin{equation*}
+            f(X_n)\cvlawn f(X)\quad\text{?}
+        \end{equation*}
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item Soit \({(X_n)}_{n\geq 1}\) une suite de variables
+            aléatoires réelles et \(X\) une variable aléatoire réelle.
+            On a
+            \begin{equation*}
+                X_n \cvlawn X
+            \end{equation*}
+            si et seulement si
+            \begin{itemize}[\ptr{}]
+                \item On a
+                \begin{equation*}
+                    \forall h\in C_b^0(\bb R,\bb R),\quad \bb E[h(X_n)]\cvn \bb E[h(X)]
+                \end{equation*}
+
+                \item On a
+                \begin{equation*}
+                    \varphi_{X_n}(t)\cvn \varphi_X(t),\quad\forall t\in\bb R
+                \end{equation*}
+
+                \item On a
+                \begin{equation*}
+                    F_{X_n}(t)\cvn F_X(t),\quad \forall \text{ point de continuité de }F_X
+                \end{equation*}
+            \end{itemize}
+
+            \item Soit \(h: \bb R\to\bb R\) continue bornée. Montrons que
+            \begin{equation*}
+                \bb E\ff{h\color{verdant}\left(\color{black}f\left(X_n\right)\color{verdant}\right)\color{black}} 
+                \cvn \bb E\ff{h\color{verdant}\left(\color{black}f\left(x\right)\color{verdant}\right)\color{black}}
+            \end{equation*}
+            Comme \(X_n\cvlawn X\) et \(h\circ f\) est continue bornée, on a
+            \begin{equation*}
+                \bb E\ff{h\left(f\color{verdant}\left(\color{black}X_n\color{verdant}\right)\color{black}\right)}
+                \cvn \bb E\ff{h\left(f\color{verdant}\left(\color{black} X\color{verdant}\right)\color{black}\right)}
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]
+    Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires telle que
+    pour tout \(n\geq 1\), \(X_n\) suit une loi uniforme sur l'ensemble
+    \(\{k/n,1\leq k\leq n\}\). Montrer de trois manières différentes que
+    \(X_n\) converge en loi vers une loi uniforme sur \(\ff{0,1}\).
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires telle 
+        que pour tout \(n\geq 1\), \(X_n\) suit une loi uniforme sur 
+        l'ensemble \(\{k/n,1\leq k\leq n\}\).\\
+        On montre par différentes méthodes:
+        \begin{itemize}[\ptr{}]
+            \item Première méthode: Définition\\
+            Soit \(h\in C_b^0(\bb R)\), on a
+            \begin{equation*}
+                \begin{aligned}
+                    \bb E\ff{h(X_n)}
+                    &= \sum_{k=0}^{n}h(\frac{k}{n})\\
+                    &\cvn \int_{0}^{1} h(x)\der x\\
+                    &= \bb E\ff{h(X)}
+                \end{aligned}
+            \end{equation*}
+
+            \item Deuxième méthode: Fonction caractéristique\\
+            On a
+            \begin{equation*}
+                \varphi_{X_n}(t) = \sum_{k=1}^{n} {e^{\left(\frac{it}{n}\right)}}^n\times\frac{1}{n}
+            \end{equation*}
+            On calcule pour \(t\neq 0\)
+            \begin{equation*}
+                \begin{aligned}
+                    &\frac{e^{\frac{it}{n}}}{n}\times \frac{1-e^{it}}{1-e^{\frac{it}{n}}}\\
+                    \sim& \frac{1}{n\times\left(-\frac{it}{n}\right)}\times \left(1-e^{it}\right)
+                \end{aligned}
+            \end{equation*}
+            ce qui correspond bien à
+            \begin{equation*}
+                \varphi_U(t) = \frac{e^{it}-1}{it}
+            \end{equation*}
+            avec \(U\sim \mathcal U([0,1])\)
+
+            Pour \(t=0\), on a
+            \begin{equation*}
+                \varphi(X_n)(0)=1 \cvn \varphi_U(0)
+            \end{equation*}
+
+
+            \item Troisième méthode: Fonction de répartition\\
+            On a
+            \begin{equation*}
+                F_X(t) = \bb P(X\leq t) = \begin{cases}
+                    0&\text{ si }t\leq0\\
+                    t&\text{ si }t\in\oo{0,1}\\
+                    1&\text{ si }t\geq 1
+                \end{cases}
+            \end{equation*}
+            Comme \(F_X\) est continue, on veut montrer que
+            \begin{equation*}
+                \forall t\in\bb R,\quad F_{X_n}(t) \cvn F_X(t)
+            \end{equation*}
+            On procède par cas:
+            \begin{itemize}[\ptr{}]
+                \item Si \(t\leq 0\), on a
+                \begin{equation*}
+                    F_{X_n}(t) = 0\cvn 0=F_X(t)
+                \end{equation*}
+
+                \item Si \(t\geq 1\), on a
+                \begin{equation*}
+                    F_{X_n}(t) = 1\cvn 1=F_X(t)
+                \end{equation*}
+
+                \item Si \(t\in\oo{0,1}\), on a
+                \begin{equation*}
+                    \begin{aligned}
+                        F_{X_n}(t)
+                        &= \bb P(X_n\leq t)\\
+                        &= \sum_{k=1}^n \frac{1}{n} \one_{\left\{\frac{k}{n}\leq t\right\}}\\
+                        &=\frac{1}{n} \sum_{k=1}^n\one_{\left\{k\leq tn \right\}}\\
+                    \end{aligned}
+                \end{equation*}
+                On conclut avec
+                \begin{equation*}
+                    \begin{aligned}
+                        & tn-1< \lfloor tn\rfloor \leq tn\\
+                        & t-\frac{1}{n}<\frac{\lfloor tn\rfloor}{n}\leq t
+                    \end{aligned}
+                \end{equation*}
+                Donc
+                \begin{equation*}
+                    F_{X_n}(t) = \frac{\lfloor tn\rfloor}{n} \cvn t
+                \end{equation*}
+            \end{itemize}
+        \end{itemize}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\,
+    Pour tout entier \(n\) on considère la variable aléatoire \(T_n\)
+    de loi géométrique de paramètre \(\lambda/n\), avec \(\lambda>0\)
+    fixé. Montrer que \(T_n/n\) converge en loi vers une limite à déterminer
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        On a \(T_n\sim \mathcal G\left(\frac{\lambda}{n}\right)\).
+        Soit \(t\in\bb R\).
+        \begin{equation*}
+            \begin{aligned}
+                \varphi_{\frac{T_n}{n}}(t)
+                &=\bb E\ff{e^{it\frac{T_n}{n}}}\\
+                &= \sum_{k=1}^\infty e^{it\frac{k}{n}} {\left(1-\frac{\lambda}{n}\right)}^{k-1}\frac{\lambda}{n}\\
+                &= \frac{\lambda}{n} e^{i\frac{t}{n}}\sum_{k=1}^\infty e^{i\frac{t}{n}\left(k-1\right)}{\left(1-\frac{\lambda}{n}\right)}^{k-1}\\
+                &= \frac{\lambda}{n}e^{i\frac{t}{n}} \sum_{k=0}^\infty {\left[e^{i\frac{t}{n}\left(1-\frac{\lambda}{n}\right)}\right]}^k\\
+                &= \frac{\lambda e^{i\frac{t}{n}}}{n\left(1-e^{i\frac{t}{n}}\left(1-\frac{\lambda}{n}\right)\right)}
+            \end{aligned}
+        \end{equation*}
+        où
+        \begin{equation*}
+            \begin{aligned}
+                1-e^{i\frac{t}{n}}\left(1-\frac{\lambda}{n}\right)
+                &= 1-\left(\color{orange} 1\color{black} + \color{verdant}\frac{it}{n}\color{black}+o\left(\frac{1}{n}\right)\right)\left(\color{verdant}1\color{black}\color{orange}-\frac{\lambda}{n}\color{black}\right)\\
+                &= \color{verdant}-\frac{it}{n}\color{black}+\color{orange}\frac{\lambda}{n}\color{black}+o\left(\frac{1}{n}\right)
+            \end{aligned}
+        \end{equation*}
+        et alors
+        \begin{equation*}
+            \varphi_{\frac{T_n}{n}}(t) \cvn \frac{\lambda}{\lambda - it}
+        \end{equation*}
+        Si \(X\sim \mathcal E(\lambda)\), alors
+        \begin{equation*}
+            \begin{aligned}
+                \varphi_X(t) 
+                &= \bb E\ff{e^{itX}} \\
+                &= \int_{\bb R} e^{itx}\lambda e^{-\lambda x}\one_{\bb R_+}(x)\der x\\
+                &= \lambda \int_0^\infty e^{\left(it-\lambda\right) x}\der x\\
+                &= \left[\lambda\frac{e^{\left(it-\lambda\right)x}}{it-\lambda}\right]_0^\infty\\
+                &= \frac{\lambda}{\lambda-it}
+            \end{aligned}
+        \end{equation*}
+        Donc
+        \begin{equation*}
+            \frac{T_n}{n}\cvlawn \mathcal E(\lambda)
+        \end{equation*}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\,
+    Soit \({(U_n)}_{n\geq 1}\) une suite de variables aléatoires indépendantes
+    de loi uniforme sur \(\ff{0,1}\). On pose
+    \begin{equation*}
+        M_n = \max\left(U_1,\ldots,U_n\right)
+        \quad\text{et}\quad
+        X_n = n(1-M_n)
+    \end{equation*}
+    \begin{enumerate}
+        \item Déterminer la fonction de répartition de \(M_n\),
+        puis celle de \(X_n\).
+
+        \iteù Etudier la convergence en loi de la suite \({(X_n)}_{n\geq 1}\).
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        A recuperer sur le Moodle
+    \end{td-sol}
+}{}
