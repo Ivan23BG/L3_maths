@@ -617,6 +617,273 @@
     \end{td-sol}
 }{}
 
+\begin{td-exo}[Entiers de Gauss, bis] % 10
+    On se place dans l'anneau des entiers de Gauss
+    \begin{equation*}
+        \bb Z[i] = \{a+ib \mid a,b\in\bb Z\}.
+    \end{equation*}
+    On note \(\n{z}\) le module d'un nombre complexe \(z\). On
+    rappelle la \emph{norme} \(N(z)=z\ol z={\n{z}}^2=a^2+b^2\)
+    pour \(z=a+ib\in\bb Z[i]\). On a montré qu'on a 
+    \(N(zz') = N(z)N(z')\) et
+    \begin{equation*}
+        z\in {\bb Z[i]}^\times \iff N(z) = 1 \iff z\in\{1,-1,i,-i\}.
+    \end{equation*}
+    \begin{enumerate}
+        \item Soit \(z\in\bb C\). Montrer qu'il existe \(z'\in\bb Z[i]\)
+        tel que \(\n{z-z'}\leq \frac{\sqrt{2}}{2}\). (Un dessin
+        pourra être utile!)
+
+        \item En déduire que \(\bb Z[i]\) est un anneau euclidien pour
+        la jauge euclidienne \(v(z) = N(z)\).
+        Calculer une division euclidienne de \(17+4i\) par \(1-i\).
+
+        \item Montrer que pour \(z\in\bb Z[i]\), si \(N(z)\) est
+        premier alors \(z\) est irréductible.
+
+        \item Calculer le PGCD de \(11 + 7i\) et \(18 - i\).
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 10
+        \begin{enumerate}
+            \item Soit \(z \in \bb C\). On écrit 
+            \(z = x+ iy\) avec \(x,y\in\bb R\).
+            Il existe \(a\in\bb Z\) tel que \(|x-a|\leq \frac{1}{2}\).\\
+            Il existe \(b\in\bb Z\) tel que \(|y-b|\leq \frac{1}{2}\).\\
+            On pose \(z' = a+ib\in \bb Z[i]\). Alors
+            \begin{equation*}
+                \begin{aligned}
+                    \n{z-z'}
+                    &= \n{(x-a) + i(y-b)}\\
+                    &= \sqrt{{(x-a)}^2 + {(y-b)}^2}\\
+                    &\leq \sqrt{\frac{1}{4} + \frac{1}{4}}\\
+                    &= \frac{\sqrt{2}}{2}.
+                \end{aligned}
+            \end{equation*}
+
+            \item Soient \(z,w\in\bb Z[i]\) avec \(w\neq 0\). 
+            On considère \(\frac{z}{w}\in\bb C\).\\
+            Par la question précédente, il existe \(z'\in\bb Z[i]\) tel que
+            \(\n{\frac{z}{w} - z'}\leq \frac{\sqrt{2}}{2}\).\\
+            On pose \(z'' = z-wz'\) de sorte que
+            \begin{equation*}
+                z = wz' + z''\quad\text{et}\quad z',z''\in\bb Z[i].
+            \end{equation*}
+            où \(z'\) joue le rôle du quotient et \(z''\) le rôle du reste.\\
+            Il reste à vérifier que \(N(z'') < N(w)\).\\
+            \begin{equation*}
+                N(z'') = {\n{z''}}^2 = {\n{z-wz'}}^2
+            \end{equation*}
+            Or on a
+            \begin{equation*}
+                \n{\frac{z-wz'}{w}} \leq \frac{\sqrt{2}}{2}
+            \end{equation*}
+            donc
+            \begin{equation*}
+                \frac{\n{z-wz'}}{\n{w}} \leq \frac{\sqrt{2}}{2}
+            \end{equation*}
+            donc
+            \begin{equation*}
+                \n{z-wz'} \leq \frac{\sqrt{2}}{2}\n{w}
+            \end{equation*}
+            d'où
+            \begin{equation*}
+                N(z'') = {\n{z-wz'}}^2 < \frac{1}{2}\n{w}^2 < \n{w}^2 = N(w).
+            \end{equation*}
+
+            Conclusion: \(\bb Z[i]\) est un anneau euclidien pour la jauge euclidienne \(v(z) = N(z)\).
+            Il est donc principal.
+
+            On a
+            \begin{equation*}
+                \begin{aligned}
+                    \frac{17+4i}{1-i} 
+                    &= \frac{(17+4i)(1+i)}{(1-i)(1+i)}\\
+                    &= \frac{13+21i}{2}\\
+                    &= \frac{13}{2} + \frac{21}{2}i.
+                \end{aligned}
+            \end{equation*}
+            On pose ici \(z' = 6+10i\) et alors
+            \begin{equation*}
+                \begin{aligned}
+                    17 + 4i
+                    &= (1-i)(6+10i) + 1.
+                \end{aligned}
+            \end{equation*}
+            où \(1\) joue le rôle du reste.\\
+            Comme \(N(1) = 1\) et \(N(1-i) = 2\), on a bien \(N(1) < N(1-i)\)
+            et on a bien effectué une division euclidienne.
+            \begin{remark}
+                Il y a 3 autres divisions euclidiennes possibles
+                avec les quotients:
+                \begin{equation*}
+                    6+11i,\quad 7+10i,\quad 7+11i.
+                \end{equation*}
+            \end{remark}
+
+            \item On raisonne par contraposée.\\
+            Soit \(z\in\bb Z[i]\) non irréductible.\\
+            \begin{itemize}[{\ptr{}}]
+                \item Si \(z = 0\), alors \(N(z) = 0\) n'est pas premier.
+
+                \item Si \(z\) est inversible, alors \(N(z) = 1\) n'est pas premier.
+
+                \item Si \(z\) n'est pas inversible, alors il existe \(z_1,z_2\in\bb Z[i]\)
+                tels que \(z = z_1z_2\) avec \(z_1,z_2\) non inversibles. Alors
+                \begin{equation*}
+                    N(z) = N(z_1)N(z_2)\quad\text{composé}
+                \end{equation*}
+            \end{itemize}
+            On en conclut que si \(N(z)\) est premier alors \(z\) est irréductible.
+
+            \item On utilise l'algorithme d'Euclide.
+            \begin{equation*}
+                \begin{aligned}
+                    N(11 + 7i) &= 11^2 + 7^2 = 170\\
+                    N(18 - i) &= 18^2 + {(-1)}^2 = 325.
+                \end{aligned}
+            \end{equation*}
+            On va donc calculer la division euclidienne de \(18-i\) par \(11+7i\).
+            \begin{equation*}
+                \begin{aligned}
+                    \frac{18-i}{11+7i}
+                    &= \frac{(18-i)(11-7i)}{170}\\
+                    &= \frac{191-137i}{170}\\
+                    &= \frac{191}{170} - \frac{137}{170}i.\\
+                    &\rightsquigarrow 1 - i\quad\text{quotient}
+                \end{aligned}
+            \end{equation*}
+            On pose ici \(z' = 1-i\) et alors
+            \begin{equation*}
+                \begin{aligned}
+                    18 - i
+                    &= (11+7i)(1-i) + 3i.
+                \end{aligned}
+            \end{equation*}
+            où \(3i\) joue le rôle du reste.\\
+            Comme \(N(3i) = 9\) et \(N(11+7i) = 170\), on a bien \(N(3i) < N(11+7i)\)
+            et on a bien effectué une division euclidienne.
+
+            On continue avec \(11+7i\) et \(3i\).
+            \begin{equation*}
+                \begin{aligned}
+                    \frac{11+7i}{3i}
+                    &= \frac{(11+7i)(-i)}{3}\\
+                    &= \frac{7-11i}{3}\\
+                    &= \frac{7}{3} - \frac{11}{3}i.\\
+                    &\rightsquigarrow 2 - 4i\quad\text{quotient}
+                \end{aligned}
+            \end{equation*}
+
+            On pose ici \(z'' = 2-4i\) et alors
+            \begin{equation*}
+                \begin{aligned}
+                    11 + 7i
+                    &= 3i(2-4i) + (-1 + i).
+                \end{aligned}
+            \end{equation*}
+            où \(-1+i\) joue le rôle du reste.\\
+            Comme \(N(-1+i) = 2\) et \(N(3i) = 9\), on a bien \(N(-1+i) < N(3i)\)
+            et on a bien effectué une division euclidienne.
+
+            On continue avec \(3i\) et \(-1+i\).
+            \begin{equation*}
+                \begin{aligned}
+                    \frac{3i}{-1+i}
+                    &= \frac{3i(-1-i)}{2}\\
+                    &= \frac{3-3i}{2}\\
+                    &= \frac{3}{2} - \frac{3}{2}i.\\
+                    &\rightsquigarrow 1 - i\quad\text{quotient}
+                \end{aligned}
+            \end{equation*}
+
+            On pose ici \(z''' = 1-i\) et alors % chktex 23
+            \begin{equation*}
+                \begin{aligned}
+                    3i
+                    &= (1-i)(-1+i) + i.
+                \end{aligned}
+            \end{equation*}
+            où \(i\) joue le rôle du reste.\\
+            Comme \(N(i) = 1\) et \(N(1-i) = 2\), on a bien \(N(i) < N(1-i)\)
+            et on a bien effectué une division euclidienne.
+
+            UN PGCD est donc le dernier reste non nul, ici \(i\).
+            Les autres PGCD possibles sont \(-i,1,-1\).
+
+            Dit autrement, \(11+7i\) et \(18-i\) sont premiers entre eux.
+            \begin{remark}
+                Pour l'instant on ne sait pas encore classifier les
+                éléments irréductibles de \(\bb Z[i]\).\\
+                On sait juste que pour \(z\in\bb Z[i]\), si \(N(z)\) est
+                premier alors \(z\) est irréductible.\\
+                La réciproque est fausse (montrer que
+                3 est irréductible dans \(\bb Z[i]\) alors que
+                \(N(3) = 9\))
+            \end{remark}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+% 3 est non nul, 3 n'est pas inversible car sa norme n'est pas 1,
+% il existe z,z' tels que 3 = zz':
+% (a+ib)(a'+ib') = (aa' - bb') + (a'b + ab')i
+% on a donc
+% a'b + ab' = 0
+% aa' - bb' = 3
+% \sqrt{a^2+b^2}\sqrt{a'^2+b'^2} = 3
+% (a^2 + b^2) (a'^2 + b'^2) = 9
+% donc on a 3 * 3 ou 9 * 1 or les 2 sont non inv donc on est dans 3 * 3
+% a^2 + b^2 = 3 donc a,b = \pm(1,\sqrt(2))
+% a,a' = 1, b,b' = (-\rc 2, \rc 2), non inv donc good
+% pls vite, ex pas elem norm 3 dans z(i)
+
+\begin{td-exo}[Théorème des deux carrés de Fermat] % 11
+    Le but de cet exercice est de montrer le
+    \emph{théorème des deux carrés} de Fermat:
+    un nombre premier impair \(p\) peut s'écrire comme
+    somme de deux carrés si et seulement si \(p\equiv 1\pmod 4\).
+    \begin{enumerate}
+        \item Vérifier que ce théorème est vrai pour les nombres
+        premiers \(\leq 19\).
+
+        \item Montrer qu'un nombre impair qui est une somme de deux carrés
+        est nécessairement congru à 1 modulo 4.
+
+        \item Soit \(p\) un nombre premier congru à 1 modulo 4,
+        qu'on écrit \(p = 4n + 1\). On pose \(x = {(2n)}!\). % chktex 40
+
+            \begin{enumerate}
+                \item Montrer que \(x^2 \equiv (p-1)!\pmod p\).
+            \end{enumerate}
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 11
+        \begin{enumerate}
+            \item On a le tableau suivant:
+            \begin{center}
+                \begin{tabular}{c|c|c} %chktex 44
+                    \(p\) & \(p\equiv 1\pmod 4\) & \(p = a^2 + b^2\)\\
+                    \hline % chktex 44
+                    % cas spécial pour 2
+                    2 pair & Faux & Faux\\
+                    3 & Faux & Faux\\
+                    5 & Vrai & Vrai, \(1^2 + 2^2\)\\
+                    7 & Faux & Faux\\
+                    11 & Faux & Faux\\
+                    13 & Vrai & Vrai, \(2^2 + 3^2\)\\
+                    17 & Vrai & Vrai, \(1^2 + 4^2\)\\
+                    19 & Faux & Faux
+                \end{tabular}
+            \end{center}
+            Le théorème est vrai pour les nombres premiers \(\leq 19\).
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
 
 
 % a faire: finir 6, faire 8 et 2
