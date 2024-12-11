@@ -1,0 +1,211 @@
+\begin{td-exo}[]\,
+    \begin{enumerate}
+        \item Rappeler les quatres modes de convergence vus en cours,
+        leurs implications, et réciproques (sous certaines hypothèses)
+        éventuelles. On se restreindra au cas de variables aléatoires
+        réelles.
+
+        \item Enoncer le théorème central-limite. On écrira la convergence
+        en loi qui apparaît dans le théorème avec la définition puis avec
+        la caractérisation via les fonctions de répartition.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item Pour \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires réelles,
+            et \(X\) une variable aléatoire réelle, on a
+            \begin{itemize}
+                \item Convergence presque sure:
+                \begin{equation*}
+                    X_n\cvpsn X,\quad \bb P(\{X_n\cvn X\}) = \bb P(\{\omega\in\Omega,X_n(\omega)\cv X(\omega)\})=1
+                \end{equation*}
+
+                \item Convergence en probabilité:
+                \begin{equation*}
+                    X_n\cvpn X,\quad \forall \varepsilon>0,\quad \bb P(\{|X_n-X|>\varepsilon\})\cvn 0
+                \end{equation*}
+
+                \item Convergence dans \(\mathcal L^p\):
+                \begin{equation*}
+                    X_n\cvlpn X,\quad \bb E[{|X_n-X|}^p]\cvn 0
+                \end{equation*}
+
+                \item Convergence en loi:
+                \begin{equation*}
+                    X_n\cvlawn X,\quad \forall h\in C_b^0(\bb R,\bb R),\quad \bb E[h(X_n)]\cvn \bb E[h(X)]
+                \end{equation*}
+            \end{itemize}
+
+            \input{../assets/tikz/02_figure_cours3_conv.tex}
+
+            \item Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires
+            \iid{} dans \(\mathcal L^2(\Omega,\mathcal F,\bb P)\) (de variance
+            finie non nulle). Alors
+            \begin{equation*}
+                \begin{aligned}
+                    &S_n = X_1 + \cdots + X_n,\\
+                    &\frac{S_n-n\bb E[X_1]}{\sqrt{n\var(X_1)}}\cvlawn \mathcal N(0,1)\\
+                    \iff& \forall x\in \bb R\\
+                    &\bb P\left(\frac{S_n-n\bb E[X_1]}{\sqrt{n\var(X_1)}}\leq x\right)\cvn \Phi(x) = \int_{-\infty}^x\frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}}\der t
+                \end{aligned}
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\,
+    Pour tout entier \(n\geq 1\) on définit la fonction \(f_n\) sur \(\bb R\)
+    par
+    \begin{equation*}
+        f_n(x) = \frac{n}{\pi\left(1+n^2 x^2\right)},\quad x\in\bb R
+    \end{equation*}
+    \begin{enumerate}
+        \item Montrer que \(f_n\) est une densité pour tout entier \(n\geq 1\).
+
+        \item Soit \({(X_n)}_{n\geq 1}\) une suite de variables aléatoires telle
+        que \(X_n\) admet une densité \(f_n\). Les variables aléatoires \(X_n\)
+        admettent-elles des moments?
+
+        \item Etudier la convergence en loi, puis la convergence en probabilité
+        de la suite \({(X_n)}_{n\geq 1}\).
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item Soit \(n\geq 1\). La fonction \(f_n\) est
+            mesurable et positive. De plus, on a
+            \begin{equation*}
+                \begin{aligned}
+                    \int_{\bb R}f_n(x)\der x 
+                    &= \int_{-\infty}^{+\infty}\frac{n}{\pi\left(1+n^2 x^2\right)}\der x\\
+                    &= \frac{1}{\pi}\int_{-\infty}^{+\infty}\frac{n}{1+n^2 x^2}\der x\\
+                    &= \frac{1}{\pi}\int_{-\infty}^{+\infty}\frac{1}{1+t^2}\der t\\
+                    &= \frac{1}{\pi}{\left[\arctan(t)\right]}_{-\infty}^{+\infty}\\
+                    &= \frac{1}{\pi}\left(\frac{\pi}{2}-\left(-\frac{\pi}{2}\right)\right)\\
+                    &= 1
+                \end{aligned}
+            \end{equation*}
+            Donc \(f_n\) est une densité.
+
+            \item Soit \(n\geq 1\). On a l'équivalent
+            \begin{equation*}
+                x f_n(x) \underset{x\to\pm\infty}{\sim} \frac{1}{\pi n x}
+            \end{equation*}
+            Or cette dernière quantité n'est pas intégrable (Riemann) 
+            donc \(x f_n(x)\) n'est pas intégrable, donc
+            \(X_n\) n'admet pas d'espérance. Par conséquent, \(X_n\)
+            n'admet aucun moment d'ordre \(p\geq 1\).
+
+            \item Soit \(n\geq 1\). On a
+            \begin{equation*}
+                \begin{aligned}
+                    F_n(x)
+                    &= \bb P(X_n\leq x)\\
+                    &= \int_{-\infty}^x f_n(t)\der t\\
+                    &= \int_{-\infty}^x\frac{n}{\pi\left(1+n^2 t^2\right)}\der t\\
+                    &= \frac{1}{\pi}{\left[\arctan(nt)\right]}_{-\infty}^x\\
+                    &= \frac{\arctan(nx)}{\pi}+\frac{1}{2}
+                \end{aligned}
+            \end{equation*}
+            On a
+            \begin{equation*}
+                \frac{\arctan(nx)}{\pi}+\frac{1}{2} \cvn
+                \begin{cases}
+                    1,&\text{ si }x>0\\
+                    \frac{1}{2},&\text{ si }x=0\\
+                    0,&\text{ si }x<0
+                \end{cases}\quad =F(x)
+            \end{equation*}
+            \begin{remark}
+                Si \(Y\sim \delta_0\), alors
+                \begin{equation*}
+                    F_Y(x) = \bb P(Y\leq x) = \begin{cases}
+                        0,&\text{ si }x<0\\
+                        1,&\text{ si }x\geq 0
+                    \end{cases}
+                \end{equation*}
+            \end{remark}
+            Ainsi, on a
+            \begin{equation*}
+                F_n(x)\cvn F(x)
+            \end{equation*}
+            pour tout point de continuité \(x\) de \(F\).
+            Donc \(X_n\cvlawn X\), où \(X\sim \delta_0\).
+
+            On a montré que \(X_n\cvlawn 0\). Comme \({(X_n)}_{n\geq 1}\)
+            converge en loi vers une constante, elle converge en probabilité vers
+            0. Alors
+            \begin{equation*}
+                X_n\cvpn 0
+            \end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\begin{td-exo}[]\,
+    On considère deux suites de variables aléatoires \({(X_n)}_{n\geq 1}\)
+    et \({(Y_n)}_{n\geq 1}\) définies sur le même espace probabilisé
+    et qui convergent en loi respectivement vers les variables aléatoires
+    \(X\) et \(Y\). 
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        fill
+    \end{td-sol}
+}{}
+
+
+\begin{td-exo}[]\,
+    Soit \(X_1, X_2,\ldots\) une suite \iid{} de variables aléatoires
+    telle que
+    \begin{equation*}
+        \bb P(X_1=1) = \bb P(X_1=-1) = \frac{1}{2}
+    \end{equation*}
+    On pose \(S_n= X_1+\cdots X_n\). En utilisant le théorème central
+    limite, déterminer la limite de \(\bb P(S_n\geq 0)\) quand \(n\to\infty\).
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        On a
+        \begin{equation*}
+            \begin{aligned}
+                \bb E[X_1] = -1\times\frac12 + 1\times\frac12 = 0\\
+                \var(X_1) = \bb E[X_1^2] = {\left(-1\right)}^2\times\frac12+1^2\times\frac12=1
+            \end{aligned}
+        \end{equation*}
+        Les \(X_n\) sont \iid{} de variance finie non nulle, le théorème
+        central limite donne alors
+        \begin{equation*}
+            \frac{S_n - n\bb E[X_1]}{\sqrt{n\var(X_1)}} 
+            = \frac{S_n}{\sqrt{n}}\cvlawn N\sim \mathcal N(0,1)
+        \end{equation*}
+        On a donc, pour tout \(x\in\bb R\),
+        \begin{equation*}
+            \bb P\left(\frac{S_n}{\sqrt{n}}\leq x\right) \cvn \bb P(N\leq x) 
+            = \int_{-\infty}^x \frac{e^{-\frac{t^2}{2}}}{\sqrt{2\pi}}\der t
+        \end{equation*}
+        En particulier, en \(x=0\), on a
+        \begin{equation*}
+            \bb P(S_n\leq 0) = \bb P\left(\frac{S_n}{\sqrt{n}} \leq 0\right)
+            \cvn \bb P(N\leq 0) = \frac12
+        \end{equation*}
+        On en déduit
+        \begin{equation*}
+            \begin{aligned}
+                \bb P(S_n\geq 0) 
+                &= \bb P(S_n>0) + \bb P(S_n = 0)\\
+                &= 1 - \underbrace{\bb P(S_n\leq 0)}_{\cv \frac12} + \underbrace{\bb P(S_n = 0)}_{\cv \begin{cases}
+                    =0,&\text{ si }n\text{ impair}\\
+                    \sim \frac{1}{\sqrt{2\pi n}},&\text{ si }n\text{ pair}
+                \end{cases}}\\
+                &= 0
+            \end{aligned}
+        \end{equation*}
+    \end{td-sol}
+}{}
