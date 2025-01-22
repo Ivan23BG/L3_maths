@@ -1,0 +1,50 @@
+\begin{td-exo}[]\, % 1
+    \begin{enumerate}
+        \item Soit \(\Omega\) un ensemble muni d'une tribu \(\scr F\) et 
+        \(x\in\Omega\). Montrer que
+        \begin{equation*}
+            \delta_x(A) = \one_A(x)
+        \end{equation*}
+        définit une probabilité sur \((\Omega,\scr F)\).
+
+        \item Soit \({(\bb P_n)}_{n\ge 1}\) une suite de mesures
+        de probabilité sur un espace mesurable \((\Omega,\scr F)\) et
+        \({(a_n)}_{n\ge 1}\) une suite de réels dans \(\ff{0,1}\) telle que
+        \begin{equation*}
+            \sum_{n=1}^{\infty} a_n = 1.
+        \end{equation*}
+        Montrer que
+        \begin{equation*}
+            \sum_{n=1}^{\infty} a_n \bb P_n
+        \end{equation*}
+        est une probabilité sur \((\Omega,\scr F)\).
+
+        \item Soit \(I\) un intervalle de \(\R\) de mesure de Lebesgue
+        \(\lambda(I)\) finie et strictement positive. Montrer que
+        \begin{equation*}
+            \bb P(A) = \frac{\lambda(A)}{\lambda(I)}
+        \end{equation*}
+        définit une probabilité sur \((I,\scr B(I))\).
+
+        \item Soit \((\Omega,\scr F,\mu)\) un espace mesuré (pas forcément
+        de probabilité) et \(f\colon \Omega\to\fo{0,\infty}\) une fonction
+        mesurable telle que
+        \begin{equation*}
+            \int_{\Omega} f(\omega) \der\mu(\omega) = 1.
+        \end{equation*}
+        Montrer que l'application
+        \begin{equation*}
+            \begin{aligned}
+                \bb P\colon \scr F &\to \bb R\\
+                A &\mapsto \int_{\Omega} f(\omega) \one_A(\omega) \der\mu(\omega)
+            \end{aligned}
+        \end{equation*}
+        est une probabilité sur \((\Omega,\scr F)\).
+    \end{enumerate}
+\end{td-exo}
+% ----- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol}[]\, % 1
+        test
+    \end{td-sol}
+}{}

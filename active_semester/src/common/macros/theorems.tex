@@ -1,0 +1,55 @@
+
+\newtheoremstyle{default}{\topsep}{\topsep}%
+{}% Body font
+{}% Indent amount (empty = no indent, \parindent = para indent)
+{\sffamily\bfseries}% Thm head font
+{.}% Punctuation after thm head
+{ }% Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnumber{~#2}\thmnote{~#3}}% Thm head spec
+
+\newtheoremstyle{nonum}{\topsep}{\topsep}%
+{}%
+{}%
+{\sffamily\bfseries}%
+{.}%
+{ }%
+{\thmname{#1}}%
+
+\newcommand{\mytheorem}[5]{%
+	\ifstrequal{#5}{o}{% Standalone counter
+		\newmdtheoremenv[
+		hidealllines=true,
+		leftline=true,
+		skipabove=0pt,
+		innertopmargin=-5pt,
+		innerbottommargin=2pt,
+		linewidth=4pt,
+		innerrightmargin=0pt,
+		linecolor=#3,
+		]{#1}[#4]{#2}%
+	}{% Dependant counter
+		\newmdtheoremenv[
+		hidealllines=true,
+		leftline=true,
+		skipabove=0pt,
+		innertopmargin=-5pt,
+		innerbottommargin=2pt,
+		linewidth=4pt,
+		innerrightmargin=0pt,
+		linecolor=#3,
+		]{#1}{#2}[#4]%
+	}%
+}
+
+% Custom Global Theorems --------------------------------------------------------
+\theoremstyle{default}
+\newtoggle{showsolutions}
+\newcounter{tdcounter}
+\counterwithin{tdcounter}{section}
+
+\mytheorem{td-exo}{Exercice}{astral}{tdcounter}{o}
+
+\theoremstyle{nonum}
+\mytheorem{td-sol}{Solution}{verdant}{}{}
+
+\mytheorem{remark}{Remarque}{verdant}{}{}
