@@ -1,0 +1,115 @@
+\section{Espaces métriques}\label{sec:espaces-metriques}
+
+Soit \(X\) un ensemble.
+
+\begin{definition}
+    On appellle une \defemph{distance} (ou métrique) sur \(X\)
+    une application \(d\ \colon\ X \times X \to \R\) telle que
+    pour tout \(x, y, z \in X\),
+    \begin{enumerate}[label=(\roman*)]
+        \item la distance est \emph{positive}:
+        \begin{equation*}
+            d(x, y) \geq 0
+        \end{equation*}
+
+        \item la distance possède la \emph{séparation}:
+        \begin{equation*}
+            d(x, y) = 0 \iff x = y
+        \end{equation*}
+
+        \item la distance est \emph{symétrique}:
+        \begin{equation*}
+            d(x, y) = d(y, x)
+        \end{equation*}
+
+        \item la distance vérifie l'\emph{inégalité triangulaire}:
+        \begin{equation*}
+            d(x, z) \leq d(x, y) + d(y, z)
+        \end{equation*}
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Un exemple classique de distance est la \defemph{distance euclidienne} sur \(\R^n\):
+    \begin{equation*}
+        d(x, y) = \sqrt{\sum_{i=1}^n {(x_i - y_i)}^2}
+    \end{equation*}
+\end{example}
+
+\begin{definition}
+    Soit \(E\) un \(\bb R\)-espace vectoriel.
+    On appelle \defemph{norme} sur \(E\) une application \(\nn{\cdot}\ \colon\ E \to \R^+\) telle que
+    pour tout \(x, y \in E\) et \(\lambda \in \R\),
+    \begin{enumerate}[label=(\roman*)]
+        \item la norme possède la \emph{séparation}:
+        \begin{equation*}
+            \nn{x} = 0 \iff x = 0
+        \end{equation*}
+
+        \item la norme est \emph{homogène}:
+        \begin{equation*}
+            \nn{\lambda x} = \abs{\lambda} \nn{x}
+        \end{equation*}
+
+        \item la norme vérifie l'\emph{inégalité triangulaire}:
+        \begin{equation*}
+            \nn{x + y} \leq \nn{x} + \nn{y}
+        \end{equation*}
+    \end{enumerate}
+\end{definition}
+
+\begin{exercice}[\(\star\)]\,\\
+    Montrer que si \(\nn{\cdot}\) est une norme sur \(E\), alors la fonction
+    \begin{equation*}
+        d(x, y) = \nn{x - y}
+    \end{equation*}
+    est une distance sur \(E\).
+\end{exercice}
+
+\begin{example}
+    Un exemple classique est \(\bb R^n\) muni d'une norme \(\nn{\cdot}\).
+\end{example}
+
+\begin{exercice}[\(\star\)]\,\\
+    Soit \(X\) et \(\delta\ \colon\ X \times X \to \R\) telle que
+    \begin{equation*}
+        \delta(x, y) = \begin{cases}
+            0 & \text{si } x = y \\
+            1 & \text{sinon}
+        \end{cases}
+    \end{equation*}
+    Montrer que \(\delta\) est une distance sur \(X\) appelée \defemph{distance discrète}.
+\end{exercice}
+
+\begin{remark}
+    Si on considère \(\bb R\) muni de \(\delta\) alors \(\delta\) n'est pas une norme.
+\end{remark}
+
+\section{Ouverts d'un espace métrique}\label{sec:ouverts-dun-espace-metrique}
+
+Soit \((X, d)\) un espace métrique.
+
+\begin{definition}
+    Pour \(\varepsilon > 0\) et \(x_0\in X\), on note
+    \begin{equation*}
+        \bolo{x_0}{\varepsilon} = \{x \in X \mid d(x, x_0) < \varepsilon\}
+    \end{equation*}
+    la \defemph{boule ouverte} de centre \(x_0\) et de rayon \(\varepsilon\).
+\end{definition}
+
+\begin{definition}
+    Une partie \(U \subset X\) est dite \defemph{ouverte} si pour tout \(x \in U\), il existe \(\varepsilon > 0\) tel que \(\bolo{x}{\varepsilon} \subset U\).
+\end{definition}
+
+\begin{example}\,
+    \begin{itemize}
+        \item Dans \(\R\) muni de la norme euclidienne, on a
+        \begin{equation*}
+            \bolo{x_0}{\varepsilon} = \{ x \in \R \mid \abs{x - x_0} < \varepsilon \}
+        \end{equation*}
+        qui est l'intervalle ouvert \(\oo{x_0 - \varepsilon, x_0 + \varepsilon}\).
+
+        \item Un contre-exemple est l'intervalle \(\fo{0, 1}\) dans \(\R\) qui n'est pas ouvert.
+    \end{itemize}
+\end{example}
+
