@@ -93,9 +93,9 @@
     \end{equation*}
     Dessiner leurs boules unités dans le cas \(n = 2\).
 \end{td-exo}
-% ----- Solutions exo 2
+% ----- Solutions exo 3
 \iftoggle{showsolutions}{
-    \begin{td-sol}[]\, % 2
+    \begin{td-sol}[]\, % 3
         Rappelons les propriétés d'une norme:
         \begin{enumerate}[label=(\roman*)]
             \item Positivité: \(\forall x \in \R^n, N(x) \geq 0\), vrai car la somme des valeurs absolues est positive.
@@ -127,21 +127,29 @@
 
 
 
-% ----- Consignes exo 2
-\begin{td-exo}[Distance et normes]\, % 2
-    Soit \(E\) un \(\bb K\)-espace vectoriel (avec \(\bb K = \bb Q,\bb R,\bb C\)) et \(\nn{\cdot}\) une norme sur \(E\).
-    Montrer que la fonction
+% ----- Consignes exo 4
+\begin{td-exo}[Distance Fly Emirates]\, % 4
+    Soit \((X,d)\) un espace métrique et \(\omega\) un point fixé
+    de \(X\) (Dubaï). On définit la fonction suivante:
     \begin{equation*}
         \begin{aligned}
-            d\ \colon\ E \times E &\to \R \\
-            (x, y) &\mapsto \nn{y - x}
+            D\ \colon\ X \times X &\to \R \\
+            (x, y) &\mapsto \begin{cases}
+                0 & \text{si } x = y, \\
+                d(x, \omega) + d(\omega, y) & \text{si } x \neq y.
+            \end{cases}
         \end{aligned}
     \end{equation*}
-    définit une distance sur \(E\).
+    \begin{enumerate}
+        \item Montrer que \(D\) définit une distance sur \(X\).
+        \item On suppose que \((X,d) = (\R^2, d_2)\) et \(\omega = (0,0)\).
+        Pour \(a\in X\), dessiner les boules ouvertes centrées en \(a\) pour la distance \(D\).
+        \item Montrer que si \(x\neq \omega\), le singleton \(\{x\}\) est ouvert pour la distance \(D\).
+    \end{enumerate}
 \end{td-exo}
-% ----- Solutions exo 2
+% ----- Solutions exo 4
 \iftoggle{showsolutions}{
-    \begin{td-sol}[]\, % 2
+    \begin{td-sol}[]\, % 4
         test
     \end{td-sol}
 }{}

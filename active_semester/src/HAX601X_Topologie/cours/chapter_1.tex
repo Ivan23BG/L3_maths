@@ -98,7 +98,8 @@ Soit \((X, d)\) un espace métrique.
 \end{definition}
 
 \begin{definition}
-    Une partie \(U \subset X\) est dite \defemph{ouverte} si pour tout \(x \in U\), il existe \(\varepsilon > 0\) tel que \(\bolo{x}{\varepsilon} \subset U\).
+    Une partie \(U \subset X\) est dite \defemph{ouverte} si et seulement si
+    pour tout \(x \in U\), il existe \(\varepsilon > 0\) tel que \(\bolo{x}{\varepsilon} \subset U\).
 \end{definition}
 
 \begin{example}\,
@@ -113,3 +114,76 @@ Soit \((X, d)\) un espace métrique.
     \end{itemize}
 \end{example}
 
+\begin{definition}
+    On note \defemph{\(\Tau_d = \{\text{ouverts de }X\}\)}
+\end{definition}
+
+\begin{proposition}
+    On a les propriétés suivantes:
+    \begin{enumerate}[label=(\roman*)]
+        \item \(X \in \Tau_d\) et \(\varnothing \in \Tau_d\),
+        \item Si \({\{U_i\}}_{i \in I}\) est une famille de \(\Tau_d\), alors \(\bigcup_{i \in I} U_i \in \Tau_d\),
+        \item Si  \({\{U_i\}}_{i \in \{1, \ldots, n\}}\) est une famille finie de \(\Tau_d\), alors \(\bigcap_{i = 1}^n U_i \in \Tau_d\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}\,
+    \begin{enumerate}[label=(\roman*)]
+        \item Par convention de logique, on a \(\varnothing\in \Tau_d\).
+        Soit \(x \in X\), alors \(\bolo{x}{1} \sub X\), donc \(X \in \Tau_d\).
+
+        \item Soit \(x \in \bigcup_{i \in I} U_i\), alors il existe \(i \in I\) tel que \(x \in U_i\).
+        Comme \(U_i \in \Tau_d\), il existe \(\varepsilon > 0\) tel que \(\bolo{x}{\varepsilon} \sub U_i \sub \bigcup_{i \in I} U_i\).
+        Donc \(\bigcup_{i \in I} U_i \in \Tau_d\).
+
+        \item Soit \(x \in \bigcap_{i = 1}^n U_i\), alors pour tout \(i \in \{1, \ldots, n\}\), on a \(x \in U_i\).
+        Comme \(U_i \in \Tau_d\), il existe \(\varepsilon_i > 0\) tel que \(\bolo{x}{\varepsilon_i} \sub U_i\).
+        Posons \(\varepsilon = \min_{i = 1}^n \varepsilon_i\), alors pour tout \(i \in \{1, \ldots, n\}\), on a \(\bolo{x}{\varepsilon} \sub U_i\).
+        Donc \(\bigcap_{i = 1}^n U_i \in \Tau_d\).
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Soit \(X\) un ensemble (pas forcément métrique). On dit que
+    \(\Tau \sub\scr P(x)\) est une \defemph{topologie} sur \(X\) si
+    elle vérifie les propriétés suivantes:
+    \begin{enumerate}[label=(\roman*)]
+        \item \(X \in \Tau\) et \(\varnothing \in \Tau\),
+        \item Si \({\{U_i\}}_{i \in I}\) est une famille de \(\Tau\), alors \(\bigcup_{i \in I} U_i \in \Tau\),
+        \item Si  \({\{U_i\}}_{i \in \{1, \ldots, n\}}\) est une famille finie de \(\Tau\), alors \(\bigcap_{i = 1}^n U_i \in \Tau\).
+    \end{enumerate}
+
+    Les éléments de \(\Tau\) sont appelés \defemph{ouverts} de \(X\).
+    On dit alors que \((X, \Tau)\) est un \defemph{espace topologique}.
+\end{definition}
+
+\begin{example}
+    Soit \(X\) un ensemble. On a les exemples suivants:
+    \begin{enumerate}[label=(\alph*)]
+        \item Si \((X, d)\) est un espace métrique, alors \(\Tau_d\) est une topologie sur \(X\).
+        \item \(\Tau = \{\varnothing, X\}\) est une topologie sur \(X\).
+        \item \(\Tau = \scr P(X) = \Tau_\delta\) est une topologie sur \(X\) où \(\delta\) est la distance discrète.
+        \item Si \(X = \{a, b\}\), alors \(\Tau = \{\varnothing, \{a\}, \{a, b\}\}\) est une topologie sur \(X\).
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Soit \((X, \Tau_X)\) et \((Y, \Tau_Y)\) deux espaces topologiques
+    et \(f\ \colon\ X \to Y\) une application.
+    On dit que \(f\) est \defemph{continue} si pour tout ouvert \(V \in \Tau_Y\),
+    \(f^{-1}(V) \in \Tau_X\).
+\end{definition}
+
+\begin{definition}
+    Soit \((X, \Tau)\) un espace topologique.
+    On dit que \(A \subset X\) est \defemph{fermé} si \(X \setminus A\) est ouvert.
+\end{definition}
+
+\begin{remark}
+    Un ensemble \(A\sub X\) peut être ouvert et fermé en même temps.
+\end{remark}
+
+\begin{example}
+    Si on se place dans \(\R\) muni de la norme euclidienne, alors
+    l'intervalle \(\fo{0, 1}\) n'est ni ouvert ni fermé.
+\end{example}
