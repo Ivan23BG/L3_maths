@@ -4,7 +4,7 @@
 \newcommand{\scr}[1]{\mathscr{#1}} % Script font shortcut
 \newcommand{\bb}[1]{\mathbb{#1}} % Blackboard bold shortcut
 \newcommand{\ol}[1]{\overline{#1}} % Overline shortcut
-\newcommand{\ul}[1]{\underline{#1}} % Underline shortcut
+% \newcommand{\ul}[1]{\underline{#1}} % Underline shortcut
 
 % Interval notation
 \newcommand{\oo}[1]{\mathopen{}\left]#1\right[\mathclose{}} % Open interval % chktex 9
@@ -18,31 +18,25 @@
 \newcommand{\N}{\mathbb{N}} % Natural numbers
 \newcommand{\C}{\mathbb{C}} % Complex numbers
 \newcommand{\Q}{\mathbb{Q}} % Rational numbers
-\newcommand{\bbR}{\mathbb{R}} % Real numbers
-\newcommand{\bbZ}{\mathbb{Z}} % Integers
-\newcommand{\bbN}{\mathbb{N}} % Natural numbers
-\newcommand{\bbC}{\mathbb{C}} % Complex numbers
-\newcommand{\bbQ}{\mathbb{Q}} % Complex numbers
-\newcommand{\scrP}{\mathscr{P}} % Set of subsets
 \newcommand{\barR}{\overline{\bb{R}}} % R with infinities
-\newcommand{\gln}{\text{GL}_n} % General linear group of degree n
-\newcommand{\glx}[1]{\text{GL}_{#1}} % General linear group
-%
+% \newcommand{\gln}{\mathsf{GL}_n} % General linear group
+\newcommand{\glx}[1]{\mathsf{GL}_{#1}} % General linear group
+% \newcommand{\set}[1]{\left\{#1\right\}} % Set
 \newcommand{\sub}{\subset} % Subset
-\newcommand{\cequiv}[1]{\mathopen{}[#1\mathclose{}]} % Equivalence class
+% \newcommand{\cequiv}[1]{\mathopen{}[#1\mathclose{}]} % Equivalence class
 \newcommand{\restr}[2]{#1\mathop{}\!|_{#2}} % Restriction
-\newcommand{\adh}[1]{\mathring{#1}} % Adherence
-\newcommand{\Adh}[1]{\mathring{\overbrace{#1}}} % Big adherence
-\newcommand{\comp}[1]{{#1}^C} % Complementary of a set
+% \newcommand{\adh}[1]{\mathring{#1}} % Adherence
+% \newcommand{\Adh}[1]{\mathring{\overbrace{#1}}} % Big adherence
+\newcommand{\comp}[1]{{#1}^{\mathsf{c}}} % Complement
 
 % Differential notation
 \newcommand{\der}{\mathop{}\!{d}} % Differential operator
 \newcommand{\p}{\mathop{}\!{\partial}} % Partial derivative operator
-\providecommand{\dpar}[2]{\frac{\partial{#1}}{\partial{#2}}}
+%\providecommand{\dpar}[2]{\frac{\partial{#1}}{\partial{#2}}}
 
 % Topology notation
-\newcommand{\bolo}[1]{B\left({#1}\mathopen{}\right[\mathclose{}} % Open ball
-\newcommand{\bolf}[1]{B\left({#1}\mathopen{}\right]\mathclose{}} % Closed ball
+\newcommand{\bolo}[1]{\mathsf{B}\left({#1}\mathopen{}\right[\mathclose{}} % Open ball
+\newcommand{\bolf}[1]{\mathsf{B}\left({#1}\mathopen{}\right]\mathclose{}} % Closed ball
 
 % Limits notation
 \newcommand{\limi}{\underline{\lim}}
@@ -51,7 +45,6 @@
 % Norm notation
 \newcommand{\norm}{\mathcal{N}} % Norm
 \newcommand{\nn}[1]{\mathopen{}\left\|#1\right\|\mathclose{}} % Double bar norm
-\newcommand{\nnn}[1]{\mathopen{}\left\||#1|\right\|\mathclose{}} % Double bar norm
 \newcommand{\n}[1]{\mathopen{}\left|#1\right|\mathclose{}} % Single bar norm
 
 
@@ -75,7 +68,6 @@
 \DeclareMathOperator{\cov}{\mathsf{Cov}} % Covariance
 \providecommand{\B}{\mathsf{B}} % Bold symbol
 
-\usepackage{dsfont}
 \newcommand{\one}{\mathds{1}}
 
 \newcommand{\smol}[1]{\text{\scriptsize{#1}}}

@@ -1,11 +1,11 @@
 \begin{td-exo}[Tribu engendrée par les singletons]
     Soit \(X\) un ensemble. On considère la collection de parties de \(X\) suivante:
     \[
-    \scr D=\{A\subset X\ |\ A\mbox{ dénombrable, ou }A^c\mbox{ dénombrable}\}\subset\scrP(X).
+    \scr D=\{A\subset X\ |\ A\mbox{ dénombrable, ou }A^c\mbox{ dénombrable}\}\subset\scr P(X).
     \]
     \begin{enumerate}
         \item  Montrer que \(\scr D\) est une tribu sur \(X\).
-        \item  On note \(\scr C=\bigl\{\{x\}\ |\ x\in X\bigr\}\subset\scrP(X)\) la classe des singletons (\textit{i.e.} des parties à un seul élément). Comparer \(\scr D\) et \(\sigma(\scr C)\).
+        \item  On note \(\scr C=\bigl\{\{x\}\ |\ x\in X\bigr\}\subset\scr P(X)\) la classe des singletons (\textit{i.e.} des parties à un seul élément). Comparer \(\scr D\) et \(\sigma(\scr C)\).
         \item  Sur \(\N\), quelle est la tribu engendrée par les singletons?
     \end{enumerate}
 \end{td-exo}
@@ -113,7 +113,7 @@
     Soit \((X, \scr F)\) un espace mesurable. Déterminer les fonctions de \(X \to \R\) qui sont mesurables lorsque 
     \begin{enumerate}
         \item  \(\scr F = \left\{ \varnothing, X \right\}\).
-        \item  \(\scr F = \scrP(X)\) 
+        \item  \(\scr F = \scr P(X)\) 
         %\item \(\scr F = \sigma(\{A\})\)  avec \(A\subset X\) fixé.
         \item \(\scr F=\Bigl\{\bigcup_{i\in I}A_i\ \Bigl|\ I\subset\{1,\dots,n\}\Bigr\}\)  avec  \((A_1,\dots,A_n)\) une partition finie de \(X\). (On montrera que \(\scr F\) est une tribu et on se contentera d'un critère suffisant de mesurabilité).
     \end{enumerate}
@@ -129,7 +129,7 @@
             \end{equation*}
             et \(f\) est constante.
             
-            \item Si \(\scr F = \scrP(X)\), alors toute fonction \(f:X\to\R\) est mesurable car 
+            \item Si \(\scr F = \scr P(X)\), alors toute fonction \(f:X\to\R\) est mesurable car 
             \begin{equation*}
                 \forall B\in\scr B(\R),\quad f^{-1}(B)\in\scr P(X)=\scr F.
             \end{equation*}
@@ -259,7 +259,7 @@
 
 \begin{td-exo}\label{exo_mesurabilite_extension}\,
 \begin{enumerate}
-        \item\label{exo_mesurabilite_extension_q1} On suppose que \(X\in\scr B(\R^n)\). Soit \(f:X\to\bbC\) une fonctions borélienne. Montrer que la fonction \(g:\R^n\to\bbC\) définie par
+        \item\label{exo_mesurabilite_extension_q1} On suppose que \(X\in\scr B(\R^n)\). Soit \(f:X\to\bb C\) une fonctions borélienne. Montrer que la fonction \(g:\R^n\to\bb C\) définie par
         \(
         g(x)=\begin{cases}
             f(x) & \mbox{si } x\in X \\
@@ -268,7 +268,7 @@
         \)
         est borélienne.
         
-        \item Soit \(h:\R^n\to\bbC\) borélienne. Montrer que \(|h|\) est borélienne et qu'il existe \(\alpha:\R^n\to\bbC\) borélienne telle que \(|\alpha(x)|=1\) et \(h(x)=|h(x)|\alpha(x)\) pour tout \(x\in X\).
+        \item Soit \(h:\R^n\to\bb C\) borélienne. Montrer que \(|h|\) est borélienne et qu'il existe \(\alpha:\R^n\to\bb C\) borélienne telle que \(|\alpha(x)|=1\) et \(h(x)=|h(x)|\alpha(x)\) pour tout \(x\in X\).
     \end{enumerate}
 \end{td-exo}
 % ----- Solutions exo 6
@@ -661,7 +661,7 @@
 %
 
 \begin{td-exo}
-    Soit \(X=\{1,2,3,4,5,6\}\) et soit \(\scr C=\bigl\{\{1\},\{2,4\},\{2,5\}\bigr\}\subset\scrP(X)\). Déterminer \(\sigma(\scr C)\).
+    Soit \(X=\{1,2,3,4,5,6\}\) et soit \(\scr C=\bigl\{\{1\},\{2,4\},\{2,5\}\bigr\}\subset\scr P(X)\). Déterminer \(\sigma(\scr C)\).
 \end{td-exo}
 
 \begin{td-exo}[Tribu image réciproque]

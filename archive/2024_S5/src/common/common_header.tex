@@ -13,6 +13,7 @@
 \usepackage{fancyhdr} % Create custom headers and footers
 \usepackage{titlesec} % Customize section titles
 \usepackage{titletoc} % For better TOC control
+\usepackage{sectsty} % Allows customizing section fonts
 
 % Mathematical Symbols and Enhancements -----------------------------------------
 \usepackage{centernot} % Provides the \centernot command for centered negation
@@ -28,6 +29,7 @@
 \usepackage{MnSymbol} % More math symbols
 \usepackage{etoolbox} % Conditional macros
 \usepackage{hyperref} % Hyperlinks within the document
+\usepackage{dsfont} % Double stroke font
 
 % Graphing Tools ----------------------------------------------------------------
 \usepackage{tikz} % Create graphics programmatically
@@ -106,7 +108,7 @@
 \providecommand{\defemph}[1]{{\sffamily\bfseries\color{astral}#1}}
 
 % Section styling
-\usepackage{sectsty} % Allows customizing section fonts
+
 \allsectionsfont{\color{astral}\normalfont\sffamily\bfseries} % Style all section headers
 
 \newcommand{\skipline}{\vspace{\baselineskip}} % Skip a line

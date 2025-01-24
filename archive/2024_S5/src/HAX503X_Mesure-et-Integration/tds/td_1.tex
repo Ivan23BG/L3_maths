@@ -22,10 +22,10 @@
         \item Sur les unions monotones croissantes:
         \begin{equation*}
             \begin{aligned}
-                &U_1 = \bigcup_{n\in\bbN^*} \of{0, 1 - \tfrac 1 n},&
-                &U_2 = \bigcup_{n\in\bbN^*} \oo{0,1 - \tfrac 1 n},&
-                &U_3 = \bigcup_{n\in\bbN^*} \ff{0, 1 - \tfrac 1 n},&
-                &U_4 = \bigcup_{n\in\bbN^*} \fo{0,1 - \tfrac 1 n},\\
+                &U_1 = \bigcup_{n\in\N^*} \of{0, 1 - \tfrac 1 n},&
+                &U_2 = \bigcup_{n\in\N^*} \oo{0,1 - \tfrac 1 n},&
+                &U_3 = \bigcup_{n\in\N^*} \ff{0, 1 - \tfrac 1 n},&
+                &U_4 = \bigcup_{n\in\N^*} \fo{0,1 - \tfrac 1 n},\\
                 &V_1 = \of{0, \lim_{n\to+\infty} 1 - \tfrac 1 n},&
                 &V_2 = \oo{0, \lim_{n\to+\infty} 1 - \tfrac 1 n},&
                 &V_3 = \ff{0, \lim_{n\to+\infty} 1 - \tfrac 1 n},&
@@ -88,15 +88,15 @@
 }{}
 % ----- Exo 2
 \begin{td-exo}
-    Soit \(X\) un ensemble et soit \({(A_i)}_{i\in I}\) une famille de \(\scrP(X)\)
+    Soit \(X\) un ensemble et soit \({(A_i)}_{i\in I}\) une famille de \(\scr P(X)\)
     indexée par un ensemble \(I\) quelconque (fini ou infini, dénombrable ou non).
     Montrer les assertions suivantes:
     \begin{enumerate}
         % ----- Partie 1 - De Morgan sur les complémentaires
-        \item Pour tout \(A,B\in\scrP(X)\), on a 
+        \item Pour tout \(A,B\in\scr P(X)\), on a 
         \(A\subset B \Leftrightarrow \comp{B} \subset \comp{A}\).
         % ----- Partie 2 - De Morgan sur les unions et intersections
-        \item Distributivités: pour tout \(B\in\scrP(X)\), 
+        \item Distributivités: pour tout \(B\in\scr P(X)\), 
             \begin{equation*}
                 \left(\bigcup_{i\in I}A_i\right)\cap B = \bigcup_{i\in I}(A_i\cap B)
                 \quad\text{ et }\quad
@@ -124,7 +124,7 @@
             Soit \(x\in A\). Si \(x\in \comp B\) alors par hypothèse, \(x\in \comp A\) ce qui est absurde.
             Alors, \(x\in \comp{\comp{B}} = B\).
             
-            On a donc démontré que pour tout \(A,B\in\scrP(X)\), on a 
+            On a donc démontré que pour tout \(A,B\in\scr P(X)\), on a 
             \(A\subset B \Leftrightarrow \comp{B} \subset \comp{A}\).
 
             \item Commençons par montrer la distributivité de l'intersection sur l'union:
@@ -163,12 +163,12 @@
     Les assertions suivantes sont-elles vraies ou fausses? Pour chacune d'entre
     elles, donner une preuve ou un contre-exemple:
     \begin{enumerate}
-        \item Image directe: soit \(A,B\in\scrP(X)\),
+        \item Image directe: soit \(A,B\in\scr P(X)\),
             \begin{enumerate}
                 \item \(f(A\cup B) = f(A)\cup f(B)\) et \(f(A\cap B) = f(A)\cap f(B)\).
                 \item \(f(\comp{A})=\comp{f(A)}\).
             \end{enumerate}
-        \item Image réciproque: soit \(C,D\in\scrP(Y)\),
+        \item Image réciproque: soit \(C,D\in\scr P(Y)\),
             \begin{enumerate}
                 \item \(f^{-1}(C\cup D) = f^{-1}(C)\cup f^{-1}(D)\) et \(f^{-1}(C\cap D) = f^{-1}(C)\cap f^{-1}(D)\).
                 \item \(f^{-1}(\comp{C})=\comp{f^{-1}(C)}\).
@@ -263,12 +263,12 @@
 % ----- Exo 4
 \begin{td-exo}[Limites supérieures et inférieures de suites et fonctions]\, % 4
     \begin{enumerate}
-        \item Soit \({(x_n)}_{n\in\bbN}\) 
+        \item Soit \({(x_n)}_{n\in\N}\) 
         la suite réelle définie par \(x_n=\left(\frac{n}{2}-\left\lfloor\frac{n}{2}\right\rfloor\right)e^n\), 
         où \(\lfloor \cdot\rfloor\) désigne la fonction \emph{partie entière}. 
         Calculer \(\liminf\limits_{n\to+\infty} x_n\) et \(\limsup\limits_{n\to+\infty} x_n\).
         \item Calculer \(\liminf\limits_{n\to+\infty} f_n\) et \(\limsup\limits_{n\to+\infty} f_n\) 
-        où \(f_n:\bbR\to\bbR\) est définie par \(f_n(x)=\cos^n(x)\).
+        où \(f_n:\bb R\to\bb R\) est définie par \(f_n(x)=\cos^n(x)\).
 
     \end{enumerate}
 
@@ -338,7 +338,7 @@
 \end{remark}
 % ----- Exo 5
 \begin{td-exo}[Fonctions indicatrices]
-    Soit \(X\) un ensemble et \(A\in\scrP(X)\). La fonction indicatrice de \(A\) est l'application \(\one_A:X\to\bbR\) définie par
+    Soit \(X\) un ensemble et \(A\in\scr P(X)\). La fonction indicatrice de \(A\) est l'application \(\one_A:X\to\bb R\) définie par
     \[
     \one(x)=\begin{cases}
                         1 & \mbox{ si } x\in A \\
@@ -348,7 +348,7 @@
     \begin{enumerate}
         \item Exprimer \(\one_{A^c}\), \(\one_{A\cap B}\) et \(\one_{A\cup B}\) à l'aide de \(\one_A\) et \(\one_B\).
         
-        \item Montrer que \(\scrP(X)\) et \({\{0,1\}}^X\) sont équipotents.
+        \item Montrer que \(\scr P(X)\) et \({\{0,1\}}^X\) sont équipotents.
     \end{enumerate}
 \end{td-exo}
 % ----- Solutions exo 5
@@ -410,24 +410,24 @@
                 \end{equation*}
             \end{itemize}
 
-            \item Montrons qu'il existe une bijection entre \(\scrP(X)\) et \({\left\{0,1\right\}}^X\). On pose:
+            \item Montrons qu'il existe une bijection entre \(\scr P(X)\) et \({\left\{0,1\right\}}^X\). On pose:
             \begin{equation*}
                 \begin{aligned}
                     &\begin{aligned}
-                        f\colon \scrP(X)
+                        f\colon \scr P(X)
                         &\to {\left\{0,1\right\}}^X\\
                         E&\mapsto \one_E
                     \end{aligned}\\
                     &\begin{aligned}
                         g\colon{\left\{0,1\right\}}^X
-                        &\to \scrP(X)\\
+                        &\to \scr P(X)\\
                         a&\mapsto \left\{x\in X,a(x)=1\right\}=a^{-1}(\{1\})
                     \end{aligned}
                 \end{aligned}
             \end{equation*}
             On veut montrer que \(g\circ f=f\circ g = \id\) dans leurs ensembles respectifs.
 
-            Soit \(E\in\scrP(X)\).
+            Soit \(E\in\scr P(X)\).
             \begin{equation*}
                 \begin{aligned}
                     g\circ f(E)
@@ -460,7 +460,7 @@
 
             En conclusion, on a \(a=\one_I\) et  \(f\circ g(a)=a\).
 
-            Comme on a \(f\) bijective, les ensembles \(\scrP(X)\) et \({0,1}^X\) sont équipotents.
+            Comme on a \(f\) bijective, les ensembles \(\scr P(X)\) et \({0,1}^X\) sont équipotents.
         \end{enumerate}
     \end{td-sol}
 }{}
@@ -474,9 +474,9 @@ Attention aux notations ici, on utilise les mêmes notations pour les limites de
 \end{remark}
 % ----- Exo 6
 \begin{td-exo}
-    Soit \({(A_n)}_{n\in\bbN}\) une suite de parties de \(X\). Pour tout \(n\in\bbN\), on note \(f_n=\one_{A_n}\).
+    Soit \({(A_n)}_{n\in\N}\) une suite de parties de \(X\). Pour tout \(n\in\N\), on note \(f_n=\one_{A_n}\).
     
-    Montrer qu'il existe deux parties \(B,C\in\scrP(X)\) telles que 
+    Montrer qu'il existe deux parties \(B,C\in\scr P(X)\) telles que 
     \(\displaystyle \liminf_{n\to+\infty} f_n=\one_B\) et \(\displaystyle \limsup_{n\to+\infty} f_n=\one_C\). 
     Exprimer \(B\) et \(C\) en fonction des parties \(A_n\). Interpréter les ensembles \(B\) et \(C\).
 \end{td-exo}
@@ -562,7 +562,7 @@ Attention aux notations ici, on utilise les mêmes notations pour les limites de
 %
 % ----- Exo 9
 \begin{td-exo}
-    Soit \(E\) un ensemble et \(A,B\in\scrP(E)\) deux parties fixées. On considère l'application \(\varphi:\scrP(E)\to\scrP(A)\times\scrP(B)\) définie par
+    Soit \(E\) un ensemble et \(A,B\in\scr P(E)\) deux parties fixées. On considère l'application \(\varphi:\scr P(E)\to\scr P(A)\times\scr P(B)\) définie par
     \[
     \varphi(X) = (X\cap A, X\cap B).
     \]
@@ -605,16 +605,16 @@ Attention aux notations ici, on utilise les mêmes notations pour les limites de
 %
 %-------------------------------------------------------------------------------
     \begin{td-exo}
-    Soit \(X\) un ensemble non vide. Pour deux parties \(A,B\in\scrP(X)\), la différence symétrique de \(A\) et \(B\) est définie par
+    Soit \(X\) un ensemble non vide. Pour deux parties \(A,B\in\scr P(X)\), la différence symétrique de \(A\) et \(B\) est définie par
     \[
     A\vartriangle B = (A\cup B)\setminus (A\cap B).
     \]
     \begin{enumerate}
         \item Montrer que \(A\vartriangle B=(A\setminus B)\cup(B\setminus A)\). Exprimer \(\one_{A\vartriangle B}\) en fonction de \(\one_A\) et \(\one_B\).
-        \item Montrer que \(\vartriangle\) est associative sur \(\scrP(X)\).
-        \item Montrer qu'il existe une unique partie \(E\in\scrP(X)\) telle que, pour tout \(A\in\scrP(X)\), on ait
+        \item Montrer que \(\vartriangle\) est associative sur \(\scr P(X)\).
+        \item Montrer qu'il existe une unique partie \(E\in\scr P(X)\) telle que, pour tout \(A\in\scr P(X)\), on ait
         \(A\vartriangle E = E\vartriangle A = A\).
-        \item Montrer que pour tout \(A\in\scrP(X)\) il existe un unique \(A'\in\scrP(X)\) tel que \(A\vartriangle A'=A'\vartriangle A = E\).
+        \item Montrer que pour tout \(A\in\scr P(X)\) il existe un unique \(A'\in\scr P(X)\) tel que \(A\vartriangle A'=A'\vartriangle A = E\).
     \end{enumerate}
 \end{td-exo}
 
@@ -622,9 +622,9 @@ Attention aux notations ici, on utilise les mêmes notations pour les limites de
 %
 %-------------------------------------------------------------------------------
     \begin{td-exo}
-    On note \(\bbQ[X]\) l'ensemble des polynômes à coefficients rationnels et \(\bbQ_n[X]\) l'ensemble de ceux qui sont de degré au plus \(n\).
+    On note \(\bb Q[X]\) l'ensemble des polynômes à coefficients rationnels et \(\bb Q_n[X]\) l'ensemble de ceux qui sont de degré au plus \(n\).
     \begin{enumerate}
-        \item Montrer que, pour tout \(n\in\bbN\), l'ensemble \(\bbQ_n[X]\) est dénombrable. En déduire que \(\bbQ[X]\) est aussi dénombrable.
+        \item Montrer que, pour tout \(n\in\N\), l'ensemble \(\bb Q_n[X]\) est dénombrable. En déduire que \(\bb Q[X]\) est aussi dénombrable.
         \item Les nombres algébriques sont les nombres complexes qui sont racine d'un polynôme à coefficients rationnels. Montrer que l'ensemble des nombres algébriques est dénombrable.
     \end{enumerate}
 \end{td-exo}
