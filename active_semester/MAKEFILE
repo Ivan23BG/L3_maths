@@ -1,111 +1,142 @@
-# Main Makefile
-# ============
+# LaTeX Project Makefile
+# ====================================
 
-# Root directory definitions
-SRC_DIR := src
-BUILD_DIR := build
-LOG_DIR := logs
-PDF_DIR := pdfs
-COMMON_DIR := $(SRC_DIR)/common
+# Project Structure Configuration
+# -------------------------------
+SRC_DIR      := src
+BUILD_DIR    := build
+LOG_DIR      := logs
+PDF_DIR      := pdfs
+COMMON_DIR   := $(SRC_DIR)/common
 
-# Parallel compilation
+# LaTeX Compilation Settings
+# -------------------------
+LATEXMK       := latexmk
+LATEXMK_FLAGS := -interaction=nonstopmode -shell-escape -pdf -synctex=1
+
+# Parallel Compilation
+# -------------------
 MAKEFLAGS += --jobs=$(shell nproc)
 
-# Compiler settings
-LATEXMK_FLAGS := -interaction=nonstopmode -shell-escape -pdf
-
-# List of modules (automatically detected)
+# Dynamic Module Discovery
+# -----------------------
+# Find all directories directly under src that start with HAX and contain cours or tds
 MODULES := $(notdir $(wildcard $(SRC_DIR)/HAX*))
 
-# Default target
-all: $(MODULES)
+# Generate numeric shortcuts dynamically
+define GENERATE_NUMERIC_TARGETS
+$(foreach mod,$(MODULES),\
+    $(eval NUM_$(lastword $(subst X, ,$(mod))) := $(mod))\
+    $(eval .PHONY: $(lastword $(subst X, ,$(mod))))\
+    $(eval $(lastword $(subst X, ,$(mod))): $(mod))\
+    $(eval .PHONY: $(lastword $(subst X, ,$(mod)))-c)\
+    $(eval $(lastword $(subst X, ,$(mod)))-c: clean-$(mod))\
+)
+endef
 
-# Module-specific rules
-define module_rules
-# Args: $(1) - module name
-
-# Standard main file names
+# Module Rules Generation Macro
+# ----------------------------
+define MODULE_RULES
+# Module-specific variables
 $(1)_COURS_MAIN := chapter_main.tex
 $(1)_TDS_MAIN := td_main.tex
 
-# Define source files
+# Source file discovery
 $(1)_COURS_SRC := $$(wildcard $(SRC_DIR)/$(1)/cours/$$($(1)_COURS_MAIN))
 $(1)_TDS_SRC := $$(wildcard $(SRC_DIR)/$(1)/tds/$$($(1)_TDS_MAIN))
 
-# Define dependencies
+# Dependency discovery
 $(1)_DEPS := $$(wildcard $(SRC_DIR)/$(1)/assets/*.tex) \
              $$(wildcard $(SRC_DIR)/$(1)/assets/*/*.tex) \
              $$(wildcard $(SRC_DIR)/$(1)/cours/*.tex) \
              $$(wildcard $(SRC_DIR)/$(1)/tds/*.tex) \
-             $(COMMON_DIR)/*.tex
+             $(COMMON_DIR)/**/*.tex
 
-# Module target
+# Module target: compile cours and/or tds if sources exist
 $(1): $$(if $$($(1)_COURS_SRC),$(PDF_DIR)/$(1)/cours/$$(basename $$(notdir $$($(1)_COURS_MAIN))).pdf) \
       $$(if $$($(1)_TDS_SRC),$(PDF_DIR)/$(1)/tds/$$(basename $$(notdir $$($(1)_TDS_MAIN))).pdf)
 
-# PDF generation rules
+# PDF generation rules for cours
 $(PDF_DIR)/$(1)/cours/%.pdf: $(BUILD_DIR)/$(1)/cours/%.pdf
 	@mkdir -p $$(dir $$@)
 	@cp $$< $$@
 
+# PDF generation rules for tds
 $(PDF_DIR)/$(1)/tds/%.pdf: $(BUILD_DIR)/$(1)/tds/%.pdf
 	@mkdir -p $$(dir $$@)
 	@cp $$< $$@
 
-# Build rules
+# Build rules for cours
 $(BUILD_DIR)/$(1)/cours/%.pdf: $(SRC_DIR)/$(1)/cours/$$($(1)_COURS_MAIN) $$($(1)_DEPS)
-	@mkdir -p $$(dir $$@) $(LOG_DIR)/$(1)
-	@echo "Compiling $$<..."
-	@cd $$(dir $$<) && latexmk $(LATEXMK_FLAGS) --output-directory=$(CURDIR)/$$(dir $$@) $$(notdir $$<) \
-		> $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log 2>&1
-	@if [ "$(MAKECMDGOALS)" != "log" ]; then rm -f $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log; fi
+	@mkdir -p $$(dir $$@) $(LOG_DIR)/$(1)/cours
+	@echo "Compiling cours: $$<"
+	@cd $$(dir $$<) && $(LATEXMK) $(LATEXMK_FLAGS) -jobname=$$(basename $$*) \
+		--output-directory=$(CURDIR)/$$(dir $$@) $$(notdir $$<) \
+		> $(CURDIR)/$(LOG_DIR)/$(1)/cours/$$(basename $$*).log 2>&1
+	@if [ "$(MAKECMDGOALS)" != "log" ]; then rm -f $(CURDIR)/$(LOG_DIR)/$(1)/cours/$$(basename $$*).log; fi
 
+# Build rules for tds
 $(BUILD_DIR)/$(1)/tds/%.pdf: $(SRC_DIR)/$(1)/tds/$$($(1)_TDS_MAIN) $$($(1)_DEPS)
-	@mkdir -p $$(dir $$@) $(LOG_DIR)/$(1)
-	@echo "Compiling $$<..."
-	@cd $$(dir $$<) && latexmk $(LATEXMK_FLAGS) --output-directory=$(CURDIR)/$$(dir $$@) $$(notdir $$<) \
-		> $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log 2>&1
-	@if [ "$(MAKECMDGOALS)" != "log" ]; then rm -f $(CURDIR)/$(LOG_DIR)/$(1)/$$(notdir $$(basename $$<)).log; fi
+	@mkdir -p $$(dir $$@) $(LOG_DIR)/$(1)/tds
+	@echo "Compiling tds: $$<"
+	@cd $$(dir $$<) && $(LATEXMK) $(LATEXMK_FLAGS) -jobname=$$(basename $$*) \
+		--output-directory=$(CURDIR)/$$(dir $$@) $$(notdir $$<) \
+		> $(CURDIR)/$(LOG_DIR)/$(1)/tds/$$(basename $$*).log 2>&1
+	@if [ "$(MAKECMDGOALS)" != "log" ]; then rm -f $(CURDIR)/$(LOG_DIR)/$(1)/tds/$$(basename $$*).log; fi
 
-# Clean rule
+# Clean rule for specific module
 clean-$(1):
 	rm -rf $(BUILD_DIR)/$(1)
 	rm -rf $(LOG_DIR)/$(1)
-	rm -f $$(PDF_DIR)/$(1)/cours/cours_main.pdf
-	rm -f $(PDF_DIR)/$(1)/tds/td_main.pdf
-
 endef
 
 # Generate rules for each module
-$(foreach mod,$(MODULES),$(eval $(call module_rules,$(mod))))
+$(foreach mod,$(MODULES),$(eval $(call MODULE_RULES,$(mod))))
 
-# Number-based targets (e.g., make 601)
-$(foreach mod,$(MODULES),$(eval $(shell echo $(mod) | grep -o '6[0-9][0-9]'): $(mod)))
+# Dynamically generate numeric targets
+$(eval $(call GENERATE_NUMERIC_TARGETS))
 
-# Number-based clean targets (e.g., make clean-601)
-$(foreach mod,$(MODULES),$(eval clean-$(shell echo $(mod) | grep -o '6[0-9][0-9]'): clean-$(mod)))
+# Default Target
+# --------------
+.PHONY: all
+all: $(MODULES)
 
-# Clean everything
+# Global Clean Target
+# ------------------
+.PHONY: clean
 clean: $(foreach mod,$(MODULES),clean-$(mod))
+	@rm -rf $(PDF_DIR)/*
 	@echo "All build files and logs have been cleaned."
 
+# Log Preservation Target
+# ---------------------
+.PHONY: log
 log: all
-	@echo "Logs have been generated."
+	@echo "Compilation logs have been preserved."
 
+# Help Target
+# -----------
+.PHONY: help
 help:
-	@echo "Available targets:"
-	@echo "  all                 - Build all modules"
-	@echo "  <module_name>       - Build a specific module (e.g., HAX501)"
-	@echo "  <module_number>     - Build a specific module by number (e.g., 501)"
-	@echo "  clean               - Clean all build files and logs"
-	@echo "  clean-<module_name> - Clean a specific module (e.g., clean-HAX501)"
-	@echo "  clean-<number>      - Clean a specific module by number (e.g., clean-501)"
-	@echo "  log                 - Build all modules and keep log files"
+	@echo "Available modules:"
+	@for mod in $(MODULES); do \
+		echo "  $$mod (shortcut: $$(echo $$mod | grep -o '[0-9][0-9][0-9]'))"; \
+	done
+	@echo "\nAvailable targets:"
+	@echo "  all             - Build all modules"
+	@echo "  <module>        - Build a specific module"
+	@echo "  <number>        - Build a specific module (e.g., 506)"
+	@echo "  clean           - Clean all build artifacts"
+	@echo "  clean-<module>  - Clean a specific module"
+	@echo "  <number>-c      - Clean a specific module (e.g., 506-c)"
+	@echo "  log             - Build and preserve log files"
+	@echo "  help            - Show this help message"
 
+# Watch Mode for Continuous Compilation
+# -------------------------------------
+.PHONY: watch
 watch:
 	@while true; do \
 		make all; \
 		inotifywait -qre close_write $(SRC_DIR); \
 	done
-
-.PHONY: all clean log help watch $(MODULES) $(foreach mod,$(MODULES),clean-$(mod))

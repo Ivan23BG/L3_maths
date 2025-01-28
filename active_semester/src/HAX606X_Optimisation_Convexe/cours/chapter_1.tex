@@ -1,0 +1,229 @@
+\begin{notation}\,
+    \begin{itemize}
+        \item On considère un espace vectoriel normé de dimension \(n\)
+        noté \((E, \nn{\cdot})\) et \(U\) ouvert de \(E\)
+    
+        \item On considère une fonction \(f\ \colon\ U\to\R\). Dans la pratique,
+        \(E\) sera égal à \(\R^n\).
+    
+        \item Soit \(x\in U\), on note \(f'(x)\) la différentielle
+        (qu'on appelera plus simplement \og{} dérivée \fg{}) %%%
+        de \(f\) en \(x\) (on a donc, pour tout \(h\in E\) tel que
+        \(\nn{h}\) soit assez petit, 
+        \begin{equation*}
+            f(x+h) = f(x) + f'(x)\cdot h + \nn{h} \varepsilon(x,h)
+        \end{equation*}
+        avec \(\varepsilon(x,h) \underset{h\to 0}{\to} 0\)
+        et \(f'(x)\in \scr L(E, \R)\) ) %application lineaire
+    
+        \item Avec cette notation, si \(f\) est dérivable en \(x\),
+        alors \(f\) admet des dérivées partielles en \(x\) dans toutes les
+        directions, et si \((e_1,\ldots,e_n)\) est une base de \(E\),
+        on note "\(\partial_i f(x)\)" ou encore "\(\dpar{f}{x_i}(x)\)"
+        la dérivée partielle de \(f\) par rapport à la \(i\) -ieme variable.
+        On a alors
+        \begin{equation*}
+            \partial_i f(x) = f'(x)\cdot e_i,\quad i=1,\ldots,n
+        \end{equation*}
+        Ainsi, pour \(h\in E\) tel que \(h=\sum_{i=1}^n h_i e_i\), 
+        on a
+        \begin{equation*}
+            \begin{aligned}
+                f'(x)\cdot h &= f'(x) \cdot \left(\sum_{i=1}^n h_i e_i\right)\\
+                &= \sum_{i=1}^n h_i f'(x)\cdot e_i = \sum_{i=1}^n h_i\partial_i f(x)
+            \end{aligned}
+        \end{equation*}
+        De même, si \(x\mapsto f'(x)\) est dérivable en \(x\), on note
+        \(f''(x)\in\scr L(E, \scr L(E,\bb R))\) cette dérivée seconde, et on
+        considère \(f''(x)\) comme une forme bilinéaire \((f''(x)\in\scr L(E\times E, \bb R))\)
+    
+        \item Avec ces notations, le théorème fondamental de l'analyse (TFA) peut s'énoncer ainsi:
+    
+        \begin{theorem}[Fondamental de l'Analyse]
+            Soit \(f\in \scr C^1(U, \bb R)\). Alors pour tout \((x,y)\in U\) tel que
+            \begin{equation*}
+                \forall t\in \ff{0,1}, x +t(y-x)\in U,
+            \end{equation*}
+            on a
+            \begin{equation*}
+                f(y) = f(x) + \int_0^1 f'(x+ t(y-x))\cdot(y-x)\der t.
+            \end{equation*}
+        \end{theorem}
+    \end{itemize}
+\end{notation}
+
+
+
+%%% end notation
+
+Formule de Taylor à l'ordre 2 %%%
+
+Soit \(f\in \scr C^2(U, \bb R)\) et \(x\in U\). Alors, il existe un voisinage
+\(\nu\) de \(x\) tel que, pour tout \(x+h\in\nu\), on a
+\begin{equation*}
+    f(x+h) = f(x) + f'(x)\cdot h + \frac12 f''(x)\cdot(h,h) + o(\nn{h}^2) %%% remplacer o par \po avec mathsf
+\end{equation*}
+
+Bien entendu, cette expression peut aussi se formuler ainsi:
+\begin{equation*}
+    \begin{aligned}
+        f(x+h) = f(x) &+ \sum_{i=1}^n \partial_i f(x) h_i\\
+        &+ \frac12 \sum_{i,j=1}^n \partial^2_{ij} f(x) h_i h_j + \nn{h}^2 \varepsilon(h)
+    \end{aligned}
+\end{equation*}
+avec \(\varepsilon(h) \underset{\nn{h}\to 0}{\to} 0\)
+de manière a bien mettre en évidence la linéarité de la dérivée et
+la bilinéarité de la dérivée seconde
+
+ou encore, en notation \(\nabla f(x)\) le gradient de \(f\) évalué en \(x\),
+et \(\nabla^2 f(x)\) la matrice Hessienne de \(f\) évaluée en \(x\):
+\begin{equation*}
+    f(x+h) = f(x) + \nabla f(x)h + \frac 12 {}^T h\nabla^2 \cdots
+\end{equation*}
+
+sur \(\bb R^n\) qui peut être %%% remplir trous + compl poly
+mais dans ce cas attention
+On rappelle que dans une
+
+on a \(\nabla f(a) = \sum_{i=1}^n \partial_i\)
+
+\section{Résultats d'existence}
+
+Unn outil fondamental: la compacité.
+
+\begin{theorem}
+    Soit \(K\) un compact de \(\bb R^n\) et \(f\ \colon\ K\to\bb R\)
+    une fonction continue. Alors \(f\) est bornée et atteint ses
+    bornes:
+    \begin{equation*}
+        \sup_{x\in K} \n{f(x)} < +\infty
+    \end{equation*}
+    et il existe \(\ul{x}\in K\) et \(\ol{x} \in K\) tels que
+    \begin{equation*}
+        \begin{aligned}
+            &f(\ul x) = \inf_{x\in K} f(x) = \min_{x\in K} f(x)\\
+            &f(\ol x) = \sup_{x\in K} f(x) = \max_{x\in K} f(x)
+        \end{aligned}
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    Ce résultat a été démontré dans le cours de topologie / analyse
+    fonctionnelle. Puisque \(f\) est continue, \(f(K)\) est une partie compacte de \(\bb R\),
+    c'est a dire une partie fermée et bornée de \(\bb R\).
+
+    Ainsi, on a \(-\infty < \inf f(K) \leq \sup f(K) < +\infty\)
+    et puisque \(f(K)\) est fermée et que \(\inf f(K)\) et \(\sup f(K)\)
+    sont adhérents, on a inf et min dans \(f(E)\) %%% completer preuve
+\end{proof}
+
+\begin{definition}
+    Soit \(f\ \colon\ \bb R^n\to\bb R\). On dit que \(f\) est \defemph{coercive}
+    si \(f(x) \to +\infty\) lorsque \(\nn x\to +\infty\).
+\end{definition}
+
+\begin{theorem}
+    Soit \(f\ \colon\ \bb R^n\to\bb R\) continue et coercive. Alors \(f\) est minorée
+    et atteint son minimum.
+\end{theorem}
+
+\begin{proof}
+    Posons \(A = f(0) + 1\). Comme \(f\) est coercive, il existe \(\alpha > 0\) tel que
+    \begin{equation*}
+        \forall x\in\bb R^n, \nn x\geq \alpha \implies f(x) \geq  f(0) + 1
+    \end{equation*}
+    La boule \(\ol B(0, \alpha)\) est un fermé borné de \(\bb R^n\) %%% remplacer boule
+    donc un compact de \(\bb R^n\) et \(f\) sur cette boule est continue %%% faire restriction symbole
+    D'après le theoreme 1.1.1, \(f\) est minorée sur \(\ol B(0, \alpha)\) et atteint son minimum en un certain  %%% lien theoreme
+    \(x_0\)
+
+    Ainsi, soit \(x\in\bb R^n\). On a plusieurs cas
+    \begin{enumerate}[label = (\alpha*)]
+        \item si \(x\in \ol B(0, \alpha)\), alors \(f(x)\geq f(x_0)\),
+
+        \item si \(x\notin \ol B(0, \alpha)\), alors \(\nn x > \alpha\) et 
+        donc \(f(x)\geq f(0) + 1\) et \(f(x)\geq f(x_0) + 1 \geq f(x_0)\)
+        puisque \(0\in \ol B(0, \alpha)\).
+
+        Ainsi, \(\forall x\in\bb R^n, f(x)\geq f(x_0)\) et \(x_0\)
+        est bien le minimum de \(f\) sur \(\bb R^n\).
+    \end{enumerate}
+    %%% completer preuve
+\end{proof}
+
+\begin{remark}
+    Ce dernier resultat peut eter généralisé sous les meme hypothèses
+
+    %%% completer rem
+    %%% envoyer email contacter poly
+\end{remark}
+
+\section{Caractérisation des extrema sans contraintes}
+
+Un outil fondamental: le calcul différentiel.
+
+\begin{theorem}
+    Soit \(U\sub \bb R^n\) ouvert et \(f\ \colon\ U\to \bb R\) de classe \(\scr C^1\).
+    Si \(x_0\in U\) est extremum local de \(f\) sur \(U\) alors on a 
+    \(f'(x_0) = O\) (ou \(\nabla f(x_0)=0\))
+\end{theorem}
+
+\begin{proof}
+    %%% separer en cas simple/observateur contre general?
+    Rappelons ce qu'il se passe pour une fonction \(\varphi\ \colon\ I\sub \bb R\to\bb R\) qui
+    admet, par exemple, un maximum local en \(0\in I\).
+
+    On a d'une part \(\varphi'(0) = \lim_{x\toO^+}\frac{\varphi(x)-\varphi(0)}{x}\leq 0\)
+    car \(x>0\) et \(\varphi(x) - \varphi(0)\geq 0\).
+    D'autre part, on a l'inverse pour la limite a gauche %%% a remplacer
+    Dans le cas \(E = \bb R^n\), supposons que \(f\) admet un maximum local en \(x_0\in U\).
+    Soit \(e_i\) un vecteur de base
+
+    On sait que \(\partial_i f(x_0) = f'(x_0)\cdot e_i\) %%% a completer
+
+    %%% a completer
+
+    Ainsi toutes les dérivées partielles de \(f\) sont nulles en \(x_0\) et donc
+    \(f'(x_0) = 0\).
+\end{proof}
+
+\begin{remark}
+    Ce résultat est bien entendu faux si \(U\) n'est pas un ouvert:
+
+    \begin{equation*}
+        \begin{aligned}
+            f\from &\ff{0,1}\to\ff{0,1}\\
+            &x\mapsto x
+        \end{aligned}
+    \end{equation*}
+    où 0 est le minimum sur \(\ff{0,1}\) et pourtant \(f'(0)=1\).
+\end{remark}
+
+\begin{definition}
+    Soit \(f\from U\to \R\). On dit que \(a\in U\) est un point critique de \(f\) si \(f'(a)=0\).
+
+    Ou de manière équivalente, si \(\nabla f(a) = 0\) ou encore si \(\partial_i f(a) = 0\).
+    %%% completer
+\end{definition}
+
+\begin{theorem}
+    Soit \(U\sub\bb R^n\) ouvert, \(f\from U\to \R\) de classe \(\scr C^2\).
+
+    Si \(x_0\in U\) est minimum local de \(f\) sur \(U\), alors \(f'(x_0) = 0\)
+    et \(f''(x_0)\) est positive, soit, au sense des formes bilinéaires symétriques:
+    \begin{equation*}
+        \forall \xi\in\bb R^n,f''(x_0)\cdot(\xi, \xi)\geq 0
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    Soit \(x_0\in U\) et \(h\in\bb R^n\). Pour \(t\in\R\) assez petit, on a
+    \begin{equation*}
+        f(x_0+th) -f(x_0)\geq 0.
+    \end{equation*}
+    Or, d'après Taylor, on a
+    \begin{equation*}
+        f(x_0+th) -f(x_0) = \frac12 f''(x_0)\dot(th, th) + o_{t\to 0}(t^2) %%% petit o
+    \end{equation*}
+    d'où
+\end{proof}
