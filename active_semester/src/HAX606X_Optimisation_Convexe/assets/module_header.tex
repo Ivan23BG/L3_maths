@@ -22,6 +22,7 @@
 \newcommand{\cvlaw}{{\overset{(\mathscr{L})}{\longrightarrow}}}
 \newcommand{\cvlawn}{\underset{n\to\infty}{\cvlaw}}
 \newcommand{\iid}{\text{i.i.d.}}
+\newcommand{\from}{\ \colon\ }
 
 
 
@@ -35,17 +36,22 @@
 % Custom Per Subject Theorems
 %--------------------------------------------------------------------------------
 \theoremstyle{default}
+\setcounter{classcounter}{0}
 
-\mytheorem{definition}{Définition}{algebraic-amber}{subsection}{o}
-\mytheorem{exs}{Exemples}{matrix-mist}{subsection}{o}
+\mytheorem{definition}{Définition}{algebraic-amber}{classcounter}{o}
+\mytheorem{example}{Exemple}{matrix-mist}{classcounter}{o}
+\mytheorem{exemple}{Exemple}{matrix-mist}{classcounter}{o}
+\mytheorem{notation}{Notation}{matrix-mist}{classcounter}{o}
+\mytheorem{proposition}{Proposition}{algebraic-amber}{classcounter}{o}
+\mytheorem{theorem}{Théorème}{astral}{classcounter}{o}
+\mytheorem{remark}{Remarque}{verdant}{classcounter}{o}
+\mytheorem{exo}{Exercice}{calculus-coral}{classcounter}{o}
+\mytheorem{exercice}{Exercice}{calculus-coral}{classcounter}{o}
+\mytheorem{corollary}{Corollaire}{astral}{classcounter}{o}
+\mytheorem{lemme}{Lemme}{astral}{classcounter}{o}
 
-\theoremstyle{nonum}
-\mytheorem{interp}{Interprétation}{verdant}{}{}
-\mytheorem{proposition}{Proposition}{verdant}{}{}
-\mytheorem{notation}{Notation}{verdant}{}{}
-\mytheorem{example}{Exemple}{matrix-mist}{}{}
-\mytheorem{exo}{Exercice}{matrix-mist}{}{}
-\mytheorem{theorem}{Théorème}{astral}{}{}
-\mytheorem{remark}{Remarque}{verdant}{}{}
+
+
+
 
 \makeatother
