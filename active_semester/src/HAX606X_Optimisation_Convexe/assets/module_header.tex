@@ -23,6 +23,8 @@
 \newcommand{\cvlawn}{\underset{n\to\infty}{\cvlaw}}
 \newcommand{\iid}{\text{i.i.d.}}
 \newcommand{\from}{\ \colon\ }
+\newcommand{\dpar}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ul}[1]{\underline{#1}}
 
 
 
@@ -30,12 +32,17 @@
 \DeclareMathOperator{\GLn}{\mathsf{GL_{n}}} % Real spectrum
 \newcommand{\act}{\lcirclearrowright} % Action symbol
 \DeclareMathOperator{\stab}{\mathsf{st}} % Stabilizer
+\DeclareMathOperator{\po}{\mathsf{o}} % Small o notation
 
 
 %--------------------------------------------------------------------------------
 % Custom Per Subject Theorems
 %--------------------------------------------------------------------------------
 \theoremstyle{default}
+\newcounter{classcounter} % def new global counter
+\setcounter{classcounter}{0} % set it to 0
+\counterwithin{classcounter}{section}
+\counterwithin{section}{suprasection}
 \setcounter{classcounter}{0}
 
 \mytheorem{definition}{Définition}{algebraic-amber}{classcounter}{o}
@@ -49,6 +56,10 @@
 \mytheorem{exercice}{Exercice}{calculus-coral}{classcounter}{o}
 \mytheorem{corollary}{Corollaire}{astral}{classcounter}{o}
 \mytheorem{lemme}{Lemme}{astral}{classcounter}{o}
+
+\theoremstyle{nonum}
+\mytheorem{thm}{Théorème}{astral}{}{}
+\mytheorem{fmdt}{Formule de Taylor à l'ordre 2}{astral}{}{}
 
 
 

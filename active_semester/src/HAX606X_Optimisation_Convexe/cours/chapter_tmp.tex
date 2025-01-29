@@ -1,0 +1,257 @@
+%\section*{Quelques rappels et notations}
+
+%\setcounter{chapter}{-1}
+%\chapter{Rappels divers}
+
+Les rappels qui suivent sont fournis afin d'essayer, dans la mesure du possible, de regrouper l'ensemble des pré-requis nécessaires pour la suite. Aussi, certaines définitions sont rappelées de manière sommaire, et les résultats parfois non re-démontrés. Tous ces résultats sont très classiques et leur preuve facilement accessible.
+
+\section{Quelques notations et définitions}
+
+\begin{notation}
+Pour tous \(x,y\in \R^n\) on note de manière équivalente \(x\cdot y\)  ou \((x,y)\) le produit scalaire de \(x\) et \(y\), qui est donné par
+\begin{equation*}
+x\cdot y = \sum_{i=1}^n x_i y_i.
+\end{equation*}
+\end{notation}
+
+\begin{notation}
+Pour tout \(x\in\R^n\), on note par \(\n x\) la norme euclidienne de \(x\), donnée par
+\begin{equation*}
+\n{x} = \sqrt{x\cdot x}
+\end{equation*}
+\end{notation}
+
+\begin{notation}
+Pour tout \(a\in\R^n\) et \(r\in\R^*_+\) on note \(B(a,r)\) la boule ouverte de centre \(a\) et rayon \(r\), donnée par
+\begin{equation*}
+B(a,r) = \left\{x\in \R^n,\; \n{x-a} < r \right\}.
+\end{equation*}
+On note \(\overline{B}(a,r)\) la boule fermée de centre \(a\) et rayon \(r\), donnée comme l'adhérence de \(B(a,r)\).
+\end{notation}
+
+\begin{notation}
+Pour tous \(a,b\in\R^n\), on note \([a, b]\) le sous-ensemble de \(\R^n\) défini par 
+\begin{equation*}
+[a,b] = \left\{(1-t)a+t b,\, t\in[0,1]\right\}.
+\end{equation*}
+L'ensemble \([a, b]\) est aussi appelé \textit{segment reliant \(a\) à \(b\)}.
+\end{notation}
+
+
+
+
+
+%\setcounter{section}{+1}
+\section{Extremum local, global}
+
+%\vspace{1cm}
+\begin{definition}\label{maximum}\textbf{Extremum}\\
+
+Soit \(U\subset \R^n\), \(a\in U\) et \(f\from U\to \R\):
+\begin{enumerate}
+\item on dit que \(a\) est un minimum global (ou absolu) de \(f\) sur \(U\) si \(f(x) \geq f(a), \forall x \in U\),
+\item on dit que \(a\) est le minimum global strict de \(f\) sur \(U\) si \(f(x) > f(a), \forall x \in U\backslash\ \{a\}\),
+\item on dit que \(a\) est un minimum local (ou relatif) de \(f\) sur \(U\) si il existe un voisinage \(V\subset \R^n\) de \(a\) tel que \(f(x) \geq f(a), \forall x \in V\cap U\),
+\item on dit que \(a\) est un maximum global (respectivement local) de \(f\) sur \(U\) si \(a\) est un minimum global (respectivement local) de \(-f\) sur \(U\),
+\item on dit que \(a\) est un extremum global (respectivement local) de \(f\) sur \(U\) si \(a\) est~: soit un minimum global (respectivement local) de \(f\) sur \(U\), soit un maximum global (respectivement local) de \(f\) sur \(U\).
+\end{enumerate}
+\end{definition}
+
+% \noindent
+Dans la suite, nous étudions donc uniquement la question de la minimisation d'une fonction \(f\)~: pour la maximisation de \(f\), il suffit d'étudier la minimisation de la fonction \(-f\).
+
+
+\section{Un peu de calcul différentiel}
+
+%\section{Dérivée, Gradient, Hessienne}
+
+% \noindent
+Les notions de calcul différentiel nécessaires pour suivre cette U.E. sont souvent encore mal assimilées au semestre 6 de licence. Les rappels qui suivent correspondent au "minimum vital" et n'ont pas vocation à remplacer un travail approfondi du calcul différentiel.\\
+
+% \noindent
+Soit \(U\subset \R^n\) un ouvert et \(f\,:\,U\,\to\,\R\).
+
+\begin{notation}
+On dit que \(f\) est de classe \(C^k\) sur \(U\), noté \(f\in C^k(U;\,\R)\), si toutes les dérivées partielles jusqu'à l'ordre \(k\) existent et sont continues.
+\end{notation}
+
+\begin{notation}
+Pour tous \(x\in U\), et \(i\in \{1,\hdots,n\}\), on note (quand c'est défini)  
+\begin{equation*}
+\frac{\partial f}{\partial x_i}(x) = \lim_{t\to 0} \frac{1}{t}(f(x+te_i)-f(x)),
+\end{equation*}
+la \(i^{ie}\) dérivée partielle de \(f\) en \(x\).
+\end{notation}
+
+\begin{notation}
+Pour tous \(x,h\in U\), on note (quand c'est défini)  
+\begin{equation*}
+f'(x)(h)\;\,\mbox{ou de façon équivalente} \;f'(x)\cdot h
+\end{equation*}
+la dérivée (ou différentielle) de \(f\) en \(x\) évaluée dans la direction \(h\) et on rappelle que \(f'(x)\in L(U,\R)\).
+\end{notation}
+
+\begin{notation}
+Pour tout \(x\in U\), on note (quand c'est défini)  
+\begin{equation*}
+\nabla f(x) = \left(\frac{\partial f}{\partial x_1}(x),\hdots,\frac{\partial f}{\partial x_n}(x) \right)\in \R^n
+\end{equation*}
+le gradient de \(f\) en \(x\) et on a \(f'(x)\cdot h = (\nabla f(x), h)\).
+\end{notation}
+
+\begin{notation}
+Notez que dans certains ouvrage, \(f'(x)\) et \(\nabla f(x)\) sont assimilés à la Jacobienne de \(f\) en \(x\). Retenez juste que, dans le cas qui nous concerne ici, toutes ces notations sont équivalentes.
+\end{notation}
+
+\begin{notation}
+Pour tous \(x,h\in U\), on note (quand c'est défini)  
+\begin{equation*}
+\frac{\partial f}{\partial h}(x) \coloneqq \lim_{t\to 0} \frac{1}{t}\left(f(x+th) - f(x)\right) = g'(0),
+\end{equation*}
+la dérivée directionnelle de \(f\) en \(x\) de direction \(h\), où on a noté \(g(t) = f(x+th)\). On a alors:
+\begin{equation*}
+\frac{\partial f}{\partial h}(x) = f'(x)(h) = \left(\nabla f(x), h\right).
+\end{equation*}
+\end{notation}
+
+\begin{notation}
+Pour tous \(x\in U\), on note (quand c'est défini) \(\nabla^2 f(x)\in M_n(\R)\) la matrice hessienne de \(f\) en \(x\), qui est définie par:
+\begin{equation*}
+\left(\nabla^2 f(x)\right)_{ij} \coloneqq  \frac{\partial^2 f}{\partial x_i \partial x_j}(x),\;\forall i,j =1,\hdots,n.
+\end{equation*}
+Notez que le Théorème de Schwarz nous assure, lorsque \(f\) est de régularité \(C^2\), que \(\nabla^2 f(x)\) est symétrique. Notez aussi que cette matrice peut-être assimilée à la dérivée seconde \(f''(x)\in L(U;\,L(U;\,\R)
+)\) ou encore la forme bilinéaire \(f''(x)\in L(U\times U;\,\R)
+)\).
+\end{notation}
+
+\begin{proposition}\label{taf2}\textbf{Gradient d'une composée}\\
+Soit \(U\subset \R^n\) et \(\Omega\subset\R\) ouverts. On suppose que \(f\in\mathcal{C}^1(U; \R)\) et \(g\in\mathcal{C}^1(\Omega; \R)\), avec de plus \(f(U)\subset\Omega\). Alors \(g\circ f\) est de classe \(C^1\) et on a~:
+\begin{equation*}
+\nabla (g\circ f)(x) = g'(f(x))\nabla f(x), \forall x\in U.
+\end{equation*}
+
+\end{proposition}
+
+\vspace{0.3cm}
+\begin{proposition}\label{taf3}\textbf{Lien entre \(\nabla f\) et \(\nabla^2 f\)}\\
+On a~:
+\begin{equation*}
+\nabla^2 f(x)h = \nabla\left(\nabla f(x),h\right)\, \forall x\in U,\, \forall h\in\R^n.
+\end{equation*}
+\end{proposition}
+
+\vspace{0.3cm}
+\begin{exemple}
+Soit \(a\in\R^n\) et \(f:\R^n\to\R\) une forme linéaire définie par 
+\begin{equation*}
+\forall x\in\R^n,\; f(x) = \left( a,x\right),
+\end{equation*}
+alors on a \(\nabla f(x) = a\) et \(\nabla^2 f(x) = 0\).\\
+\end{exemple}
+
+\begin{exemple}
+Soit \(A\in M_n(\R)\) et \(f:\R^n\to\R\) une forme quadratique définie par 
+\begin{equation*}
+\forall x\in\R^n,\; f(x) = \left( Ax,x\right),
+\end{equation*}
+alors on a \(f\nabla f(x) = (A + A^{t})x\) et \(\nabla^2 f(x) = A + A^{t}\). Si de plus on a \(A\in S_n(\R)\), alors \(\nabla \left(Ax,x\right) = 2Ax\) et \(\nabla^2 \left(Ax,x\right) = 2A\)
+\end{exemple}
+\begin{exemple}
+Soit \(B\in \mathcal{B}(E\times E, \R)\) une application bilinéaire sur un espace vectoriel normé \(E\) de dimension finie. Alors \(B\) est différentiable et on a pour tout \((x,y) \in E^2\), \((h,k)\in E^2\)~:
+\begin{equation*}
+B'(x,y)\cdot(h,k) = B(x, k) + B(h, y).
+\end{equation*}
+En effet, on a~:
+\begin{equation*}
+B(x+h, y+k) = B(x, y) + B(x, k) + B(h, y) + B(h, k) = B(x, y) + \mathcal{L}(h,k) + o(\n (h,k)\n),
+\end{equation*}
+et on vérifie que \(\mathcal{L}\) est linéaire.\\
+\end{exemple}
+
+\begin{exemple}
+Soit \(A\in M_n(\R)\), on considère l'application suivante~:
+\begin{equation*}
+f\,:\, \mathcal{GL}_n(\R) \ni M \mapsto M^{-1}\in \mathcal{GL}_n(\R).
+\end{equation*}
+Alors \(f\) est différentiable et pour tout \(M\in \mathcal{GL}_n(\R)\), \(H\in \mathcal{GL}_n(\R)\), on a:
+\begin{equation*}
+f'(M)\cdot H = -M^{-1}HM^{-1}.
+\end{equation*}
+En effet,
+\begin{equation*}
+f(M+H) = (M+H)^{-1} = \left(M^{}(I_n + M^{-1}H)\right)^{-1} = (I_n + M^{-1}H)^{-1}M^{-1},
+\end{equation*}
+d'où
+\begin{equation*}
+f(M+H) = \left( (I_n - M^{-1}H + o(\n H\n)  \right)M^{-1} = f(M)  - M^{-1}HM^{-1} + o(\n H\n),
+\end{equation*}
+et on vérifie sans peine que, pour \(M\in\mathcal{GL}_n(\R)\),  l'application \(\mathcal{L}: \mathcal{GL}_n(\R) \ni H \mapsto - M^{-1}HM^{-1} = \mathcal{L}(H)\) est linéaire.\\
+\end{exemple}
+
+
+
+%\vspace{0.2cm}
+\begin{theorem}\label{taf4}\textbf{Théorème fondamental de l'analyse}\\
+Soit \(U\subset \R^n\) ouvert. On suppose que \(f\in\mathcal{C}^1(U; \R)\). Alors \(\forall (x,y)\in U^2\), tels que \(\forall t\in [0,1], \;\;x+t(y-x)\in U\),  on a~:
+\begin{equation*}
+f(y) = f(x) + \int_0^1 f'(x+t(y-x))\cdot(y-x)\,dt.
+\end{equation*}
+ou encore, en posant \(y=x+h\) et utilisant la notation vectorielle~:
+\begin{equation*}
+f(x+h) = f(x) + \int_0^1 \left(\nabla f(x+th),h\right)\,dt.
+\end{equation*}
+\end{theorem}
+\begin{proof}
+On considère \begin{displaymath}
+\phi\,:
+\left|
+  \begin{array}{rcl}
+    [0,1] & \longrightarrow &\R \\
+    t & \longmapsto & f\left(x + t (y-x)\right),\\
+  \end{array}
+\right| %%% veut un . ici au lieu de |
+\end{displaymath}
+Par construction, \(\phi\) est de régularité \(C^1\) et on a
+\begin{equation*}
+\phi'(t) = f'\left(x + t (y-x)\right)\cdot(y-x).
+\end{equation*}
+En appliquant le TFA pour les fonctions \(C^1(\R;\,\R)\), on a 
+\begin{equation*}
+\phi(1) = \phi(0) + \int_0^1 \phi'(s)\,ds,
+\end{equation*}
+si bien que
+\begin{equation*}
+f(y) = f(x) + \int_0^1 f'(x+t(y-x))\cdot(y-x)\,dt.
+\end{equation*}
+Notez que cette formule est également la formule de Taylor à l'ordre 1 avec reste intégral.
+\end{proof}
+\vspace{1cm}
+\begin{proposition}\label{taf5}\textbf{Formules de Taylor-Young}\\
+Soit \(U\subset \R^n\) ouvert. On suppose que \(f\in\mathcal{C}^2(U; \R)\). Alors \(\forall x \in U\), il existe un voisinage \(V\in U\) de \(x\)  tels que \(\forall y=x+h \in V\), on ait~:
+\begin{equation*}
+f(x+h) = f(x) + f'(x){\cdot} h + o(\n{h}) \;\;\;\;\mbox{(ordre 1)},
+\end{equation*}
+et 
+\begin{equation*}
+f(x+h) = f(x) + f'(x){\cdot} h + f''(x){\cdot}(h,h) + o(\n{h}^2) \;\;\;\;\mbox{(ordre 2)},
+\end{equation*}
+ou encore en notation matricielle~:
+\begin{equation*}
+f(x+h) = f(x) + \left(\nabla f(x), h\right) + \left( \nabla^2 f(x)h, h\right) + o(\n{h}^2).
+\end{equation*}
+\end{proposition}
+\begin{proof}
+\(\hdots\)....\\
+Rappelons que la notation \(o(\n{h}^k)\) pour \(k\in\N^*\), signifie une expression qui tend vers \(0\) plus vite que \(\n{h}^k\)~: si on la divise par \(\n{h}^k\), le résultat tend toujours vers \(0\) quand \(\n{h}\) tend vers \(0\).
+\end{proof}
+
+\vspace{1cm}
+\begin{proposition}\label{taf6}\textbf{Formule de Taylor-Lagrange d'ordre \(1\)}\\
+Soit \(U\subset \R^n\) ouvert. On suppose que \(f\in\mathcal{C}^1(U; \R)\). Alors \(\forall x \in U\), il existe un voisinage \(V\in U\) de \(x\)  et \(0< \theta < 1\) tels que \(\forall y=x+h \in V\),  tels que~:
+\begin{equation*}
+f(x+h) = f(x) + \left(\nabla f(x+\theta h), h\right).
+\end{equation*}
+\end{proposition}
+\begin{proof}
+\(\hdots\)
+\end{proof}
