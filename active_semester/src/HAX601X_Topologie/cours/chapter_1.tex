@@ -4,9 +4,9 @@ Soit \(X\) un ensemble.
 
 \begin{definition}
     On appellle une \defemph{distance} (ou métrique) sur \(X\)
-    une application \(d\ \colon\ X \times X \to \R\) telle que
+    une application \(d\from X \times X \to \R\) telle que
     pour tout \(x, y, z \in X\),
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\roman*)] % chktex 36
         \item la distance est \emph{positive}:
         \begin{equation*}
             d(x, y) \geq 0
@@ -38,9 +38,9 @@ Soit \(X\) un ensemble.
 
 \begin{definition}
     Soit \(E\) un \(\bb R\)-espace vectoriel.
-    On appelle \defemph{norme} sur \(E\) une application \(\nn{\cdot}\ \colon\ E \to \R^+\) telle que
+    On appelle \defemph{norme} sur \(E\) une application \(\nn{\cdot}\from E \to \R^+\) telle que
     pour tout \(x, y \in E\) et \(\lambda \in \R\),
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\roman*)] % chktex 36
         \item la norme possède la \emph{séparation}:
         \begin{equation*}
             \nn{x} = 0 \iff x = 0
@@ -71,7 +71,7 @@ Soit \(X\) un ensemble.
 \end{example}
 
 \begin{exercice}[\(\star\)]\,\\
-    Soit \(X\) et \(\delta\ \colon\ X \times X \to \R\) telle que
+    Soit \(X\) et \(\delta\from X \times X \to \R\) telle que
     \begin{equation*}
         \delta(x, y) = \begin{cases}
             0 & \text{si } x = y \\
@@ -120,7 +120,7 @@ Soit \((X, d)\) un espace métrique.
 
 \begin{proposition}
     On a les propriétés suivantes:
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\roman*)] % chktex 36
         \item \(X \in \Tau_d\) et \(\varnothing \in \Tau_d\),
         \item Si \({\{U_i\}}_{i \in I}\) est une famille de \(\Tau_d\), alors \(\bigcup_{i \in I} U_i \in \Tau_d\),
         \item Si  \({\{U_i\}}_{i \in \{1, \ldots, n\}}\) est une famille finie de \(\Tau_d\), alors \(\bigcap_{i = 1}^n U_i \in \Tau_d\).
@@ -128,7 +128,7 @@ Soit \((X, d)\) un espace métrique.
 \end{proposition}
 
 \begin{proof}\,
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\roman*)] % chktex 36
         \item Par convention de logique, on a \(\varnothing\in \Tau_d\).
         Soit \(x \in X\), alors \(\bolo{x}{1} \sub X\), donc \(X \in \Tau_d\).
 
@@ -147,7 +147,7 @@ Soit \((X, d)\) un espace métrique.
     Soit \(X\) un ensemble (pas forcément métrique). On dit que
     \(\Tau \sub\scr P(x)\) est une \defemph{topologie} sur \(X\) si
     elle vérifie les propriétés suivantes:
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\roman*)] % chktex 36
         \item \(X \in \Tau\) et \(\varnothing \in \Tau\),
         \item Si \({\{U_i\}}_{i \in I}\) est une famille de \(\Tau\), alors \(\bigcup_{i \in I} U_i \in \Tau\),
         \item Si  \({\{U_i\}}_{i \in \{1, \ldots, n\}}\) est une famille finie de \(\Tau\), alors \(\bigcap_{i = 1}^n U_i \in \Tau\).
@@ -159,7 +159,7 @@ Soit \((X, d)\) un espace métrique.
 
 \begin{example}
     Soit \(X\) un ensemble. On a les exemples suivants:
-    \begin{enumerate}[label=(\alph*)]
+    \begin{enumerate}[label=(\alph*)] % chktex 36
         \item Si \((X, d)\) est un espace métrique, alors \(\Tau_d\) est une topologie sur \(X\).
         \item \(\Tau = \{\varnothing, X\}\) est une topologie sur \(X\).
         \item \(\Tau = \scr P(X) = \Tau_\delta\) est une topologie sur \(X\) où \(\delta\) est la distance discrète.
@@ -169,7 +169,7 @@ Soit \((X, d)\) un espace métrique.
 
 \begin{definition}
     Soit \((X, \Tau_X)\) et \((Y, \Tau_Y)\) deux espaces topologiques
-    et \(f\ \colon\ X \to Y\) une application.
+    et \(f\from X \to Y\) une application.
     On dit que \(f\) est \defemph{continue} si pour tout ouvert \(V \in \Tau_Y\),
     \(f^{-1}(V) \in \Tau_X\).
 \end{definition}
@@ -187,3 +187,110 @@ Soit \((X, d)\) un espace métrique.
     Si on se place dans \(\R\) muni de la norme euclidienne, alors
     l'intervalle \(\fo{0, 1}\) n'est ni ouvert ni fermé.
 \end{example}
+
+\begin{proposition}[de relation avec la continuité de \(\R\) dans \(\R\)]\,\\
+    Soient \((X, d_X)\) et \((Y, d_Y)\) deux espaces métriques.
+
+    Une application \(f\from X \to Y\) est continue si et seulement si 
+    pour tout \(x_0 \in X\) et pour tout \(\varepsilon > 0\),
+    il existe \(\delta > 0\) tel que
+    \begin{equation*}
+        \forall x \in X, \quad d_X(x, x_0) < \delta \implies d_Y(f(x), f(x_0)) < \varepsilon
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    On commence par énoncer et démontrer un lemme qui nous sera utile:
+    \begin{lemma}
+        Soit \((X, d)\) un espace métrique. 
+        Une boule ouverte sur \(X\) est un ouvert
+        pour la topologie \(\Tau_{d}\).
+    \end{lemma}
+    \begin{proof}
+        Soit \(x_0 \in X\) et \(\varepsilon > 0\).
+        On a \(\bolo{x_0}{\varepsilon} \in \Tau_d\) par définition de la topologie.
+
+        Soit \(x \in \bolo{x_0}{\varepsilon}\), alors \(d(x, x_0) < \varepsilon\).
+        Posons \(\delta = \varepsilon - d(x, x_0)\), alors \(\delta > 0\).
+        
+        Soit \(y \in \bolo{x}{\delta}\), alors \(d(y, x) < \delta\).
+        Par l'inégalité triangulaire, on a
+        \begin{align*}
+            d(y, x_0) &\leq d(y, x) + d(x, x_0) \\
+            &< \delta + d(x, x_0) \\
+            &= \varepsilon
+        \end{align*}
+        Donc \(y \in \bolo{x_0}{\varepsilon}\), donc \(\bolo{x}{\delta} \subset \bolo{x_0}{\varepsilon}\).
+    \end{proof}
+
+    \centerline{\rule{13cm}{0.4pt}}
+    \bigskip
+
+    Revenons à la preuve de la proposition.
+
+    \ptr{} Sens direct:
+
+    Soit \(x_0 \in X\) et \(\varepsilon > 0\).
+    Montrons que \(B = \bolo{f(x_0)}{\varepsilon}\) est un ouvert
+    de \(Y\), donc \(f^{-1}(B)\) est un ouvert de \(X\).
+
+    On sait que \(x_0 \in f^{-1}(B)\), ouvert par hypothèse.
+    Alors, il existe \(\delta > 0\) tel que
+    \begin{equation*}
+        \bolo{x_0}{\delta} \subset f^{-1}(B)
+    \end{equation*}
+    Donc pour tout \(x \in X\), 
+    \begin{equation*}
+        d_X(x, x_0) < \delta \implies d_Y(f(x), f(x_0)) < \varepsilon
+    \end{equation*}
+
+    \ptr{} Sens réciproque:
+
+    Soit \(V \in \Tau_Y\), alors \(V\) est un ouvert de \(Y\).
+    Soit \(x_0 \in f^{-1}(V)\), alors \(f(x_0) \in V\).
+    Comme \(V\) est ouvert, il existe \(\varepsilon > 0\) tel que
+    \(\bolo{f(x_0)}{\varepsilon} \subset V\).
+
+    Par hypothèse, il existe \(\delta > 0\) tel que
+    \begin{equation*}
+        \forall x \in X, \quad d_X(x, x_0) < \delta \implies d_Y(f(x), f(x_0)) < \varepsilon
+    \end{equation*}
+    Donc \(\bolo{x_0}{\delta} \subset f^{-1}(V)\), donc \(f^{-1}(V)\) est ouvert.
+\end{proof}
+
+\begin{remark}
+    Si \(f\) est une fonction bijective et continue,
+    sa réciproque \(f^{-1}\) n'est pas forcément continue.
+\end{remark}
+
+\begin{definition}
+    On dit que \(f\) est un \defemph{homéomorphisme}
+    si \(f\) est bijective, continue et que sa réciproque est continue.
+\end{definition}
+
+\begin{remark}
+    Une fonction continue et bijective n'est pas forcément un homéomorphisme.
+\end{remark}
+
+\begin{definition}
+    Soient \((X, d_X)\) et \((Y, d_Y)\) deux espaces métriques.
+    Soit \(f\from X \to Y\) une application bijective.
+
+    On dit que \(f\) est une \defemph{isométrie} si
+    \begin{equation*}
+        \forall x, y \in X, \quad d_X(x, y) = d_Y(f(x), f(y))
+    \end{equation*}
+\end{definition}
+
+\begin{exercice}
+    Montrer les propriétés suivantes:
+    \begin{enumerate}[label=(\roman*)] % chktex 36
+        \item Si \(f\) est une isométrie, alors \(f\) est un homéomorphisme.
+
+        \item Si \(f\) (non bijective) a la propriété suivante:
+        \begin{equation*}
+            \forall x, y \in X, \quad d_X(x, y) = d_Y(f(x), f(y))
+        \end{equation*}
+        alors \(f\) est injective.
+    \end{enumerate}
+\end{exercice}
