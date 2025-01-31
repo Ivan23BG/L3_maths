@@ -1,0 +1,126 @@
+% --- Consignes exo 1
+\begin{td-exo}[Minimisation d'une fonction par dichotomie] % 1
+    Soit \(f\in \mathcal{C}^0(\ff{a,b},\R)\).
+    On dit que \(f\) est \defemph{unimodale} sur l'intervalle \(\ff{a,b}\) si
+    il existe un point \(\ol x\in\ff{a,b}\) tel que
+    \(f\) soit strictement décroissante sur \(\fo{a,\ol x}\) et strictement
+    croissante sur \(\of{\ol x,b}\).
+
+    Pour chercher \(\ol x\), nous allons générer une suite strictement décroissante d'intervalles
+    dont le diamètre tend vers zéro et qui encadrent le minimum cherché.
+
+    Supposons connus cinq points \(a = x_1, x_2, x_3, x_4, x_5 = b\). Cinq situations
+    sont possibles:
+    \begin{enumerate}[label=(\roman*)] % chktex 36
+        \item Si \(f(x_1) < f(x_2) < f(x_3) < f(x_4) < f(x_5)\), alors \(\ol x\in\oo{x_1,x_2}\).
+        \item Si \(f(x_1) > f(x_2)\) et \(f(x_2) < f(x_3) < f(x_4) < f(x_5)\), alors \(\ol x\in\oo{x_1,x_3}\).
+        \item Si \(f(x_1) > f(x_2) > f(x_3)\) et \(f(x_3) < f(x_4) < f(x_5)\), alors \(\ol x\in\oo{x_2,x_4}\).
+        \item Si \(f(x_1) > f(x_2) > f(x_3) > f(x_4)\) et \(f(x_4) < f(x_5)\), alors \(\ol x\in\oo{x_3,x_5}\).
+        \item Si \(f(x_1) > f(x_2) > f(x_3) > f(x_4) > f(x_5)\), alors \(\ol x\in\oo{x_4,x_5}\).
+    \end{enumerate}
+
+    \begin{enumerate}[label=(\alph*)]
+        \item Utiliser ces propriétés pour construire un algorithme permettant de génèrer une suite d'intervalles
+        \((\ff{a_k, b_k})_{k\in\N}\) telle que
+        \begin{itemize}
+            \item à chaque étape, \(\ol x \in \ff{a_k, b_k}\),
+            \item on a \(b_k - a_k = \frac{b_{k-1} - a_{k-1}}{2}\),
+            \item à partir de la deuxième étape, 2 évaluations de \(f\) sont
+            nécessaires à chaque étape.
+        \end{itemize}
+
+        \item Montrer que \(a_k \to \ol x\) et \(b_k \to \ol x\) lorsque \(k\to\infty\).
+    \end{enumerate}
+\end{td-exo}
+% --- Solutions exo 1
+\iftoggle{showsolutions}{
+    \begin{td-sol} % 1
+        \begin{enumerate}[label=(\alph*)]
+            \item Dans le cas général on prend alors \(\ff{a_k, b_k} = \ff{x_i, x_j}\)
+            tel que \(\ol x \in\ff{x_i, x_j}\). Après la première étape, on évalue
+            \(f\) en \(x_t = (a_k + b_k)/2\). Si \(f(x_t) < f(x_i)\), on choisit
+            \(\ff{a_{k+1}, b_{k+1}} = \ff{a_k, x_t}\), sinon on choisit
+            \(\ff{a_{k+1}, b_{k+1}} = \ff{x_t, b_k}\). On répète ainsi de suite.
+            On a bien \(b_k - a_k = \frac{b_{k-1} - a_{k-1}}{2}\) et on a besoin
+            de deux évaluations de \(f\) à chaque étape. Evidemment, on a
+            toujours \(\ol x \in \ff{a_k, b_k}\).
+    
+            \begin{itemize}
+                \item Cas \((i)\) et \((ii)\): \(\ol x\in \ff{x_1, x_3}\).
+                \item Cas \((iii)\): \(\ol x\in \ff{x_2, x_4}\).
+                \item Cas \((iv)\) et \((v)\): \(\ol x\in \ff{x_3, x_5}\).
+            \end{itemize}
+    
+            % reecrire en precisant la valeur de chaque x_i dans chaque cas a chaque etape
+            On peut reprendre 5 points \(x_1, x_2, x_3, x_4, x_5\) 
+            comme les bords et les quartiles d'un intervalle \(\ff{a,b}\).
+            % on recalcule uniquement les 2 quartiles a chaque etape, soit 2 evaluations
+            % de f a chaque etape
+            %%% a refaire au propre avec des schemas pour chaque cas
+            %%% et en precisant les valeurs de x_i a chaque etape
+            %%% pas tres dur mais pas une dichotomie classique
+            %%% c une dichotomie mais avec 5 points et pas 2
+
+            %%% faire un exo bonus avec n points
+
+            \item Comme l'intervalle \(\ff{a_k, b_k}\) est de longueur divisée par 2 à chaque étape,
+            on a \(a_k - b_k\) qui tend vers 0 lorsque \(k\to\infty\). Comme \(\ol x\in\ff{a_k, b_k}\),
+            on a bien \(a_k \to \ol x\) et \(b_k \to \ol x\) lorsque \(k\to\infty\).
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+% --- Consignes exo 2
+\begin{td-exo}[Méthode de la section dorée] % 2
+    Nous reprenons le principe de la méthode de la dichotomie précédente
+    mais à chaque itération, nous allons maintenant chercher à diviser
+    l'intervalle d'approximation en 3 parties (au lieu de 4 pour la
+    dichotomie).
+
+    Plus précisément, nous allons construire une suite décroissante
+    d'intervalles \((\ff{a_k, b_k})_{k\in\N}\) qui contiennent tous
+    le minimum \(\ol x\) cherché. Pour passer de \(\ff{a_k, b_k}\) à
+    \(\ff{a_{k+1}, b_{k+1}}\), on introduit deux nombres \(x_2^k\) et
+    \(x_3^k\) tels que \(a_k < x_2^k < x_3^k < b_k\). On calcule alors
+    les valeurs de \(f\) en \(x_2^k\) et \(x_3^k\). On a alors 2 cas:
+    \begin{itemize}
+        \item Si \(f(x_2^k) \leq f(x_3^k)\), alors \(\ol x \in \ff{a_k, x_3^k}\).
+        \item Si \(f(x_2^k) > f(x_3^k)\), alors \(\ol x \in \ff{x_2^k, b_k}\).
+    \end{itemize}
+    La question suivante se pose alors: comment choisir \(x_2^k\) et \(x_3^k\)
+    en pratique? On privilégie deux aspects:
+    \begin{enumerate}[label=(\roman*)] % chktex 36
+        \item On souhaite que le facteur de réduction \(\gamma\), 
+        qui représente le ratio de la longueur du nouvel intervalle, 
+        noté \(L_{k+1}\) par rapport à la longueur du précédent, noté 
+        \(L_k\) soit constant:
+        \begin{equation*}
+            \frac{L_{k+1}}{L_k} = \gamma.
+        \end{equation*}
+
+        \item On désire, comme pour la méthode de la dichotomie, réutiliser
+        le point qui n'a pas été choisi dans l'itération précédente afin
+        de diminuer les coûts de calcul. %%% remplir reste
+    \end{enumerate}
+    \begin{enumerate}[label=(\alph*)] % chktex 36
+        \item Traduire ces contraintes permettant de choisir
+        \(x_2^k, x_3^k, a_{k+1}, b_{k+1}\). Proposer un algorithme
+        et montrer qu'il n'y a qu'une seule valeur possible pour \(\gamma\).
+
+        \item Montrer que pour tout \(k\in\N\), on a
+        \begin{equation*}
+            b_k - a_k = \gamma^{k} (b - a).
+        \end{equation*}
+        Conclure.
+    \end{enumerate}
+\end{td-exo}
+% --- Solutions exo 2
+\iftoggle{showsolutions}{
+    \begin{td-sol} % 2
+        %% On vuet une répartition uniforme de x_2 et x_3
+        % sur l'intervalle en question
+        vide
+
+        %%% il faut arriver a 1 - gamma^-1 = (gamma^-1)^2
+    \end{td-sol}
+}{}
