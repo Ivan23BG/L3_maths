@@ -294,3 +294,85 @@ Soit \((X, d)\) un espace métrique.
         alors \(f\) est injective.
     \end{enumerate}
 \end{exercice}
+
+\begin{definition}
+    Soient \((X, d_X)\) et \((Y, d_Y)\) deux espaces métriques.
+    Soit \(f\from X \to Y\) une application et \(\alpha>0\).
+
+    On dit que \(f\) est \defemph{\(\alpha\)-Hölderienne} si
+    pour tout \(x, y \in X\),
+    \begin{equation*}
+        d_Y(f(x), f(y)) \leq K {d_X(x, y)}^\alpha
+    \end{equation*}
+    avec \(K > 0\).
+\end{definition}
+
+\begin{exercice}[\(\star\)]
+    Montrer que si \(f\) est \(\alpha\)-Hölderienne, alors \(f\) est continue.
+\end{exercice}
+
+\begin{remark}
+    Si \(\alpha = 1\), on dit que \(f\) est \defemph{Lipschitzienne}.
+\end{remark}
+
+\section{Constructions de topologies}\label{sec:constructions-de-topologies}
+
+Dans la suite on se donnera deux espaces topologiques \((X, \Tau_X)\) et \((Y, \Tau_Y)\).
+
+\subsection{Topologie induite}\label{subsec:topologie-induite}
+\begin{definition}
+    Soit \(A\sub X\). On appelle \defemph{topologie induite} sur \(A\) (par \(X\))
+    la topologie
+    \begin{equation*}
+        \Tau_A = \{A \cap U \mid U \in \Tau_X\}
+    \end{equation*}
+\end{definition}
+
+\begin{proposition}
+    \(\Tau_A\) est une topologie sur \(A\).
+\end{proposition}
+
+\begin{proof}
+    On a
+    \begin{enumerate}[label=(\roman*)] % chktex 36
+        \item \(A \cap X = A \in \Tau_A\) et \(A \cap \varnothing = \varnothing \in \Tau_A\),
+        \item Soit \({\{U_i\}}_{i \in I}\) une famille de \(\Tau_A\), alors
+        \begin{equation*}
+            \bigcup_{i \in I} U_i = A \cap \left(\bigcup_{i \in I} U_i\right) \in \Tau_A
+        \end{equation*}
+        \item Soit \({\{U_i\}}_{i \in \{1, \ldots, n\}}\) une famille finie de \(\Tau_A\), alors
+        \begin{equation*}
+            \bigcap_{i = 1}^n U_i = A \cap \left(\bigcap_{i = 1}^n U_i\right) \in \Tau_A
+        \end{equation*}
+    \end{enumerate}
+\end{proof}
+
+\begin{proposition}
+    Soit \(A\sub X\) et \(f\from X \to Y\) une application continue.
+
+    Alors \(f_{\mid A}\from A \to Y\) est continue.
+\end{proposition}
+
+\begin{proof}
+    Soit \(U \in \Tau_Y\).
+    On a 
+    \begin{equation*}
+        f_{\mid A}^{-1}(U) = A\cap f^{-1}(U)
+    \end{equation*}
+    ouvert de A, donc \(f_{\mid A}\) est continue.
+\end{proof}
+
+\begin{exercice}
+    Soit \(A\sub X, f\from X \to Y\) et
+    \begin{equation*}
+        \begin{aligned}
+            i\from & A \to X\\
+            & x \mapsto x
+        \end{aligned}
+    \end{equation*}
+    \begin{enumerate}[label=(\alph*)] %chktex 36
+        \item Montrer que \(i\) est continue.
+
+        \item En déduire que \(f_{\mid A}\) est continue.
+    \end{enumerate}
+\end{exercice}
