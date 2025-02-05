@@ -424,9 +424,9 @@ Soit \(G\) un groupe et \(X\) un ensemble.
         \begin{equation*}
             \begin{aligned}
                 &{\ol \alpha}_x (gG_x) = {\ol \alpha}_x (g'G_x)\\
-                \Leftrightarrow & g\cdot x = g'\cdot x\\
-                \Leftrightarrow & g^{-1}\cdot(g\cdot x) = g^{-1} \cdot (g' \cdot x)\\
-                \Leftrightarrow & g^{-1} g' \in G_x \Leftrightarrow gG_x = g'G_x
+                \iff & g\cdot x = g'\cdot x\\
+                \iff & g^{-1}\cdot(g\cdot x) = g^{-1} \cdot (g' \cdot x)\\
+                \iff & g^{-1} g' \in G_x \iff gG_x = g'G_x
             \end{aligned}
         \end{equation*}
 
@@ -444,10 +444,10 @@ Soit \(G\) un groupe et \(X\) un ensemble.
         \begin{equation*}
             \begin{aligned}
                 &s\cdot(g\cdot x) = g\cdot x\\
-                \Leftrightarrow & g^{-1}\cdot(s\cdot(g\cdot x)) = g^{-1}\cdot (g\cdot x)\\
-                \Leftrightarrow & (g^{-1}sg)\cdot x = x\\
-                \Leftrightarrow & g^{-1}sg\in G_x\\
-                \Leftrightarrow & s\in gG_x g^{-1}
+                \iff & g^{-1}\cdot(s\cdot(g\cdot x)) = g^{-1}\cdot (g\cdot x)\\
+                \iff & (g^{-1}sg)\cdot x = x\\
+                \iff & g^{-1}sg\in G_x\\
+                \iff & s\in gG_x g^{-1}
             \end{aligned}
         \end{equation*}
     \end{enumerate}
@@ -486,7 +486,7 @@ Soit \(G\) un groupe et \(X\) un ensemble.
     \end{equation*}
 \end{example}
 
-\begin{corollary}[Formule des classes]
+\begin{corollary}[: Formule des classes]
     Soient \(G,X\) finis et \(G\act X\). Alors, les propriétés suivantes sont vraies:
     \begin{enumerate}[label=(\roman*)] % chktex 36
         \item Pour tout \(x\in X\), on a \(\n{G\cdot x} = \ff{G\from G_x} = \n{G/G_x}\).
@@ -556,15 +556,15 @@ Soit \(G\) un groupe et \(X\) un ensemble.
 
 \begin{corollary}
     Soit \(G\) un \(p\)-groupe fini. Alors, le centre de \(G\)
-    noté \(\mathsf{Z}(G) \neq \{e\}\).
+    noté \(\zentrum (G) \neq \{e\}\).
 \end{corollary}
 
 \begin{proof}
     On a \(G\act G\) par conjugaison, donc
     \begin{equation*}
-        \n G \equiv \n{G^G} = \n{\mathsf{Z}(G)} \pmod p
+        \n G \equiv \n{G^G} = \n{\zentrum (G)} \pmod p
     \end{equation*}
-    et donc \(\n{\mathsf{Z}(G)} > 1\).
+    et donc \(\n{\zentrum (G)} > 1\).
 \end{proof}
 
 \begin{theorem}[de Cauchy]

@@ -1,0 +1,194 @@
+% exos jusqu'au 4 A REMPLIR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Consignes exo 5
+\begin{td-exo} % 5
+    % fill
+\end{td-exo}
+% --- Solution exo 5
+\iftoggle{showsolutions}{
+    \begin{td-sol}
+        On a \(\glx{2}(\bb F_2)\act\bb P^1(\bb F_2)\).
+
+        On rappelle que \(\bb F_p\coloneqq \bb Z/p\bb Z\) et
+        \begin{equation*}
+            \begin{aligned}
+                &\n{\GLn(\bb F_p)} = \prod_{k=0}^{n-1} (p^n - p^k)\\
+                \implies &\n{\glx{2}(\bb F_2)} = (2^2 - 2^0)(2^2 - 2^1) = 6.
+            \end{aligned}
+        \end{equation*}
+        D'autre part,
+        \begin{equation*}
+            \bb P^1(\bb F_2) = \{[e_1], [e_2], [e_1 + e_2]\} \simeq \bb F_2^2 \setminus \{0\}.
+        \end{equation*}
+        On peut alors trouver un morphisme de groupe
+        \begin{equation*}
+            \rho\from \glx{2}(\bb F_2) \to \mathfrak{S}_{\bb P^1(\bb F_2)} \simeq \mathfrak{S}_3
+        \end{equation*}
+        On sait aussi que 
+        \begin{equation*}
+            \begin{aligned}
+                A\in\ker(\rho) &\implies \begin{cases}
+                    A[e_1] = [e_1]\\
+                    A[e_2] = [e_2]\\
+                    A[e_1 + e_2] = [e_1 + e_2]
+                \end{cases}\\
+                &\implies A = \begin{pmatrix}
+                    \lambda & 0\\
+                    0 & \lambda
+                \end{pmatrix}.
+            \end{aligned}
+        \end{equation*}
+        Avec \(\lambda\in\bb F_2^\times\). Donc \(A = \id_2\).
+
+        Donc \(\rho\) est fidèle (injective) et comme
+        \begin{equation*}
+            \n{\glx{2}(\bb F_2)} = 6,
+        \end{equation*}
+        on a \(\rho \) isomorphisme.
+
+        
+        On a \(\scr D_3\act \mu_3 = \{\zeta^1,\zeta^2,\zeta^3\}\) où \(\zeta = e^{2i\pi/3}\). Alors
+        \begin{equation*}
+            \rho\from \scr D_3 \to \mathfrak{S}_{\mu_3} \simeq \mathfrak{S}_3.
+        \end{equation*}
+        Observons ce qui arrive quand on agit sur \(\mu_3\). On a
+        \begin{equation*}
+            R^i S^j \cdot \zeta^k =
+            \begin{cases}
+                \zeta^{i+k} &\text{si } j = 0\\
+                \zeta^{i-k} &\text{si } j = 1
+            \end{cases}
+        \end{equation*}
+        On remarque alors que
+        \begin{equation*}
+            R^i S^j \in\ker(\rho)
+            \implies i = 0 \text{ et } j = 0
+        \end{equation*}
+        pour \(0 \leq i \leq n-1, 0 \leq j \leq 1\). Donc \(\ker(\rho) = \{e\}\) et \(\rho\) est fidèle.
+
+        Comme \(\n{\scr D_3} = 6\), on a \(\rho\) isomorphisme.
+    \end{td-sol}
+}{}
+
+% --- Consignes exo 6
+\begin{td-exo} % 6
+    On a
+    \begin{equation*}
+        \bb R^\times = G\act X = \bb R^2\setminus \{0\}
+    \end{equation*}
+    par multiplication par scalaire. Trouver une bijection
+    \begin{equation*}
+        X/G = \bb P^1(\bb R) \to S^1 = \{z\in\bb C\mid |z| = 1\}
+    \end{equation*}
+\end{td-exo}
+% --- Solution exo 6
+\iftoggle{showsolutions}{
+    \begin{td-sol}
+        On considère l'application
+        \begin{equation*}
+            \begin{aligned}
+                f\from &X \to S^1\\
+                &z \mapsto \frac{z^2}{\n{z^2}}.
+            \end{aligned}
+        \end{equation*}
+        Elle est surjective car \(e^{i\theta} = f(e^{i\theta/2})\) pour tout \(\theta\in\bb R\). 
+
+        Elle est injective car
+        \begin{equation*}
+            f(x) = f(y) \iff [x] = [y]\in X/G.
+        \end{equation*}
+        et
+        \begin{equation*}
+            \begin{aligned}
+                \frac{x^2}{\n{x^2}} = \frac{y^2}{\n{y^2}}
+                \iff \frac{x}{\n x} = \pm \frac{y}{\n y}\\
+                \iff [x] = [y].
+            \end{aligned}
+        \end{equation*}
+        Grâce à la propriété universelle des quotients, 
+        \begin{equation*}
+            \begin{aligned}
+                \exists! \ol f\from &X/G \to S^1\\
+                & [z] \mapsto \frac{z^2}{\n{z^2}}.
+            \end{aligned}
+        \end{equation*}
+        qui est en plus surjective et injective, donc bijective.
+    \end{td-sol}
+}{}
+
+% --- Consignes exo 7
+\begin{td-exo}\, % 7
+    \begin{enumerate}[label=(\roman*)] % chktex 36
+        \item Trouver une bijection de \(\bb R/\bb Z\to S^1\). (Bonus: 
+        trouver une bijection \(\bb R\)-équivalente.)
+
+        \item Trouver une bijection de \(O_n(\bb R)/i(O_{n-1}(\bb R))\to S^{n-1}\).
+    \end{enumerate}
+\end{td-exo}
+% --- Solution exo 7
+\iftoggle{showsolutions}{
+    \begin{td-sol}\, % 7
+        \begin{enumerate}[label=(\roman*)] % chktex 36
+            \item On considère l'application
+            \begin{equation*}
+                \begin{aligned}
+                    \alpha \from &\bb R \times S^1 \to S^1\\
+                    &(\lambda, z) \mapsto e^{2i\pi\lambda}z.
+                \end{aligned}
+            \end{equation*}
+            C'est bien une action de \(\bb R\) sur \(S^1\). De plus, comme
+            \begin{equation*}
+                e^{\theta i} = \frac{\theta}{2\pi} \cdot 1,
+            \end{equation*}
+            \(\alpha\) est transitive et donc \(S^1 = G\cdot 1\).
+
+            Aussi,
+            \begin{equation*}
+                \begin{aligned}
+                    G_1
+                    &= \left\{g\in G \mid g\cdot 1 = 1\right\}\\
+                    &= \left\{\lambda\in\bb R \mid e^{2i\pi\lambda} = 1\right\}\\
+                    &= \bb Z.
+                \end{aligned}
+            \end{equation*}
+            Donc
+            \begin{equation*}
+                \begin{aligned}
+                    \bb R/\bb Z &\to S^1\\
+                    [\lambda] &\mapsto e^{2i\pi\lambda}
+                \end{aligned}
+            \end{equation*}
+            est une bijection.
+
+            \item Dans l'exercice 2 on a vu que
+            \begin{equation*}
+                O_n(\bb R) = G\act X = S^{n-1}.
+            \end{equation*}
+            transitivement et on a calculé par \(x = e_1\in S^{n-1}\)
+            \begin{equation*}
+                G_{e_1} = \left\{
+                    \begin{pmatrix}
+                        1 & 0\\
+                        0 & D
+                    \end{pmatrix}
+                    \bigg \mid
+                    D\in O_{n-1}(\bb R)
+                \right\}.
+            \end{equation*}
+            donc on obtient \og{} gratuitement \fg{} une bijection
+            \(G\)-équivalente
+            \begin{equation*}
+                \ol{\alpha}_x\from O_n(\bb R)/i(O_{n-1}(\bb R)) \to S^{n-1}.
+            \end{equation*}
+            %tout simplement en envoyant
+            %\begin{equation*}
+            %    \begin{pmatrix}
+            %        1 & 0\\
+            %        0 & D
+            %    \end{pmatrix}
+            %    \mapsto D\cdot e_1.
+            %\end{equation*}
+        \end{enumerate}
+    \end{td-sol}
+}{}
