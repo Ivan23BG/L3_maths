@@ -86,7 +86,7 @@ Soit \(G\) un groupe et \(X\) un ensemble.
         \end{aligned}
     \end{equation*}
     telle que
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\roman*)] % chktex 36
         \item pour tout \(x \in X\), on a \(e \cdot x = x\),
         \item pour tout \(g,h \in G\) et \(x \in X\), on a \(g \cdot (h \cdot x) = (gh) \cdot x\).
     \end{enumerate}
@@ -223,7 +223,7 @@ Soit \(G\) un groupe et \(X\) un ensemble.
 
 \begin{definition}\,
     Soient \(G\) et \(\Gamma\) des groupes et \(V\) un \(\bb K\)-espace vectoriel.
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}[label=(\roman*)] % chktex 36
         \item Si \(G\act\Gamma\), les assertions suivantes sont équivalentes:
         \begin{itemize}
             \item \(G\) \defemph{agit par homomorphismes} sur \(\Gamma\),
@@ -307,7 +307,7 @@ Soit \(G\) un groupe et \(X\) un ensemble.
     \begin{equation*}
         \begin{aligned}
             \rho^L : \mu_n &\to {\mathfrak{S}}_{\mu_n} \simeq {\mathfrak{S}}_{n}\\
-            \zeta_n^k &\mapsto (1~2~\cdots~n)^k
+            \zeta_n^k &\mapsto {(1~2~\cdots~n)}^k
         \end{aligned}
     \end{equation*}
 \end{example}
@@ -357,3 +357,242 @@ Soit \(G\) un groupe et \(X\) un ensemble.
 
     \end{enumerate}
 \end{definition}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remplir manquant
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% def de l'andice
+
+
+
+
+
+\begin{proposition}
+    Soit \(X\) un \(G\)-ensemble et \(Y\) un ensemble.
+
+    Pour toute application \(f\from X\to Y\) constante sur les orbites, il existe une
+    unique fonction \(\ol f\from X/G \to Y\) telle que
+    \begin{equation*}
+        \forall x\in X,\quad \ol f(\orb (x)) = f(x)
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    Par définition du quotient.
+\end{proof}
+
+\begin{lemma}
+    Soit \(X\) un \(G\)-ensemble et \(x\in X\). On a les propriétés suivantes:
+    \begin{enumerate}[label=(\roman*)] %chktex 36
+        \item Il existe une bijection
+        \begin{equation*}
+            \begin{aligned}
+                \ol{\alpha}_x\from &G/G_x\to G\cdot x\\
+                &gG_x\mapsto g\cdot x
+            \end{aligned}
+        \end{equation*}
+
+        \item \({\ol \alpha}_x\) est \(G\)-équivariante. C'est-à-dire que \(G\act G/G_x\)
+        par translation à gauche, soit \(g\cdot g' G_x \coloneqq gg' G_x\).
+
+        \item Pour tout \(g\in G\), on a
+        \begin{equation*}
+            G_{g\cdot x} = gG_x g^{-1}
+        \end{equation*}
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}\,
+    \begin{enumerate}[label=(\roman*)] %chktex 36
+        \item L'application \({\ol \alpha}_x\) est bien définie:
+        \begin{equation*}
+            \begin{aligned}
+                g'G_x = gG_x &\implies s\in G_x\from g' = gs\\
+                &\implies g'\cdot x = (gs)\cdot x &= g\cdot(s\cdot x)\\
+                & & g\cdot x
+            \end{aligned}
+        \end{equation*}
+
+        L'application \({\ol \alpha}_x\) est aussi surjective par
+        définition de l'orbite
+
+        L'application \({\ol \alpha}_x\) est injective:
+        \begin{equation*}
+            \begin{aligned}
+                &{\ol \alpha}_x (gG_x) = {\ol \alpha}_x (g'G_x)\\
+                \Leftrightarrow & g\cdot x = g'\cdot x\\
+                \Leftrightarrow & g^{-1}\cdot(g\cdot x) = g^{-1} \cdot (g' \cdot x)\\
+                \Leftrightarrow & g^{-1} g' \in G_x \Leftrightarrow gG_x = g'G_x
+            \end{aligned}
+        \end{equation*}
+
+        \item On a
+        \begin{equation*}
+            \begin{aligned}
+                {\ol \alpha}_x(g\cdot g'G_x) &= {\ol \alpha}_x (gg' G_x)\\
+                &= (gg')\cdot x\\
+                &= g\cdot (g'\cdot x)\\
+                &= g\cdot {\ol \alpha}_x (g' G_x)
+            \end{aligned}
+        \end{equation*}
+
+        \item Soit \(s\in G_{g\cdot x}\) Alors
+        \begin{equation*}
+            \begin{aligned}
+                &s\cdot(g\cdot x) = g\cdot x\\
+                \Leftrightarrow & g^{-1}\cdot(s\cdot(g\cdot x)) = g^{-1}\cdot (g\cdot x)\\
+                \Leftrightarrow & (g^{-1}sg)\cdot x = x\\
+                \Leftrightarrow & g^{-1}sg\in G_x\\
+                \Leftrightarrow & s\in gG_x g^{-1}
+            \end{aligned}
+        \end{equation*}
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Soit \(X\) un \(G\)-espace homogène (c'est à dire qu'il n'y a qu'une seule orbite). Alors,
+    il existe \(H < G\) et \(f\from G/H\to X\) une bijection \(G\)-équivariante.
+\end{corollary}
+
+\begin{proof}
+    Soit \(x\in X\), on pose \(G = G_x\) et on applique le Lemme précédent.
+\end{proof}
+
+\begin{example}
+    On sait que \(\GLn(\bb K)\act \bb P^{n-1}(\bb K)\) transitivement et
+    donc on obtient une application
+    \begin{equation*}
+        \GLn(\bb K)/ H\to \bb P^{n-1}(\bb K)
+    \end{equation*}
+    bijective et \(G\)-équivariante où
+    \begin{equation*}
+        H = {(\GLn(\bb K))}_{\ff{e_1}} =
+        \left\{
+            \begin{pmatrix}
+                a&b\\
+                0&D
+            \end{pmatrix}
+            \bigg |
+            \begin{matrix}
+                a\in \bb K^x\\
+                b^T \in\bb K^{n-1}\\
+                D\in \glx{n-1}(\bb K)
+            \end{matrix}
+        \right\}
+    \end{equation*}
+\end{example}
+
+\begin{corollary}[Formule des classes]
+    Soient \(G,X\) finis et \(G\act X\). Alors, les propriétés suivantes sont vraies:
+    \begin{enumerate}[label=(\roman*)] % chktex 36
+        \item Pour tout \(x\in X\), on a \(\n{G\cdot x} = \ff{G\from G_x} = \n{G/G_x}\).
+        \item Si on a \(X = (G\cdot x_1) \sqcup \cdot \sqcup (G\cdot x_n)\) alors
+        \begin{equation*}
+            \n X = \sum_{i=1}^n \n{G\cdot x_i} = \sum_{i=1}^n \frac{\n G}{\n{G_{x_i}}}
+        \end{equation*}
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}\,
+    \begin{enumerate}[label=(\roman*)] % chktex 36
+        \item On a 
+        \begin{equation*}
+            \begin{aligned}
+                \ol{\alpha}_x\from &G/G_x\to G\cdot x\\
+                &gG_x\mapsto g\cdot x
+            \end{aligned}
+        \end{equation*}
+        bijective donc
+        \begin{equation*}
+            \n{G\cdot x} = \n{G/G_x} = \ff{G\from G_x}
+        \end{equation*}
+
+        \item On a \(X = \bigsqcup_{i=1}^n (G\cdot x_i)\) donc
+        \begin{equation*}
+            \begin{aligned}
+                \n X
+                &= \sum_{i=1}^n \n{G\cdot x_i}\\
+                &= \sum_{i=1}^n \n{G/G_{x_i}}\\
+                &= \sum_{i=1}^n \frac{\n G}{\n{G_{x_{i}}}}
+            \end{aligned}
+        \end{equation*}
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Soit \(p\in N\) premier. Un groupe \(G\)
+    est un \defemph{\(p\)-groupe fini} si \(\n{G} = p^n\)
+    avec \(n>0\).
+\end{definition}
+
+\begin{lemma}
+    Si \(G\) est un \(p\)-groupe fini et \(X\) un \(G\)-ensemble fini.
+    Alors
+    \begin{equation*}
+        \n X \equiv \n{X^G} \pmod p
+    \end{equation*}
+    où \(X^G\) est l'ensemble des points fixes de \(G\act X\).
+\end{lemma}
+
+\begin{proof}
+    Soit \(x\in X\setminus X^G\). Alors
+    \begin{equation*}
+        1 < \n{G\cdot x} = \n{G/G_x} = \frac{\n{G}}{\n{G_{x}}}
+    \end{equation*}
+    qui divise \(\n G\). Alors \(\n{G\cdot x}\equiv 0 \pmod p\)
+
+    Si \(X = (G\cdot x_1)\sqcup\cdots\sqcup (G\cdot x_n)\) et 
+    \(X = (G\cdot x_1)\sqcup\cdots\sqcup (G\cdot x_m)\) avec \(1\leq m\leq n\).
+    Alors la formule des classes donne
+    \begin{equation*}
+        \n{X} = \sum_{i=1}^m \n{G\cdot x_i} + \sum_{j = m+1}^n \n{G\cdot x_j}
+        \equiv m = \n{X^G}\pmod p
+    \end{equation*}
+\end{proof}
+
+\begin{corollary}
+    Soit \(G\) un \(p\)-groupe fini. Alors, le centre de \(G\)
+    noté \(\mathsf{Z}(G) \neq \{e\}\).
+\end{corollary}
+
+\begin{proof}
+    On a \(G\act G\) par conjugaison, donc
+    \begin{equation*}
+        \n G \equiv \n{G^G} = \n{\mathsf{Z}(G)} \pmod p
+    \end{equation*}
+    et donc \(\n{\mathsf{Z}(G)} > 1\).
+\end{proof}
+
+\begin{theorem}[de Cauchy]
+    Soit \(p\in\bb N\) premier qui divise \(\n G\). Alors
+    \(G\) admet un élément d'ordre \(p\).
+\end{theorem}
+
+\begin{proof}
+    A voir sur le Moodle.
+\end{proof}
+
+\begin{lemma}[de Burnside]
+    Soit \(G\) un groupe fini et \(X\) un \(G\)-ensemble fini.
+    Alors
+    \begin{equation*}
+        \n{X/G} = \frac{1}{\n{G}}\times \sum_{g\in G}\n{X^g}
+    \end{equation*}
+\end{lemma}
+
+
+
+
+
+
+
+
+
+
+
+
+
