@@ -1,0 +1,141 @@
+\subsection{Méthode de la dichotomie}\label{exo:1}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Quelle équation souhaite-t-on résoudre pour notre problème d'optimisation?
+        Quelles conditions doit-on vérifier sur \(f\) pour appliquer la méthode de la dichotomie?
+    
+        \item Ecrire l'algorithme de dichotomie et l'appliquer pour trouver le minimum de la fonction
+        \(f = x^2 - 2\sin(x)\) sur \(\ff{0,2}\) avec une précision de \(10^{-5}\).
+        Comment obtient-on le nombre d'itérations à partir de la précision?
+    
+        \item Comparer votre code avec l'implémentation de la fonction \texttt{scipy.optimize.bisect}.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item On souhaite résoudre l'équation \(f(x) = 0\) pour notre problème d'optimisation.
+            Il faut donc que \(f\) soit continue sur \(\ff{a,b}\) et que \(f(a)f(b) < 0\).
+
+            On va alors chercher à résoudre \(f'(x) = 0\) pour trouver les points critiques de \(f\).
+
+            \item L'algorithme de dichotomie est le suivant:
+            % insert image from assets/code.png
+            REMPLACER CODE ICI
+            % \begin{figure}[H]
+            %     \centering
+            %     \includegraphics[width=0.8\textwidth]{assets/code.png}
+            % \end{figure}
+            Après exécution, on trouve que le minimum de \(f\) est \(x = 0.73908\) avec une précision de \(10^{-5}\).
+
+            Pour obtenir le nombre d'itérations à partir de la précision, on utilise la formule
+            \begin{equation*}
+                n = \frac{\log\p{\frac{b-a}{\varepsilon}}}{\log(2)},
+            \end{equation*}
+            où \(n\) est le nombre d'itérations, \(a\) et \(b\) sont les bornes de l'intervalle et \(\varepsilon\) est la précision.
+            
+            L'implémentation est la suivante:
+            % insert image from assets/code.png
+            REMPLACER CODE ICI
+            % \begin{figure}[H]
+            %     \centering
+            %     \includegraphics[width=0.8\textwidth]{assets/code.png}
+            % \end{figure}
+            et indique qu'il faut 18 itérations pour obtenir le résultat.
+
+            \item En comparant avec la méthode implémentée dans \texttt{scipy.optimize.bisect}, on trouve que le résultat est le même
+            et que le nombre d'itérations est identique.
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\subsection{Méthode de Newton}\label{exo:2}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Quelle condition doit vérifier \(f\) pour appliquer la méthode de Newton
+        pour le problème d'optimisation? Comment va être formulé l'itéré de Newton dans ce cas?
+
+        \item Ecrire l'algorithme de Newton dans ce cas et l'appliquer à la fonction 
+        \(f(x) = x^2 - 2\sin(x)\) avec \(x_0 = 1\).
+    \end{enumerate}
+
+    Dans les deux cas précédents, il nous faut de la régularité pour la fonction \(f\), voici 
+    une autre méthode qui demande moins de régularité pour notre fonction.
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item Pour appliquer la méthode de Newton, il faut que \(f\) soit de classe \(\cc^2\) sur \(\ff{a,b}\).
+            L'itéré de Newton est alors donné par
+            \begin{equation*}
+                x_{k+1} = x_k - \frac{f'(x_k)}{f''(x_k)}.
+            \end{equation*}
+
+            \item L'algorithme de Newton est le suivant:
+            % insert image from assets/code.png
+            REMPLACER CODE ICI
+            % \begin{figure}[H]
+            %     \centering
+            %     \includegraphics[width=0.8\textwidth]{assets/code.png}
+            % \end{figure}
+            Après exécution, on trouve que le minimum de \(f\) est \(x = 0.73908\).
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\subsection{Méthode de la section dorée}\label{exo:3}
+
+\begin{td-exo}\,
+    La méthode de la section dorée permet de trouver le minimum d'une fonction \(f\) continue
+    et unimodale sur l'intervalle \(\ff{a,b}\sub\bb R\). On note par la suite le
+    nombre d'or \(\phi = \frac{1+\sqrt{5}}{2}\).
+
+    L'algorithme est le suivant:
+    % insert bad algorithm here
+
+    \begin{enumerate}
+        \item Ecrire l'algorithme et l'appliquer à la fonction \(f(x) = x^2 - 2\sin(x)\) sur \(\ff{0,2}\)
+
+        \item Comparer votre code avec l'implémentation de la fonction \texttt{scipy.optimize.golden}.
+
+        \item Comparer les 3 méthodes pour \(f = -\frac1x +\cos(x)\) sur \(\ff{a,b} = \ff{2,4}\)
+        ou pour \(x_0 = 2.5\) au niveau du nombre d'itérations et du temps de calcul.
+
+        Représenter le graphique de la fonction en plaçant les résultats des itérations successives
+        de Newton.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item L'algorithme de la section dorée est le suivant:
+            % insert image from assets/code.png
+            REMPLACER CODE ICI
+            % \begin{figure}[H]
+            %     \centering
+            %     \includegraphics[width=0.8\textwidth]{assets/code.png}
+            % \end{figure}
+            Après exécution, on trouve que le minimum de \(f\) est \(x = 0.73908\).
+
+            \item L'implémentation de \texttt{scipy.optimize.golden} donne le même résultat
+            et le nombre d'itérations est identique.
+
+            \item Pour la fonction \(f = -\frac1x +\cos(x)\) sur \(\ff{2,4}\) avec \(x_0 = 2.5\), on trouve
+            que la méthode de la dichotomie est la plus rapide, suivie de la méthode de Newton et enfin
+            la méthode de la section dorée.
+
+            Le graphique de la fonction est le suivant:
+            % insert image from assets/graph.png
+            REMPLACER CODE ICI
+            % \begin{figure}[H]
+            %     \centering
+            %     \includegraphics[width=0.8\textwidth]{assets/graph.png}
+            % \end{figure}
+        \end{enumerate}
+    \end{td-sol}
+}{}
