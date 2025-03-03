@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import bisect
 from scipy.optimize import golden
 
+
 # fonction à minimiser
 def f(x):
     return x**2 - 2 * np.sin(x)
