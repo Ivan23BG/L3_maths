@@ -16,37 +16,32 @@
 \iftoggle{showsolutions}{
     \begin{td-sol}\,
         \begin{enumerate}
-            \item On souhaite résoudre l'équation \(f(x) = 0\) pour notre problème d'optimisation.
-            Il faut donc que \(f\) soit continue sur \(\ff{a,b}\) et que \(f(a)f(b) < 0\).
+            \item On souhaite résoudre l'équation \(f'(x) = 0\) pour trouver le minimum de \(f\).
+            Pour appliquer la méthode de la dichotomie, il faut que \(f\) soit continue et unimodale sur \(\ff{a,b}\).
 
             On va alors chercher à résoudre \(f'(x) = 0\) pour trouver les points critiques de \(f\).
 
-            \item L'algorithme de dichotomie est le suivant:
-            % insert image from assets/code.png
-            REMPLACER CODE ICI
-            % \begin{figure}[H]
-            %     \centering
-            %     \includegraphics[width=0.8\textwidth]{assets/code.png}
-            % \end{figure}
-            Après exécution, on trouve que le minimum de \(f\) est \(x = 0.73908\) avec une précision de \(10^{-5}\).
+            \item On commence par importer les librairies nécessaires et définir la fonction \(f\):
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_01_libs_f.png}
+            \end{center}
+            
+            Ensuite on définit la fonction \texttt{dichotomie} qui prend en argument la fonction \(f\), les bornes de l'intervalle \(\ff{a,b}\)
+            sur lequel on cherche le minimum et la précision \(\varepsilon\). On l'applique ensuite à notre fonction \(f\):
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_02_dichotomie.png}
+            \end{center}
 
             Pour obtenir le nombre d'itérations à partir de la précision, on utilise la formule
             \begin{equation*}
-                n = \frac{\log\p{\frac{b-a}{\varepsilon}}}{\log(2)},
+                n = \frac{\log(\frac{b - a}{\varepsilon})}{\log(2)},
             \end{equation*}
             où \(n\) est le nombre d'itérations, \(a\) et \(b\) sont les bornes de l'intervalle et \(\varepsilon\) est la précision.
             
-            L'implémentation est la suivante:
-            % insert image from assets/code.png
-            REMPLACER CODE ICI
-            % \begin{figure}[H]
-            %     \centering
-            %     \includegraphics[width=0.8\textwidth]{assets/code.png}
-            % \end{figure}
-            et indique qu'il faut 18 itérations pour obtenir le résultat.
-
-            \item En comparant avec la méthode implémentée dans \texttt{scipy.optimize.bisect}, on trouve que le résultat est le même
-            et que le nombre d'itérations est identique.
+            \item On remarque que la méthode de dichotomie de \texttt{scipy.optimize.bisect} donne le même résultat. Un test plus avancé avec des fonctions plus complexes pourrait montrer des différences en termes de performances.
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_03_bisect.png}
+            \end{center}
         \end{enumerate}
     \end{td-sol}
 }{}
@@ -61,9 +56,6 @@
         \item Ecrire l'algorithme de Newton dans ce cas et l'appliquer à la fonction 
         \(f(x) = x^2 - 2\sin(x)\) avec \(x_0 = 1\).
     \end{enumerate}
-
-    Dans les deux cas précédents, il nous faut de la régularité pour la fonction \(f\), voici 
-    une autre méthode qui demande moins de régularité pour notre fonction.
 \end{td-exo}
 
 \iftoggle{showsolutions}{
@@ -75,14 +67,17 @@
                 x_{k+1} = x_k - \frac{f'(x_k)}{f''(x_k)}.
             \end{equation*}
 
-            \item L'algorithme de Newton est le suivant:
-            % insert image from assets/code.png
-            REMPLACER CODE ICI
-            % \begin{figure}[H]
-            %     \centering
-            %     \includegraphics[width=0.8\textwidth]{assets/code.png}
-            % \end{figure}
-            Après exécution, on trouve que le minimum de \(f\) est \(x = 0.73908\).
+            \item On définit la fonction \texttt{newton} qui prend en argument la dérivée
+            première et seconde de \(f\), la valeur initiale \(x_0\) et la précision \(\varepsilon\).
+            On l'applique ensuite à notre fonction \(f\):
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_04_newton.png}
+            \end{center}
+
+            On remarque que la méthode de Newton converge plus rapidement que la méthode de dichotomie. 
+            Cependant, elle nécessite des conditions plus restrictives sur la fonction \(f\). 
+            Dans le cas de la dichotomie, \(f\) doit être unimodale, tandis que pour Newton, 
+            \(f\) doit être deux fois dérivable.
         \end{enumerate}
     \end{td-sol}
 }{}
@@ -90,13 +85,6 @@
 \subsection{Méthode de la section dorée}\label{exo:3}
 
 \begin{td-exo}\,
-    La méthode de la section dorée permet de trouver le minimum d'une fonction \(f\) continue
-    et unimodale sur l'intervalle \(\ff{a,b}\sub\bb R\). On note par la suite le
-    nombre d'or \(\phi = \frac{1+\sqrt{5}}{2}\).
-
-    L'algorithme est le suivant:
-    % insert bad algorithm here
-
     \begin{enumerate}
         \item Ecrire l'algorithme et l'appliquer à la fonction \(f(x) = x^2 - 2\sin(x)\) sur \(\ff{0,2}\)
 
@@ -113,29 +101,48 @@
 \iftoggle{showsolutions}{
     \begin{td-sol}\,
         \begin{enumerate}
-            \item L'algorithme de la section dorée est le suivant:
-            % insert image from assets/code.png
-            REMPLACER CODE ICI
-            % \begin{figure}[H]
-            %     \centering
-            %     \includegraphics[width=0.8\textwidth]{assets/code.png}
-            % \end{figure}
-            Après exécution, on trouve que le minimum de \(f\) est \(x = 0.73908\).
+            \item On définit la fonction \texttt{golden} qui prend en argument la fonction \(f\), 
+            les bornes de l'intervalle \(\ff{a,b}\) sur lequel on cherche le minimum et la
+            précision \(\varepsilon\). On l'applique ensuite à notre fonction \(f\):
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_05_golden.png}
+            \end{center}
 
-            \item L'implémentation de \texttt{scipy.optimize.golden} donne le même résultat
-            et le nombre d'itérations est identique.
+            \item On remarque que la méthode de la section dorée de \texttt{scipy.optimize.golden} 
+            donne le même résultat. Un test plus avancé avec des fonctions plus complexes
+            pourrait montrer des différences en termes de performances.
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_06_golden.png}
+            \end{center}
 
-            \item Pour la fonction \(f = -\frac1x +\cos(x)\) sur \(\ff{2,4}\) avec \(x_0 = 2.5\), on trouve
-            que la méthode de la dichotomie est la plus rapide, suivie de la méthode de Newton et enfin
-            la méthode de la section dorée.
+            \item On définit la fonction \(f = -\frac1x +\cos(x)\) et on applique les 3 méthodes
+            pour trouver le minimum sur \(\ff{2,4}\) avec \(x_0 = 2.5\). On compare
+            les 3 méthodes en termes de nombre d'itérations et de temps de calcul.
 
-            Le graphique de la fonction est le suivant:
-            % insert image from assets/graph.png
-            REMPLACER CODE ICI
-            % \begin{figure}[H]
-            %     \centering
-            %     \includegraphics[width=0.8\textwidth]{assets/graph.png}
-            % \end{figure}
+            On représente graphiquement les itérations successives des 3 méthodes.
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_07_compare.png}
+            \end{center}
+            
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_08_redefine.png}
+            \end{center}
+            
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_09_results.png}
+            \end{center}
+            
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_10_redefine.png}
+            \end{center}
+            
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_11_graph.png}
+            \end{center}
+            
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{../assets/code_12_graph.png}
+            \end{center}
         \end{enumerate}
     \end{td-sol}
 }{}
