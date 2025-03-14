@@ -1,0 +1,356 @@
+%%            \vspace{5pt}
+%%            \begin{minipage}{0.48\textwidth}
+%%                \centering
+%%                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_num_cod.png}}
+%%            \end{minipage}
+%%            \vspace{5pt}
+
+\subsection{Méthode de la dichotomie}\label{exo:1}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Quelle équation souhaite-t-on résoudre pour notre problème d'optimisation?
+        Quelles conditions doit-on vérifier sur \(f\) pour appliquer la méthode de la dichotomie?
+    
+        \item Ecrire l'algorithme de dichotomie et l'appliquer pour trouver le minimum de la fonction
+        \(f = x^2 - 2\sin(x)\) sur \(\ff{0,2}\) avec une précision de \(10^{-5}\).
+        Comment obtient-on le nombre d'itérations à partir de la précision?
+    
+        \item Comparer votre code avec l'implémentation de la fonction \texttt{scipy.optimize.bisect}.
+    \end{enumerate}
+\end{td-exo}
+
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item On souhaite résoudre l'équation \(f'(x) = 0\) pour trouver le minimum de \(f\).
+            Pour appliquer la méthode de la dichotomie, il faut que \(f\) soit continue et unimodale sur \(\ff{a,b}\).
+
+            On va alors chercher à résoudre \(f'(x) = 0\) pour trouver les points critiques de \(f\).
+
+            \item On commence par importer les librairies nécessaires et définir la fonction \(f\):
+            
+            \vspace{5pt}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_1_lib.png}}
+                % \captionof{figure}{Importation des librairies}
+            \end{minipage}\hfill
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_2_fde.png}}
+                % \captionof{figure}{Définition de la fonction $f$}
+            \end{minipage}
+            \vspace{5pt}
+            
+            Ensuite on définit la fonction \texttt{dichotomie} qui prend en argument la fonction \(f\), les bornes de l'intervalle \(\ff{a,b}\)
+            sur lequel on cherche le minimum et la précision \(\varepsilon\). On l'applique ensuite à notre fonction \(f\):
+            
+            \vspace{5pt}
+            \begin{minipage}[c]{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_3_dic.png}}
+            \end{minipage}\hfill
+            \begin{minipage}[c]{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_4_con.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            \begin{minipage}[c]{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_5_der.png}}
+            \end{minipage}\hfill
+            \begin{minipage}[c]{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_6_out.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            
+
+            Pour obtenir le nombre d'itérations à partir de la précision, on utilise la formule
+            \begin{equation*}
+                n = \frac{\log(\frac{b - a}{\varepsilon})}{\log(2)},
+            \end{equation*}
+            où \(n\) est le nombre d'itérations, \(a\) et \(b\) sont les bornes de l'intervalle et \(\varepsilon\) est la précision.
+            
+            \item On remarque que la méthode de dichotomie de \texttt{scipy.optimize.bisect} donne le même résultat. Un test plus avancé avec des fonctions plus complexes pourrait montrer des différences en termes de performances.
+            
+            \vspace{5pt}
+            \begin{minipage}{\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_7_com.png}}
+            \end{minipage}
+            \vspace{5pt}
+            
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\subsection{Méthode de Newton}\label{exo:2}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Quelle condition doit vérifier \(f\) pour appliquer la méthode de Newton
+        pour le problème d'optimisation? Comment va être formulé l'itéré de Newton dans ce cas?
+
+        \item Ecrire l'algorithme de Newton dans ce cas et l'appliquer à la fonction 
+        \(f(x) = x^2 - 2\sin(x)\) avec \(x_0 = 1\).
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item Pour appliquer la méthode de Newton, il faut que \(f\) soit de classe \(\mathcal{C}^2\) sur \(\ff{a,b}\).
+            L'itéré de Newton est alors donné par
+            \begin{equation*}
+                x_{k+1} = x_k - \frac{f'(x_k)}{f''(x_k)}.
+            \end{equation*}
+
+            \item On définit la fonction \texttt{newton} qui prend en argument la dérivée
+            première et seconde de \(f\), la valeur initiale \(x_0\) et la précision \(\varepsilon\).
+            On l'applique ensuite à notre fonction \(f\):
+            
+            \vspace{5pt}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_8_new.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_9_con.png}}
+            \end{minipage}
+            
+            \vspace{5pt}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_10_fde.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_11_out.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            On remarque que la méthode de Newton converge plus rapidement que la méthode de dichotomie. 
+            Cependant, elle nécessite des conditions plus restrictives sur la fonction \(f\). 
+            Dans le cas de la dichotomie, \(f\) doit être unimodale, tandis que pour Newton, 
+            \(f\) doit être deux fois dérivable.
+        \end{enumerate}
+    \end{td-sol}
+}{}
+
+\subsection{Méthode de la section dorée}\label{exo:3}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Ecrire l'algorithme et l'appliquer à la fonction \(f(x) = x^2 - 2\sin(x)\) sur \(\ff{0,2}\)
+
+        \item Comparer votre code avec l'implémentation de la fonction \texttt{scipy.optimize.golden}.
+
+        \item Comparer les 3 méthodes pour \(f = -\frac1x +\cos(x)\) sur \(\ff{a,b} = \ff{2,4}\)
+        ou pour \(x_0 = 2.5\) au niveau du nombre d'itérations et du temps de calcul.
+
+        Représenter le graphique de la fonction en plaçant les résultats des itérations successives
+        de Newton.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item On définit la fonction \texttt{golden} qui prend en argument la fonction \(f\), 
+            les bornes de l'intervalle \(\ff{a,b}\) sur lequel on cherche le minimum et la
+            précision \(\varepsilon\). On l'applique ensuite à notre fonction \(f\):
+            
+            \vspace{5pt}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_12_gol.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_13_con.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            \begin{minipage}{\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_14_out.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            \item On remarque que la méthode de la section dorée de \texttt{scipy.optimize.golden} 
+            donne le même résultat. Un test plus avancé avec des fonctions plus complexes
+            pourrait montrer des différences en termes de performances.
+            
+            \vspace{5pt}
+            \begin{minipage}{\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_15_com.png}}
+            \end{minipage}
+            \vspace{5pt}
+            
+
+            \item On définira la fonction \(f = -\frac1x +\cos(x)\) et on appliquera les 3 méthodes
+            pour trouver le minimum sur \(\ff{2,4}\) avec \(x_0 = 2.5\). On comparera
+            les 3 méthodes en termes de nombre d'itérations et de temps de calcul.
+            On représentera graphiquement les itérations successives des 3 méthodes.
+
+            Commençons par définir la fonction \(f\), ses dérivées première et seconde et les contraintes
+            de recherche:
+            
+            \vspace{5pt}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_16_fde.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_17_con.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            On redéfinit ensuite les fonctions \texttt{dichotomie}, \texttt{newton} et \texttt{golden}
+            pour renvoyer le nombre d'itérations en plus du minimum trouvé (cela nous permettra de comparer
+            les 3 méthodes):
+            
+            \vspace{5pt}
+            \begin{minipage}{0.31\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.95\linewidth]{../assets/tp_1/img_18_rd1.png}}
+            \end{minipage}
+            \begin{minipage}{0.31\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.95\linewidth]{../assets/tp_1/img_19_rd2.png}}
+            \end{minipage}
+            \begin{minipage}{0.31\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.95\linewidth]{../assets/tp_1/img_20_rd3.png}}
+            \end{minipage}
+            \vspace{5pt}
+            
+            Enfin, on applique les 3 méthodes pour trouver le minimum de \(f\) sur \(\ff{2,4}\) avec \(x_0 = 2.5\):
+
+            \vspace{5pt}
+            \begin{minipage}{\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_21_out.png}}
+            \end{minipage}
+            \vspace{5pt}
+            
+            Pour l'affichage graphique des itérations successives des différentes méthodes, 
+            il faut encore modifier les fonctions \texttt{dichotomie}, \texttt{newton} et \texttt{golden}
+            pour qu'elles renvoient les itérés successifs:
+            
+            \vspace{5pt}
+            \begin{minipage}{0.31\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.95\linewidth]{../assets/tp_1/img_22_rd4.png}}
+            \end{minipage}
+            \begin{minipage}{0.31\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.95\linewidth]{../assets/tp_1/img_23_rd5.png}}
+            \end{minipage}
+            \begin{minipage}{0.31\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.95\linewidth]{../assets/tp_1/img_24_rd6.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            Et on peut vérifier que les fonctions marchent correctement:
+            
+            \vspace{5pt}
+            \begin{minipage}{\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_25_out.png}}
+            \end{minipage}
+            \vspace{5pt}
+            
+            On peut alors afficher les itérations successives des 3 méthodes sur le même graphique
+            avec les lignes suivantes:
+            
+            \vspace{5pt}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_26_gr1.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_27_gr2.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_28_gr3.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_29_gr4.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            \begin{minipage}{\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_30_gr5.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            On peut aussi visualiser ces résultats sur la première fonction étudiée, \(f = x^2 - 2\sin(x)\):
+
+            On commence par redéfinir les paramètres de recherche:
+
+            \vspace{5pt}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_31_fde.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_32_con.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            \begin{minipage}{\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_33_out.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            Puis on utilise les fonctions redéfinies précédemment pour afficher les itérations successives:
+
+            \vspace{5pt}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_34_gr6.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_35_gr7.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_36_gr8.png}}
+            \end{minipage}
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_37_gr9.png}}
+            \end{minipage}
+            \vspace{5pt}
+
+            \vspace{5pt}
+            \begin{minipage}{\textwidth}
+                \centering
+                \fbox{\includegraphics[width=.85\linewidth]{../assets/tp_1/img_38_g10.png}}
+            \end{minipage}
+            \vspace{5pt}
+            
+        \end{enumerate}
+    \end{td-sol}
+}{}

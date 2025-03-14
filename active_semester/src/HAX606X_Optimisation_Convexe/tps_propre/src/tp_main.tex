@@ -1,0 +1,34 @@
+\documentclass[french,a4paper,10pt]{article}
+\input{../../../common/common_header.tex}
+\input{../../../common/macros/math.tex}
+\input{../../../common/macros/theorems.tex}
+\input{../../assets/module_header.tex}
+\usepackage[a4paper,hmargin=30mm,vmargin=30mm]{geometry}
+\usepackage{caption}
+
+\title{\color{astral} \sffamily \bfseries Optimisation convexe --- TPs}
+\author{Ivan Lejeune}
+\date{\today}
+
+% latexmk -interaction=nonstopmode -shell-escape -pdf -synctex=1 tp_main.tex -output-directory=out && mv out/tp_main.pdf ./tps_out
+\toggletrue{showsolutions}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    
+    \newpage
+    \section*{TP1 --- Méthodes d'optimisation en 1D}\label{sec:TD1}
+    \addcontentsline{toc}{section}{\nameref{sec:TD1}}
+    \setcounter{section}{1}
+    \setcounter{tdcounter}{0}
+    \input{tp_1.tex}
+
+    % \setcounter{subsection}{0}
+    % \newpage
+    % \section*{TP2 --- Méthodes d'optimisation en 2D}\label{sec:TD2}
+    % \addcontentsline{toc}{section}{\nameref{sec:TD2}}
+    % \setcounter{section}{2}
+    % \setcounter{tdcounter}{0}
+    % \input{tp_2.tex}
+\end{document}

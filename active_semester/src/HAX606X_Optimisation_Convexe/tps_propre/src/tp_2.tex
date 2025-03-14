@@ -1,0 +1,130 @@
+\subsection*{Introduction aux méthodes de gradient}\label{ssec:1}
+
+Expérimenter la méthode du gradient à pas fixe pour minimiser la fonction
+\begin{equation*}
+    f(x) = x^4 - 7x + 8.
+\end{equation*}
+
+On testera successivement les pas \(\rho \in \{0.125, 0.1, 0.01\}\)
+avec l'initialisation \(x_0 = 1\) et 15 itérations.
+
+On représentera la suite des itérés sur la courve représentative
+de la fonction \(f\) pour chaque pas \(\rho\) sur \(\ff{0.5, 1.5}\).
+
+\subsection{Méthodes d'optimisation pour des fonctions quadratiques}\label{ssec:2}
+
+Soit \(n\in\bb N^\ast\). On désignera par \(\langle \cdot,\cdot \rangle\)
+le produit scalaire associé à la norme euclidienne sur \(\bb R^n\).
+
+On considère la matrice \(A\in\mathcal{S}_n(\bb R)\) et le vecteur
+\(b\in\bb R^n\) définis par:
+\begin{equation*}
+    A_n = \underbrace{
+    \begin{pmatrix}
+        4 & -2 & 0 & \cdots & 0 \\
+        -2 & 4 & -2 & \cdots & 0 \\
+        0 & -2 & 4 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & 4
+    \end{pmatrix}}_{\text{\(n\times n\)}},
+    \qquad
+    b_n = \underbrace{
+    \begin{pmatrix}
+        1 \\ 1 \\ \vdots \\ 1
+    \end{pmatrix}}_{\text{\(n\times 1\)}}.
+\end{equation*}
+
+On cherche à minimiser à l'aide de méthodes de gradient
+la fonction:
+\begin{equation*}
+    \begin{aligned}
+        J_n\from \bb R^n &\to \bb R \\
+        x &\mapsto \frac12 \langle A_n x,x \rangle - \langle b_n,x \rangle.
+    \end{aligned}
+\end{equation*}
+
+On se concentrera sur le cas \(n = 2\).
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Calculer \(\nabla J_n(x,y)\) puis \(\nabla^2 J_n(x,y)\).
+
+        \item Cette fonction est-elle convexe? En quels
+        points atteint-elle son minimum?
+
+        \item Visualiser la fonction en 3D sur \(\ff{-2,2}^2\) puis
+        visualiser les lignes de niveau sur \(\ff{-1.5,1.5}^2\).
+        Qu'observe-t-on?
+    \end{enumerate}
+\end{td-exo}
+
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        % a remplir
+    \end{td-sol}
+}{}
+
+\subsection{Méthode de gradient à pas constant}\label{ssec:3}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Implémenter la méthode de gradient à pas constant et 
+        l'appliquer à la fonction \(J_n\) en partant du point
+        \((-1,1)\) avec un critère d'arrêt \(\varepsilon = 10^{-6}\).
+
+        \item Afficher la trajectoire des points calculés successivement.
+        Comment faut-il régler le pas pour arriver vraiment au minimum?
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        % a remplir
+    \end{td-sol}
+}{}
+
+\subsection{Méthode de gradient à pas optimal}\label{ssec:4}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Implémenter la méthode de gradient à pas optimal et 
+        l'appliquer à la fonction \(J_n\) en partant du point
+        \((-1,1)\) avec un critère d'arrêt \(\varepsilon = 10^{-6}\).
+
+        \item Afficher la trajectoire des points calculés successivement.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        % a remplir
+    \end{td-sol}
+}{}
+
+\subsection{Méthode du gradient conjugué}\label{ssec:5}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Implémenter la méthode du gradient conjugué et 
+        l'appliquer à la fonction \(J_n\) en partant du point
+        \((-1,1)\) avec un critère d'arrêt \(\varepsilon = 10^{-6}\).
+
+        \item Afficher la trajectoire des points calculés successivement.
+    \end{enumerate}
+\end{td-exo}
+
+\iftoggle{showsolutions}{
+    \begin{td-sol}\,
+        % a remplir
+    \end{td-sol}
+}{}
+
+\subsection{Conclusion}\label{ssec:6}
+
+\begin{td-exo}\,
+    \begin{enumerate}
+        \item Comparer les performances des trois méthodes pour \(n = 2\)
+        en terme de nombre d'itérations et de temps de calcul.
+    \end{enumerate}
+\end{td-exo}
