@@ -9,6 +9,7 @@
 \author{Ivan Lejeune}
 \date{\today}
 
+% latexmk -interaction=nonstopmode -shell-escape -pdf -synctex=1 tp_main.tex -output-directory=out && mv out/tp_main.pdf ./tps_out
 \toggletrue{showsolutions}
 
 \begin{document}
@@ -21,4 +22,12 @@
     \setcounter{section}{1}
     \setcounter{tdcounter}{0}
     \input{tp_1.tex}
+
+    \setcounter{subsection}{0}
+    \newpage
+    \section*{TP2 --- Méthodes d'optimisation en 2D}\label{sec:TD2}
+    \addcontentsline{toc}{section}{\nameref{sec:TD2}}
+    \setcounter{section}{2}
+    \setcounter{tdcounter}{0}
+    \input{tp_2.tex}
 \end{document}
